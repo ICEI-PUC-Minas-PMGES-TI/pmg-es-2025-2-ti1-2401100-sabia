@@ -231,6 +231,10 @@ O público-alvo espera uma plataforma que seja:
 
 ## Etapa de Entendimento
 
+![Matriz CSD e Mapa de Stakeholders](images/matriz_csd_mapa_stakeholders.png)
+![Entrevista Qualitativa](images/entrevista_qualitativa.png)
+![Highlights de Pesquisa](images/highlights_pesquisa.png)
+
 ## Etapa de Definição
 
 ### Personas
