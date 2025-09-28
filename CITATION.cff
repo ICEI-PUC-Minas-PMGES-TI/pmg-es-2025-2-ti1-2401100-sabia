@@ -1,31 +1,32 @@
 cff-version: 1.0.1
 message: Please cite this software using these metadata.
-title: 
+title: Sabiaa - Plataforma Educacional para Ensino Básico Brasileiro
 authors:
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names:
-  - name-suffix: Professor
-    affiliation: PUC Minas
-    family-names: 
-    given-names: 
+  - family-names: Alves de Andrade
+    given-names: Alexia Fernandes
+  - family-names: Penido Pereira
+    given-names: Gustavo Marcelo
+  - family-names: Santos Araújo
+    given-names: Júlia Adalgiza
+  - family-names: Batista Rodrigues
+    given-names: Perciliana Rosa 
+  - family-names: Rodrigues de Morais
+    given-names: Ruan Henrique
+  - family-names: Faria Silva
+    given-names: Suyane Simplícia
+  - family-names: Santos Loiola
+    given-names: Victhor Guilherme 
   - name-suffix: Professor
     affiliation: PUC Minas
     family-names: 
     given-names: 
 keywords:
-  - 
-  - 
-repository-code: 
+  - Educação
+  - Plataforma Digital
+  - Ensino Básico
+  - Tecnologia Educacional
+  - Escolas Públicas
+repository-code: https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2025-2-ti1-2401100-sabia
 license: CC-BY-4.0
 version: 1.0.0
-date-released: 2022-07-14
+date-released: 2025-09-28

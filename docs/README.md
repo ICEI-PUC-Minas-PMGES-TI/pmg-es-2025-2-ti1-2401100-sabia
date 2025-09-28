@@ -475,19 +475,14 @@ Esta é a tela "Cadastrar Nova Atividade" da plataforma Sabiaa, uma interface in
 
 ### User Flow
 
-**✳️✳️✳️ COLOQUE AQUI O DIAGRAMA DE FLUXO DE TELAS ✳️✳️✳️**
-
 ![Fluxo de telas, WireFrame](images/userflow_wireframe.png)
 ![Fluxo de telas, Prototype FIGMA](images/userflow_figma.png)
 
 ### Protótipo Interativo
 
-**✳️✳️✳️ COLOQUE AQUI UM IFRAME COM SEU PROTÓTIPO INTERATIVO ✳️✳️✳️**
-
 ✅ [Protótipo Interativo (Figma)](https://www.figma.com/design/pO7ZIDrcam9i4Aq8PRoESj/Sabiaa?node-id=34-23&t=IRYea0boBhI1vwQL-1)
 
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/design/pO7ZIDrcam9i4Aq8PRoESj/Sabiaa?node-id=34-23&embed-host=share" allowfullscreen></iframe>
-
+[![Ver no Figma](images/print_figma_design_system.png)](https://www.figma.com/design/pO7ZIDrcam9i4Aq8PRoESj/Sabiaa?node-id=34-23&t=IRYea0boBhI1vwQL-1)
 # Metodologia
 
 Detalhes sobre a organização do grupo e o ferramental empregado.
@@ -554,21 +549,13 @@ A equipe optou por uma abordagem **full-stack integrada**, onde não há divisã
 **Gestão de Tarefas:**
 
 - Todas as tarefas atribuídas estarão disponíveis no **Quadro Kanban no Jira** do time.
-
 - As tarefas gerais ficarão nas listas de **Backlog**, enquanto aquelas que devem ser feitas serão colocadas na lista **Para Fazer**.
-
 - Ao finalizar uma tarefa, o time de desenvolvimento deve colocá-la na lista de **Code Review**, e aprovado essa deve ter os requisitos aprovados pela P.O e o código analisado por um dos integrantes.
-
 - Todas as tarefas do **GitHub** estarão relacionadas a uma tarefa no **Jira**.
-
 - Todos os **commits realizados** devem ser atribuídos obrigatoriamente a uma tarefa.
-
 - Os commits devem ser feitos nas **branches específicas** para cada tarefa.
-
 - O time de P.O e SM possuem a responsabilidade de manter os códigos em conformidade e de colocá-lo no canal principal, **production**, no qual todos os códigos serão reunidos.
-
 - Após uma tarefa ser aprovada pelo time, o desenvolvedor deve abrir uma **pull request** para o production.
-
 - Todos os códigos que forem incluídos no production devem ser **funcionais e completos**.
 
 #### Fluxo de Trabalho
