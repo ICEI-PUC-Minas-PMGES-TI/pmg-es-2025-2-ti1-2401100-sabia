@@ -1,18 +1,22 @@
-# Nome do projeto
+# Sabiaa
 
 Escreva um ou dois parágrafo resumindo o objetivo do seu projeto.
 
 ## Alunos integrantes da equipe
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
+* Alexia Fernanda Alves de Andrade
+* Gustavo Marcelo Penido Pereira
+* Julia Santos Araujo
+* Perciliana Rosa Adalgiza Batista Rodrigues
+* Ruan Henrique Rodrigues de Morais
+* Suyane Simplícia Faria Silva
+* Victhor Guilherme Santos Loiola
 
 ## Professores responsáveis
 
-* Nome completo do professor 1
-* Nome completo do professor 2
+* Daniel Machado Osório Pereira
+* Lucca Soares de Paiva Lacerda
+* Michelle Hanne Soares de Andrade
 
 
 
