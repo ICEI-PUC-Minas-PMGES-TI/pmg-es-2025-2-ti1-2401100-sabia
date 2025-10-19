@@ -16,10 +16,8 @@
 body {
     background-color: var(--bege-claro);
     display: grid;
-    grid-template-columns: 80px 1fr;
-    /*Sidebar: 80px*/
-    grid-template-rows: 70px 1fr auto;
-    /*header/Conteudo/Footer*/
+    grid-template-columns: 80px 1fr; /*Sidebar: 80px*/
+    grid-template-rows: 70px 1fr auto;/*header/Conteudo/Footer*/
     grid-template-areas:
         "header  header"
         "sidebar main"
@@ -57,22 +55,52 @@ body {
     max-width: 180px;
 }
 
-.input-pesquisa{
-    border: none;
-    border-radius: 3px;
+.icon-header {
+    display: flex; 
+    align-items: center; 
 }
 
+.pesquisa-container {
+    position: relative; 
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.icon-pesquisa {
+    position: absolute;
+    left: 10px; 
+    height: 18px; 
+    width: 18px;
+    opacity: 0.6;
+    margin-left: 0; 
+}
+
+.input-pesquisa {
+    border: none;
+    border-radius: 3px;
+    height: 35px;
+    padding-left: 38px;
+}
 .sidebar {
     grid-area: sidebar;
     background-color: var(--roxo-escuro);
     padding: 20px;
 }
-.icon-side{
+
+.icon-side {
     display: block;
     align-items: center;
     height: 25px;
     margin-bottom: 15px;
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
 }
+
+.icon-side:hover {
+    transform: scale(1.15);
+}
+
 .main-content {
     grid-area: main;
     padding: 40px;
@@ -80,7 +108,6 @@ body {
     grid-template-columns: 1fr 2fr;
     gap: 20px;
 }
-
 .article-form {
     background-color: white;
     border-radius: 15px;
@@ -106,6 +133,7 @@ body {
 }
 
 .button-visualizar {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #fff1ce;
     padding: 5px;
     border: none;
@@ -114,6 +142,7 @@ body {
 }
 
 .button-edit {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--bege-claro);
     padding: 5px;
     border: none;
@@ -122,6 +151,7 @@ body {
 }
 
 .button-excluir {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--cor-texto-claro);
     padding: 5px;
     border: none;
@@ -137,25 +167,31 @@ body {
 .video-preview img {
     width: 100%;
     aspect-ratio: 16 / 9;
-    background-color: ;
     border-radius: 15px 15px 0 0; 
     display: block;
 }
+
 .video-preview .icon-videos {
-    position: absolute; /*botão "em cima" da imagem */
+    position: absolute; 
+    color: var(--roxo-escuro);
     right: 5px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); 
-
     background-color: rgba(255, 255, 255, 0.8);
     border: none;
     border-radius: 50%;
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     cursor: pointer;
 }
 
+.video-preview .icon-videos i {
+    font-size: 2rem;
+}
+.icon-side:hover {
+    transform: scale(1.15);
+}
 .video-info {
     padding: 15px;
 }
@@ -192,6 +228,12 @@ body {
     padding: 8px;
     border-radius: 5px;
     cursor: pointer;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.video-actions .button-videos:hover {
+    transform: translateY(-2px); 
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* -------------------------------- FORMULÁRIO ------------------------------------------------------*/
@@ -338,4 +380,5 @@ body {
 /* ------------------------------------- Rodapé ------------------------------------------------------*/
 .footer {
     grid-area: footer;
+    background-color: var(--roxo-escuro);
 }
