@@ -26,6 +26,10 @@ body {
         "footer  footer";
     min-height: 100vh;
 }
+.icon{
+    height: 20px;
+    margin-left: 10px;
+}
 
 .header {
     grid-area: header;
@@ -53,12 +57,22 @@ body {
     max-width: 180px;
 }
 
+.input-pesquisa{
+    border: none;
+    border-radius: 3px;
+}
+
 .sidebar {
     grid-area: sidebar;
     background-color: var(--roxo-escuro);
-    padding: 20px 0;
+    padding: 20px;
 }
-
+.icon-side{
+    display: block;
+    align-items: center;
+    height: 25px;
+    margin-bottom: 15px;
+}
 .main-content {
     grid-area: main;
     padding: 40px;
@@ -123,12 +137,13 @@ body {
 .video-preview img {
     width: 100%;
     aspect-ratio: 16 / 9;
-    background-color: var(--roxo-escuro);
+    background-color: ;
     border-radius: 15px 15px 0 0; 
     display: block;
 }
 .video-preview .icon-videos {
     position: absolute; /*botão "em cima" da imagem */
+    right: 5px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); 
