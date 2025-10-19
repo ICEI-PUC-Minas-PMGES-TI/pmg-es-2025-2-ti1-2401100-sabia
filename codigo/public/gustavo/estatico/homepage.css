@@ -1,0 +1,359 @@
+/* ===== ESTILOS ESPECÍFICOS - HOMEPAGE ===== */
+
+/* Hero Section (Banner Principal) */
+.hero {
+    background: linear-gradient(135deg, #4B3C5D 0%, #E7BFA5 100%);
+    background-size: cover;
+    background-position: center;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+}
+
+.hero-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 80px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    width: 100%;
+}
+
+.hero-left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 40%;
+}
+
+.hero-logo-image {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.2));
+}
+
+.hero-right {
+    flex: 1;
+    color: white;
+}
+
+.hero-right h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    font-weight: 700;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-right p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Section Por que Escolher (Why Choose) */
+.why-choose {
+    padding: 80px 8%;
+    text-align: center;
+    background-color: white;
+}
+
+.why-choose-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.why-choose h2 {
+    font-size: 2.5em;
+    color: var(--azul-escuro);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.why-choose p {
+    color: var(--roxo-escuro);
+    margin-bottom: 60px;
+    font-size: 1.2em;
+}
+
+.features {
+    background-color: white;
+    padding: 0 8%;
+}
+
+.features-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    padding: 0 20px;
+}
+
+.feature-card {
+    padding: 40px 30px;
+    text-align: center;
+    border-radius: 20px;
+    background: #FFF1CE;
+    border: 2px solid #f8f9fa;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--roxo-escuro), var(--rosa-claro));
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    border-color: var(--rosa-claro);
+}
+
+.feature-card:hover::before {
+    transform: scaleX(1);
+}
+
+.feature-icon {
+    font-size: 3em;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    margin: 0 auto 25px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, var(--roxo-escuro), var(--rosa-claro));
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(75, 60, 93, 0.3);
+}
+
+.feature-card:hover .feature-icon {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 12px 25px rgba(75, 60, 93, 0.4);
+}
+
+.feature-card h3 {
+    color: var(--azul-escuro);
+    font-size: 1.4em;
+    margin-bottom: 15px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.feature-card:hover h3 {
+    color: var(--roxo-escuro);
+}
+
+.feature-card p {
+    font-size: 1em;
+    color: var(--roxo-escuro);
+    line-height: 1.6;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.feature-card:hover p {
+    opacity: 1;
+}
+
+/* Section Cursos Populares (Popular Courses) */
+.popular-courses {
+    background-color: var(--bege-claro);
+    padding: 120px 5% 80px;
+    text-align: center;
+    margin-top: 60px;
+}
+
+.popular-courses-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.popular-courses h2 {
+    font-size: 2.2em;
+    color: var(--azul-escuro);
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.popular-courses p {
+    color: var(--roxo-escuro);
+    margin-bottom: 50px;
+    font-size: 1.1em;
+}
+
+.course-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    justify-items: center;
+}
+
+.course-card {
+    flex: 1;
+    max-width: 350px;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.course-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.course-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.course-card:hover .course-image img {
+    transform: scale(1.05);
+}
+
+.course-content {
+    padding: 20px;
+}
+
+.course-content h3 {
+    color: var(--azul-escuro);
+    font-size: 1.3em;
+    margin-bottom: 5px;
+}
+
+.course-content p {
+    font-size: 0.9em;
+    color: var(--roxo-escuro);
+    margin-bottom: 15px;
+}
+
+/* Media Queries para Homepage */
+@media (max-width: 1200px) {
+    .hero-container {
+        gap: 40px;
+    }
+    
+    .hero-right h1 {
+        font-size: 2.5em;
+    }
+}
+
+@media (max-width: 1024px) {
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+    
+    .hero-left {
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .hero-right h1 {
+        font-size: 2.2em;
+    }
+    
+    .features-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+    }
+    
+    .course-list {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-container {
+        padding: 40px 20px;
+    }
+    
+    .hero-logo-image {
+        max-width: 250px;
+    }
+    
+    .hero-right h1 {
+        font-size: 1.8em;
+    }
+    
+    .hero-right p {
+        font-size: 1.1em;
+    }
+    
+    .why-choose {
+        padding: 40px 25px;
+    }
+    
+    .why-choose-container {
+        padding: 0 10px;
+    }
+    
+    .why-choose h2 {
+        font-size: 1.8em;
+    }
+    
+    .features {
+        padding: 0 25px;
+    }
+    
+    .features-container {
+        padding: 0 10px;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .feature-card {
+        padding: 25px 15px;
+    }
+    
+    .popular-courses {
+        padding: 40px 20px;
+    }
+    
+    .popular-courses h2 {
+        font-size: 1.8em;
+    }
+    
+    .course-list {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .course-card {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-right h1 {
+        font-size: 1.6em;
+    }
+}

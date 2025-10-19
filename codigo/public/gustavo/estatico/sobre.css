@@ -1,0 +1,342 @@
+/* ===== ESTILOS ESPECÍFICOS - PÁGINA SOBRE ===== */
+
+/* Hero Section Sobre */
+.hero-about {
+    background: linear-gradient(135deg, var(--roxo-escuro) 0%, var(--rosa-claro) 100%);
+    padding: 120px 5% 80px;
+    text-align: center;
+    color: white;
+}
+
+.hero-about-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.hero-about h1 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-about p {
+    font-size: 1.3em;
+    margin-bottom: 30px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.95;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Logo grande na hero */
+.hero-logo-large {
+    margin-bottom: 40px;
+}
+
+.hero-icon-logo {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 30px;
+    filter: drop-shadow(0 8px 25px rgba(0, 0, 0, 0.3));
+    display: block;
+}
+
+/* Seções de Conteúdo */
+.content-section {
+    padding: 80px 5%;
+}
+
+.content-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 2.5em;
+    color: var(--azul-escuro);
+    margin-bottom: 30px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.section-subtitle {
+    font-size: 1.8em;
+    color: var(--roxo-escuro);
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.section-text {
+    font-size: 1.1em;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    color: var(--cor-texto-escuro);
+    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Seção Alternada */
+.alt-section {
+    background-color: var(--bege-claro);
+}
+
+/* Cards de Objetivos */
+.objectives-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.objective-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.objective-card:hover {
+    transform: translateY(-5px);
+}
+
+.objective-card h3 {
+    color: var(--azul-escuro);
+    font-size: 1.3em;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.objective-card p {
+    color: var(--roxo-escuro);
+    line-height: 1.6;
+}
+
+/* Lista de Problemas */
+.problems-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.problem-item {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid var(--rosa-claro);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.problem-item strong {
+    color: var(--azul-escuro);
+}
+
+/* Estatísticas */
+.stats-section {
+    background: #21303F;
+    color: white;
+    padding: 60px 5%;
+    text-align: center;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.stat-item {
+    padding: 20px;
+}
+
+.stat-number {
+    font-size: 3em;
+    font-weight: 700;
+    color: var(--rosa-claro);
+    display: block;
+}
+
+.stat-label {
+    font-size: 1.1em;
+    margin-top: 10px;
+    opacity: 0.9;
+}
+
+/* Equipe */
+.team-section {
+    text-align: center;
+}
+
+.team-intro {
+    max-width: 600px;
+    margin: 0 auto 50px;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 35px;
+    margin-top: 40px;
+    justify-items: center;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.team-member {
+    background: white;
+    padding: 35px 25px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+    max-width: 300px;
+    width: 100%;
+}
+
+.team-member::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--roxo-escuro), var(--rosa-claro));
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+.team-member:hover::before {
+    transform: scaleX(1);
+}
+
+.member-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--roxo-escuro), var(--rosa-claro));
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 0.9em;
+    box-shadow: 0 8px 20px rgba(75, 60, 93, 0.3);
+    transition: all 0.3s ease;
+}
+
+.team-member:hover .member-photo {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(75, 60, 93, 0.4);
+}
+
+.team-member h4 {
+    color: var(--azul-escuro);
+    font-size: 1.25em;
+    margin-bottom: 12px;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.team-member .github-link {
+    color: var(--roxo-escuro);
+    font-size: 0.95em;
+    transition: all 0.3s ease;
+    display: inline-block;
+    padding: 8px 15px;
+    border-radius: 20px;
+    background-color: #f8f9fa;
+}
+
+.team-member .github-link:hover {
+    color: white;
+    background-color: var(--roxo-escuro);
+    transform: translateY(-2px);
+}
+
+/* Media Queries para Página Sobre */
+@media (max-width: 1024px) {
+    .hero-about h1 {
+        font-size: 2.5em;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-about {
+        padding: 80px 20px 60px;
+    }
+    
+    .hero-about h1 {
+        font-size: 2em;
+    }
+    
+    .hero-about p {
+        font-size: 1.1em;
+    }
+    
+    .hero-icon-logo {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .content-section {
+        padding: 60px 20px;
+    }
+    
+    .objectives-grid, .team-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .team-member {
+        max-width: 280px;
+    }
+    
+    .member-photo {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .stats-section {
+        padding: 40px 20px;
+    }
+    
+    .stat-number {
+        font-size: 2.5em;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-about h1 {
+        font-size: 1.8em;
+    }
+    
+    .hero-icon-logo {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .team-member {
+        padding: 25px 20px;
+    }
+    
+    .member-photo {
+        width: 70px;
+        height: 70px;
+    }
+}
