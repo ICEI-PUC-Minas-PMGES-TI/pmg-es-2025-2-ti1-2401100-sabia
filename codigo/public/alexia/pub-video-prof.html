@@ -7,6 +7,7 @@
     <title>SABIAA - Educação de Qualidade</title>
     <link rel="stylesheet" href="../assets/css/global.css">
     <link rel="stylesheet" href="../alexia/pub-video-prof.css">
+    <script src="https://kit.fontawesome.com/937e8004d1.js" crossorigin="anonymous"></script>
 </head>
 
 <body class="body">
@@ -25,17 +26,53 @@
     <main class="main-content">
         <article class="article-form">
             <h3>Nova Aula</h3>
-            <h5>Título da Aula</h5>
-            <input type="text" placeholder="Digite o título da aula">
-            <h5>Descrição</h5>
-            <input class="input-videos" id="input-descricao-video" type="text"
-                placeholder="Descreva o conteúdo da aula">
-            <h5>Turma</h5>
-            <h5>Módulo</h5>
-            <h5>Upload Vídeos</h5>
+
+            <label for="titulo-aula">Título da Aula</label>
+            <input type="text" id="titulo-aula" placeholder="Digite o título da aula">
+
+            <label for="descricao-aula">Descrição</label>
+            <textarea id="descricao-aula" rows="5" placeholder="Descreva o conteúdo da aula"></textarea>
+
+            <div class="form-grid-duplo">
+                <div>
+                    <label for="turma-aula">Turma</label>
+                    <select id="turma-aula">
+                        <option value="mat9b">Matemática 9º B</option>
+                        <option value="mat9a">Matemática 9º A</option>
+                        <option value="port8a">Português 8º A</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="modulo-aula">Módulo</label>
+                    <select id="modulo-aula">
+                        <option value="mod1">Módulo 1</option>
+                        <option value="mod2">Módulo 2</option>
+                        <option value="mod3">Módulo 3</option>
+                    </select>
+                </div>
+            </div>
+
+            <h5>Upload de Vídeo</h5>
+            <label for="upload-video" class="upload-box">
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+                <p>Arraste o vídeo aqui ou clique para selecionar</p>
+                <span class="upload-hint">MP4, MOV até 500MB</span>
+            </label>
+            <input type="file" id="upload-video" class="upload-input-hidden">
+
             <h5>Arquivos Complementares</h5>
-            <button class="button-form-videos" id="button-salvar-rascunho">Salvar Rascunho</button>
-            <button class="button-form-videos" id="button-publicar-aula">Publicar Aula</button>
+            <label for="upload-arquivos" class="upload-box">
+                <i class="fa-solid fa-file-lines"></i>
+                <p>Arraste os arquivos aqui ou clique para selecionar</p>
+                <span class="upload-hint">PDF, PPT, DOCX até 50MB</span>
+            </label>
+            <input type="file" id="upload-arquivos" class="upload-input-hidden" multiple>
+
+            <div class="form-botoes">
+                <button class="button-form-videos" id="button-salvar-rascunho">Salvar Rascunho</button>
+                <button class="button-form-videos" id="button-publicar-aula">Publicar Aula</button>
+            </div>
+
         </article>
 
         <article class="article-video-aulas">
