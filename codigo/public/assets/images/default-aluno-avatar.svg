@@ -1,0 +1,6 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="120" height="120" rx="60" fill="#21303F"/>
+  <circle cx="60" cy="45" r="20" fill="white" opacity="0.8"/>
+  <path d="M20 100c0-22.091 17.909-40 40-40s40 17.909 40 40v20H20v-20z" fill="white" opacity="0.8"/>
+  <text x="60" y="110" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold">ALUNO</text>
+</svg>

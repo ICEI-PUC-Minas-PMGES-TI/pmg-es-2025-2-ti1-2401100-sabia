@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SABIAA - Recuperar Senha</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/937e8004d1.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../assets/css/global.css">
+    <link rel="stylesheet" href="./styles/recuperacao.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="../estatico/homepage.html">
+                    <img src="../../assets/images/logos/logo_nome_azul_lateral.png" alt="SABIAA">
+                </a>
+            </div>
+            
+            <nav class="nav-links">
+                <a href="../estatico/homepage.html">Início</a>
+                <a href="../estatico/sobre.html">Sobre</a>
+                <a href="#">Cursos</a>
+                <a href="#">Contato</a>
+            </nav>
+            
+            <div class="auth-links">
+                <a href="../login/login.html">Entrar</a>
+                <a href="../cadastro/cadastro.html">Cadastrar</a>
+            </div>
+            
+            <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <div class="mobile-menu" id="mobileMenu">
+                <ul class="mobile-nav-links">
+                    <li><a href="../estatico/homepage.html">Início</a></li>
+                    <li><a href="../estatico/sobre.html">Sobre</a></li>
+                    <li><a href="#">Cursos</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+                <div class="mobile-auth-links">
+                    <a href="../login/login.html" style="border: 2px solid var(--azul-escuro); color: var(--azul-escuro); padding: 10px 20px; border-radius: 25px; text-align: center;">Entrar</a>
+                    <a href="../cadastro/cadastro.html" style="background-color: #21203F; color: white; padding: 10px 20px; border-radius: 25px; font-weight: bold; text-align: center;">Cadastrar</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="recovery-card">
+            
+            <div class="card-icons">
+                <div class="logo-bird">
+                    <img src="../../assets/images/logos/icon.png" alt="SABIAA Logo">
+                </div>
+                <div class="key-icon-placeholder">
+                    <i class="fas fa-key"></i>
+                </div>
+            </div>
+            
+            <h2>Recuperar Senha</h2>
+            <p>Digite seu e-mail para receber as instruções de recuperação</p>
+            
+            <div id="message-container"></div>
+            
+            <form id="recovery-form">
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+                    <div id="email-error" class="field-error"></div>
+                </div>
+                
+                <button type="submit" id="submit-btn" class="btn-enviar">
+                    Enviar Instruções
+                </button>
+            </form>
+
+            <a href="../login/login.html" class="back-to-login">
+                <i class="fas fa-arrow-left"></i> Voltar ao Login
+            </a>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="../../assets/images/logos/logo_nome_lateral_bege.png" alt="SABIAA">
+                <p>Educação e Tecnologia alinhadas para um futuro melhor.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Links Rápidos</h4>
+                <ul>
+                    <li><a href="../estatico/sobre.html">Sobre</a></li>
+                    <li><a href="#">Cursos</a></li>
+                    <li><a href="#">Suporte</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h4>Contato</h4>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:contato@sabiaa.com.br">contato@sabiaa.com.br</a></p>
+                <p><i class="fas fa-phone"></i> (31) 1234-5678</p>
+            </div>
+            
+            <div class="footer-social">
+                <h4>Redes Sociais</h4>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../assets/js/global.js"></script>
+    <script src="./js/recuperacao.js"></script>
+
+</body>
+</html>

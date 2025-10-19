@@ -1,0 +1,83 @@
+{
+  "usuarios": [
+    {
+      "id": "c580739d-6f66-4e70-acd3-23634bc4bdf6",
+      "tipo": "aluno",
+      "nome": "Gustavo",
+      "foto": "",
+      "data_nascimento": "2005-07-17",
+      "email": "gugupenido@gmail.com",
+      "senha_hash": "$2a$10$BEJ.xC6Q2KUHArIMTbhbg.ccUT6iPkTZbQjIQmZImORfSxLpOjQRa",
+      "telefone": "(31) 99510-6573",
+      "endereco": {
+        "cep": "",
+        "rua": "",
+        "numero": "",
+        "complemento": "",
+        "bairro": "",
+        "cidade": "",
+        "estado": ""
+      },
+      "preferencias": {
+        "idioma": "pt-br",
+        "notificacoes": true,
+        "acessibilidade": false,
+        "tema": "claro"
+      },
+      "cadastro_data": "2025-10-19T18:37:29.685Z",
+      "status": "ativo",
+      "favoritos": [],
+      "referencias_academicas": {
+        "aluno": {
+          "escola": "",
+          "serie": "",
+          "turma": "",
+          "numero_matricula": "",
+          "cursos_ids": [],
+          "quizzes_ids": [],
+          "tarefas_ids": []
+        }
+      }
+    },
+    {
+      "id": "96a5746d-caff-4bc5-8d4b-5cbbd5503c14",
+      "tipo": "aluno",
+      "nome": "Gustavo",
+      "foto": "https://firebasestorage.googleapis.com/v0/b/sabiaa-2e56f.firebasestorage.app/o/profile_photos%2Ftemp_1760911760995_1760911761017.jpeg?alt=media&token=4ad22eb9-717d-4c92-a01b-483fdad52f63",
+      "data_nascimento": "2005-07-17",
+      "email": "gugupenidop@gmail.com",
+      "senha_hash": "$2a$10$BwR0BcxareN/QWqgX6w5k.Xlu5R18NnuDSNmGOQV3FECh9LN9uKie",
+      "telefone": "(31) 99510-6573",
+      "endereco": {
+        "cep": "",
+        "rua": "",
+        "numero": "",
+        "complemento": "",
+        "bairro": "",
+        "cidade": "",
+        "estado": ""
+      },
+      "preferencias": {
+        "idioma": "pt-br",
+        "notificacoes": true,
+        "acessibilidade": false,
+        "tema": "claro"
+      },
+      "cadastro_data": "2025-10-19T22:09:27.324Z",
+      "status": "ativo",
+      "favoritos": [],
+      "referencias_academicas": {
+        "aluno": {
+          "escola": "",
+          "serie": "",
+          "turma": "",
+          "numero_matricula": "",
+          "cursos_ids": [],
+          "quizzes_ids": [],
+          "tarefas_ids": []
+        }
+      }
+    }
+  ],
+  "recovery_tokens": []
+}

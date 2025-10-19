@@ -1,16 +1,27 @@
 {
-  "name": "lab-jsonserver",
+  "name": "sabiaa-backend",
   "version": "1.0.0",
-  "description": "Aplicação Web com backend baseado no JSON Server",
+  "description": "Backend do Projeto Sabiaa - Sistema Educacional",
   "main": "index.js",
   "scripts": {
-   "start": "npx json-server --watch ./db/db.json --static ./public"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
-  "keywords": [],
-  "author": "Rommel Vieira Carneiro",
+  "keywords": ["education", "sabiaa", "api"],
+  "author": "Projeto Sabiaa",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
-    "json-server": "^0.17.4"
+    "express": "^4.18.2",
+    "json-server": "^0.17.4",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "nodemailer": "^6.9.7",
+    "uuid": "^9.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express-validator": "^7.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
   }
 }

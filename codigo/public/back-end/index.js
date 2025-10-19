@@ -1,28 +1,63 @@
-// Trabalho Interdisciplinar 1 - Aplicações Web
-//
-// Esse módulo implementa uma API RESTful baseada no JSONServer
-// O servidor JSONServer fica hospedado na seguinte URL
-// https://jsonserver.rommelpuc.repl.co/contatos
-//
-// Para montar um servidor para o seu projeto, acesse o projeto 
-// do JSONServer no Replit, faça o FORK do projeto e altere o 
-// arquivo db.json para incluir os dados do seu projeto.
-//
-// URL Projeto JSONServer: https://replit.com/@rommelpuc/JSONServer
-//
-// Autor: Rommel Vieira Carneiro
-// Data: 03/10/2023
+// Projeto Sabiaa - Backend API
+// Sistema Educacional para Educação Básica Pública Brasileira
 
-const jsonServer = require('json-server')
-const server = jsonServer.create()
-const router = jsonServer.router('./db/db.json')
-  
-// Para permitir que os dados sejam alterados, altere a linha abaixo
-// colocando o atributo readOnly como false.
-const middlewares = jsonServer.defaults({ noCors: true })
-server.use(middlewares)
-server.use(router)
+require('dotenv').config();
+const express = require('express');
+const jsonServer = require('json-server');
+const cors = require('cors');
 
-server.listen(3000, () => {
-  console.log(`JSON Server is running em http://localhost:3000`)
-})
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+// Middlewares globais
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// Middleware de log
+app.use((req, res, next) => {
+  console.log(`[${new Date().toISOString()}] ${req.method} ${req.path}`);
+  next();
+});
+
+// Rotas da API customizada
+const apiRoutes = require('./src/routes');
+app.use('/api', apiRoutes);
+
+// JSON Server para recursos adicionais (se necessário)
+const router = jsonServer.router('./db/db.json');
+const middlewares = jsonServer.defaults();
+app.use(middlewares);
+
+// Usar JSON Server apenas para rotas não definidas na API customizada
+app.use('/db', router);
+
+// Middleware de erro global
+app.use((err, req, res, next) => {
+  console.error('Erro:', err);
+  res.status(err.status || 500).json({
+    success: false,
+    error: err.message || 'Erro interno do servidor',
+    ...(process.env.NODE_ENV === 'development' && { stack: err.stack })
+  });
+});
+
+// Rota 404
+app.use('*', (req, res) => {
+  res.status(404).json({
+    success: false,
+    error: 'Rota não encontrada',
+    message: 'O endpoint solicitado não existe'
+  });
+});
+
+// Iniciar servidor
+app.listen(PORT, () => {
+  console.log('\n╔═══════════════════════════════════════╗');
+  console.log('║   🎓 API SABIAA - BACKEND INICIADO  ║');
+  console.log('╚═══════════════════════════════════════╝\n');
+  console.log(`🚀 Servidor rodando na porta: ${PORT}`);
+  console.log(`📚 Documentação: http://localhost:${PORT}/api`);
+  console.log(`💚 Health Check: http://localhost:${PORT}/api/health`);
+  console.log(`🔐 Ambiente: ${process.env.NODE_ENV || 'development'}\n`);
+});

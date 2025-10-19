@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="theme-aluno">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Perfil - SABIAA Aluno</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/937e8004d1.js" crossorigin="anonymous"></script>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="../../../assets/css/global.css">
+    <link rel="stylesheet" href="../../../assets/css/interno.css">
+    <link rel="stylesheet" href="../../../assets/css/internal-fixes.css">
+    
+    <style>
+        /* Estilos específicos para perfil */
+        .profile-header {
+            background: var(--primary-color);
+            color: white;
+            padding: 40px;
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        .profile-header-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .profile-avatar-large {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid rgba(255,255,255,0.3);
+            object-fit: cover;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        }
+
+        .profile-info h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .profile-stats {
+            display: flex;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 1.8em;
+            font-weight: 700;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+
+        .profile-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--cinza-escuro);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #E9ECEF;
+            border-radius: var(--border-radius);
+            font-size: 1em;
+            transition: all var(--transition-fast);
+            background: var(--cinza-claro);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(var(--primary-rgb), 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .photo-upload-section {
+            text-align: center;
+            padding: 30px;
+            border: 2px dashed #E9ECEF;
+            border-radius: var(--border-radius);
+            margin-bottom: 25px;
+            transition: all var(--transition-fast);
+            cursor: pointer;
+        }
+
+        .photo-upload-section:hover {
+            border-color: var(--primary-color);
+            background: rgba(var(--primary-rgb), 0.05);
+        }
+
+        .upload-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            border: 3px solid var(--primary-color);
+            object-fit: cover;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .profile-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .profile-header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            
+            .profile-stats {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Overlay para mobile -->
+    <div class="sidebar-overlay"></div>
+
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <img src="../../../assets/images/banner_ti.png" alt="SABIAA" class="sidebar-logo">
+                <h2 class="sidebar-title">SABIAA</h2>
+            </div>
+
+            <div class="sidebar-nav">
+                <!-- Navegação Principal -->
+                <div class="nav-section">
+                    <div class="nav-section-title">Principal</div>
+                    <a href="dashboard.html" class="nav-item">
+                        <i class="fas fa-home"></i>
+                        <span class="nav-item-text">Dashboard</span>
+                    </a>
+                    <a href="perfil.html" class="nav-item active">
+                        <i class="fas fa-user"></i>
+                        <span class="nav-item-text">Meu Perfil</span>
+                    </a>
+                </div>
+
+                <!-- Disciplinas -->
+                <div class="nav-section">
+                    <div class="nav-section-title">Disciplinas</div>
+                    <a href="disciplinas.html" class="nav-item">
+                        <i class="fas fa-book"></i>
+                        <span class="nav-item-text">Minhas Disciplinas</span>
+                    </a>
+                    <a href="atividades.html" class="nav-item">
+                        <i class="fas fa-tasks"></i>
+                        <span class="nav-item-text">Atividades</span>
+                    </a>
+                    <a href="notas.html" class="nav-item">
+                        <i class="fas fa-chart-line"></i>
+                        <span class="nav-item-text">Notas</span>
+                    </a>
+                </div>
+
+                <!-- Cursos -->
+                <div class="nav-section">
+                    <div class="nav-section-title">Cursos</div>
+                    <a href="cursos.html" class="nav-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span class="nav-item-text">Meus Cursos</span>
+                    </a>
+                    <a href="certificados.html" class="nav-item">
+                        <i class="fas fa-certificate"></i>
+                        <span class="nav-item-text">Certificados</span>
+                    </a>
+                </div>
+
+                <!-- Meu Progresso -->
+                <div class="nav-section">
+                    <div class="nav-section-title">Meu Progresso</div>
+                    <a href="progresso.html" class="nav-item">
+                        <i class="fas fa-chart-bar"></i>
+                        <span class="nav-item-text">Desempenho</span>
+                    </a>
+                    <a href="historico.html" class="nav-item">
+                        <i class="fas fa-history"></i>
+                        <span class="nav-item-text">Histórico</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Conteúdo Principal -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-left">
+                    <button class="header-btn mobile-menu-btn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div>
+                        <h1 class="page-title">Meu Perfil</h1>
+                        <div class="breadcrumb">
+                            <a href="dashboard.html">Dashboard</a>
+                            <i class="fas fa-chevron-right"></i>
+                            <span>Meu Perfil</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Barra de Pesquisa -->
+                <div class="search-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="search-input" placeholder="Pesquisar cursos, atividades...">
+                </div>
+
+                <!-- Header Direito -->
+                <div class="header-right">
+                    <div class="header-actions">
+                        <button class="header-btn" title="Notificações">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-badge">3</span>
+                        </button>
+                        <button class="header-btn" title="Configurações">
+                            <i class="fas fa-cog"></i>
+                        </button>
+                    </div>
+
+                    <!-- Perfil do Usuário -->
+                    <div class="user-profile">
+                        <img src="../../../assets/images/logos/logo_simbolo_azul.png" alt="Avatar" class="user-avatar">
+                        <div class="user-info">
+                            <span class="user-name">Carregando...</span>
+                            <span class="user-role">Aluno</span>
+                        </div>
+                        <i class="fas fa-chevron-down user-dropdown-arrow"></i>
+                        
+                        <!-- Dropdown Menu -->
+                        <div class="user-dropdown">
+                            <a href="perfil.html" class="dropdown-item">
+                                <i class="fas fa-user"></i>
+                                Meu Perfil
+                            </a>
+                            <a href="configuracoes.html" class="dropdown-item">
+                                <i class="fas fa-cog"></i>
+                                Configurações
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item" onclick="logout()">
+                                <i class="fas fa-sign-out-alt"></i>
+                                Sair
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Conteúdo -->
+            <div class="content">
+                <!-- Header do Perfil -->
+                <div class="profile-header animate-fade-in">
+                    <div class="profile-header-content">
+                        <img src="../../../assets/images/logos/logo_simbolo_branco.png" alt="Foto do Perfil" class="profile-avatar-large" id="profileHeaderAvatar">
+                        <div class="profile-info">
+                            <h1 id="profileHeaderName">Carregando...</h1>
+                            <p>Aluno SABIAA Educação</p>
+                            <div class="profile-stats">
+                                <div class="stat-item">
+                                    <span class="stat-number">12</span>
+                                    <span class="stat-label">Cursos</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">85%</span>
+                                    <span class="stat-label">Progresso</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">347</span>
+                                    <span class="stat-label">Pontos</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grid de Conteúdo -->
+                <div class="profile-grid">
+                    <!-- Informações Pessoais -->
+                    <div class="card animate-slide-in">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <i class="fas fa-user"></i>
+                                Informações Pessoais
+                            </h3>
+                            <div class="card-actions">
+                                <button class="btn-secondary" onclick="toggleEdit()">
+                                    <i class="fas fa-edit"></i>
+                                    Editar
+                                </button>
+                            </div>
+                        </div>
+
+                        <form id="profileForm">
+                            <div class="form-group">
+                                <label for="nome">Nome Completo</label>
+                                <input type="text" id="nome" name="nome" readonly>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" readonly>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="telefone">Telefone</label>
+                                <input type="tel" id="telefone" name="telefone" readonly>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="data_nascimento">Data de Nascimento</label>
+                                <input type="date" id="data_nascimento" name="data_nascimento" readonly>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="genero">Gênero</label>
+                                <select id="genero" name="genero" disabled>
+                                    <option value="">Selecione</option>
+                                    <option value="masculino">Masculino</option>
+                                    <option value="feminino">Feminino</option>
+                                    <option value="nao-binario">Não-binário</option>
+                                    <option value="outro">Outro</option>
+                                    <option value="prefiro-nao-informar">Prefiro não informar</option>
+                                </select>
+                            </div>
+
+                            <div class="form-actions" id="formActions" style="display: none;">
+                                <button type="button" class="btn-primary" onclick="saveProfile()">
+                                    <i class="fas fa-save"></i>
+                                    Salvar Alterações
+                                </button>
+                                <button type="button" class="btn-secondary" onclick="cancelEdit()">
+                                    <i class="fas fa-times"></i>
+                                    Cancelar
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Foto de Perfil -->
+                    <div class="card animate-slide-in">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <i class="fas fa-camera"></i>
+                                Foto de Perfil
+                            </h3>
+                        </div>
+
+                        <div class="photo-upload-section" onclick="document.getElementById('photoInput').click()">
+                            <img src="../../../assets/images/logos/logo_simbolo_azul.png" alt="Foto Atual" class="upload-avatar" id="currentPhoto">
+                            <p><strong>Clique para alterar sua foto</strong></p>
+                            <p>JPEG, PNG ou WebP (máx. 5MB)</p>
+                            <input type="file" id="photoInput" accept="image/*" style="display: none;">
+                        </div>
+
+                        <div id="uploadProgress" style="display: none;">
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="progressFill"></div>
+                            </div>
+                            <p id="progressText">0%</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Informações Acadêmicas -->
+                <div class="card animate-slide-in">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="fas fa-graduation-cap"></i>
+                            Informações Acadêmicas
+                        </h3>
+                    </div>
+
+                    <div class="profile-grid">
+                        <div class="form-group">
+                            <label for="escola">Escola</label>
+                            <input type="text" id="escola" name="escola" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="serie">Série/Ano</label>
+                            <input type="text" id="serie" name="serie" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="turma">Turma</label>
+                            <input type="text" id="turma" name="turma" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="matricula">Número de Matrícula</label>
+                            <input type="text" id="matricula" name="matricula" readonly>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <img src="../../../assets/images/logos/logo_nome_branco_lateral.png" alt="SABIAA" style="width: 150px; margin-bottom: 15px;">
+                        <p>Transformando a educação brasileira através da tecnologia e inovação.</p>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4>Links Úteis</h4>
+                        <a href="../../../sobre.html">Sobre</a>
+                        <a href="../../../cursos.html">Cursos</a>
+                        <a href="../../../suporte.html">Suporte</a>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4>Contato</h4>
+                        <p><i class="fas fa-envelope"></i> contato@sabiaa.com.br</p>
+                        <p><i class="fas fa-phone"></i> (31) 1234-5678</p>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4>Redes Sociais</h4>
+                        <div class="footer-social">
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <p>&copy; 2025 SABIAA - Sistema de Apoio à Busca Inteligente de Aprendizagem Adaptativa. Todos os direitos reservados.</p>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../../../assets/js/config.js"></script>
+    <script src="../../../assets/js/auth.js"></script>
+    <script src="../../../assets/js/upload.js"></script>
+    <script src="../../../assets/js/interno.js"></script>
+    <script src="../../../assets/js/user-data-loader.js"></script>
+    <script src="../../../assets/js/demo.js"></script>
+    
+    <script>
+        let isEditing = false;
+        let originalData = {};
+
+        // Carregar dados do perfil
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Verificar autenticação
+            if (!sabiaAuth.isAuthenticated()) {
+                window.location.href = '../../../modulos/login/login.html';
+                return;
+            }
+
+            // Inicializar dashboard
+            window.sabiaDashboard = new SabiaDashboard();
+            
+            await loadProfileData();
+            setupPhotoUpload();
+        });
+
+        async function loadProfileData() {
+            try {
+                const user = sabiaAuth.getUser();
+                if (user) {
+                    populateForm(user);
+                } else {
+                    const userData = await sabiaAuth.verifyToken();
+                    if (userData) {
+                        populateForm(userData);
+                    } else {
+                        // Se não conseguir verificar o token, redirecionar para login
+                        window.location.href = '../../../modulos/login/login.html';
+                    }
+                }
+            } catch (error) {
+                console.error('Erro ao carregar dados:', error);
+                window.location.href = '../../../modulos/login/login.html';
+            }
+        }
+
+        function populateForm(user) {
+            console.log('Dados do usuário:', user);
+            
+            // Dados pessoais
+            document.getElementById('nome').value = user.nome || '';
+            document.getElementById('email').value = user.email || '';
+            document.getElementById('telefone').value = user.telefone || '';
+            document.getElementById('data_nascimento').value = user.data_nascimento || '';
+            document.getElementById('genero').value = user.genero || '';
+
+            // Header e navegação
+            document.getElementById('profileHeaderName').textContent = user.nome || 'Usuário';
+            
+            // Atualizar nome no header do usuário
+            const userName = document.querySelector('.user-name');
+            if (userName) {
+                userName.textContent = user.nome || 'Usuário';
+            }
+            
+            // Foto
+            if (user.foto) {
+                document.getElementById('profileHeaderAvatar').src = user.foto;
+                document.getElementById('currentPhoto').src = user.foto;
+                
+                // Atualizar avatar no header
+                const userAvatar = document.querySelector('.user-avatar');
+                if (userAvatar) {
+                    userAvatar.src = user.foto;
+                }
+            }
+
+            // Dados acadêmicos
+            if (user.referencias_academicas && user.referencias_academicas.aluno) {
+                const aluno = user.referencias_academicas.aluno;
+                document.getElementById('escola').value = aluno.escola || '';
+                document.getElementById('serie').value = aluno.serie || '';
+                document.getElementById('turma').value = aluno.turma || '';
+                document.getElementById('matricula').value = aluno.numero_matricula || '';
+            }
+
+            // Salvar dados originais
+            originalData = { ...user };
+        }
+
+        function toggleEdit() {
+            isEditing = !isEditing;
+            const inputs = document.querySelectorAll('#profileForm input, #profileForm select');
+            const formActions = document.getElementById('formActions');
+            
+            inputs.forEach(input => {
+                if (input.name !== 'email') { // Email não pode ser editado
+                    input.readOnly = !isEditing;
+                    input.disabled = !isEditing;
+                }
+            });
+
+            formActions.style.display = isEditing ? 'block' : 'none';
+        }
+
+        function cancelEdit() {
+            populateForm(originalData);
+            toggleEdit();
+        }
+
+        async function saveProfile() {
+            try {
+                const formData = new FormData(document.getElementById('profileForm'));
+                const updatedData = Object.fromEntries(formData.entries());
+
+                // Aqui você faria a requisição para atualizar o perfil
+                // const response = await fetch('/api/usuario/perfil', {
+                //     method: 'PUT',
+                //     headers: {
+                //         'Content-Type': 'application/json',
+                //         'Authorization': `Bearer ${sabiaAuth.getToken()}`
+                //     },
+                //     body: JSON.stringify(updatedData)
+                // });
+
+                sabiaDashboard.showNotification('Perfil atualizado com sucesso!', 'success');
+                toggleEdit();
+            } catch (error) {
+                console.error('Erro ao salvar:', error);
+                sabiaDashboard.showNotification('Erro ao salvar perfil', 'error');
+            }
+        }
+
+        function setupPhotoUpload() {
+            const photoInput = document.getElementById('photoInput');
+            photoInput.addEventListener('change', async (e) => {
+                const file = e.target.files[0];
+                if (file) {
+                    await uploadProfilePhoto(file);
+                }
+            });
+        }
+
+        async function uploadProfilePhoto(file) {
+            try {
+                const user = sabiaAuth.getUser();
+                if (!user) return;
+
+                const progressDiv = document.getElementById('uploadProgress');
+                const progressFill = document.getElementById('progressFill');
+                const progressText = document.getElementById('progressText');
+
+                progressDiv.style.display = 'block';
+
+                const sabiaUpload = new SabiaUpload();
+                const photoUrl = await sabiaUpload.uploadProfilePhoto(file, user.id, (progress) => {
+                    progressFill.style.width = `${progress}%`;
+                    progressText.textContent = `${Math.round(progress)}%`;
+                });
+
+                // Atualizar foto na interface
+                document.getElementById('profileHeaderAvatar').src = photoUrl;
+                document.getElementById('currentPhoto').src = photoUrl;
+
+                // Aqui você atualizaria no backend
+                // await updateUserPhoto(user.id, photoUrl);
+
+                progressDiv.style.display = 'none';
+                sabiaDashboard.showNotification('Foto atualizada com sucesso!', 'success');
+
+            } catch (error) {
+                console.error('Erro no upload:', error);
+                sabiaDashboard.showNotification('Erro ao enviar foto', 'error');
+                document.getElementById('uploadProgress').style.display = 'none';
+            }
+        }
+
+        // Função de logout
+        function logout() {
+            if (confirm('Tem certeza que deseja sair?')) {
+                sabiaAuth.logout();
+                window.location.href = '../../../index.html';
+            }
+        }
+    </script>
+</body>
+</html>
