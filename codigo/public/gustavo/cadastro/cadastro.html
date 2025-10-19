@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SABIAA - Criar Conta</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/937e8004d1.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../assets/css/global.css">
+    <link rel="stylesheet" href="styles/cadastro.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="../estatico/homepage.html">
+                    <img src="../../assets/images/logos/logo_nome_azul_lateral.png" alt="SABIAA">
+                </a>
+            </div>
+            
+            <nav class="nav-links">
+                <a href="../estatico/homepage.html">Início</a>
+                <a href="../estatico/sobre.html">Sobre</a>
+                <a href="#">Cursos</a>
+                <a href="#">Contato</a>
+            </nav>
+            
+            <div class="auth-links">
+                <a href="../login/login.html">Entrar</a>
+                <a href="cadastro.html">Cadastrar</a>
+            </div>
+            
+            <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <div class="mobile-menu" id="mobileMenu">
+                <ul class="mobile-nav-links">
+                    <li><a href="../estatico/homepage.html">Início</a></li>
+                    <li><a href="../estatico/sobre.html">Sobre</a></li>
+                    <li><a href="#">Cursos</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+                <div class="mobile-auth-links">
+                    <a href="../login/login.html" style="border: 2px solid var(--azul-escuro); color: var(--azul-escuro); padding: 10px 20px; border-radius: 25px; text-align: center;">Entrar</a>
+                    <a href="cadastro.html" style="background-color: #21203F; color: white; padding: 10px 20px; border-radius: 25px; font-weight: bold; text-align: center;">Cadastrar</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="split-container">
+        
+        <!-- Lado Esquerdo - Branding -->
+        <div class="left-panel">
+            <div class="logo-section">
+                <img src="../../assets/images/logos/logo_nome_lateral_salmao.png" alt="SABIAA">
+            </div>
+
+            <div class="welcome-message">
+                <h2>Junte-se ao SABIAA!</h2>
+                <p>Crie sua conta e faça parte da plataforma que está transformando a educação brasileira.</p>
+                
+                <div class="benefits-list">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🎓</div>
+                        <div class="benefit-text">Acesso a conteúdos exclusivos</div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">👥</div>
+                        <div class="benefit-text">Comunidade de aprendizagem</div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">📈</div>
+                        <div class="benefit-text">Acompanhamento do progresso</div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🏆</div>
+                        <div class="benefit-text">Certificados e conquistas</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lado Direito - Formulário de Cadastro -->
+        <div class="right-panel">
+            <div class="signup-form-container">
+                <div class="form-header">
+                    <h2>Criar Conta</h2>
+                    <p>Preencha as informações para começar</p>
+                </div>
+
+                <!-- Indicador de Etapas -->
+                <div class="step-indicator">
+                    <div class="step active" data-step="1"></div>
+                    <div class="step" data-step="2"></div>
+                    <div class="step" data-step="3"></div>
+                    <div class="step" data-step="4"></div>
+                </div>
+
+                <form id="signupForm">
+                    
+                    <!-- ETAPA 1: Escolha da Plataforma -->
+                    <div class="form-step active" data-step="1">
+                        <h3 style="text-align: center; margin-bottom: 30px; color: var(--azul-escuro);">
+                            Escolha sua plataforma
+                        </h3>
+                        
+                        <div class="platform-options">
+                            <div class="platform-card" data-platform="cursos">
+                                <input type="radio" name="platform" id="sabiaa-cursos" value="cursos" required>
+                                <div class="card-content">
+                                    <div class="platform-icon">📚</div>
+                                    <div class="platform-name">SABIAA Cursos</div>
+                                    <div class="platform-description">Aprenda no seu ritmo com cursos online</div>
+                                </div>
+                                <div class="checkmark">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                            </div>
+
+                            <div class="platform-card" data-platform="educacao">
+                                <input type="radio" name="platform" id="sabiaa-educacao" value="educacao" required>
+                                <div class="card-content">
+                                    <div class="platform-icon">🏫</div>
+                                    <div class="platform-name">SABIAA Educação</div>
+                                    <div class="platform-description">Plataforma para escolas e instituições</div>
+                                </div>
+                                <div class="checkmark">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-navigation">
+                            <button type="button" class="btn-next" disabled>Continuar</button>
+                        </div>
+                    </div>
+
+                    <!-- ETAPA 2: Tipo de Perfil -->
+                    <div class="form-step" data-step="2">
+                        <h3 style="text-align: center; margin-bottom: 30px; color: var(--azul-escuro);">
+                            Selecione seu perfil
+                        </h3>
+                        
+                        <div class="profile-type-options">
+                            <div class="profile-type-card" data-profile="aluno">
+                                <input type="radio" name="profileType" id="profile-aluno" value="aluno" required>
+                                <div class="card-content">
+                                    <div class="platform-icon">👨‍🎓</div>
+                                    <div class="platform-name">Aluno</div>
+                                    <div class="platform-description">Estudante em busca de conhecimento</div>
+                                </div>
+                                <div class="checkmark">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                            </div>
+
+                            <div class="profile-type-card" data-profile="professor">
+                                <input type="radio" name="profileType" id="profile-professor" value="professor" required>
+                                <div class="card-content">
+                                    <div class="platform-icon">👨‍🏫</div>
+                                    <div class="platform-name">Professor</div>
+                                    <div class="platform-description">Educador e facilitador</div>
+                                </div>
+                                <div class="checkmark">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-navigation">
+                            <button type="button" class="btn-back">Voltar</button>
+                            <button type="button" class="btn-next" disabled>Continuar</button>
+                        </div>
+                    </div>
+
+                    <!-- ETAPA 3: Dados Básicos -->
+                    <div class="form-step" data-step="3">
+                        <h3 style="text-align: center; margin-bottom: 30px; color: var(--azul-escuro);">
+                            Dados básicos
+                        </h3>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">Nome *</label>
+                                <input type="text" id="firstName" name="firstName" placeholder="Seu nome" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Sobrenome *</label>
+                                <input type="text" id="lastName" name="lastName" placeholder="Seu sobrenome" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group full-width">
+                                <label for="email">E-mail *</label>
+                                <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="password">Senha *</label>
+                                <input type="password" id="password" name="password" placeholder="Mínimo 6 caracteres" required minlength="6">
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmPassword">Confirmar Senha *</label>
+                                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Digite novamente" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Telefone</label>
+                                <input type="tel" id="phone" name="phone" placeholder="(00) 00000-0000">
+                            </div>
+                            <div class="form-group">
+                                <label for="birthdate">Data de Nascimento</label>
+                                <input type="date" id="birthdate" name="birthdate">
+                            </div>
+                        </div>
+
+                        <!-- Campo de Foto de Perfil -->
+                        <div class="form-row">
+                            <div class="form-group full-width">
+                                <label for="profilePhoto">Foto de Perfil (Opcional)</label>
+                                <div class="photo-upload-container">
+                                    <input type="file" id="profilePhoto" name="profilePhoto" accept="image/*" style="display: none;">
+                                    <div class="photo-preview" id="photoPreview" onclick="document.getElementById('profilePhoto').click()">
+                                        <img src="../../assets/images/logos/logo_simbolo_azul.png" alt="Logo SABIAA" id="photoPlaceholder" style="width: 100%; height: 100%; object-fit: contain; opacity: 0.7;">
+                                        <img id="photoPreviewImg" style="display: none; width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                                    </div>
+                                    <div class="photo-upload-progress" id="uploadProgress" style="display: none;">
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" id="progressFill"></div>
+                                        </div>
+                                        <span id="progressText">0%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-navigation">
+                            <button type="button" class="btn-back">Voltar</button>
+                            <button type="button" class="btn-next" disabled>Continuar</button>
+                        </div>
+                    </div>
+
+                    <!-- ETAPA 4: Informações Específicas -->
+                    <div class="form-step" data-step="4">
+                        <h3 style="text-align: center; margin-bottom: 30px; color: var(--azul-escuro);" id="specificFieldsTitle">
+                            Informações adicionais
+                        </h3>
+                        
+                        <!-- Campos para SABIAA CURSOS - ALUNO -->
+                        <div id="cursos-aluno-fields" class="additional-fields" style="display: none;">
+                            <div class="form-row">
+                                <div class="form-group full-width">
+                                    <label for="interestArea">Área de Interesse *</label>
+                                    <select id="interestArea" name="interestArea">
+                                        <option value="">Selecione...</option>
+                                        <option value="matematica">Matemática</option>
+                                        <option value="portugues">Português</option>
+                                        <option value="ciencias">Ciências</option>
+                                        <option value="historia">História</option>
+                                        <option value="geografia">Geografia</option>
+                                        <option value="artes">Artes</option>
+                                        <option value="tecnologia">Tecnologia</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="educationLevel">Nível de Escolaridade</label>
+                                    <select id="educationLevel" name="educationLevel">
+                                        <option value="">Selecione...</option>
+                                        <option value="fundamental1">Ensino Fundamental I</option>
+                                        <option value="fundamental2">Ensino Fundamental II</option>
+                                        <option value="medio">Ensino Médio</option>
+                                        <option value="superior">Ensino Superior</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="learningGoal">Objetivo de Aprendizagem</label>
+                                    <select id="learningGoal" name="learningGoal">
+                                        <option value="">Selecione...</option>
+                                        <option value="reforco">Reforço Escolar</option>
+                                        <option value="vestibular">Preparação Vestibular</option>
+                                        <option value="desenvolvimento">Desenvolvimento Pessoal</option>
+                                        <option value="carreira">Desenvolvimento de Carreira</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Campos para SABIAA EDUCAÇÃO - ALUNO -->
+                        <div id="educacao-aluno-fields" class="additional-fields" style="display: none;">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="schoolCode">Código da Escola *</label>
+                                    <input type="text" id="schoolCode" name="schoolCode" placeholder="Digite o código fornecido pela escola" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="accessCode">Código de Acesso *</label>
+                                    <input type="text" id="accessCode" name="accessCode" placeholder="Código fornecido pelo professor" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="grade">Série/Ano *</label>
+                                    <select id="grade" name="grade" required>
+                                        <option value="">Selecione...</option>
+                                        <optgroup label="Ensino Fundamental I">
+                                            <option value="1ano-fundamental">1º Ano</option>
+                                            <option value="2ano-fundamental">2º Ano</option>
+                                            <option value="3ano-fundamental">3º Ano</option>
+                                            <option value="4ano-fundamental">4º Ano</option>
+                                            <option value="5ano-fundamental">5º Ano</option>
+                                        </optgroup>
+                                        <optgroup label="Ensino Fundamental II">
+                                            <option value="6ano-fundamental">6º Ano</option>
+                                            <option value="7ano-fundamental">7º Ano</option>
+                                            <option value="8ano-fundamental">8º Ano</option>
+                                            <option value="9ano-fundamental">9º Ano</option>
+                                        </optgroup>
+                                        <optgroup label="Ensino Médio">
+                                            <option value="1ano-medio">1º Ano EM</option>
+                                            <option value="2ano-medio">2º Ano EM</option>
+                                            <option value="3ano-medio">3º Ano EM</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="classroom">Turma *</label>
+                                    <input type="text" id="classroom" name="classroom" placeholder="Ex: A, B, C, 101" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="studentId">Número da Matrícula *</label>
+                                    <input type="text" id="studentId" name="studentId" placeholder="Número da matrícula escolar" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="shift">Turno</label>
+                                    <select id="shift" name="shift">
+                                        <option value="">Selecione...</option>
+                                        <option value="matutino">Matutino</option>
+                                        <option value="vespertino">Vespertino</option>
+                                        <option value="noturno">Noturno</option>
+                                        <option value="integral">Integral</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Campos para SABIAA EDUCAÇÃO - PROFESSOR -->
+                        <div id="educacao-professor-fields" class="additional-fields" style="display: none;">
+                            <div class="form-row">
+                                <div class="form-group full-width">
+                                    <label for="schoolCodeProf">Código da Escola *</label>
+                                    <input type="text" id="schoolCodeProf" name="schoolCodeProf" placeholder="Digite o código fornecido pela instituição">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="subjectsTaught">Disciplina que Leciona *</label>
+                                    <select id="subjectsTaught" name="subjectsTaught">
+                                        <option value="">Selecione...</option>
+                                        <option value="matematica">Matemática</option>
+                                        <option value="portugues">Português</option>
+                                        <option value="ciencias">Ciências</option>
+                                        <option value="historia">História</option>
+                                        <option value="geografia">Geografia</option>
+                                        <option value="artes">Artes</option>
+                                        <option value="educacao-fisica">Educação Física</option>
+                                        <option value="ingles">Inglês</option>
+                                        <option value="multidisciplinar">Multidisciplinar</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="teachingExperience">Anos de Experiência</label>
+                                    <input type="number" id="teachingExperience" name="teachingExperience" min="0" placeholder="Anos">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group full-width">
+                                    <label for="teacherId">Registro Profissional *</label>
+                                    <input type="text" id="teacherId" name="teacherId" placeholder="Número do registro profissional">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group full-width">
+                                    <label for="academicDegree">Formação Acadêmica *</label>
+                                    <select id="academicDegree" name="academicDegree">
+                                        <option value="">Selecione...</option>
+                                        <option value="graduacao">Graduação</option>
+                                        <option value="especializacao">Especialização</option>
+                                        <option value="mestrado">Mestrado</option>
+                                        <option value="doutorado">Doutorado</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-navigation">
+                            <button type="button" class="btn-back">Voltar</button>
+                            <button type="submit" class="btn-submit">Criar Conta</button>
+                        </div>
+                    </div>
+
+                </form>
+
+                <div class="login-link">
+                    Já tem uma conta? <a href="../login/login.html">Fazer login</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="../../assets/images/logos/logo_nome_lateral_bege.png" alt="SABIAA">
+                </div>
+                <p>Educação e Tecnologia alinhadas para um futuro melhor.</p>
+            </div>
+            
+            <div class="footer-section footer-links">
+                <h4>Links Rápidos</h4>
+                <ul>
+                    <li><a href="../estatico/sobre.html">Sobre</a></li>
+                    <li><a href="#">Cursos</a></li>
+                    <li><a href="#">Suporte</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section footer-contact">
+                <h4>Contato</h4>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:contato@sabiaa.com.br">contato@sabiaa.com.br</a></p>
+                <p><i class="fas fa-phone"></i> (31) 1234-5678</p>
+            </div>
+            
+            <div class="footer-section footer-social">
+                <h4>Redes Sociais</h4>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts do Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-storage.js"></script>
+    
+    <!-- Scripts da aplicação -->
+    <script src="../../assets/js/config.js"></script>
+    <script src="../../assets/js/global.js"></script>
+    <script src="../../assets/js/upload.js"></script>
+    <script src="js/cadastro.js"></script>
+</body>
+</html>

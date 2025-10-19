@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SABIAA - Nova Senha</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/937e8004d1.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../assets/css/global.css">
+    <link rel="stylesheet" href="./styles/recuperacao.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="../estatico/homepage.html">
+                    <img src="../../assets/images/logos/logo_nome_azul_lateral.png" alt="SABIAA">
+                </a>
+            </div>
+            
+            <nav class="nav-links">
+                <a href="../estatico/homepage.html">Início</a>
+                <a href="../estatico/sobre.html">Sobre</a>
+                <a href="#">Cursos</a>
+                <a href="#">Contato</a>
+            </nav>
+            
+            <div class="auth-links">
+                <a href="../login/login.html">Entrar</a>
+                <a href="../cadastro/cadastro.html">Cadastrar</a>
+            </div>
+            
+            <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <div class="mobile-menu" id="mobileMenu">
+                <ul class="mobile-nav-links">
+                    <li><a href="../estatico/homepage.html">Início</a></li>
+                    <li><a href="../estatico/sobre.html">Sobre</a></li>
+                    <li><a href="#">Cursos</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+                <div class="mobile-auth-links">
+                    <a href="../login/login.html" style="border: 2px solid var(--azul-escuro); color: var(--azul-escuro); padding: 10px 20px; border-radius: 25px; text-align: center;">Entrar</a>
+                    <a href="../cadastro/cadastro.html" style="background-color: #21203F; color: white; padding: 10px 20px; border-radius: 25px; font-weight: bold; text-align: center;">Cadastrar</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="recovery-card">
+            
+            <div class="logo-bird">
+                <img src="../../assets/images/logos/icon.png" alt="SABIAA Logo">
+            </div>
+            
+            <h2>Nova Senha</h2>
+            <p>Crie uma senha segura para sua conta</p>
+            
+            <div id="message-container"></div>
+            
+            <form id="new-password-form">
+                <div class="form-group">
+                    <label for="nova-senha">Nova Senha</label>
+                    <div class="input-wrapper">
+                        <input type="password" id="nova-senha" name="nova-senha" placeholder="********" required>
+                        <i class="input-icon fas fa-eye" id="toggle-password" onclick="togglePasswordVisibility('nova-senha', 'toggle-password')"></i>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmar-senha">Confirmar Senha</label>
+                    <div class="input-wrapper">
+                        <input type="password" id="confirmar-senha" name="confirmar-senha" placeholder="********" required>
+                        <i class="input-icon fas fa-eye" id="toggle-confirm" onclick="togglePasswordVisibility('confirmar-senha', 'toggle-confirm')"></i>
+                    </div>
+                </div>
+                
+                <div class="password-requirements">
+                    <p>Sua senha deve conter:</p>
+                    <p id="req-length">
+                        <span class="validation-icon invalid">✗</span> Pelo menos 8 caracteres
+                    </p>
+                    <p id="req-uppercase">
+                        <span class="validation-icon invalid">✗</span> Uma letra maiúscula
+                    </p>
+                    <p id="req-lowercase">
+                        <span class="validation-icon invalid">✗</span> Uma letra minúscula
+                    </p>
+                    <p id="req-number">
+                        <span class="validation-icon invalid">✗</span> Um número
+                    </p>
+                    <p id="req-special">
+                        <span class="validation-icon invalid">✗</span> Um caractere especial
+                    </p>
+                    <p id="req-match">
+                        <span class="validation-icon invalid">✗</span> Senhas coincidem
+                    </p>
+                </div>
+
+                <button type="submit" id="submit-btn" class="btn-redefinir" disabled>
+                    Redefinir Senha
+                </button>
+            </form>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="../../assets/images/logos/logo_nome_lateral_bege.png" alt="SABIAA">
+                <p>Educação e Tecnologia alinhadas para um futuro melhor.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Links Rápidos</h4>
+                <ul>
+                    <li><a href="../estatico/sobre.html">Sobre</a></li>
+                    <li><a href="#">Cursos</a></li>
+                    <li><a href="#">Suporte</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h4>Contato</h4>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:contato@sabiaa.com.br">contato@sabiaa.com.br</a></p>
+                <p><i class="fas fa-phone"></i> (31) 1234-5678</p>
+            </div>
+            
+            <div class="footer-social">
+                <h4>Redes Sociais</h4>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../assets/js/global.js"></script>
+    <script src="./js/nova_senha.js"></script>
+
+</body>
+</html>

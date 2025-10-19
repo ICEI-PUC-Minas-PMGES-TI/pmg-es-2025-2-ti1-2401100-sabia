@@ -1,0 +1,303 @@
+/* ===== ESTILO PÁGINAS DE RECUPERAÇÃO DE SENHA ===== */
+
+/* Variáveis de Cores (caso o global.css não carregue) */
+:root {
+    --azul-escuro: #21203F;
+    --bege-claro: #fff1ce;
+    --rosa-claro: #e7bfa5;
+    --rosa-escuro: #c5a898;
+    --roxo-escuro: #4b3c5d;
+    --cor-texto-claro: #f0f0f0;
+    --cor-texto-escuro: #333;
+}
+
+/* Reset básico para as páginas de recuperação */
+body {
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--cor-texto-escuro);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Conteúdo principal */
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 20px;
+    background-color: var(--bege-claro);
+}
+
+.recovery-card {
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+/* Ícones e Logo no Card */
+.card-icons {
+    margin-bottom: 25px;
+}
+
+.logo-bird {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 10px;
+    border-radius: 8px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-bird img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Placeholder para a chave (ícone principal) */
+.key-icon-placeholder {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 15px;
+    background-color: var(--rosa-escuro);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    color: white;
+}
+
+.recovery-card h2 {
+    font-size: 1.5em;
+    color: var(--azul-escuro);
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.recovery-card p {
+    font-size: 0.9em;
+    color: var(--roxo-escuro);
+    margin-bottom: 30px;
+}
+
+.form-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.9em;
+    color: var(--roxo-escuro);
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    background-color: white;
+    font-size: 1em;
+    color: var(--azul-escuro);
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+    border-color: var(--roxo-escuro);
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding-right: 10px;
+    background-color: white;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 12px 15px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 1em;
+    color: var(--azul-escuro);
+}
+
+.input-wrapper:focus-within {
+    border-color: var(--roxo-escuro);
+}
+
+/* Ícone do olho (mostrar senha) */
+.input-icon {
+    color: var(--rosa-escuro);
+    font-size: 1em;
+    cursor: pointer;
+    width: 20px;
+    text-align: center;
+    padding: 5px;
+}
+
+.input-icon:hover {
+    color: var(--roxo-escuro);
+}
+
+/* Botões */
+.btn-enviar, .btn-redefinir {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--roxo-escuro);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.btn-enviar:hover, .btn-redefinir:hover {
+    background-color: #3f3250; 
+}
+
+.btn-enviar:disabled, .btn-redefinir:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Link Voltar ao Login */
+.back-to-login {
+    font-size: 0.9em;
+    color: var(--roxo-escuro);
+    text-decoration: none;
+    transition: color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.back-to-login:hover {
+    color: var(--azul-escuro);
+}
+
+.back-to-login i {
+    margin-right: 5px;
+    font-size: 1.1em;
+}
+
+/* Seção de Validação de Senha */
+.password-requirements {
+    background-color: var(--bege-claro);
+    padding: 15px 20px;
+    border-radius: 5px;
+    margin-top: 10px;
+    text-align: left;
+}
+
+.password-requirements p {
+    font-size: 0.85em;
+    color: var(--roxo-escuro);
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.password-requirements p:last-child {
+    margin-bottom: 0;
+}
+
+.validation-icon {
+    margin-right: 8px;
+    font-weight: bold;
+    width: 16px;
+    text-align: center;
+}
+
+.validation-icon.valid {
+    color: #28a745;
+}
+
+.validation-icon.invalid {
+    color: #dc3545;
+}
+
+/* Estados de mensagem */
+.message {
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 0.9em;
+    text-align: center;
+}
+
+.message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.message.info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+}
+
+/* Mensagens de erro dos campos */
+.field-error {
+    color: #dc3545;
+    font-size: 0.8em;
+    margin-top: 5px;
+    display: block;
+}
+
+/* Loading spinner */
+.loading {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s ease-in-out infinite;
+    margin-right: 8px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+    .recovery-card {
+        padding: 30px 20px;
+        margin: 20px;
+    }
+    
+    .main-content {
+        padding: 30px 10px;
+    }
+}

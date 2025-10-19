@@ -1,0 +1,261 @@
+/**
+ * SABIAA - Correções específicas para páginas internas
+ * Correções para cores, layout e responsividade
+ */
+
+/* === CORREÇÕES DE CORES === */
+.theme-aluno {
+    --primary-color: #21303F !important;
+    --primary-rgb: 33, 48, 63 !important;
+}
+
+.theme-professor {
+    --primary-color: #4B3C5D !important;
+    --primary-rgb: 75, 60, 93 !important;
+}
+
+/* === CORREÇÕES DE LAYOUT === */
+body {
+    background-color: #fff1ce !important;
+    overflow-x: hidden;
+}
+
+.dashboard-container {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+/* === CORREÇÕES SIDEBAR === */
+.sidebar {
+    width: 280px;
+    min-width: 280px;
+    max-width: 280px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.sidebar-header {
+    flex-wrap: nowrap;
+    white-space: nowrap;
+}
+
+.sidebar-logo {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    object-fit: cover;
+    background: white;
+    border-radius: 8px;
+    padding: 3px;
+}
+
+.sidebar-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* === CORREÇÕES MENU === */
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    color: white;
+    text-decoration: none;
+    white-space: nowrap;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.nav-item i {
+    width: 20px;
+    text-align: center;
+    flex-shrink: 0;
+    margin-right: 15px;
+}
+
+.nav-item-text {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.nav-section-title {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0 20px 10px;
+    margin-top: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.nav-section:first-child .nav-section-title {
+    margin-top: 0;
+}
+
+/* === CORREÇÕES HEADER === */
+.header {
+    background: var(--primary-color) !important;
+    color: white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.page-title {
+    color: white !important;
+}
+
+.breadcrumb {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.breadcrumb a {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* === CORREÇÕES PERFIL USUÁRIO === */
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+
+.user-profile:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.user-name {
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.user-role {
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+/* === CORREÇÕES MOBILE === */
+@media (max-width: 1024px) {
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        z-index: 1001;
+    }
+    
+    .sidebar.mobile-open {
+        transform: translateX(0);
+    }
+    
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+    
+    .sidebar-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+    
+    .sidebar-overlay.show {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+@media (max-width: 768px) {
+    .user-info {
+        display: none;
+    }
+    
+    .search-container {
+        display: none;
+    }
+    
+    .header-actions {
+        gap: 10px;
+    }
+}
+
+/* === CORREÇÕES DE CONTEÚDO === */
+.content {
+    background: #fff1ce;
+    min-height: calc(100vh - 70px);
+    padding: 30px;
+}
+
+.profile-header {
+    background: var(--primary-color) !important;
+}
+
+.btn-primary {
+    background: var(--primary-color) !important;
+}
+
+.btn-secondary {
+    border-color: var(--primary-color) !important;
+    color: var(--primary-color) !important;
+}
+
+.btn-secondary:hover {
+    background: var(--primary-color) !important;
+    color: white !important;
+}
+
+/* === CORREÇÕES FOOTER === */
+.footer {
+    background: var(--primary-color) !important;
+    color: white;
+}
+
+/* === SCROLL CUSTOMIZADO === */
+.sidebar::-webkit-scrollbar {
+    width: 4px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 2px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
