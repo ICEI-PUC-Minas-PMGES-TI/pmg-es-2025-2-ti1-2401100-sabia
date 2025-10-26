@@ -329,3 +329,31 @@ body {
     margin-right: 15px;
     text-decoration: none;
 }
+
+/* --- Adicione este código ao seu stylevideoaula.css --- */
+
+/* * Isso torna o vídeo do YouTube responsivo (proporção 16:9)
+ * e o faz preencher o espaço do "video-player-container".
+*/
+
+.video-player-container {
+  position: relative;
+  /* Isso força a proporção 16:9 (9 / 16 = 0.5625) */
+  padding-bottom: 56.25%; 
+  height: 0;
+  overflow: hidden;
+  width: 100%;
+  
+  /* Mantém a aparência da sua imagem */
+  background: #000; /* Fundo preto para o carregamento */
+  border-radius: 8px; /* Cantos arredondados */
+}
+
+.video-player-container iframe {
+  /* Faz o <iframe> preencher o contêiner */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
