@@ -264,3 +264,55 @@ body {
 .status.concluido { background-color: #C6F6D5; color: #22543D; }
 .status.pendente { background-color: var(--bege-claro, #fff1ce); color: #9C4221; }
 .status.andamento { background-color: #BEE3F8; color: #2A4365; }
+
+@media (max-width: 1100px) {
+    .content-body {
+        flex-direction: column;
+    }
+
+    .sidebar-right {
+        width: 100%;
+        min-width: 100%;
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+    }
+    
+    .main-header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .search-bar {
+        width: 100%;
+    }
+    
+    .content-body {
+        padding: 15px;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .form-actions .btn-principal,
+    .form-actions .btn-cancelar {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
