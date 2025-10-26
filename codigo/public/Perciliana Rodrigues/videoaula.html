@@ -34,27 +34,31 @@
         
         <div class="video-player-container">
             <iframe 
-            width="560" 
-            height="315" 
-            src="https://www.youtube.com/embed/Z7mnxUI4u00?si=hz4oqedEj3h58lN9" 
-            title="YouTube video player" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-        </iframe>
+                id="video-player"
+                width="560" 
+                height="315" 
+                src="" 
+                title="YouTube video player" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+            </iframe>
         </div>
         <section class="course-info-card">
             <div class="course-header">
                 <div>
-                    <h1>Introdução ao JavaScript Moderno</h1>
-                        <span><i class="fa-regular fa-calendar"></i> Publicado em 26 Out 2025</span>
+                    <h1 id="course-title">Carregando...</h1>
+                    <div id="course-meta">
+                        <span><i class="fa-regular fa-calendar"></i> Carregando...</span>
                     </div>
                 </div>
-                <button class="favorite-btn"><i class="fa-regular fa-heart"></i> Favoritar</button>
             </div>
+            <button class="favorite-btn" id="favorite-btn">
+                <i class="fa-regular fa-heart"></i> Favoritar
+            </button>
             <div class="course-description">
                 <h2>Descrição</h2>
-                <p>Nesse vídeo vamos aprender do zero como utilizar Javascript para iniciar no universo de programação, aprendendo conceitos de variáveis, interações com HTML e DOM, onClick, funções e muito mais! E tudo isso de forma prática do zero</p>
+                <p id="course-description">Carregando...</p>
             </div>
         </section>
     </main>
@@ -62,42 +66,11 @@
     <aside class="sidebar-right">
         <section class="related-videos-card">
             <h2>Vídeos Relacionados</h2>
-            <ul class="video-list">
-                <li class="video-item">
-                    <div class="thumbnail"><i class="fa-solid fa-play"></i></div>
-                    <div class="video-details">
-                        <h3>Interatividade com o usuário</h3>
-                    </div>
-                </li>
-                <li class="video-item">
-                    <div class="thumbnail"><i class="fa-solid fa-play"></i></div>
-                    <div class="video-details">
-                        <h3>Estruturas Condicionais (if e else)</h3>
-                    </div>
-                </li>
-                 <li class="video-item">
-                    <div class="thumbnail"><i class="fa-solid fa-play"></i></div>
-                    <div class="video-details">
-                        <h3>Arrays, Estruturas de Repetição (for) e Escopo</h3>
-                    </div>
-                </li>
-                 <li class="video-item">
-                    <div class="thumbnail"><i class="fa-solid fa-play"></i></div>
-                    <div class="video-details">
-                        <h3>Métodos de Array (deletando e editando itens em lista)</h3>
-                    </div>
-                </li>
+            <ul class="video-list" id="related-videos-list">
+                <li class="video-item">Carregando vídeos...</li>
             </ul>
-        </section>
-        <section class="course-progress-card">
-            <h2>Progresso do Curso</h2>
-            <div class="progress-bar-course">
-                <div class="progress" style="width: 90%;"></div>
-            </div>
-            <p>18 de 20 vídeos concluídos</p>
-        </section>
     </aside>
-
+    
     <footer class="main-footer">
         <div class="footer-content">
             <div class="footer-section about">
@@ -129,6 +102,6 @@
             </div>
         </div>
     </footer>
-
+<script src="script.js"></script>
 </body>
 </html>
