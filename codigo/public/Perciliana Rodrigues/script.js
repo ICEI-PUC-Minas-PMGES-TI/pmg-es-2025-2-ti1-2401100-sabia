@@ -55,20 +55,13 @@ const mockDatabase = {
         "thumbnail_url": "https://img.youtube.com/vi/RjfhRZXB_U8/mqdefault.jpg"
       }
     ],
-
-    "progress": {
-      "completed_videos": 18,
-      "total_videos": 20
-    }
 };
 
 // Variável para guardar o estado atual do curso (para o 'Favorito')
 let currentCourse = {};
-
 document.addEventListener('DOMContentLoaded', () => {
     loadCourseData();
     loadRelatedVideos();
-    loadCourseProgress();
 });
 
 
@@ -87,8 +80,6 @@ function loadVideo(videoObject, autoplay = false) {
     document.getElementById('course-description').textContent = videoObject.description;
 
     const metaContainer = document.getElementById('course-meta');
-    
-    // --- IMPORTANTE: toFixed(0) garante que 19789 visualizações vire 19k ---
     const viewsInK = (videoObject.views / 1000).toFixed(0); 
     
     metaContainer.innerHTML = `
@@ -226,4 +217,14 @@ function updateFavoriteButton(isFavorite) {
         favButton.innerHTML = `<i class="fa-regular fa-heart"></i> Favoritar`;
         favButton.classList.remove('favorited');
     }
+}
+
+if (navigator.storage && navigator.storage.persist) {
+  navigator.storage.persist().then(granted => {
+    if (granted) {
+      console.log("O armazenamento persistente foi concedido.");
+    } else {
+      console.log("O armazenamento persistente foi negado.");
+    }
+  });
 }
