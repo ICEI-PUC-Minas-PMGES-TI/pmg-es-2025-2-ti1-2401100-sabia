@@ -116,24 +116,6 @@ body {
     overflow-y: auto;
 }
 
-.video-player-container {
-    background-color: #2D3748;
-    border-radius: var(--border-radius);
-    padding: 10px;
-    margin-bottom: 24px;
-}
-
-.video-player {
-    background-color: #1A202C;
-    height: 425px;
-    border-radius: var(--border-radius);
-    display: grid;
-    place-items: center;
-    color: white;
-    font-size: 60px;
-    cursor: pointer;
-}
-
 .video-controls {
     display: flex;
     align-items: center;
@@ -206,36 +188,6 @@ body {
     color: var(--secondary-text-color);
     line-height: 1.6;
 }
-.support-materials { margin-top: 24px; }
-.materials-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-top: 16px;
-}
-.material-item {
-    background-color: var(--bg-color);
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius);
-    padding: 16px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-}
-.material-item i { font-size: 24px; color: var(--accent-color); }
-.material-item div { flex: 1; }
-.material-item span { font-weight: 500; }
-.material-item small { color: var(--secondary-text-color); display: block;}
-.download-btn {
-    background-color: #EDF2F7;
-    color: var(--primary-text-color);
-    padding: 8px 16px;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: 500;
-    transition: background-color 0.3s;
-}
-.download-btn:hover { background-color: #E2E8F0; }
 
 /* --- Barra Lateral Direita --- */
 .sidebar-right {
@@ -330,27 +282,17 @@ body {
     text-decoration: none;
 }
 
-/* --- Adicione este código ao seu stylevideoaula.css --- */
-
-/* * Isso torna o vídeo do YouTube responsivo (proporção 16:9)
- * e o faz preencher o espaço do "video-player-container".
-*/
-
 .video-player-container {
   position: relative;
-  /* Isso força a proporção 16:9 (9 / 16 = 0.5625) */
   padding-bottom: 56.25%; 
   height: 0;
   overflow: hidden;
   width: 100%;
-  
-  /* Mantém a aparência da sua imagem */
-  background: #000; /* Fundo preto para o carregamento */
-  border-radius: 8px; /* Cantos arredondados */
+  background: #000;
+  border-radius: 8px;
 }
 
 .video-player-container iframe {
-  /* Faz o <iframe> preencher o contêiner */
   position: absolute;
   top: 0;
   left: 0;
