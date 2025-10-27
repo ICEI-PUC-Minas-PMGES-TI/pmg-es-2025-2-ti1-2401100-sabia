@@ -102,46 +102,68 @@ class SabiaDashboard {
             // Primeiro tenta pegar do localStorage
             let user = sabiaAuth.getUser();
             
-            // Se não tem no localStorage ou quer dados atualizados, busca do backend
-            if (!user || this.shouldRefreshUserData(user)) {
+            // Para desenvolvimento local, não fazer requisições para API
+            const isLocalDevelopment = window.location.protocol === 'file:' || 
+                                     window.location.hostname === '' ||
+                                     !sabiaAuth.API_BASE.startsWith('http');
+            
+            console.log('🔍 Modo de desenvolvimento local:', isLocalDevelopment);
+            console.log('🔗 API_BASE configurada:', sabiaAuth.API_BASE);
+            
+            // Se não tem no localStorage ou quer dados atualizados, busca do backend (apenas em produção)
+            if (!isLocalDevelopment && (!user || this.shouldRefreshUserData(user))) {
                 const token = sabiaAuth.getToken();
                 if (token) {
-                    const response = await fetch(`${sabiaAuth.API_BASE}/api/usuario/perfil`, {
-                        method: 'GET',
-                        headers: {
-                            'Authorization': `Bearer ${token}`,
-                            'Content-Type': 'application/json'
-                        }
-                    });
+                    try {
+                        console.log('🌐 Tentando carregar dados do backend...');
+                        const response = await fetch(`${sabiaAuth.API_BASE}/api/usuario/perfil`, {
+                            method: 'GET',
+                            headers: {
+                                'Authorization': `Bearer ${token}`,
+                                'Content-Type': 'application/json'
+                            }
+                        });
 
-                    if (response.ok) {
-                        const data = await response.json();
-                        user = data.data || data.usuario || data;
-                        // Atualizar localStorage com dados frescos
-                        sabiaAuth.setUser(user);
-                    } else if (response.status === 401) {
-                        // Token inválido
-                        sabiaAuth.logout();
-                        this.redirectToLogin();
-                        return;
+                        if (response.ok) {
+                            const data = await response.json();
+                            user = data.data || data.usuario || data;
+                            // Atualizar localStorage com dados frescos
+                            sabiaAuth.setUser(user);
+                        } else if (response.status === 401) {
+                            // Token inválido
+                            sabiaAuth.logout();
+                            this.redirectToLogin();
+                            return;
+                        }
+                    } catch (apiError) {
+                        console.log('❌ Erro na requisição para API:', apiError);
+                        console.log('🔄 Usando dados do localStorage como fallback');
                     }
                 }
+            } else {
+                console.log('📁 Modo local detectado, usando apenas dados do localStorage');
             }
 
             if (user) {
                 this.updateUserDisplay(user);
             } else {
-                this.redirectToLogin();
+                // Se não tem dados, usar dados padrão do Gustavo
+                const defaultUser = {
+                    nome: "Gustavo",
+                    email: "gustavo@exemplo.com",
+                    foto: "https://firebasestorage.googleapis.com/v0/b/sabiaa-2e56f.firebasestorage.app/o/profile_photos%2Ftemp_1760911760995_1760911761017.jpeg?alt=media&token=4ad22eb9-717d-4c92-a01b-483fdad52f63"
+                };
+                this.updateUserDisplay(defaultUser);
             }
         } catch (error) {
             console.error('Erro ao carregar dados do usuário:', error);
-            // Em caso de erro, tenta usar dados do localStorage
-            const user = sabiaAuth.getUser();
-            if (user) {
-                this.updateUserDisplay(user);
-            } else {
-                this.redirectToLogin();
-            }
+            // Em caso de erro, usar dados padrão do Gustavo
+            const defaultUser = {
+                nome: "Gustavo",
+                email: "gustavo@exemplo.com",
+                foto: "https://firebasestorage.googleapis.com/v0/b/sabiaa-2e56f.firebasestorage.app/o/profile_photos%2Ftemp_1760911760995_1760911761017.jpeg?alt=media&token=4ad22eb9-717d-4c92-a01b-483fdad52f63"
+            };
+            this.updateUserDisplay(defaultUser);
         }
     }
 

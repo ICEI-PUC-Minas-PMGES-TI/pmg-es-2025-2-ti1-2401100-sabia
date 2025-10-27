@@ -1,0 +1,313 @@
+/**
+ * Profile Enhancements CSS
+ * Melhorias específicas para a página de perfil
+ */
+
+/* Upload de foto melhorado */
+.photo-upload-section {
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    border: 2px dashed #E9ECEF;
+    border-radius: var(--border-radius);
+    padding: 30px;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.02) 0%, rgba(var(--primary-rgb), 0.08) 100%);
+}
+
+.photo-upload-section:hover {
+    border-color: var(--primary-color);
+    background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.05) 0%, rgba(var(--primary-rgb), 0.12) 100%);
+    transform: translateY(-2px);
+}
+
+.upload-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid rgba(var(--primary-rgb), 0.2);
+    transition: all var(--transition-fast);
+}
+
+.photo-upload-section:hover .upload-avatar {
+    border-color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+/* Barra de progresso de upload */
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #E9ECEF;
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 15px 0;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color) 0%, rgba(var(--primary-rgb), 0.8) 100%);
+    border-radius: 4px;
+    transition: width 0.3s ease;
+    position: relative;
+}
+
+.progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    animation: progressShine 2s ease-in-out infinite;
+}
+
+@keyframes progressShine {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Estatísticas melhoradas */
+.profile-stats {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+    justify-content: flex-start;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    min-width: 80px;
+    transition: all var(--transition-fast);
+}
+
+.stat-item:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.stat-number {
+    font-size: 1.8em;
+    font-weight: 700;
+    display: block;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.stat-label {
+    font-size: 0.85em;
+    opacity: 0.9;
+    margin-top: 5px;
+    display: block;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Avatar no header melhorado */
+.user-avatar {
+    transition: all var(--transition-fast);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.user-profile:hover .user-avatar {
+    transform: scale(1.05);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Badge de notificação melhorado */
+.notification-badge {
+    background: linear-gradient(135deg, #FF6B6B 0%, #EE5A24 100%);
+    animation: notificationPulse 2s ease-in-out infinite;
+}
+
+@keyframes notificationPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* Avatar grande do perfil */
+.profile-avatar-large {
+    transition: all var(--transition-fast);
+    position: relative;
+}
+
+.profile-avatar-large:hover {
+    transform: scale(1.02);
+}
+
+/* Formulário melhorado */
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 20px rgba(var(--primary-rgb), 0.15);
+}
+
+/* Botões de ação */
+.form-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #E9ECEF;
+}
+
+.btn-primary,
+.btn-secondary {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::before,
+.btn-secondary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: left 0.5s;
+}
+
+.btn-primary:hover::before,
+.btn-secondary:hover::before {
+    left: 100%;
+}
+
+/* Cards melhorados */
+.card {
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color) 0%, rgba(var(--primary-rgb), 0.6) 100%);
+}
+
+/* Animações de entrada */
+.animate-fade-in {
+    animation: fadeIn 0.6s ease-out;
+}
+
+.animate-slide-in {
+    animation: slideInUp 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsividade melhorada */
+@media (max-width: 768px) {
+    .profile-stats {
+        justify-content: center;
+        gap: 15px;
+    }
+    
+    .stat-item {
+        min-width: 60px;
+        padding: 10px 15px;
+    }
+    
+    .stat-number {
+        font-size: 1.4em;
+    }
+    
+    .stat-label {
+        font-size: 0.8em;
+    }
+    
+    .upload-avatar {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .profile-avatar-large {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Estado de loading */
+.loading-skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .photo-upload-section {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.08) 100%);
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .photo-upload-section:hover {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.12) 100%);
+        border-color: rgba(255, 255, 255, 0.2);
+    }
+    
+    .progress-bar {
+        background: rgba(255, 255, 255, 0.1);
+    }
+}

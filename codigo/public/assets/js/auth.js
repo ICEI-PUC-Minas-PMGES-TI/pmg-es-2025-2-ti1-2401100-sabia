@@ -5,10 +5,35 @@
 
 class SabiaAuth {
     constructor() {
-        this.API_BASE = window.SABIAA_CONFIG?.API_BASE_URL || 'http://localhost:3000';
+        this.API_BASE = this.getApiBase();
         this.TOKEN_KEY = 'sabiaa_token';
         this.USER_KEY = 'sabiaa_user';
         this.init();
+    }
+
+    /**
+     * Obtém a URL base da API com fallback robusto
+     */
+    getApiBase() {
+        // Aguardar SABIAA_CONFIG estar disponível
+        if (typeof window !== 'undefined' && window.SABIAA_CONFIG && window.SABIAA_CONFIG.API_BASE_URL) {
+            console.log('✅ Usando API_BASE_URL do config:', window.SABIAA_CONFIG.API_BASE_URL);
+            return window.SABIAA_CONFIG.API_BASE_URL;
+        }
+        
+        // Fallback baseado no location
+        if (typeof window !== 'undefined' && window.location) {
+            const fallbackUrl = window.location.origin.includes('localhost') 
+                ? 'http://localhost:3000' 
+                : 'http://localhost:3000'; // Em produção seria o domínio real
+            
+            console.log('⚠️ SABIAA_CONFIG não encontrado, usando fallback:', fallbackUrl);
+            return fallbackUrl;
+        }
+        
+        // Fallback final
+        console.log('⚠️ Usando fallback final: http://localhost:3000');
+        return 'http://localhost:3000';
     }
 
     /**

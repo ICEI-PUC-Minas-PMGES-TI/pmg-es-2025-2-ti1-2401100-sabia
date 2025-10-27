@@ -4,7 +4,7 @@
       "id": "c580739d-6f66-4e70-acd3-23634bc4bdf6",
       "tipo": "aluno",
       "nome": "Gustavo",
-      "foto": "",
+      "foto": "https://firebasestorage.googleapis.com/v0/b/sabiaa-2e56f.firebasestorage.app/o/profile_photos%2Ftemp_1760911760995_1760911761017.jpeg?alt=media&token=4ad22eb9-717d-4c92-a01b-483fdad52f63",
       "data_nascimento": "2005-07-17",
       "email": "gugupenido@gmail.com",
       "senha_hash": "$2a$10$BEJ.xC6Q2KUHArIMTbhbg.ccUT6iPkTZbQjIQmZImORfSxLpOjQRa",
