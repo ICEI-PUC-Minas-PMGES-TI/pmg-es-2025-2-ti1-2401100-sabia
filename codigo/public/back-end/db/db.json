@@ -38,6 +38,45 @@
           "tarefas_ids": []
         }
       }
+    },
+    {
+      "id": "be8e3bda-d680-4486-bbbc-2793b21186cd",
+      "tipo": "aluno",
+      "nome": "Gustavo",
+      "foto": "https://firebasestorage.googleapis.com/v0/b/sabiaa-2e56f.firebasestorage.app/o/profile_photos%2Ftemp_1762115287265_1762115287304.jfif?alt=media&token=12ce8f06-a28f-4a0f-ab04-e1b1184eb2c2",
+      "data_nascimento": "2005-07-17",
+      "email": "gugupenido@gmail.com",
+      "senha_hash": "$2a$10$ZE8/2RZ7idrzgZRvYV0dK.tHfyGdtOVZPYmHPKJoCmRpKaSNJeffO",
+      "telefone": "(31) 99510-6573",
+      "endereco": {
+        "cep": "",
+        "rua": "",
+        "numero": "",
+        "complemento": "",
+        "bairro": "",
+        "cidade": "",
+        "estado": ""
+      },
+      "preferencias": {
+        "idioma": "pt-br",
+        "notificacoes": true,
+        "acessibilidade": false,
+        "tema": "claro"
+      },
+      "cadastro_data": "2025-11-02T20:28:09.672Z",
+      "status": "ativo",
+      "favoritos": [],
+      "referencias_academicas": {
+        "aluno": {
+          "escola": "",
+          "serie": "",
+          "turma": "",
+          "numero_matricula": "",
+          "cursos_ids": [],
+          "quizzes_ids": [],
+          "tarefas_ids": []
+        }
+      }
     }
   ],
   "recovery_tokens": [],
