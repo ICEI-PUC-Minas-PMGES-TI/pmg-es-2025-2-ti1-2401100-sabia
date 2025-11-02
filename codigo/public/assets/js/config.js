@@ -3,7 +3,7 @@
  */
 
 const SABIAA_CONFIG = {
-  // Configurações da API
+  // Configurações da API - JSON Server Simples
   API_BASE_URL: "http://localhost:3000",
 
   // Configurações do Firebase
@@ -26,6 +26,21 @@ const SABIAA_CONFIG = {
     quality: 0.8,
     placeholderImage: "./assets/images/logos/logo_simbolo_azul.png",
   },
+
+  // Configurações da API - Rotas simplificadas
+  API_ROUTES: {
+    AUTH: {
+      LOGIN: "/api/auth/login",
+      CADASTRO: "/api/auth/cadastro", 
+      VERIFICAR: "/api/auth/verificar",
+      RECUPERAR_SENHA: "/api/auth/recuperar-senha",
+      ALTERAR_SENHA: "/api/auth/alterar-senha"
+    },
+    USUARIO: {
+      PERFIL: "/api/usuario/perfil"
+    },
+    HEALTH: "/health"
+  }
 };
 
 // Exportar configurações globalmente

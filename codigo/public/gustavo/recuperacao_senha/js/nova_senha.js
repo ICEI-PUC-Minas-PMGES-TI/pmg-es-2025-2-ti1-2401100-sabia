@@ -187,33 +187,37 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // TODO: Substituir pela integração real com backend
-    /*
+    // Integração real com backend  
     async function updatePasswordReal(newPassword, token) {
         try {
-            const response = await fetch('/api/auth/reset-password', {
+            const response = await fetch(`${window.SABIAA_CONFIG?.API_BASE_URL || 'http://localhost:3000'}/api/auth/alterar-senha`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({ 
-                    password: newPassword,
-                    token: token 
+                    nova_senha: newPassword,
+                    recovery_token: token 
                 })
             });
             
             const data = await response.json();
             
             if (!response.ok) {
-                throw new Error(data.message || 'Erro ao atualizar senha');
+                throw new Error(data.error || 'Erro ao atualizar senha');
             }
             
-            return data;
+            return {
+                success: true,
+                message: data.message
+            };
         } catch (error) {
-            throw error;
+            return {
+                success: false,
+                error: error.message
+            };
         }
     }
-    */
 });
 
 // Função para alternar visibilidade da senha

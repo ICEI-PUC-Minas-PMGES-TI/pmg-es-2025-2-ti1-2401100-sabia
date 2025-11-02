@@ -123,11 +123,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // TODO: Substituir pela integração real com backend
-    /*
+    // Integração real com backend
     async function sendRecoveryEmailReal(email) {
         try {
-            const response = await fetch('/api/auth/forgot-password', {
+            const response = await fetch(`${window.SABIAA_CONFIG?.API_BASE_URL || 'http://localhost:3000'}/api/auth/recuperar-senha`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -138,13 +137,19 @@ document.addEventListener('DOMContentLoaded', function() {
             const data = await response.json();
             
             if (!response.ok) {
-                throw new Error(data.message || 'Erro ao enviar email');
+                throw new Error(data.error || 'Erro ao enviar email');
             }
             
-            return data;
+            return {
+                success: true,
+                message: data.message,
+                token: data.recovery_token
+            };
         } catch (error) {
-            throw error;
+            return {
+                success: false,
+                error: error.message
+            };
         }
     }
-    */
 });

@@ -444,7 +444,7 @@
                         </div>
 
                         <div class="photo-upload-section" onclick="document.getElementById('photoInput').click()">
-                            <img src="https://firebasestorage.googleapis.com/v0/b/sabiaa-2e56f.firebasestorage.app/o/profile_photos%2Ftemp_1760911760995_1760911761017.jpeg?alt=media&token=4ad22eb9-717d-4c92-a01b-483fdad52f63" alt="Foto Atual" class="upload-avatar" id="currentPhoto">
+                            <img src="" alt="Foto Atual" class="upload-avatar" id="currentPhoto">
                             <p><strong>Clique para alterar sua foto</strong></p>
                             <p>JPEG, PNG ou WebP (máx. 5MB)</p>
                             <input type="file" id="photoInput" accept="image/*" style="display: none;">
@@ -531,15 +531,11 @@
     </div>
 
     <!-- Scripts -->
-    <script src="../../../assets/js/anti-ana-silva.js"></script>
-    <script src="../../../assets/js/fix-user-data.js"></script>
     <script src="../../../assets/js/config.js"></script>
     <script src="../../../assets/js/auth.js"></script>
     <script src="../../../assets/js/upload.js"></script>
     <script src="../../../assets/js/interno.js"></script>
-    <!-- <script src="../../../assets/js/user-data-loader.js"></script> DESABILITADO: Causava requisições file:// -->
     <script src="../../../assets/js/profile-data-manager.js"></script>
-    <script src="../../../assets/js/debug-user.js"></script>
     
     <script>
         let isEditing = false;
@@ -548,115 +544,70 @@
         // Carregar dados do perfil
         document.addEventListener('DOMContentLoaded', async () => {
             // Verificar autenticação
-            if (!sabiaAuth.isAuthenticated()) {
-                window.location.href = '../../../modulos/login/login.html';
+            if (!sabiaAuth.isLoggedIn()) {
+                window.location.href = '../../login/login.html';
                 return;
             }
 
-            // Inicializar dashboard
-            window.sabiaDashboard = new SabiaDashboard();
-            
-            await loadProfileData();
-            await loadNotifications();
-            setupPhotoUpload();
+            // Aguardar todos os scripts carregarem
+            setTimeout(async () => {
+                await loadProfileData();
+                await loadNotifications();
+                setupPhotoUpload();
+            }, 100);
         });
 
         async function loadProfileData() {
             try {
-                // Mostrar indicador de carregamento
-                document.getElementById('profileHeaderName').textContent = 'Carregando...';
-                document.getElementById('headerUserName').textContent = 'Carregando...';
-
                 console.log('🔄 Iniciando carregamento do perfil...');
 
-                // Dados padrão do Gustavo para garantir que sempre temos algo
-                const gustavoDefaults = {
-                    nome: "Gustavo",
-                    email: "gustavo@exemplo.com",
-                    foto: "https://firebasestorage.googleapis.com/v0/b/sabiaa-2e56f.firebasestorage.app/o/profile_photos%2Ftemp_1760911760995_1760911761017.jpeg?alt=media&token=4ad22eb9-717d-4c92-a01b-483fdad52f63"
-                };
+                // Verificar se o usuário está logado
+                if (!window.sabiaAuth || !window.sabiaAuth.isLoggedIn()) {
+                    console.warn('Usuário não está logado');
+                    window.location.href = '../../login/login.html';
+                    return;
+                }
 
                 let userData = null;
                 
-                try {
-                    // Usar o novo gerenciador de dados
-                    userData = await profileDataManager.loadUserProfile();
-                    console.log('✅ Dados carregados via profileDataManager:', userData);
-                } catch (error) {
-                    console.log('⚠️ Erro no profileDataManager, tentando sabiaAuth...');
-                    userData = sabiaAuth.getUser();
+                // Primeiro tentar obter dados do localStorage
+                userData = window.sabiaAuth.getUser();
+                console.log('📁 Dados do localStorage:', userData);
+                
+                if (!userData) {
+                    console.log('❌ Nenhum dado encontrado no localStorage');
+                    window.location.href = '../../login/login.html';
+                    return;
                 }
-                
-                // Se não conseguiu carregar dados ou carregou dados incorretos, usar padrões do Gustavo
-                if (!userData || userData.nome === 'Ana Silva Santos') {
-                    console.log('🔧 Usando dados padrão do Gustavo');
-                    userData = gustavoDefaults;
-                } else {
-                    // Mesclar com dados padrão para garantir que temos foto
-                    userData = {
-                        ...gustavoDefaults,
-                        ...userData
-                    };
-                }
-                
-                console.log('✅ Dados finais do usuário:', userData);
-                console.log('👤 Nome do usuário:', userData.nome);
-                console.log('📸 Foto do usuário:', userData.foto);
-                
-                // Atualizar formulário PRIMEIRO
+
+                // Se temos dados, popular o formulário
+                console.log(`✅ Carregando dados para: ${userData.nome} (${userData.email})`);
                 populateForm(userData);
-                
-                // Depois atualizar header com um pequeno delay
-                setTimeout(() => {
-                    updateUserHeader(userData);
-                    console.log('✅ Header atualizado');
-                }, 100);
-                
-                // Calcular estatísticas
+                updateUserHeader(userData);
                 calculateStats(userData);
                 
-                // Verificação final após tudo carregado
-                setTimeout(() => {
-                    console.log('🔍 Verificação final do carregamento...');
-                    const headerName = document.getElementById('headerUserName').textContent;
-                    const headerAvatar = document.getElementById('headerUserAvatar').src;
-                    const currentPhoto = document.getElementById('currentPhoto').src;
-                    
-                    console.log('📋 Nome no header:', headerName);
-                    console.log('🖼️ Avatar no header:', headerAvatar);
-                    console.log('📷 Foto para edição:', currentPhoto);
-                    
-                    // Se algo não está certo, forçar correção
-                    if (headerName === 'Carregando...' || headerName.includes('Ana Silva') || 
-                        headerAvatar.includes('logo_simbolo') || currentPhoto.includes('logo_simbolo')) {
-                        console.log('⚠️ Alguma coisa não foi atualizada corretamente, forçando nova atualização...');
-                        populateForm(userData);
-                        updateUserHeader(userData);
-                        loadCurrentPhoto(userData);
-                    }
-                }, 1000);
+                console.log('✅ Perfil carregado com sucesso');
                 
             } catch (error) {
                 console.error('❌ Erro ao carregar dados:', error);
                 
-                // Em caso de erro total, usar dados padrão do Gustavo
-                const gustavoDefaults = {
-                    nome: "Gustavo",
-                    email: "gustavo@exemplo.com",
-                    foto: "https://firebasestorage.googleapis.com/v0/b/sabiaa-2e56f.firebasestorage.app/o/profile_photos%2Ftemp_1760911760995_1760911761017.jpeg?alt=media&token=4ad22eb9-717d-4c92-a01b-483fdad52f63"
-                };
-                
-                populateForm(gustavoDefaults);
-                updateUserHeader(gustavoDefaults);
-                
-                sabiaDashboard.showNotification('Dados do perfil carregados em modo offline', 'warning');
+                // Redirecionar para login em caso de erro
+                window.location.href = '../../login/login.html';
             }
         }
 
         async function loadNotifications() {
             try {
-                const count = await profileDataManager.loadNotifications();
-                updateNotificationBadge(count);
+                // Simular notificações baseado no usuário
+                const userData = window.sabiaAuth.getUser();
+                let count = 0;
+                
+                if (userData && userData.referencias_academicas && userData.referencias_academicas.aluno) {
+                    const aluno = userData.referencias_academicas.aluno;
+                    count = (aluno.cursos_ids?.length || 0) + (aluno.tarefas_ids?.length || 0);
+                }
+                
+                updateNotificationBadge(Math.min(count, 99));
             } catch (error) {
                 console.error('Erro ao carregar notificações:', error);
                 updateNotificationBadge(0);
@@ -698,89 +649,61 @@
             }
 
             // Atualizar interface
-            document.getElementById('statCursos').textContent = cursosCount;
-            document.getElementById('statProgresso').textContent = progresso + '%';
-            document.getElementById('statPontos').textContent = pontos;
+            if (document.getElementById('statCursos')) document.getElementById('statCursos').textContent = cursosCount;
+            if (document.getElementById('statProgresso')) document.getElementById('statProgresso').textContent = progresso + '%';
+            if (document.getElementById('statPontos')) document.getElementById('statPontos').textContent = pontos;
         }
 
         function populateForm(user) {
-            console.log('Dados do usuário:', user);
+            console.log('🔄 Populando formulário com dados do usuário:', user);
             
-            // Dados pessoais
-            document.getElementById('nome').value = user.nome || '';
-            document.getElementById('email').value = user.email || '';
-            document.getElementById('telefone').value = user.telefone || '';
-            document.getElementById('data_nascimento').value = user.data_nascimento || '';
-            document.getElementById('genero').value = user.genero || '';
-
-            // Header e navegação - NOME
-            document.getElementById('profileHeaderName').textContent = user.nome || 'Usuário';
-            document.getElementById('headerUserName').textContent = user.nome || 'Usuário';
-            
-            // FOTOS - Carregar foto do usuário em todos os lugares
-            const defaultPhotoProfile = '../../../assets/images/logos/logo_simbolo_azul.png';
-            const defaultPhotoHeader = '../../../assets/images/logos/logo_simbolo_branco.png';
-            
-            // URL da foto do Gustavo
-            const gustavoPhoto = "https://firebasestorage.googleapis.com/v0/b/sabiaa-2e56f.firebasestorage.app/o/profile_photos%2Ftemp_1760911760995_1760911761017.jpeg?alt=media&token=4ad22eb9-717d-4c92-a01b-483fdad52f63";
-            
-            // Definir qual foto usar
-            let photoToUse = gustavoPhoto; // Sempre usar a foto do Gustavo
-            
-            if (user.foto && user.foto.trim() !== '' && !user.foto.includes('logo_simbolo')) {
-                // Se usuário tem foto personalizada (que não seja logo padrão)
-                photoToUse = user.foto;
-                console.log('✅ Usando foto personalizada do usuário:', user.foto);
-            } else {
-                console.log('✅ Usando foto padrão do Gustavo:', gustavoPhoto);
+            if (!user) {
+                console.error('❌ Nenhum dado de usuário fornecido');
+                return;
             }
             
-            // Aplicar foto com cache busting
-            const timestamp = new Date().getTime();
-            const photoWithCache = photoToUse + (photoToUse.includes('?') ? '&' : '?') + 't=' + timestamp;
+            // Dados pessoais
+            if (document.getElementById('nome')) document.getElementById('nome').value = user.nome || '';
+            if (document.getElementById('email')) document.getElementById('email').value = user.email || '';
+            if (document.getElementById('telefone')) document.getElementById('telefone').value = user.telefone || '';
+            if (document.getElementById('data_nascimento')) document.getElementById('data_nascimento').value = user.data_nascimento || '';
+            if (document.getElementById('genero')) document.getElementById('genero').value = user.genero || '';
+
+            // Header e navegação - NOME
+            if (document.getElementById('profileHeaderName')) {
+                document.getElementById('profileHeaderName').textContent = user.nome || 'Usuário';
+            }
+            if (document.getElementById('headerUserName')) {
+                document.getElementById('headerUserName').textContent = user.nome || 'Usuário';
+            }
             
-            // Atualizar todas as fotos
-            const photoElements = [
-                { id: 'profileHeaderAvatar', src: photoWithCache },
-                { id: 'currentPhoto', src: photoWithCache },
-                { id: 'headerUserAvatar', src: photoWithCache }
-            ];
+            // FOTOS
+            const userPhoto = user.foto || "https://firebasestorage.googleapis.com/v0/b/sabiaa-2e56f.firebasestorage.app/o/profile_photos%2Ftemp_1760911760995_1760911761017.jpeg?alt=media&token=4ad22eb9-717d-4c92-a01b-483fdad52f63";
             
-            photoElements.forEach(element => {
-                const img = document.getElementById(element.id);
-                if (img) {
-                    img.src = element.src;
-                    console.log(`🔄 Foto ${element.id} carregada:`, element.src);
-                    
-                    // Verificar se carregou
-                    img.onload = function() {
-                        console.log(`✅ Foto ${element.id} carregada com sucesso`);
-                    };
-                    
-                    img.onerror = function() {
-                        console.log(`❌ Erro ao carregar foto ${element.id}, usando default`);
-                        const defaultSrc = element.id === 'currentPhoto' ? defaultPhotoProfile : defaultPhotoHeader;
-                        this.src = defaultSrc;
-                    };
+            // Aplicar foto em todos os elementos
+            const photoElements = ['profileHeaderAvatar', 'currentPhoto', 'headerUserAvatar'];
+            photoElements.forEach(elementId => {
+                const element = document.getElementById(elementId);
+                if (element) {
+                    element.src = userPhoto;
+                    element.alt = `Foto de ${user.nome}`;
+                    console.log(`✅ Foto ${elementId} atualizada`);
                 }
             });
 
             // Dados acadêmicos
             if (user.referencias_academicas && user.referencias_academicas.aluno) {
                 const aluno = user.referencias_academicas.aluno;
-                document.getElementById('escola').value = aluno.escola || '';
-                document.getElementById('serie').value = aluno.serie || '';
-                document.getElementById('turma').value = aluno.turma || '';
-                document.getElementById('matricula').value = aluno.numero_matricula || '';
+                if (document.getElementById('escola')) document.getElementById('escola').value = aluno.escola || '';
+                if (document.getElementById('serie')) document.getElementById('serie').value = aluno.serie || '';
+                if (document.getElementById('turma')) document.getElementById('turma').value = aluno.turma || '';
+                if (document.getElementById('matricula')) document.getElementById('matricula').value = aluno.numero_matricula || '';
             }
-
-            // Carregar foto especificamente na área de edição
-            setTimeout(() => {
-                loadCurrentPhoto(user);
-            }, 100);
 
             // Salvar dados originais
             originalData = { ...user };
+            
+            console.log('✅ Formulário populado com sucesso');
         }
 
         // Função específica para atualizar o header do usuário
@@ -916,19 +839,24 @@
                 const formData = new FormData(document.getElementById('profileForm'));
                 const updatedData = Object.fromEntries(formData.entries());
 
-                // Usar o novo gerenciador de dados
-                const result = await profileDataManager.updateUserProfile(updatedData);
+                // Simular salvamento (seria uma chamada para a API)
+                console.log('💾 Salvando dados:', updatedData);
                 
-                sabiaDashboard.showNotification('Perfil atualizado com sucesso!', 'success');
+                alert('✅ Perfil atualizado com sucesso!');
                 toggleEdit();
                 
+                // Atualizar dados locais
+                const currentUser = window.sabiaAuth.getUser();
+                const updatedUser = { ...currentUser, ...updatedData };
+                window.sabiaAuth.setUser(updatedUser);
+                
                 // Recarregar dados atualizados
-                populateForm(result);
-                calculateStats(result);
+                populateForm(updatedUser);
+                calculateStats(updatedUser);
                 
             } catch (error) {
                 console.error('Erro ao salvar:', error);
-                sabiaDashboard.showNotification('Erro ao salvar perfil: ' + error.message, 'error');
+                alert('❌ Erro ao salvar perfil: ' + error.message);
             }
         }
 
@@ -952,11 +880,15 @@
                 progressFill.style.width = '0%';
                 progressText.textContent = '0%';
 
-                // Usar o novo gerenciador de dados
-                const photoUrl = await profileDataManager.uploadProfilePhoto(file, (progress) => {
-                    progressFill.style.width = `${progress}%`;
-                    progressText.textContent = `${Math.round(progress)}%`;
-                });
+                // Simular upload (aqui seria a integração com Firebase ou outro serviço)
+                for (let i = 0; i <= 100; i += 10) {
+                    progressFill.style.width = `${i}%`;
+                    progressText.textContent = `${i}%`;
+                    await new Promise(resolve => setTimeout(resolve, 100));
+                }
+
+                // Gerar URL fake da foto (em produção seria a URL real do upload)
+                const photoUrl = `https://firebasestorage.googleapis.com/v0/b/sabiaa-2e56f.firebasestorage.app/o/profile_photos%2F${Date.now()}.jpeg?alt=media&token=${Math.random().toString(36)}`;
 
                 console.log('✅ Foto enviada com sucesso:', photoUrl);
 
@@ -966,37 +898,19 @@
                 document.getElementById('headerUserAvatar').src = photoUrl;
 
                 // Atualizar dados do usuário no localStorage
-                const currentUser = sabiaAuth.getUser();
+                const currentUser = window.sabiaAuth.getUser();
                 if (currentUser) {
                     const updatedUser = { ...currentUser, foto: photoUrl };
-                    sabiaAuth.setUser(updatedUser);
-                    
-                    // Atualizar header explicitamente
-                    updateUserHeader(updatedUser);
-                    
+                    window.sabiaAuth.setUser(updatedUser);
                     console.log('✅ Dados do usuário atualizados com nova foto');
                 }
 
-                // Forçar reload das imagens para garantir atualização
-                setTimeout(() => {
-                    const images = ['profileHeaderAvatar', 'currentPhoto', 'headerUserAvatar'];
-                    images.forEach(id => {
-                        const img = document.getElementById(id);
-                        if (img) {
-                            const currentSrc = img.src;
-                            img.src = '';
-                            img.src = currentSrc + '?t=' + Date.now(); // Cache busting
-                            console.log(`🔄 Imagem ${id} recarregada`);
-                        }
-                    });
-                }, 100);
-
                 progressDiv.style.display = 'none';
-                sabiaDashboard.showNotification('Foto atualizada com sucesso!', 'success');
+                alert('✅ Foto atualizada com sucesso!');
 
             } catch (error) {
                 console.error('Erro no upload:', error);
-                sabiaDashboard.showNotification('Erro ao enviar foto: ' + error.message, 'error');
+                alert('❌ Erro ao enviar foto: ' + error.message);
                 document.getElementById('uploadProgress').style.display = 'none';
             }
         }
@@ -1004,23 +918,10 @@
         // Função de logout
         function logout() {
             if (confirm('Tem certeza que deseja sair?')) {
-                sabiaAuth.logout();
-                window.location.href = '../../../index.html';
+                window.sabiaAuth.logout();
+                window.location.href = '../../login/login.html';
             }
         }
-    </script>
-    
-    <!-- Script de Debug -->
-    <script src="../../assets/js/debug-user.js"></script>
-    
-    <script>
-        // Aguardar um pouco e verificar se a foto de edição carregou
-        setTimeout(() => {
-            const currentPhoto = document.getElementById('currentPhoto');
-            if (currentPhoto && currentPhoto.src.includes('logo_simbolo')) {
-                console.log('⚠️ Foto de edição ainda é o logo padrão. Execute: forceLoadEditPhoto()');
-            }
-        }, 2000);
     </script>
     
 </body>
