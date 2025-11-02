@@ -103,9 +103,9 @@
                 }
             ],
             "associacao": {
-                "curso_id": "curso_id_123", 
-                "disciplina_id": "disciplina_id_1", 
-                "turma_id": "turma_id_1" 
+                "curso_id": "curso_id_123",
+                "disciplina_id": "disciplina_id_1",
+                "turma_id": "turma_id_1"
             },
             "status_alunos": [
                 {
@@ -174,52 +174,48 @@
     ],
     "cursos": [
         {
-            "id": "curso_101",
-            "titulo": "Introdução à Programação",
-            "descricao": "Curso introdutório sobre lógica e fundamentos de código.",
-            "categoria": "Tecnologia",
-            "nivel": "Iniciante",
-            "carga_horaria": 40,
-            "tags": [
-                "programação",
-                "algoritmos",
-                "lógica"
-            ],
-            "imagem_capa": "https://cdn.sabiaa.com/thumbs/curso_101.jpg",
-            "video_apresentacao": "https://cdn.sabiaa.com/trailers/curso_101.mp4",
-            "data_publicacao": "2025-06-15T10:00:00Z",
-            "ultima_atualizacao": "2025-09-28T12:00:00Z",
-            "ativo": true,
-            "progresso_medio": 0.78,
-            "visualizacoes": 3245,
-            "avaliacao_media": 4.7,
-            "professor_responsavel_id": "prof_012",
-            "alunos_matriculados": [
-                "usr_001",
-                "usr_002",
-                "usr_003"
-            ],
-            "aulas_ids": [
-                "aula_301",
-                "aula_302",
-                "aula_303"
-            ],
-            "atividades_ids": [
-                "atv_501",
-                "atv_502"
-            ],
-            "turmas_vinculadas_ids": [
-                "turma_102",
-                "turma_105"
-            ],
-            "comentarios": [
-                {
-                    "usuario_id": "usr_001",
-                    "mensagem": "Curso excelente para iniciantes!",
-                    "data": "2025-09-30T14:20:00Z",
-                    "nota": 5
-                }
-            ]
+          "id": 1,
+          "titulo": "Desenvolvimento Web Moderno",
+          "descricao": "Curso completo focado nas tecnologias mais recentes de front-end e back-end.",
+          "thumbnail_url": "url/para/imagem_thumb_web.png",
+          "professor": "Prof. Silva",
+          "disciplina": "Tecnologia",
+          "categoria": "Tecnologia",
+          "num_aulas": 24,
+          "num_atividades": 8,
+          "duracao_horas": 47,
+          "nivel": "Iniciante",
+          "gera_certificado": true,
+          "status": "Publicado",
+          "data_publicacao": "2024-11-15T00:00:00Z",
+          "ultima_atualizacao": "2024-11-15T00:00:00Z",
+          "idioma": "Português",
+          "tags": ["HTML", "CSS", "JavaScript", "React"],
+          "video_url": "https://www.youtube.com/watch?v=exemplo",
+          "anexos_gerais": [
+            { "nome": "Plano de Aulas.pdf", "url": "url/plano.pdf" }
+          ]
+        },
+        {
+          "id": 2,
+          "titulo": "UI/UX Design Fundamentals",
+          "descricao": "Aprenda os fundamentos de User Interface e User Experience Design.",
+          "thumbnail_url": "url/para/imagem_thumb_ux.png",
+          "professor": "Prof. Santos",
+          "disciplina": "Design",
+          "categoria": "Design",
+          "num_aulas": 18,
+          "num_atividades": 12,
+          "duracao_horas": 32,
+          "nivel": "Iniciante",
+          "gera_certificado": true,
+          "status": "Rascunho",
+          "data_publicacao": null,
+          "ultima_atualizacao": "2024-11-12T00:00:00Z",
+          "idioma": "Português",
+          "tags": ["UI", "UX", "Figma"],
+          "video_url": "https://www.youtube.com/watch?v=exemplo2",
+          "anexos_gerais": []
         }
     ],
     "disciplinas": [
@@ -259,3 +255,4 @@
         }
     ]
 }
+
