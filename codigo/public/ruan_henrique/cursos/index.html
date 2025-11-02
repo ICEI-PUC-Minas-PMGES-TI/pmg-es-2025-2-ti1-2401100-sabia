@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Cursos - Sabiaa</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="../../assets/css/global.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="page-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../../assets/images/logos/logo_bege_texto_lateral.png" alt="Sabiaa" class="logo"> 
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#"><i class="fa-solid fa-home"></i> Início</a>
+                <a href="#" class="active"><i class="fa-solid fa-book"></i> Cursos</a>
+                <a href="#"><i class="fa-solid fa-calendar-plus"></i> Atividades</a>
+                <a href="#"><i class="fa-solid fa-user"></i> Perfil</a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <div class="search-bar">
+                    <i class="fa-solid fa-search"></i>
+                    <input type="text" placeholder="Buscar...">
+                </div>
+                <div class="user-menu">
+                    <i class="fa-solid fa-bell"></i>
+                    <i class="fa-solid fa-cog"></i>
+                    <img src="../../assets/images/default-aluno-avatar.svg" alt="Usuário" class="avatar"> 
+                </div>
+            </header>
+
+            <section class="content-body">
+                <div class="gerenciamento-header">
+                    <div>
+                        <h1>Gerenciamento de Cursos</h1>
+                        <p>Gerencie todos os cursos da plataforma Sabiaa</p>
+                    </div>
+                    <a href="cadastro.html" class="btn-criar-novo">+ Criar Novo Curso</a>
+                </div>
+
+                <div class="card filtros-card">
+                    <div class="filtro-grupo">
+                        <label>Categoria</label>
+                        <select><option>Todos</option></select>
+                    </div>
+                    <div class="filtro-grupo">
+                        <label>Status</label>
+                        <select><option>Todos</option></select>
+                    </div>
+                    <div class="filtro-grupo">
+                        <label>Professor</label>
+                        <select><option>Todos</option></select>
+                    </div>
+                    <div class="filtro-grupo">
+                        <label>Certificado</label>
+                        <select><option>Todos</option></select>
+                    </div>
+                    <div class="filtro-grupo">
+                        <label>Ordenar por</label>
+                        <select><option>Data</option></select>
+                    </div>
+                    <button class="btn-filtrar"><i class="fa-solid fa-filter"></i> Filtrar</button>
+                </div>
+
+                <div class="status-cards-container">
+                    <div class="card status-card">
+                        <p>Total de Cursos</p>
+                        <strong id="total-cursos">0</strong>
+                        <i class="fa-solid fa-folder-open icon-total"></i>
+                    </div>
+                    <div class="card status-card">
+                        <p>Publicados</p>
+                        <strong id="total-publicados">0</strong>
+                        <i class="fa-solid fa-check icon-publicado"></i>
+                    </div>
+                    <div class="card status-card">
+                        <p>Rascunhos</p>
+                        <strong id="total-rascunhos">0</strong>
+                        <i class="fa-solid fa-pencil icon-rascunho"></i>
+                    </div>
+                    <div class="card status-card">
+                        <p>Arquivados</p>
+                        <strong id="total-arquivados">0</strong>
+                        <i class="fa-solid fa-trash-can icon-arquivado"></i>
+                    </div>
+                </div>
+
+                <div class="card tabela-container">
+                    <table class="tabela-cursos">
+                        <thead>
+                            <tr>
+                                <th>Thumbnail</th>
+                                <th>Título</th>
+                                <th>Categoria</th>
+                                <th>Aulas</th>
+                                <th>Atividades</th>
+                                <th>Certificado</th>
+                                <th>Status</th>
+                                <th>Última Atualização</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabela-cursos-corpo">
+                        </tbody>
+                    </table>
+                </div>
+
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
