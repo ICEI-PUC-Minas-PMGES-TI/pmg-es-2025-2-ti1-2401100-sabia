@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Aprendizado - SABIAA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="page-wrapper">
+        
+        <nav class="sidebar">
+            <div class="sidebar-logo">
+                <img src="victhor_guilherme/sabiaa-logo.png" alt="Logo Sabiá" />
+            </div>
+            <ul class="sidebar-nav">
+                <li class="nav-item active">
+                    <a href="#"><i class="fas fa-home"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a href="#"><i class="fas fa-chart-line"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a href="#"><i class="fas fa-book"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a href="#"><i class="fas fa-comment-dots"></i></a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="main-content-wrapper">
+
+            <header class="top-bar">
+                <div class="logo-top">
+                    <img src="victhor_guilherme/sabiaa-logo.png" alt="Logo Sabiá" />
+                </div>
+                <div class="user-icons">
+                    <a href="#"><i class="fas fa-bell"></i></a>
+                    <a href="#"><i class="fas fa-comment-alt"></i></a>
+                    <a href="#"><i class="fas fa-cog"></i></a>
+                    <a href="#" class="user-avatar"></a>
+                </div>
+            </header>
+
+            <main class="content-area">
+                
+                <div class="container-geral">
+                    <header class="cabecalho">
+                        <h1>Bem-vinda de volta, Maria!</h1>
+                        <p>Continue sua jornada de aprendizado</p>
+                    </header>
+
+                    <main class="conteudo-principal">
+                        <section class="coluna-esquerda">
+                            <div class="caixa card-um">
+                                <h2>Resumo do Progresso</h2>
+                                <div class="grid-resumo">
+                                    <div class="item-resumo" style="grid-row: span 2">
+                                        <h3>Evolução Mensal</h3>
+                                        <div class="grafico-placeholder">
+                                            <img src="https://i.imgur.com/kUjL9fT.png" alt="Gráfico de Evolução" class="grafico-imagem">
+                                        </div>
+                                    </div>
+                                    <div class="item-resumo cursos-feitos">
+                                        <h3>Cursos Concluídos</h3>
+                                        <div class="info-icone">
+                                            <span class="numero">12</span>
+                                            <span class="icone"><i class="fas fa-graduation-cap"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="item-resumo horas-estudo">
+                                        <h3>Horas Estudadas</h3>
+                                        <div class="info-icone">
+                                            <span class="numero">89h</span>
+                                            <span class="icone"><i class="fas fa-clock"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="caixa card-dois">
+                                <div class="caixa-header">
+                                    <h2>Minhas Tarefas</h2>
+                                    <span class="contador">5 pendentes</span>
+                                </div>
+                                <ul>
+                                    <li>
+                                        <div class="item-tarefa urgente">
+                                            <span class="icone-tipo"><i class="fas fa-exclamation-triangle"></i></span>
+                                            <div class="detalhes">
+                                                <h4>Quiz: Matemática Básica</h4>
+                                                <p>Vence em 2 dias</p>
+                                            </div>
+                                            <span class="status-tarefa tipo-pendente">Pendente</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-tarefa fazendo">
+                                            <span class="icone-tipo"><i class="fas fa-hourglass-half"></i></span>
+                                            <div class="detalhes">
+                                                <h4>Atividade: História do Brasil</h4>
+                                                <p>Vence em 5 dias</p>
+                                            </div>
+                                            <span class="status-tarefa tipo-andamento">Em Andamento</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-tarefa pronto">
+                                            <span class="icone-tipo"><i class="fas fa-check-circle"></i></span>
+                                            <div class="detalhes">
+                                                <h4>Exercício: Português</h4>
+                                                <p>Concluído ontem</p>
+                                            </div>
+                                            <span class="status-tarefa tipo-completo">Concluído</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="caixa card-tres">
+                                <h2>Continuar Assistindo</h2>
+                                <div class="video-bloco">
+                                    <div class="video-thumb">
+                                        <span class="icone-play"><i class="fas fa-play"></i></span>
+                                    </div>
+                                    <div class="video-info">
+                                        <h3>Física Quântica - Aula 03</h3>
+                                        <p>Princípios fundamentais</p>
+                                        <div class="progresso-wrapper">
+                                            <div class="barra-progresso">
+                                                <div class="progresso" style="width: 82%;"></div>
+                                            </div>
+                                            <span class="porcentagem">82%</span>
+                                        </div>
+                                    </div>
+                                    <button class="botao-video">Continuar</button>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="coluna-direita">
+                            <div class="caixa card-quatro">
+                                <h2>Favoritos</h2>
+                                <ul>
+                                    <li><span class="icone-coracao"><i class="fas fa-heart"></i></span>Química Orgânica <span class="contador-aulas">15 aulas</span></li>
+                                    <li><span class="icone-coracao"><i class="fas fa-heart"></i></span>Literatura Brasileira <span class="contador-aulas">8 aulas</span></li>
+                                    <li><span class="icone-coracao"><i class="fas fa-heart"></i></span>Geometria Analítica <span class="contador-aulas">12 aulas</span></li>
+                                </ul>
+                            </div>
+
+                            <div class="caixa card-cinco">
+                                <h2>Recomendações <span class="icone-info-header"><i class="fas fa-question"></i></span></h2>
+                                <div class="item-rec">
+                                    <div class="detalhes-rec">
+                                        <h4>Introdução ao JavaScript</h4>
+                                        <p>Baseado no seu progresso em informática</p>
+                                    </div>
+                                    <span class="estrela"><i class="fas fa-star"></i></span>
+                                    <button class="botao-iniciar">Iniciar Curso</button>
+                                </div>
+                                <div class="item-rec">
+                                    <div class="detalhes-rec">
+                                        <h4>Redação ENEM</h4>
+                                        <p>Próximo passo recomendado</p>
+                                    </div>
+                                    <span class="icone-info"><i class="fas fa-question"></i></span>
+                                    <button class="botao-detalhes">Ver Detalhes</button>
+                                </div>
+                            </div>
+                        </section>
+                    </main>
+                </div>
+            </main>
+
+            <footer class="footer">
+                <div class="footer-col logo-col">
+                    <div class="footer-logo">
+                        <img src="victhor_guilherme/sabiaa-logo.png" alt="Logo Sabiá" />
+                    </div>
+                    <p>Educação e Tecnologia alinhadas para um futuro melhor</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="#">Sobre</a></li>
+                        <li><a href="#">Cursos</a></li>
+                        <li><a href="#">Suporte</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> contato@sabiaa.com.br</li>
+                        <li><i class="fas fa-phone"></i> (31) 1234-5678</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Redes Sociais</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

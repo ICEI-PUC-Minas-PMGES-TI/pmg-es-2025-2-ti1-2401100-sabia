@@ -1,261 +1,237 @@
 {
-    "usuarios": [
+  "usuarios": [
+    {
+      "id": "string",
+      "tipo": "aluno|professor|administrador",
+      "nome": "string",
+      "foto": "url_da_imagem",
+      "data_nascimento": "YYYY-MM-DD",
+      "genero": "masculino|feminino|outro",
+      "email": "string",
+      "senha_hash": "string",
+      "telefone": "string",
+      "endereco": {
+        "cep": "string",
+        "rua": "string",
+        "numero": "string",
+        "complemento": "string",
+        "bairro": "string",
+        "cidade": "string",
+        "estado": "string"
+      },
+      "preferencias": {
+        "idioma": "pt-br|en|es",
+        "notificacoes": true,
+        "acessibilidade": true,
+        "tema": "claro|escuro"
+      },
+      "cadastro_data": "YYYY-MM-DDTHH:MM:SSZ",
+      "status": "ativo|inativo|suspenso",
+      "favoritos": [
         {
-            "id": "string",
-            "tipo": "aluno|professor|administrador",
-            "nome": "string",
-            "foto": "url_da_imagem",
-            "data_nascimento": "YYYY-MM-DD",
-            "genero": "masculino|feminino|outro",
-            "email": "string",
-            "senha_hash": "string",
-            "telefone": "string",
-            "endereco": {
-                "cep": "string",
-                "rua": "string",
-                "numero": "string",
-                "complemento": "string",
-                "bairro": "string",
-                "cidade": "string",
-                "estado": "string"
-            },
-            "preferencias": {
-                "idioma": "pt-br|en|es",
-                "notificacoes": true,
-                "acessibilidade": true,
-                "tema": "claro|escuro"
-            },
-            "cadastro_data": "YYYY-MM-DDTHH:MM:SSZ",
-            "status": "ativo|inativo|suspenso",
-            "favoritos": [
-                {
-                    "tipo": "aula|curso|materia",
-                    "id": "string",
-                    "data_favorito": "YYYY-MM-DDTHH:MM:SSZ"
-                }
-            ],
-            "referencias_academicas": {
-                "aluno": {
-                    "escola": "string",
-                    "serie": "string",
-                    "turma": "string",
-                    "numero_matricula": "string",
-                    "cursos_ids": [
-                        "curso_id1",
-                        "curso_id2"
-                    ],
-                    "quizzes_ids": [
-                        "quiz_id1",
-                        "quiz_id2"
-                    ],
-                    "tarefas_ids": [
-                        "tarefa_id1",
-                        "tarefa_id2"
-                    ]
-                },
-                "professor": {
-                    "disciplinas": [
-                        "Matemática",
-                        "Português"
-                    ],
-                    "turmas_atribuidas": [
-                        "Turma A",
-                        "Turma B"
-                    ],
-                    "numero_registro": "string",
-                    "formacao": "string",
-                    "aulas_ids": [
-                        "aula_id1",
-                        "aula_id2"
-                    ],
-                    "quizzes_criados_ids": [
-                        "quiz_id1",
-                        "quiz_id2"
-                    ]
-                },
-                "administrador": {
-                    "escola": "string",
-                    "cargo": "string",
-                    "numero_alunos": 0,
-                    "numero_professores": 0,
-                    "relatorios_ids": [
-                        "relatorio_id1",
-                        "relatorio_id2"
-                    ]
-                }
-            }
+          "tipo": "aula|curso|materia",
+          "id": "string",
+          "data_favorito": "YYYY-MM-DDTHH:MM:SSZ"
         }
-    ],
-    "atividades": [
+      ],
+      "referencias_academicas": {
+        "aluno": {
+          "escola": "string",
+          "serie": "string",
+          "turma": "string",
+          "numero_matricula": "string",
+          "cursos_ids": [
+            "curso_id1",
+            "curso_id2"
+          ],
+          "quizzes_ids": [
+            "quiz_id1",
+            "quiz_id2"
+          ],
+          "tarefas_ids": [
+            "tarefa_id1",
+            "tarefa_id2"
+          ]
+        },
+        "professor": {
+          "disciplinas": [
+            "Matemática",
+            "Português"
+          ],
+          "turmas_atribuidas": [
+            "Turma A",
+            "Turma B"
+          ],
+          "numero_registro": "string",
+          "formacao": "string",
+          "aulas_ids": [
+            "aula_id1",
+            "aula_id2"
+          ],
+          "quizzes_criados_ids": [
+            "quiz_id1",
+            "quiz_id2"
+          ]
+        },
+        "administrador": {
+          "escola": "string",
+          "cargo": "string",
+          "numero_alunos": 0,
+          "numero_professores": 0,
+          "relatorios_ids": [
+            "relatorio_id1",
+            "relatorio_id2"
+          ]
+        }
+      }
+    }
+  ],
+  "atividades": [
+    {
+      "id": "atividade_id_1",
+      "titulo": "Exercícios de Frações",
+      "descricao": "Resolva os exercícios de frações propostas na aula, incluindo adição, subtração, multiplicação e divisão.",
+      "tipo": "exercicio|quiz|trabalho|projeto",
+      "data_criacao": "2025-09-21T08:00:00Z",
+      "prazo_entrega": "2025-09-28T23:59:59Z",
+      "materiais_apoio": [
         {
-            "id": "atividade_id_1",
-            "titulo": "Exercícios de Frações",
-            "descricao": "Resolva os exercícios de frações propostas na aula, incluindo adição, subtração, multiplicação e divisão.",
-            "tipo": "exercicio|quiz|trabalho|projeto",
-            "data_criacao": "2025-09-21T08:00:00Z",
-            "prazo_entrega": "2025-09-28T23:59:59Z",
-            "materiais_apoio": [
-                {
-                    "id": "material_1",
-                    "tipo": "pdf|slide|doc|imagem",
-                    "titulo": "Guia de Frações",
-                    "url": "https://url_material.pdf"
-                }
-            ],
-            "associacao": {
-                "curso_id": "curso_id_123", 
-                "disciplina_id": "disciplina_id_1", 
-                "turma_id": "turma_id_1" 
-            },
-            "status_alunos": [
-                {
-                    "usuario_id": "aluno_id_1",
-                    "status": "pendente|em_andamento|concluido",
-                    "nota": 8.5,
-                    "data_entrega": "2025-09-27T15:30:00Z"
-                },
-                {
-                    "usuario_id": "aluno_id_2",
-                    "status": "pendente",
-                    "nota": null,
-                    "data_entrega": null
-                }
-            ],
-            "quantidade_submissoes": 2,
-            "numero_visualizacoes": 45
+          "id": "material_1",
+          "tipo": "pdf|slide|doc|imagem",
+          "titulo": "Guia de Frações",
+          "url": "https://url_material.pdf"
         }
-    ],
-    "aulas": [
+      ],
+      "associacao": {
+        "curso_id": "curso_id_123",
+        "disciplina_id": "disciplina_id_1",
+        "turma_id": "turma_id_1"
+      },
+      "status_alunos": [
         {
-            "id": "aula_id_1",
-            "titulo": "Adição e Subtração",
-            "descricao": "Aula explicando operações de adição e subtração com exemplos práticos",
-            "video_url": "https://url_do_video.mp4",
-            "duracao": "00:15:30",
-            "visualizacoes": 150,
-            "data_publicacao": "2025-09-21T08:00:00Z",
-            "materiais_apoio": [
-                {
-                    "id": "material_1",
-                    "tipo": "pdf",
-                    "titulo": "Exercícios de adição",
-                    "url": "https://url_do_material.pdf"
-                }
-            ],
-            "conteudos_relacionados_ids": [
-                "aula_id_2",
-                "aula_id_3"
-            ],
-            "progresso_usuario": {
-                "usuario_id_1": {
-                    "percentual_conclusao": 50,
-                    "ultima_visualizacao": "2025-09-21T10:00:00Z"
-                }
-            },
-            "turmas": [
-                {
-                    "turmaId": "turma_1",
-                    "nomeTurma": "turma_1"
-                }
-            ],
-            "modulos": [
-                {
-                    "id": "modulo_1",
-                    "turmaId": "turma_1",
-                    "titulo": "Matemática Básica",
-                    "descricao": "O básico da matemática básica no ensino fundamental"
-                }
-            ],
-            "associacao": {
-                "curso_id": "curso_id_123",
-                "disciplina_id": null
-            }
-        }
-    ],
-    "cursos": [
+          "usuario_id": "aluno_id_1",
+          "status": "pendente|em_andamento|concluido",
+          "nota": 8.5,
+          "data_entrega": "2025-09-27T15:30:00Z"
+        },
         {
-            "id": "curso_101",
-            "titulo": "Introdução à Programação",
-            "descricao": "Curso introdutório sobre lógica e fundamentos de código.",
-            "categoria": "Tecnologia",
-            "nivel": "Iniciante",
-            "carga_horaria": 40,
-            "tags": [
-                "programação",
-                "algoritmos",
-                "lógica"
-            ],
-            "imagem_capa": "https://cdn.sabiaa.com/thumbs/curso_101.jpg",
-            "video_apresentacao": "https://cdn.sabiaa.com/trailers/curso_101.mp4",
-            "data_publicacao": "2025-06-15T10:00:00Z",
-            "ultima_atualizacao": "2025-09-28T12:00:00Z",
-            "ativo": true,
-            "progresso_medio": 0.78,
-            "visualizacoes": 3245,
-            "avaliacao_media": 4.7,
-            "professor_responsavel_id": "prof_012",
-            "alunos_matriculados": [
-                "usr_001",
-                "usr_002",
-                "usr_003"
-            ],
-            "aulas_ids": [
-                "aula_301",
-                "aula_302",
-                "aula_303"
-            ],
-            "atividades_ids": [
-                "atv_501",
-                "atv_502"
-            ],
-            "turmas_vinculadas_ids": [
-                "turma_102",
-                "turma_105"
-            ],
-            "comentarios": [
-                {
-                    "usuario_id": "usr_001",
-                    "mensagem": "Curso excelente para iniciantes!",
-                    "data": "2025-09-30T14:20:00Z",
-                    "nota": 5
-                }
-            ]
+          "usuario_id": "aluno_id_2",
+          "status": "pendente",
+          "nota": null,
+          "data_entrega": null
         }
-    ],
-    "disciplinas": [
+      ],
+      "quantidade_submissoes": 2,
+      "numero_visualizacoes": 45
+    }
+  ],
+  "aulas": [
+    {
+      "id": "aula_id_1",
+      "titulo": "Adição e Subtração",
+      "descricao": "Aula explicando operações de adição e subtração com exemplos práticos",
+      "video_url": "https://url_do_video.mp4",
+      "duracao": "00:15:30",
+      "visualizacoes": 150,
+      "data_publicacao": "2025-09-21T08:00:00Z",
+      "materiais_apoio": [
         {
-            "id": "disc_201",
-            "nome": "Matemática Aplicada",
-            "descricao": "Disciplina voltada para aplicações matemáticas em contextos práticos.",
-            "categoria": "Matemática",
-            "nivel": "Intermediário",
-            "imagem_capa": "https://cdn.sabiaa.com/thumbs/disc_201.jpg",
-            "data_criacao": "2025-04-01T08:00:00Z",
-            "ultima_atualizacao": "2025-09-20T15:00:00Z",
-            "ativo": true,
-            "professor_responsavel_id": "prof_021",
-            "turmas_vinculadas_ids": [
-                "turma_301",
-                "turma_302"
-            ],
-            "cursos_relacionados_ids": [
-                "curso_202",
-                "curso_203"
-            ],
-            "aulas_ids": [
-                "aula_501",
-                "aula_502"
-            ],
-            "atividades_ids": [
-                "atv_601",
-                "atv_602"
-            ],
-            "estatisticas": {
-                "total_aulas": 12,
-                "total_atividades": 8,
-                "media_progresso_alunos": 0.74,
-                "total_visualizacoes": 1840
-            }
+          "id": "material_1",
+          "tipo": "pdf",
+          "titulo": "Exercícios de adição",
+          "url": "https://url_do_material.pdf"
         }
-    ]
+      ],
+      "conteudos_relacionados_ids": [
+        "aula_id_2",
+        "aula_id_3"
+      ],
+      "progresso_usuario": {
+        "usuario_id_1": {
+          "percentual_conclusao": 50,
+          "ultima_visualizacao": "2025-09-21T10:00:00Z"
+        }
+      },
+      "turmas": [
+        {
+          "turmaId": "turma_1",
+          "nomeTurma": "turma_1"
+        }
+      ],
+      "modulos": [
+        {
+          "id": "modulo_1",
+          "turmaId": "turma_1",
+          "titulo": "Matemática Básica",
+          "descricao": "O básico da matemática básica no ensino fundamental"
+        }
+      ],
+      "associacao": {
+        "curso_id": "curso_id_123",
+        "disciplina_id": null
+      }
+    }
+  ],
+  "cursos": [
+    {
+      "id": "4a0c",
+      "thumbnail": {},
+      "titulo": "Teste1",
+      "descricao": "A",
+      "duracao_horas": 10,
+      "faixa_etaria": "16-25 anos",
+      "nivel": "Iniciante",
+      "categoria": "Tecnologia",
+      "tags": [
+        ""
+      ],
+      "video_url": "",
+      "gera_certificado": true,
+      "disciplina": "Design",
+      "num_aulas": 1,
+      "num_atividades": 2,
+      "professor": "Prof. Silva",
+      "status": "Rascunho",
+      "idioma": "Português",
+      "data_publicacao": "2025-11-03",
+      "anexos_gerais": {},
+      "ultima_atualizacao": "2025-11-02T19:15:01.742Z"
+    }
+  ],
+  "disciplinas": [
+    {
+      "id": "disc_201",
+      "nome": "Matemática Aplicada",
+      "descricao": "Disciplina voltada para aplicações matemáticas em contextos práticos.",
+      "categoria": "Matemática",
+      "nivel": "Intermediário",
+      "imagem_capa": "https://cdn.sabiaa.com/thumbs/disc_201.jpg",
+      "data_criacao": "2025-04-01T08:00:00Z",
+      "ultima_atualizacao": "2025-09-20T15:00:00Z",
+      "ativo": true,
+      "professor_responsavel_id": "prof_021",
+      "turmas_vinculadas_ids": [
+        "turma_301",
+        "turma_302"
+      ],
+      "cursos_relacionados_ids": [
+        "curso_202",
+        "curso_203"
+      ],
+      "aulas_ids": [
+        "aula_501",
+        "aula_502"
+      ],
+      "atividades_ids": [
+        "atv_601",
+        "atv_602"
+      ],
+      "estatisticas": {
+        "total_aulas": 12,
+        "total_atividades": 8,
+        "media_progresso_alunos": 0.74,
+        "total_visualizacoes": 1840
+      }
+    }
+  ]
 }
