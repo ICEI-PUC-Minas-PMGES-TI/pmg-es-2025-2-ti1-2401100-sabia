@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Cursos - Sabiaa</title>
+    <link rel="stylesheet" href="PainelCursos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <nav class="sidebar">
+        <div class="sidebar-logo">
+            <img src="/codigo/public/Perciliana Rodrigues/imagens/Logo Sabiaa.png" alt="Logo Sabiaa">
+        </div>
+        <ul>
+            <li><a href="#"><i class="fa-solid fa-house"></i></a></li>
+            <li class="active"><a href="#"><i class="fa-solid fa-book-open"></i></a></li>
+            <li><a href="#"><i class="fa-solid fa-chart-line"></i></a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <header class="main-header">
+            <div class="header-title">
+                <h1>Meus Cursos</h1>
+                <p>Explore e continue seus estudos na plataforma Sabiaa</p>
+            </div>
+            <div class="header-icons">
+                <a href="#"><i class="fa-solid fa-bell"></i></a>
+                <a href="#"><i class="fa-solid fa-user-circle"></i></a>
+                <a href="#"><i class="fa-solid fa-cog"></i></a>
+            </div>
+        </header>
+
+        <section class="filter-bar">
+            <div class="search-box">
+                <i class="fa-solid fa-search"></i>
+                <input type="text" placeholder="Buscar cursos...">
+            </div>
+            <select name="disciplinas">
+                <option value="">Todas as disciplinas</option>
+                <option value="mat">Matemática</option>
+                <option value="por">Português</option>
+            </select>
+            <select name="series">
+                <option value="">Todas as séries</option>
+                <option value="1">1º Ano</option>
+                <option value="2">2º Ano</option>
+            </select>
+            <button class="btn-filter" id="filterButton">
+                <i class="fa-solid fa-filter"></i>
+                Filtrar
+            </button>
+        </section>
+
+        <section class="courses-container">
+            <div class="courses-header">
+                <span>24 cursos encontrados</span>
+                <div class="view-toggles">
+                    <button id="grid-view" class="toggle-btn active"><i class="fa-solid fa-grip"></i></button>
+                    <button id="list-view" class="toggle-btn"><i class="fa-solid fa-list"></i></button>
+                </div>
+            </div>
+
+            <div class="course-grid" id="course-grid">
+                
+                <article class="course-card">
+                    <div class="card-image">
+                        <img src="https://via.placeholder.com/350x150/5D6D7E/FFFFFF?text=Matemática" alt="Álgebra">
+                        <span class="card-tag tag-subject">Matemática</span>
+                        <div class="card-progress-bar">
+                            <div class="progress" style="width: 78%;"></div>
+                        </div>
+                        <span class="card-tag tag-progress">78% completo</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Álgebra Básica</h3>
+                        <p>Aprenda os fundamentos da álgebra com exemplos práticos e exemplos do dia a dia.</p>
+                        <div class="card-modules">
+                            <strong>Módulos (4/6)</strong>
+                            <span class="module-time">8h restantes</span>
+                            <ul>
+                                <li><i class="fa-solid fa-check-circle done"></i> Introdução às equações</li>
+                                <li><i class="fa-solid fa-check-circle done"></i> Sistemas de equações lineares</li>
+                                <li><i class="fa-solid fa-circle-play current"></i> Funções e gráficos</li>
+                            </ul>
+                        </div>
+                        <button class="btn btn-primary">Continuar Curso</button>
+                    </div>
+                </article>
+
+                <article class="course-card">
+                    <div class="card-image">
+                        <img src="https://via.placeholder.com/350x150/8B4513/FFFFFF?text=Português" alt="Gramática">
+                        <span class="card-tag tag-subject">Português</span>
+                        <span class="card-tag tag-new">Novo</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Gramática Avançada</h3>
+                        <p>Domine as regras gramaticais e melhore sua escrita com atividades interativas.</p>
+                        <div class="card-modules">
+                            <strong>Módulos (0/8)</strong>
+                            <span class="module-time">20h total</span>
+                            <ul>
+                                <li><i class="fa-regular fa-circle"></i> Classes gramaticais</li>
+                                <li><i class="fa-regular fa-circle"></i> Análise sintática</li>
+                                <li><i class="fa-regular fa-circle"></i> Concordância verbal</li>
+                            </ul>
+                        </div>
+                        <button class="btn btn-secondary">Entrar no Curso</button>
+                    </div>
+                </article>
+
+                <article class="course-card">
+                    <div class="card-image">
+                        <img src="https://via.placeholder.com/350x150/2E86C1/FFFFFF?text=Ciências" alt="Biologia">
+                        <span class="card-tag tag-subject">Ciências</span>
+                        <div class="card-progress-bar">
+                            <div class="progress" style="width: 45%;"></div>
+                        </div>
+                        <span class="card-tag tag-progress">45% completo</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Biologia Celular</h3>
+                        <p>Explore o mundo microscópico das células e entenda seus processos vitais.</p>
+                        <div class="card-modules">
+                            <strong>Módulos (3/7)</strong>
+                            <span class="module-time">8h restantes</span>
+                            <ul>
+                                <li><i class="fa-solid fa-check-circle done"></i> Estrutura celular</li>
+                                <li><i class="fa-solid fa-check-circle done"></i> Membrana plasmática</li>
+                                <li><i class="fa-solid fa-circle-play current"></i> Organelas citoplasmáticas</li>
+                            </ul>
+                        </div>
+                        <button class="btn btn-primary">Continuar Curso</button>
+                    </div>
+                </article>
+
+                <article class="course-card">
+                    <div class="card-image">
+                        <img src="https://via.placeholder.com/350x150/A0522D/FFFFFF?text=História" alt="História">
+                        <span class="card-tag tag-subject">História</span>
+                        <span class="card-tag tag-soon">Em Breve</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Brasil Colonial</h3>
+                        <p>Descubra os acontecimentos que moldaram o Brasil durante o período colonial.</p>
+                        <div class="card-modules">
+                            <strong>Módulos (0/5)</strong>
+                            <span class="module-time">15h total</span>
+                            <ul>
+                                <li><i class="fa-regular fa-circle"></i> Descoberta do Brasil</li>
+                                <li><i class="fa-regular fa-circle"></i> Capitanias Hereditárias</li>
+                                <li><i class="fa-regular fa-circle"></i> Governo Geral</li>
+                            </ul>
+                        </div>
+                        <button class="btn btn-disabled" disabled>Em Breve</button>
+                    </div>
+                </article>
+
+                <article class="course-card">
+                    <div class="card-image">
+                        <img src="https://via.placeholder.com/350x150/708090/FFFFFF?text=Física" alt="Física">
+                        <span class="card-tag tag-subject">Física</span>
+                        <span class="card-tag tag-complete">Completo</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Mecânica Clássica</h3>
+                        <p>Entenda os princípios fundamentais do movimento e das forças.</p>
+                        <div class="card-modules">
+                            <strong>Módulos (6/6)</strong>
+                            <span class="module-time">Concluído</span>
+                            <ul>
+                                <li><i class="fa-solid fa-check-circle done"></i> Cinemática</li>
+                                <li><i class="fa-solid fa-check-circle done"></i> Dinâmica</li>
+                                <li><i class="fa-solid fa-check-circle done"></i> Energia e trabalho</li>
+                            </ul>
+                        </div>
+                        <button class="btn btn-tertiary">Revisar Curso</button>
+                    </div>
+                </article>
+
+                <article class="course-card">
+                    <div class="card-image">
+                        <img src="https://via.placeholder.com/350x150/228B22/FFFFFF?text=Geografia" alt="Geografia">
+                        <span class="card-tag tag-subject">Geografia</span>
+                        <div class="card-progress-bar">
+                            <div class="progress" style="width: 20%;"></div>
+                        </div>
+                        <span class="card-tag tag-progress">20% completo</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Geografia do Brasil</h3>
+                        <p>Explore as características físicas e humanas do território brasileiro.</p>
+                        <div class="card-modules">
+                            <strong>Módulos (1/5)</strong>
+                            <span class="module-time">10h restantes</span>
+                            <ul>
+                                <li><i class="fa-solid fa-check-circle done"></i> Relevo brasileiro</li>
+                                <li><i class="fa-solid fa-circle-play current"></i> Clima e vegetação</li>
+                                <li><i class="fa-regular fa-circle"></i> Hidrografia</li>
+                            </ul>
+                        </div>
+                        <button class="btn btn-primary">Continuar Curso</button>
+                    </div>
+                </article>
+
+            </div>
+
+            <div class="load-more-container">
+                <button class="btn btn-secondary" id="loadMoreButton">Carregar Mais Cursos</button>
+            </div>
+
+        </section>
+
+        <footer class="main-footer">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="/codigo/public/Perciliana Rodrigues/imagens/Logo Sabiaa 2.png" alt="Logo Sabiaa">
+                    <p>Educação e tecnologia alinhadas<br>para um futuro melhor.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="#">Sobre</a></li>
+                        <li><a href="#">Cursos</a></li>
+                        <li><a href="#">Suporte</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contato</h3>
+                    <p><i class="fa-solid fa-envelope"></i> contato@sabiaa.com.br</p>
+                    <p><i class="fa-solid fa-phone"></i> (31) 1234-5678</p>
+                </div>
+                <div class="footer-social">
+                    <h3>Redes Sociais</h3>
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script src="PainelCursos.js"></script>
+</body>
+</html>
