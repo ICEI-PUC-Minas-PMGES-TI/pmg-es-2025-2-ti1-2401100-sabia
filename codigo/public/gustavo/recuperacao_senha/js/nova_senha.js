@@ -1,6 +1,12 @@
 // ===== SCRIPT PARA NOVA SENHA =====
 
+// Configuração da API
+const API_BASE_URL = window.SABIAA_CONFIG?.API_BASE_URL || 'http://localhost:3000';
+
 document.addEventListener('DOMContentLoaded', function() {
+    // Verificar se temos token válido
+    checkRecoveryToken();
+    
     const form = document.getElementById('new-password-form');
     const novaSenhaInput = document.getElementById('nova-senha');
     const confirmarSenhaInput = document.getElementById('confirmar-senha');
@@ -106,9 +112,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     async function updatePassword() {
         const novaSenha = novaSenhaInput.value;
-        const codigoInput = document.getElementById('codigo');
-        const codigo = codigoInput ? codigoInput.value : '';
-        const token = sessionStorage.getItem('recovery_token');
+        const token = getRecoveryToken();
         
         // Verificar se temos o token
         if (!token) {
@@ -125,12 +129,12 @@ document.addEventListener('DOMContentLoaded', function() {
         submitBtn.innerHTML = '<span class="loading"></span>Atualizando...';
         
         try {
-            // Fazer alteração de senha através do sistema de autenticação
-            const result = await sabiaAuth.alterarSenha(token, codigo, novaSenha);
+            // Fazer alteração de senha através da API
+            const result = await updatePasswordReal(novaSenha, token);
             
             if (result.success) {
                 // Sucesso - limpar token
-                sessionStorage.removeItem('recovery_token');
+                clearRecoveryToken();
                 
                 showMessage('success', 'Senha atualizada com sucesso! Redirecionando...');
                 form.reset();
@@ -140,7 +144,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     window.location.href = '../login/login.html';
                 }, 2000);
             } else {
-                showMessage('error', result.error);
+                showMessage('error', result.error || 'Erro ao atualizar senha');
                 
                 // Restaurar botão
                 submitBtn.disabled = false;
@@ -155,23 +159,6 @@ document.addEventListener('DOMContentLoaded', function() {
             submitBtn.disabled = false;
             submitBtn.innerHTML = 'Redefinir Senha';
         }
-    }
-
-    function simulatePasswordUpdate(password) {
-        return new Promise((resolve, reject) => {
-            // Simular tempo de resposta do servidor
-            setTimeout(() => {
-                // Simular algumas condições
-                if (password.includes('test-error')) {
-                    reject(new Error('Erro ao atualizar senha'));
-                } else {
-                    resolve({
-                        success: true,
-                        message: 'Senha atualizada com sucesso'
-                    });
-                }
-            }, 1500); // 1.5 segundos de delay
-        });
     }
 
     function showMessage(type, message) {
@@ -190,7 +177,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Integração real com backend  
     async function updatePasswordReal(newPassword, token) {
         try {
-            const response = await fetch(`${window.SABIAA_CONFIG?.API_BASE_URL || 'http://localhost:3000'}/api/auth/alterar-senha`, {
+            const response = await fetch(`${API_BASE_URL}/api/auth/alterar-senha`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -216,6 +203,62 @@ document.addEventListener('DOMContentLoaded', function() {
                 success: false,
                 error: error.message
             };
+        }
+    }
+
+    // Funções para gerenciar token de recuperação
+    function getRecoveryToken() {
+        // Tentar obter do URL primeiro
+        const urlParams = new URLSearchParams(window.location.search);
+        const tokenFromUrl = urlParams.get('token');
+        
+        if (tokenFromUrl) {
+            sessionStorage.setItem('recovery_token', tokenFromUrl);
+            return tokenFromUrl;
+        }
+        
+        // Caso contrário, obter do sessionStorage
+        return sessionStorage.getItem('recovery_token');
+    }
+
+    function clearRecoveryToken() {
+        sessionStorage.removeItem('recovery_token');
+    }
+
+    async function checkRecoveryToken() {
+        const token = getRecoveryToken();
+        
+        if (!token) {
+            showMessage('error', 'Token de recuperação não encontrado. Redirecionando...');
+            setTimeout(() => {
+                window.location.href = 'enviar_instrucoes.html';
+            }, 2000);
+            return;
+        }
+
+        // Verificar se o token é válido
+        try {
+            const response = await fetch(`${API_BASE_URL}/api/auth/verificar-token-recuperacao`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ recovery_token: token })
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.error || 'Token inválido');
+            }
+
+            console.log('Token válido para:', data.email);
+        } catch (error) {
+            showMessage('error', 'Token inválido ou expirado. Redirecionando...');
+            clearRecoveryToken();
+            setTimeout(() => {
+                window.location.href = 'enviar_instrucoes.html';
+            }, 2000);
         }
     }
 });

@@ -273,6 +273,33 @@ server.post('/api/auth/alterar-senha', (req, res) => {
     });
 });
 
+// Verificar token de recuperação
+server.post('/api/auth/verificar-token-recuperacao', (req, res) => {
+    const { recovery_token } = req.body;
+    
+    if (!recovery_token) {
+        return res.status(400).json({ error: 'Token é obrigatório' });
+    }
+    
+    const db = getDb();
+    
+    // Encontrar token válido
+    const tokenData = db.recovery_tokens.find(t => 
+        t.token === recovery_token && 
+        new Date(t.expires) > new Date()
+    );
+    
+    if (!tokenData) {
+        return res.status(400).json({ error: 'Token inválido ou expirado' });
+    }
+    
+    res.json({
+        success: true,
+        message: 'Token válido',
+        email: tokenData.email
+    });
+});
+
 // ===== ROTAS DE USUÁRIO =====
 
 // Obter perfil do usuário logado

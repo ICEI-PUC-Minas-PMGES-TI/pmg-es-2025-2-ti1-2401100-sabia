@@ -1,5 +1,8 @@
 // ===== SCRIPT PARA RECUPERAÇÃO DE SENHA ===== 
 
+// Configuração da API
+const API_BASE_URL = window.SABIAA_CONFIG?.API_BASE_URL || 'http://localhost:3000';
+
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('recovery-form');
     const emailInput = document.getElementById('email');
@@ -67,22 +70,22 @@ document.addEventListener('DOMContentLoaded', function() {
         submitBtn.innerHTML = '<span class="loading"></span>Enviando...';
         
         try {
-            // Fazer solicitação de recuperação através do sistema de autenticação
-            const result = await sabiaAuth.recuperarSenha(email);
+            // Fazer solicitação de recuperação através da API
+            const result = await sendRecoveryEmailReal(email);
             
             if (result.success) {
                 // Sucesso - salvar token para próxima etapa
                 sessionStorage.setItem('recovery_token', result.token);
                 
-                showMessage('success', `Instruções de recuperação enviadas para ${email}. Verifique sua caixa de entrada.`);
+                showMessage('success', `Instruções de recuperação enviadas para ${email}. Redirecionando...`);
                 form.reset();
                 
                 // Aguardar e redirecionar para página de nova senha
                 setTimeout(() => {
-                    window.location.href = 'nova_senha.html';
+                    window.location.href = `nova_senha.html?token=${result.token}`;
                 }, 3000);
             } else {
-                showMessage('error', result.error);
+                showMessage('error', result.error || 'Erro ao enviar instruções');
             }
             
         } catch (error) {
@@ -93,23 +96,6 @@ document.addEventListener('DOMContentLoaded', function() {
             submitBtn.disabled = false;
             submitBtn.innerHTML = 'Enviar Instruções';
         }
-    }
-
-    function simulateEmailSending(email) {
-        return new Promise((resolve, reject) => {
-            // Simular tempo de resposta do servidor
-            setTimeout(() => {
-                // Simular algumas condições
-                if (email.includes('test-error')) {
-                    reject(new Error('Email inválido'));
-                } else {
-                    resolve({
-                        success: true,
-                        message: 'Email enviado com sucesso'
-                    });
-                }
-            }, 2000); // 2 segundos de delay
-        });
     }
 
     function showMessage(type, message) {
@@ -126,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Integração real com backend
     async function sendRecoveryEmailReal(email) {
         try {
-            const response = await fetch(`${window.SABIAA_CONFIG?.API_BASE_URL || 'http://localhost:3000'}/api/auth/recuperar-senha`, {
+            const response = await fetch(`${API_BASE_URL}/api/auth/recuperar-senha`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
