@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerenciamento de Cursos - Sabiaa</title>
+    <title>Cadastro de Cursos - Sabiaa</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,8 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <link rel="stylesheet" href="../../assets/css/global.css">
-    
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
     <div class="page-container">
@@ -23,7 +22,7 @@
             </div>
             <nav class="sidebar-nav">
                 <a href="#"><i class="fa-solid fa-home"></i> Início</a>
-                <a href="#" class="active"><i class="fa-solid fa-book"></i> Cursos</a>
+                <a href="index.html" class="active"><i class="fa-solid fa-book"></i> Cursos</a>
                 <a href="#"><i class="fa-solid fa-calendar-plus"></i> Atividades</a>
                 <a href="#"><i class="fa-solid fa-user"></i> Perfil</a>
             </nav>
@@ -43,117 +42,204 @@
             </header>
 
             <section class="content-body">
-                <div class="gerenciamento-header">
+                <div class="cadastro-header">
                     <div>
-                        <h1>Gerenciamento de Cursos</h1>
-                        <p>Gerencie todos os cursos da plataforma Sabiaa</p>
+                        <h1>Cadastro de Cursos</h1>
+                        <p>Crie e gerencie cursos para a plataforma Sabiaa</p>
                     </div>
-                    <a href="cadastro.html" class="btn-criar-novo">+ Criar Novo Curso</a>
+                    <a href="index.html" class="btn-ver-cursos"><i class="fa-solid fa-list-ul"></i> Ver Cursos</a>
                 </div>
 
-                <div class="card filtros-card">
-                    <div class="filtro-grupo">
-                        <label>Categoria</label>
-                        <select><option>Todos</option></select>
+                <form id="form-cadastro-curso" class="card form-cadastro">
+                    
+                    <div class="form-section-header">
+                        <i class="fa-solid fa-plus"></i>
+                        <span>Novo Curso</span>
                     </div>
-                    <div class="filtro-grupo">
-                        <label>Status</label>
-                        <select><option>Todos</option></select>
-                    </div>
-                    <div class="filtro-grupo">
-                        <label>Professor</label>
-                        <select><option>Todos</option></select>
-                    </div>
-                    <div class="filtro-grupo">
-                        <label>Certificado</label>
-                        <select><option>Todos</option></select>
-                    </div>
-                    <div class="filtro-grupo">
-                        <label>Ordenar por</label>
-                        <select><option>Data</option></select>
-                    </div>
-                    <button class="btn-filtrar"><i class="fa-solid fa-filter"></i> Filtrar</button>
-                </div>
 
-                <div class="status-cards-container">
-                    <div class="card status-card">
-                        <p>Total de Cursos</p>
-                        <strong id="total-cursos">0</strong>
-                        <i class="fa-solid fa-folder-open icon-total"></i>
-                    </div>
-                    <div class="card status-card">
-                        <p>Publicados</p>
-                        <strong id="total-publicados">0</strong>
-                        <i class="fa-solid fa-check icon-publicado"></i>
-                    </div>
-                    <div class="card status-card">
-                        <p>Rascunhos</p>
-                        <strong id="total-rascunhos">0</strong>
-                        <i class="fa-solid fa-pencil icon-rascunho"></i>
-                    </div>
-                    <div class="card status-card">
-                        <p>Arquivados</p>
-                        <strong id="total-arquivados">0</strong>
-                        <i class="fa-solid fa-trash-can icon-arquivado"></i>
-                    </div>
-                </div>
+                    <div class="form-grid">
+                        <div class="form-coluna">
+                            <div class="form-grupo">
+                                <label>Thumbnail do Curso</label>
+                                <div class="upload-area-thumb">
+                                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                                    <p>Clique para fazer upload</p>
+                                    <small>PNG, JPG ou SVG até 5MB</small>
+                                    <input type="file" id="thumbnail" name="thumbnail" hidden>
+                                </div>
+                            </div>
 
-                <div class="card tabela-container">
-                    <table class="tabela-cursos">
-                        <thead>
-                            <tr>
-                                <th>Thumbnail</th>
-                                <th>Título</th>
-                                <th>Categoria</th>
-                                <th>Aulas</th>
-                                <th>Atividades</th>
-                                <th>Certificado</th>
-                                <th>Status</th>
-                                <th>Última Atualização</th>
-                                <th>Ações</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tabela-cursos-corpo">
-                        </tbody>
-                    </table>
-                </div>
+                            <div class="form-grupo">
+                                <label for="titulo">Título do Curso</label>
+                                <input type="text" id="titulo" name="titulo" placeholder="Digite o título do curso" required>
+                            </div>
+
+                            <div class="form-grupo">
+                                <label for="descricao">Descrição Completa</label>
+                                <textarea id="descricao" name="descricao" rows="5" placeholder="Descreva o conteúdo e objetivos do curso"></textarea>
+                            </div>
+
+                            <div class="form-linha">
+                                <div class="form-grupo">
+                                    <label for="duracao_horas">Duração (horas)</label>
+                                    <input type="number" id="duracao_horas" name="duracao_horas" value="10">
+                                </div>
+                                <div class="form-grupo">
+                                    <label for="faixa_etaria">Faixa Etária</label>
+                                    <input type="text" id="faixa_etaria" name="faixa_etaria" value="16-25 anos">
+                                </div>
+                            </div>
+
+                            <div class="form-linha">
+                                <div class="form-grupo">
+                                    <label for="nivel">Nível</label>
+                                    <select id="nivel" name="nivel">
+                                        <option value="Iniciante">Iniciante</option>
+                                        <option value="Intermediario">Intermediário</option>
+                                        <option value="Avancado">Avançado</option>
+                                    </select>
+                                </div>
+                                <div class="form-grupo">
+                                    <label for="categoria">Categoria</label>
+                                    <select id="categoria" name="categoria">
+                                        <option value="Tecnologia">Tecnologia</option>
+                                        <option value="Design">Design</option>
+                                        <option value="Marketing">Marketing</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-grupo">
+                                <label for="tags">Tags / Palavras-chave</label>
+                                <input type="text" id="tags" name="tags" placeholder="Separe as tags por vírgula">
+                            </div>
+
+                            <div class="form-grupo">
+                                <label for="video_url">Vídeo Introdutório (URL)</label>
+                                <input type="text" id="video_url" name="video_url" placeholder="https://youtube.com/...">
+                            </div>
+                        </div>
+
+                        <div class="form-coluna">
+                            <div class="form-grupo card-destaque">
+                                <label>Gera Certificado</label>
+                                <small>Certificado ao concluir o curso</small>
+                                <div class="switch-container">
+                                    <input type="checkbox" id="gera_certificado" name="gera_certificado" class="switch-input" checked>
+                                    <label for="gera_certificado" class="switch-label"></label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-grupo">
+                                <label for="disciplina">Disciplina</label>
+                                <div class="input-com-botao">
+                                    <select id="disciplina" name="disciplina">
+                                        <option value="Tecnologia">Selecione uma disciplina</option>
+                                        <option value="Design">Design</option>
+                                    </select>
+                                    <button type="button" class="btn-add">+</button>
+                                </div>
+                            </div>
+
+                            <div class="form-linha">
+                                <div class="form-grupo">
+                                    <label for="num_aulas">Nº de Aulas</label>
+                                    <input type="number" id="num_aulas" name="num_aulas" value="15">
+                                </div>
+                                <div class="form-grupo">
+                                    <label for="num_atividades">Nº de Atividades</label>
+                                    <input type="number" id="num_atividades" name="num_atividades" value="5">
+                                </div>
+                            </div>
+
+                            <div class="form-grupo">
+                                <label for="professor">Professor Responsável</label>
+                                <select id="professor" name="professor">
+                                    <option value="">Selecione um professor</option>
+                                    <option value="Prof. Silva">Prof. Silva</option>
+                                    <option value="Prof. Santos">Prof. Santos</option>
+                                </select>
+                            </div>
+
+                            <div class="form-linha">
+                                <div class="form-grupo">
+                                    <label for="status">Status</label>
+                                    <select id="status" name="status">
+                                        <option value="Rascunho">Rascunho</option>
+                                        <option value="Publicado">Publicado</option>
+                                        <option value="Arquivado">Arquivado</option>
+                                    </select>
+                                </div>
+                                <div class="form-grupo">
+                                    <label for="idioma">Idioma</label>
+                                    <select id="idioma" name="idioma">
+                                        <option value="Português">Português</option>
+                                        <option value="Inglês">Inglês</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-grupo">
+                                <label for="data_publicacao">Data de Publicação (Opcional)</label>
+                                <input type="date" id="data_publicacao" name="data_publicacao">
+                            </div>
+
+                            <div class="form-grupo">
+                                <label for="anexos_gerais">Anexos Gerais</label>
+                                <div class="upload-area-anexo">
+                                    <i class="fa-solid fa-paperclip"></i>
+                                    <p>PDF, guias, materiais extras</p>
+                                    <input type="file" id="anexos_gerais" name="anexos_gerais" hidden multiple>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-acoes">
+                        <button type="button" class="btn-cancelar">Cancelar</button>
+                        <button type="submit" class="btn-rascunho">Salvar Rascunho</button>
+                        <button type="submit" class="btn-criar-curso">+ Criar Curso</button>
+                    </div>
+
+                </form>
 
             </section>
         </main>
     </div>
 
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-section">
-                <div class="footer-logo">
-                    <img src="../../assets/images/logos/logo_bege_texto_lateral.png" alt="Sabiaa" style="height: 40px;">
-                </div>
-                <p style="color: rgba(255, 255, 255, 0.7); font-size: 14px; max-width: 250px;">Educação e Tecnologia alinhadas para um futuro melhor.</p>
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-section">
+            <div class="footer-logo">
+                <img src="../../assets/images/logos/logo_bege_texto_lateral.png" alt="Sabiaa" style="height: 40px;">
             </div>
-            
-            <div class="footer-section footer-links">
-                <h4>Links Rápidos</h4>
-                <ul>
-                    <li><a href="#">Sobre</a></li>
-                    <li><a href="#">Cursos</a></li>
-                    <li><a href="#">Suporte</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section footer-contact">
-                <h4>Contato</h4>
-                <p><i class="fa-solid fa-envelope" style="margin-right: 8px;"></i> contato@sabiaa.com.br</p>
-                <p><i class="fa-solid fa-phone" style="margin-right: 8px;"></i> (31) 1234-5678</p>
-            </div>
-
-            <div class="footer-section footer-social">
-                <h4>Redes Sociais</h4>
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
-            </div>
+            <p style="color: rgba(255, 255, 255, 0.7); font-size: 14px; max-width: 250px;">Educação e Tecnologia alinhadas para um futuro melhor.</p>
         </div>
-    </footer>
+        
+        <div class="footer-section footer-links">
+            <h4>Links Rápidos</h4>
+            <ul>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Cursos</a></li>
+                <li><a href="#">Suporte</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section footer-contact">
+            <h4>Contato</h4>
+            <p><i class="fa-solid fa-envelope" style="margin-right: 8px;"></i> contato@sabiaa.com.br</p>
+            <p><i class="fa-solid fa-phone" style="margin-right: 8px;"></i> (31) 1234-5678</p>
+        </div>
+
+        <div class="footer-section footer-social">
+            <h4>Redes Sociais</h4>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+    </div>
+</footer>
+
     <script src="script.js"></script>
 </body>
 </html>
