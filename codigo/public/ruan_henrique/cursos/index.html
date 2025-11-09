@@ -52,28 +52,49 @@
                 </div>
 
                 <div class="card filtros-card">
-                    <div class="filtro-grupo">
-                        <label>Categoria</label>
-                        <select><option>Todos</option></select>
-                    </div>
-                    <div class="filtro-grupo">
-                        <label>Status</label>
-                        <select><option>Todos</option></select>
-                    </div>
-                    <div class="filtro-grupo">
-                        <label>Professor</label>
-                        <select><option>Todos</option></select>
-                    </div>
-                    <div class="filtro-grupo">
-                        <label>Certificado</label>
-                        <select><option>Todos</option></select>
-                    </div>
-                    <div class="filtro-grupo">
-                        <label>Ordenar por</label>
-                        <select><option>Data</option></select>
-                    </div>
-                    <button class="btn-filtrar"><i class="fa-solid fa-filter"></i> Filtrar</button>
-                </div>
+ <div class="filtro-grupo">
+<label>Categoria</label>
+<select id="filtro-categoria">
+            <option value="Todos">Todos</option>
+            <option value="Tecnologia">Tecnologia</option>
+            <option value="Design">Design</option>
+            <option value="Marketing">Marketing</option>
+        </select>
+    </div>
+<div class="filtro-grupo">
+     <label>Status</label>
+<select id="filtro-status">
+            <option value="Todos">Todos</option>
+            <option value="Publicado">Publicado</option>
+            <option value="Rascunho">Rascunho</option>
+            <option value="Arquivado">Arquivado</option>
+        </select>
+ </div>
+<div class="filtro-grupo">
+<label>Professor</label>
+<select id="filtro-professor">
+            <option value="Todos">Todos</option>
+            <option value="Prof. Silva">Prof. Silva</option>
+            <option value="Prof. Santos">Prof. Santos</option>
+        </select>
+ </div>
+<div class="filtro-grupo">
+<label>Certificado</label>
+<select id="filtro-certificado">
+            <option value="Todos">Todos</option>
+            <option value="Sim">Sim</option>
+            <option value="Nao">Não</option>
+        </select>
+</div>
+ <div class="filtro-grupo">
+<label>Ordenar por</label>
+<select id="filtro-ordenar">
+            <option value="Data">Data</option>
+            <option value="Titulo">Título (A-Z)</option>
+        </select>
+</div>
+<button class="btn-filtrar"><i class="fa-solid fa-filter"></i> Filtrar</button>
+</div>
 
                 <div class="status-cards-container">
                     <div class="card status-card">
