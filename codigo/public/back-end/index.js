@@ -387,6 +387,278 @@ server.patch('/api/usuarios/:id/foto', verifyToken, (req, res) => {
     });
 });
 
+// ===== ROTAS DE CERTIFICADOS =====
+
+// Listar cursos disponíveis para certificado
+server.get('/api/certificados/cursos-disponiveis', verifyToken, (req, res) => {
+    try {
+        const db = getDb();
+        const usuarioId = req.user.id;
+        
+        // Buscar progressos do usuário que estão concluídos
+        const progressosConcluidos = db.progresso_cursos.filter(p => 
+            p.usuario_id === usuarioId && p.status === 'concluido'
+        );
+        
+        // Buscar detalhes dos cursos concluídos
+        const cursosDisponiveis = progressosConcluidos.map(progresso => {
+            const curso = db.cursos.find(c => c.id === progresso.curso_id);
+            if (!curso) return null;
+            
+            // Verificar se já existe certificado emitido
+            const certificadoExistente = db.certificados.find(cert => 
+                cert.usuario_id === usuarioId && cert.curso_id === progresso.curso_id
+            );
+            
+            return {
+                curso_id: curso.id,
+                titulo: curso.titulo,
+                instrutor: curso.instrutor,
+                carga_horaria: curso.carga_horaria,
+                categoria: curso.categoria,
+                nivel: curso.nivel,
+                data_conclusao: progresso.data_conclusao,
+                nota_final: progresso.nota_final,
+                certificado_emitido: !!certificadoExistente,
+                certificado_id: certificadoExistente?.id || null
+            };
+        }).filter(Boolean);
+        
+        res.json({
+            success: true,
+            cursos_disponiveis: cursosDisponiveis,
+            total: cursosDisponiveis.length
+        });
+        
+    } catch (error) {
+        console.error('Erro ao buscar cursos disponíveis:', error);
+        res.status(500).json({ error: 'Erro interno do servidor' });
+    }
+});
+
+// Gerar certificado
+server.post('/api/certificados/gerar', verifyToken, (req, res) => {
+    try {
+        const { curso_id } = req.body;
+        const usuarioId = req.user.id;
+        
+        if (!curso_id) {
+            return res.status(400).json({ error: 'ID do curso é obrigatório' });
+        }
+        
+        const db = getDb();
+        
+        // Verificar se o usuário existe
+        const usuario = db.usuarios.find(u => u.id === usuarioId);
+        if (!usuario) {
+            return res.status(404).json({ error: 'Usuário não encontrado' });
+        }
+        
+        // Verificar se o curso existe
+        const curso = db.cursos.find(c => c.id === curso_id);
+        if (!curso) {
+            return res.status(404).json({ error: 'Curso não encontrado' });
+        }
+        
+        // Verificar se o usuário concluiu o curso
+        const progresso = db.progresso_cursos.find(p => 
+            p.usuario_id === usuarioId && 
+            p.curso_id === curso_id && 
+            p.status === 'concluido'
+        );
+        
+        if (!progresso) {
+            return res.status(400).json({ 
+                error: 'Você precisa concluir o curso antes de gerar o certificado' 
+            });
+        }
+        
+        // Verificar se já existe certificado
+        const certificadoExistente = db.certificados.find(cert => 
+            cert.usuario_id === usuarioId && cert.curso_id === curso_id
+        );
+        
+        if (certificadoExistente) {
+            return res.status(400).json({ 
+                error: 'Certificado já foi emitido para este curso',
+                certificado_id: certificadoExistente.id
+            });
+        }
+        
+        // Gerar token de validação único
+        const tokenValidacao = uuidv4() + '-' + Date.now();
+        
+        // Criar certificado
+        const certificado = {
+            id: uuidv4(),
+            usuario_id: usuarioId,
+            curso_id: curso_id,
+            token_validacao: tokenValidacao,
+            data_emissao: new Date().toISOString(),
+            dados_usuario: {
+                nome: usuario.nome,
+                email: usuario.email,
+                id: usuario.id
+            },
+            dados_curso: {
+                titulo: curso.titulo,
+                instrutor: curso.instrutor,
+                carga_horaria: curso.carga_horaria,
+                categoria: curso.categoria,
+                nivel: curso.nivel
+            },
+            dados_conclusao: {
+                data_inicio: progresso.data_inicio,
+                data_conclusao: progresso.data_conclusao,
+                nota_final: progresso.nota_final,
+                progresso_porcentagem: progresso.progresso_porcentagem
+            },
+            status: 'ativo'
+        };
+        
+        // Salvar certificado
+        if (!db.certificados) {
+            db.certificados = [];
+        }
+        db.certificados.push(certificado);
+        
+        // Criar token de validação separado para consultas públicas
+        const tokenCertificado = {
+            id: uuidv4(),
+            token: tokenValidacao,
+            certificado_id: certificado.id,
+            usuario_nome: usuario.nome,
+            curso_titulo: curso.titulo,
+            data_emissao: certificado.data_emissao,
+            data_conclusao: progresso.data_conclusao,
+            carga_horaria: curso.carga_horaria,
+            nota_final: progresso.nota_final,
+            status: 'ativo',
+            criado_em: new Date().toISOString()
+        };
+        
+        if (!db.tokens_certificados) {
+            db.tokens_certificados = [];
+        }
+        db.tokens_certificados.push(tokenCertificado);
+        
+        saveDb(db);
+        
+        res.status(201).json({
+            success: true,
+            message: 'Certificado gerado com sucesso',
+            certificado: {
+                id: certificado.id,
+                token_validacao: tokenValidacao,
+                data_emissao: certificado.data_emissao,
+                curso_titulo: curso.titulo,
+                usuario_nome: usuario.nome,
+                nota_final: progresso.nota_final,
+                carga_horaria: curso.carga_horaria
+            }
+        });
+        
+    } catch (error) {
+        console.error('Erro ao gerar certificado:', error);
+        res.status(500).json({ error: 'Erro interno do servidor' });
+    }
+});
+
+// Validar certificado por token (rota pública)
+server.get('/api/certificados/validar/:token', (req, res) => {
+    try {
+        const { token } = req.params;
+        
+        if (!token) {
+            return res.status(400).json({ error: 'Token é obrigatório' });
+        }
+        
+        const db = getDb();
+        
+        // Buscar token de certificado
+        const tokenCertificado = db.tokens_certificados.find(t => 
+            t.token === token && t.status === 'ativo'
+        );
+        
+        if (!tokenCertificado) {
+            return res.status(404).json({ 
+                error: 'Certificado não encontrado ou token inválido',
+                valido: false
+            });
+        }
+        
+        // Buscar certificado completo
+        const certificado = db.certificados.find(c => 
+            c.id === tokenCertificado.certificado_id && c.status === 'ativo'
+        );
+        
+        if (!certificado) {
+            return res.status(404).json({ 
+                error: 'Certificado não encontrado',
+                valido: false
+            });
+        }
+        
+        res.json({
+            success: true,
+            valido: true,
+            certificado: {
+                id: certificado.id,
+                usuario_nome: certificado.dados_usuario.nome,
+                curso_titulo: certificado.dados_curso.titulo,
+                instrutor: certificado.dados_curso.instrutor,
+                carga_horaria: certificado.dados_curso.carga_horaria,
+                categoria: certificado.dados_curso.categoria,
+                nivel: certificado.dados_curso.nivel,
+                data_emissao: certificado.data_emissao,
+                data_conclusao: certificado.dados_conclusao.data_conclusao,
+                nota_final: certificado.dados_conclusao.nota_final,
+                token_validacao: token
+            }
+        });
+        
+    } catch (error) {
+        console.error('Erro ao validar certificado:', error);
+        res.status(500).json({ error: 'Erro interno do servidor' });
+    }
+});
+
+// Listar certificados do usuário
+server.get('/api/certificados/meus-certificados', verifyToken, (req, res) => {
+    try {
+        const db = getDb();
+        const usuarioId = req.user.id;
+        
+        // Buscar certificados do usuário
+        const certificados = db.certificados.filter(c => 
+            c.usuario_id === usuarioId && c.status === 'ativo'
+        );
+        
+        const certificadosFormatados = certificados.map(cert => ({
+            id: cert.id,
+            curso_titulo: cert.dados_curso.titulo,
+            instrutor: cert.dados_curso.instrutor,
+            carga_horaria: cert.dados_curso.carga_horaria,
+            categoria: cert.dados_curso.categoria,
+            nivel: cert.dados_curso.nivel,
+            data_emissao: cert.data_emissao,
+            data_conclusao: cert.dados_conclusao.data_conclusao,
+            nota_final: cert.dados_conclusao.nota_final,
+            token_validacao: cert.token_validacao
+        }));
+        
+        res.json({
+            success: true,
+            certificados: certificadosFormatados,
+            total: certificadosFormatados.length
+        });
+        
+    } catch (error) {
+        console.error('Erro ao buscar certificados:', error);
+        res.status(500).json({ error: 'Erro interno do servidor' });
+    }
+});
+
 // Health check
 server.get('/health', (req, res) => {
     res.json({ 

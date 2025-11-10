@@ -80,7 +80,102 @@
     }
   ],
   "recovery_tokens": [],
-  "cursos": [],
+  "cursos": [
+    {
+      "id": "curso-001",
+      "titulo": "Introdução ao JavaScript",
+      "descricao": "Curso básico de JavaScript para iniciantes",
+      "instrutor": "Prof. Maria Silva",
+      "carga_horaria": 40,
+      "categoria": "Programação",
+      "nivel": "Básico",
+      "data_criacao": "2025-01-15T00:00:00.000Z",
+      "status": "ativo",
+      "requisitos": ["Conhecimento básico de HTML"],
+      "modulos": [
+        {
+          "id": "mod-001",
+          "titulo": "Introdução",
+          "ordem": 1,
+          "aulas": [
+            {
+              "id": "aula-001",
+              "titulo": "O que é JavaScript",
+              "duracao": 30,
+              "tipo": "video"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "curso-002", 
+      "titulo": "Python para Iniciantes",
+      "descricao": "Aprenda Python do zero",
+      "instrutor": "Prof. João Santos",
+      "carga_horaria": 60,
+      "categoria": "Programação",
+      "nivel": "Básico",
+      "data_criacao": "2025-02-01T00:00:00.000Z",
+      "status": "ativo",
+      "requisitos": [],
+      "modulos": [
+        {
+          "id": "mod-002",
+          "titulo": "Fundamentos",
+          "ordem": 1,
+          "aulas": [
+            {
+              "id": "aula-002",
+              "titulo": "Instalação do Python",
+              "duracao": 45,
+              "tipo": "video"
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "atividades": [],
-  "quizzes": []
+  "quizzes": [],
+  "certificados": [],
+  "tokens_certificados": [],
+  "progresso_cursos": [
+    {
+      "id": "prog-001",
+      "usuario_id": "893406d1-d150-4c41-bd5d-54a931ff466b",
+      "curso_id": "curso-001",
+      "status": "concluido",
+      "data_inicio": "2025-10-15T00:00:00.000Z",
+      "data_conclusao": "2025-10-30T00:00:00.000Z",
+      "progresso_porcentagem": 100,
+      "modulos_concluidos": ["mod-001"],
+      "aulas_concluidas": ["aula-001", "aula-002", "aula-003"],
+      "nota_final": 85
+    },
+    {
+      "id": "prog-002",
+      "usuario_id": "893406d1-d150-4c41-bd5d-54a931ff466b",
+      "curso_id": "curso-002",
+      "status": "concluido",
+      "data_inicio": "2025-11-01T00:00:00.000Z",
+      "data_conclusao": "2025-11-15T00:00:00.000Z",
+      "progresso_porcentagem": 100,
+      "modulos_concluidos": ["mod-002"],
+      "aulas_concluidas": ["aula-004", "aula-005", "aula-006"],
+      "nota_final": 92
+    },
+    {
+      "id": "prog-003",
+      "usuario_id": "be8e3bda-d680-4486-bbbc-2793b21186cd",
+      "curso_id": "curso-001",
+      "status": "em_andamento",
+      "data_inicio": "2025-11-10T00:00:00.000Z",
+      "data_conclusao": null,
+      "progresso_porcentagem": 65,
+      "modulos_concluidos": [],
+      "aulas_concluidas": ["aula-001"],
+      "nota_final": null
+    }
+  ]
 }
