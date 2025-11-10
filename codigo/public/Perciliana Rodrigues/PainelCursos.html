@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Cursos - Sabiaa</title>
+    <link rel="stylesheet" href="PainelCursos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <nav class="sidebar">
+        <div class="sidebar-logo">
+            <img src="/codigo/public/Perciliana Rodrigues/imagens/Logo Sabiaa.png" alt="Logo Sabiaa">
+        </div>
+        <ul>
+            <li><a href="#"><i class="fa-solid fa-house"></i></a></li>
+            <li class="active"><a href="#"><i class="fa-solid fa-book-open"></i></a></li>
+            <li><a href="#"><i class="fa-solid fa-chart-line"></i></a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <header class="main-header">
+            <div class="header-title">
+                <h1>Meus Cursos</h1>
+                <p>Explore e continue seus estudos na plataforma Sabiaa</p>
+            </div>
+            <div class="header-icons">
+                <a href="#"><i class="fa-solid fa-bell"></i></a>
+                <a href="#"><i class="fa-solid fa-user-circle"></i></a>
+                <a href="#"><i class="fa-solid fa-cog"></i></a>
+            </div>
+        </header>
+
+        <section class="filter-bar">
+            <div class="search-box">
+                <i class="fa-solid fa-search"></i>
+                <input type="text" placeholder="Buscar por título..." id="search-input">
+            </div>
+            
+            <select name="disciplinas" id="select-disciplina">
+                <option value="">Todas as disciplinas</option>
+                </select>
+
+            <button class="btn-filter" id="filterButton">
+                <i class="fa-solid fa-filter"></i>
+                Filtrar
+            </button>
+        </section>
+
+        <section class="courses-container">
+            <div class="courses-header">
+                <span id="course-count">0 cursos encontrados</span>
+                <div class="view-toggles">
+                    <button id="grid-view" class="toggle-btn active"><i class="fa-solid fa-grip"></i></button>
+                    <button id="list-view" class="toggle-btn"><i class="fa-solid fa-list"></i></button>
+                </div>
+            </div>
+
+            <div class="course-grid" id="course-grid">
+                </div>
+
+        </section>
+
+        <footer class="main-footer">
+            </footer>
+    </main>
+
+    <script src="PainelCursos.js"></script>
+</body>
+</html>

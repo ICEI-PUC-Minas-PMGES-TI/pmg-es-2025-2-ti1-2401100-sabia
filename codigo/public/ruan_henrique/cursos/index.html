@@ -52,28 +52,49 @@
                 </div>
 
                 <div class="card filtros-card">
-                    <div class="filtro-grupo">
-                        <label>Categoria</label>
-                        <select><option>Todos</option></select>
-                    </div>
-                    <div class="filtro-grupo">
-                        <label>Status</label>
-                        <select><option>Todos</option></select>
-                    </div>
-                    <div class="filtro-grupo">
-                        <label>Professor</label>
-                        <select><option>Todos</option></select>
-                    </div>
-                    <div class="filtro-grupo">
-                        <label>Certificado</label>
-                        <select><option>Todos</option></select>
-                    </div>
-                    <div class="filtro-grupo">
-                        <label>Ordenar por</label>
-                        <select><option>Data</option></select>
-                    </div>
-                    <button class="btn-filtrar"><i class="fa-solid fa-filter"></i> Filtrar</button>
-                </div>
+ <div class="filtro-grupo">
+<label>Categoria</label>
+<select id="filtro-categoria">
+            <option value="Todos">Todos</option>
+            <option value="Tecnologia">Tecnologia</option>
+            <option value="Design">Design</option>
+            <option value="Marketing">Marketing</option>
+        </select>
+    </div>
+<div class="filtro-grupo">
+     <label>Status</label>
+<select id="filtro-status">
+            <option value="Todos">Todos</option>
+            <option value="Publicado">Publicado</option>
+            <option value="Rascunho">Rascunho</option>
+            <option value="Arquivado">Arquivado</option>
+        </select>
+ </div>
+<div class="filtro-grupo">
+<label>Professor</label>
+<select id="filtro-professor">
+            <option value="Todos">Todos</option>
+            <option value="Prof. Silva">Prof. Silva</option>
+            <option value="Prof. Santos">Prof. Santos</option>
+        </select>
+ </div>
+<div class="filtro-grupo">
+<label>Certificado</label>
+<select id="filtro-certificado">
+            <option value="Todos">Todos</option>
+            <option value="Sim">Sim</option>
+            <option value="Nao">Não</option>
+        </select>
+</div>
+ <div class="filtro-grupo">
+<label>Ordenar por</label>
+<select id="filtro-ordenar">
+            <option value="Data">Data</option>
+            <option value="Titulo">Título (A-Z)</option>
+        </select>
+</div>
+<button class="btn-filtrar"><i class="fa-solid fa-filter"></i> Filtrar</button>
+</div>
 
                 <div class="status-cards-container">
                     <div class="card status-card">
@@ -121,6 +142,39 @@
             </section>
         </main>
     </div>
+
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-section">
+            <div class="footer-logo">
+                <img src="../../assets/images/logos/logo_bege_texto_lateral.png" alt="Sabiaa" style="height: 40px;">
+            </div>
+            <p style="color: rgba(255, 255, 255, 0.7); font-size: 14px; max-width: 250px;">Educação e Tecnologia alinhadas para um futuro melhor.</p>
+        </div>
+        
+        <div class="footer-section footer-links">
+            <h4>Links Rápidos</h4>
+            <ul>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Cursos</a></li>
+                <li><a href="#">Suporte</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section footer-contact">
+            <h4>Contato</h4>
+            <p><i class="fa-solid fa-envelope" style="margin-right: 8px;"></i> contato@sabiaa.com.br</p>
+            <p><i class="fa-solid fa-phone" style="margin-right: 8px;"></i> (31) 1234-5678</p>
+        </div>
+
+        <div class="footer-section footer-social">
+            <h4>Redes Sociais</h4>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+    </div>
+</footer>
 
     <script src="script.js"></script>
 </body>

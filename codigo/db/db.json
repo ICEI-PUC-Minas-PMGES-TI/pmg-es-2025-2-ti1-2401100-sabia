@@ -200,38 +200,121 @@
   ],
   "disciplinas": [
     {
-      "id": "disc_201",
-      "nome": "Matemática Aplicada",
-      "descricao": "Disciplina voltada para aplicações matemáticas em contextos práticos.",
-      "categoria": "Matemática",
-      "nivel": "Intermediário",
-      "imagem_capa": "https://cdn.sabiaa.com/thumbs/disc_201.jpg",
-      "data_criacao": "2025-04-01T08:00:00Z",
-      "ultima_atualizacao": "2025-09-20T15:00:00Z",
-      "ativo": true,
-      "professor_responsavel_id": "prof_021",
-      "turmas_vinculadas_ids": [
-        "turma_301",
-        "turma_302"
-      ],
-      "cursos_relacionados_ids": [
-        "curso_202",
-        "curso_203"
-      ],
-      "aulas_ids": [
-        "aula_501",
-        "aula_502"
-      ],
-      "atividades_ids": [
-        "atv_601",
-        "atv_602"
-      ],
-      "estatisticas": {
-        "total_aulas": 12,
-        "total_atividades": 8,
-        "media_progresso_alunos": 0.74,
-        "total_visualizacoes": 1840
-      }
+      "id": "disc_01",
+      "titulo": "Português",
+      "descricao": "Gramática, Literatura e Redação",
+      "area": "humanas",
+      "corIcone": "#D9534F",
+      "corFundo": "#F8D7DA",
+      "icone": "fa-solid fa-book-open"
+    },
+    {
+      "id": "disc_02",
+      "titulo": "Matemática",
+      "descricao": "Álgebra, Geometria e Estatística",
+      "area": "exatas",
+      "corIcone": "#31708F",
+      "corFundo": "#D1ECF1",
+      "icone": "fa-solid fa-calculator"
+    },
+    {
+      "id": "disc_03",
+      "titulo": "Biologia",
+      "descricao": "Citologia, Bactérias e Doenças",
+      "area": "bio",
+      "corIcone": "#155724",
+      "corFundo": "#D4EDDA",
+      "icone": "fa-solid fa-flask"
+    },
+    {
+      "id": "disc_04",
+      "titulo": "Física",
+      "descricao": "Explore as leis do movimento, energia e universo.",
+      "area": "exatas",
+      "corIcone": "#31708F",
+      "corFundo": "#D1ECF1",
+      "icone": "fa-solid fa-atom"
+    },
+    {
+      "id": "disc_05",
+      "titulo": "Química",
+      "descricao": "Descubra a tabela periódica, reações e moléculas.",
+      "area": "bio",
+      "corIcone": "#155724",
+      "corFundo": "#D4EDDA",
+      "icone": "fa-solid fa-vial"
+    },
+    {
+      "id": "disc_06",
+      "titulo": "História",
+      "descricao": "História do Brasil e Geral",
+      "area": "humanas",
+      "corIcone": "#856404",
+      "corFundo": "#FFF3CD",
+      "icone": "fa-solid fa-landmark"
+    },
+    {
+      "id": "disc_07",
+      "titulo": "Filosofia",
+      "descricao": "Questione a existência e conheça os grandes pensadores.",
+      "area": "humanas",
+      "corIcone": "#856404",
+      "corFundo": "#FFF3CD",
+      "icone": "fa-solid fa-brain"
+    },
+    {
+      "id": "disc_08",
+      "titulo": "Sociologia",
+      "descricao": "Entenda as estruturas da sociedade e grupos sociais.",
+      "area": "humanas",
+      "corIcone": "#856404",
+      "corFundo": "#FFF3CD",
+      "icone": "fa-solid fa-users"
+    },
+    {
+      "id": "disc_09",
+      "titulo": "Geografia",
+      "descricao": "Estude os mapas, climas e populações do planeta.",
+      "area": "humanas",
+      "corIcone": "#856404",
+      "corFundo": "#FFF3CD",
+      "icone": "fa-solid fa-globe-americas"
+    },
+    {
+      "id": "disc_10",
+      "titulo": "Inglês",
+      "descricao": "Gramática e Conversação",
+      "area": "humanas",
+      "corIcone": "#383D41",
+      "corFundo": "#E2E3E5",
+      "icone": "fa-solid fa-spell-check"
+    },
+    {
+      "id": "disc_11",
+      "titulo": "Espanhol",
+      "descricao": "Domine o vocabulário, gramática e conversação.",
+      "area": "humanas",
+      "corIcone": "#383D41",
+      "corFundo": "#E2E3E5",
+      "icone": "fa-solid fa-language"
+    },
+    {
+      "id": "disc_12",
+      "titulo": "Artes",
+      "descricao": "Artes Visuais e História da Arte",
+      "area": "humanas",
+      "corIcone": "#7A2E7A",
+      "corFundo": "#F8D7F7",
+      "icone": "fa-solid fa-palette"
+    },
+    {
+      "id": "disc_13",
+      "titulo": "Educação Física",
+      "descricao": "Esportes e Saúde",
+      "area": "bio",
+      "corIcone": "#C07A1E",
+      "corFundo": "#FEEBCF",
+      "icone": "fa-solid fa-person-running"
     }
   ]
 }
