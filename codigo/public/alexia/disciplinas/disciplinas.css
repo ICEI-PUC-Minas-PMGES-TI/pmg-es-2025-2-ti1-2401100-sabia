@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+
 :root {
+    --font-family: 'Nunito', sans-serif;
     --azul-escuro: #21203F;
     --bege-claro: #fff1ce;
     --rosa-claro: #e7bfa5;
@@ -24,7 +27,7 @@ body {
         "sidebar main"
         "footer  footer";
     min-height: 100vh;
-    font-family: Arial, sans-serif;
+    font-family: var(--font-family);
 }
 
 /* --- Header --- */

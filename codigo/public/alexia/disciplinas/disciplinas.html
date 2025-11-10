@@ -5,19 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SABIAA - Disciplinas</title>
-    
+
     <link rel="stylesheet" href="/codigo/public/alexia/disciplinas/disciplinas.css">
-    
+
     <script src="https://kit.fontawesome.com/937e8004d1.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
-    
+
     <header class="header">
         <div class="header-container">
             <img class="logo_header" src="/codigo/public/assets/images/logos/logo_nome_lateral_salmao.png" alt="SABIAA">
-            
+
             <div class="icon-header">
                 <i class="fa-solid fa-bell icon-fa"></i>
                 <img class="icon" src="/codigo/public/assets/icones/icon-usuario.png" alt="Usuário">
@@ -50,12 +51,13 @@
                 <option value="humanas">Humanas</option>
                 <option value="exatas">Exatas</option>
                 <option value="bio">Biológicas</option>
+                <option value="linguagens">Linguagens</option>
             </select>
         </div>
 
         <div class="disciplinas-grid">
 
-            <div class="disciplina-card">
+            <div class="disciplina-card" data-area="humanas">
                 <div class="card-icon-container" style="background-color: #F8D7DA;">
                     <i class="fa-solid fa-book-open" style="color: #D9534F;"></i>
                 </div>
@@ -64,7 +66,7 @@
                 <a href="#" class="btn-acessar">Acessar</a>
             </div>
 
-            <div class="disciplina-card">
+            <div class="disciplina-card" data-area="exatas">
                 <div class="card-icon-container" style="background-color: #D1ECF1;">
                     <i class="fa-solid fa-calculator" style="color: #31708F;"></i>
                 </div>
@@ -73,16 +75,34 @@
                 <a href="#" class="btn-acessar">Acessar</a>
             </div>
 
-            <div class="disciplina-card">
+            <div class="disciplina-card" data-area="bio">
                 <div class="card-icon-container" style="background-color: #D4EDDA;">
                     <i class="fa-solid fa-flask" style="color: #155724;"></i>
                 </div>
-                <h3>Ciências</h3>
-                <p>Biologia, Física e Química</p>
+                <h3>Biologia</h3>
+                <p>Citologia, Bactérias e Doenças</p>
                 <a href="#" class="btn-acessar">Acessar</a>
             </div>
 
-            <div class="disciplina-card">
+            <div class="disciplina-card" data-area="exatas">
+                <div class="card-icon-container" style="background-color: #D1ECF1;">
+                    <i class="fa-solid fa-atom" style="color: #31708F;"></i>
+                </div>
+                <h3>Física</h3>
+                <p>Explore as leis do movimento, energia e universo.</p>
+                <a href="#" class="btn-acessar">Acessar</a>
+            </div>
+
+            <div class="disciplina-card" data-area="exatas">
+                <div class="card-icon-container" style="background-color: #D4EDDA;">
+                    <i class="fa-solid fa-vial" style="color: #155724;"></i>
+                </div>
+                <h3>Química</h3>
+                <p>Descubra a tabela periódica, reações e moléculas.</p>
+                <a href="#" class="btn-acessar">Acessar</a>
+            </div>
+
+            <div class="disciplina-card" data-area="humanas">
                 <div class="card-icon-container" style="background-color: #FFF3CD;">
                     <i class="fa-solid fa-landmark" style="color: #856404;"></i>
                 </div>
@@ -91,16 +111,34 @@
                 <a href="#" class="btn-acessar">Acessar</a>
             </div>
 
-            <div class="disciplina-card">
-                <div class="card-icon-container" style="background-color: #D1ECF1;">
-                    <i class="fa-solid fa-globe-americas" style="color: #31708F;"></i>
+            <div class="disciplina-card" data-area="humanas">
+                <div class="card-icon-container" style="background-color: #FFF3CD;">
+                    <i class="fa-solid fa-brain" style="color: #856404;"></i>
                 </div>
-                <h3>Geografia</h3>
-                <p>Geografia Física e Humana</p>
+                <h3>Filosofia</h3>
+                <p>Questione a existência e conheça os grandes pensadores.</p>
                 <a href="#" class="btn-acessar">Acessar</a>
             </div>
 
-            <div class="disciplina-card">
+            <div class="disciplina-card" data-area="humanas">
+                <div class="card-icon-container" style="background-color: #FFF3CD;">
+                    <i class="fa-solid fa-users" style="color: #856404;"></i>
+                </div>
+                <h3>Sociologia</h3>
+                <p>Entenda as estruturas da sociedade e grupos sociais.</p>
+                <a href="#" class="btn-acessar">Acessar</a>
+            </div>
+
+            <div class="disciplina-card" data-area="humanas">
+                <div class="card-icon-container" style="background-color: #FFF3CD;">
+                    <i class="fa-solid fa-globe-americas" style="color: #856404;"></i>
+                </div>
+                <h3>Geografia</h3>
+                <p>Estude os mapas, climas e populações do planeta.</p>
+                <a href="#" class="btn-acessar">Acessar</a>
+            </div>
+
+            <div class="disciplina-card" data-area="linguagens">
                 <div class="card-icon-container" style="background-color: #E2E3E5;">
                     <i class="fa-solid fa-spell-check" style="color: #383D41;"></i>
                 </div>
@@ -108,8 +146,17 @@
                 <p>Gramática e Conversação</p>
                 <a href="#" class="btn-acessar">Acessar</a>
             </div>
+            
+            <div class="disciplina-card" data-area="linguagens">
+                <div class="card-icon-container" style="background-color: #E2E3E5;">
+                    <i class="fa-solid fa-language" style="color: #383D41;"></i>
+                </div>
+                <h3>Espanhol</h3>
+                <p>Domine o vocabulário, gramática e conversação.</p>
+                <a href="#" class="btn-acessar">Acessar</a>
+            </div>
 
-            <div class="disciplina-card">
+            <div class="disciplina-card" data-area="humanas">
                 <div class="card-icon-container" style="background-color: #F8D7F7;">
                     <i class="fa-solid fa-palette" style="color: #7A2E7A;"></i>
                 </div>
@@ -118,7 +165,7 @@
                 <a href="#" class="btn-acessar">Acessar</a>
             </div>
 
-            <div class="disciplina-card">
+            <div class="disciplina-card" data-area="bio">
                 <div class="card-icon-container" style="background-color: #FEEBCF;">
                     <i class="fa-solid fa-person-running" style="color: #C07A1E;"></i>
                 </div>
@@ -126,7 +173,7 @@
                 <p>Esportes e Saúde</p>
                 <a href="#" class="btn-acessar">Acessar</a>
             </div>
-            
+
         </div>
     </main>
 
@@ -162,7 +209,7 @@
             </div>
         </div>
     </footer>
-    
+
     <script src="/codigo/public/alexia/disciplinas/disciplinas.js"></script>
 </body>
 
