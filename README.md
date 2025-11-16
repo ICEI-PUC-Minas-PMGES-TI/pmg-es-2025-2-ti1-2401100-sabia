@@ -8,10 +8,8 @@ A solução implementa funcionalidades pedagógicas avançadas como sistema de v
 
 * Alexia Fernanda Alves de Andrade
 * Gustavo Marcelo Penido Pereira
-* Julia Santos Araujo
 * Perciliana Rosa Adalgiza Batista Rodrigues
 * Ruan Henrique Rodrigues de Morais
-* Suyane Simplícia Faria Silva
 * Victhor Guilherme Santos Loiola
 
 ## Professores responsáveis
