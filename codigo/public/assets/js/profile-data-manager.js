@@ -139,7 +139,7 @@ class ProfileDataManager {
         // Link do perfil
         const profileLink = document.getElementById('profileLink');
         if (profileLink) {
-            profileLink.href = userData.tipo === 'professor' ? '/gustavo/in/professor/perfil.html' : '/gustavo/in/aluno/perfil.html';
+            profileLink.href = userData.tipo === 'professor' ? '/gustavo/in/professor/perfil/' : '/gustavo/in/aluno/perfil/';
         }
     }
 
