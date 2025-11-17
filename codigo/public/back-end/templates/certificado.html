@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificado - {{curso_titulo}}</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .certificate {
+            width: 800px;
+            height: 750px;
+            background: white;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .certificate-border {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            border: 3px solid #d4af37;
+            border-radius: 8px;
+        }
+
+        .certificate-inner {
+            position: absolute;
+            top: 25px;
+            left: 25px;
+            right: 25px;
+            bottom: 25px;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+        }
+
+        .certificate-header {
+            text-align: center;
+            padding: 30px 0 20px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin: 20px 20px 30px 20px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .sabiaa-logo {
+            max-width: 300px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .sabiaa-subtitle {
+            font-size: 12px;
+            opacity: 0.9;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .certificate-title {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .certificate-title h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .certificate-subtitle {
+            font-size: 16px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .certificate-content {
+            text-align: center;
+            padding: 0 60px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .certificate-text {
+            font-size: 16px;
+            color: #444;
+            margin-bottom: 15px;
+        }
+
+        .student-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            color: #2c3e50;
+            font-weight: 700;
+            margin: 15px 0;
+            text-decoration: underline;
+            text-decoration-color: #d4af37;
+        }
+
+        .course-name {
+            font-size: 20px;
+            color: #667eea;
+            font-weight: 600;
+            margin: 15px 0;
+            word-wrap: break-word;
+            line-height: 1.3;
+        }
+
+        .certificate-details {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 60px 40px 60px;
+            font-size: 14px;
+            color: #666;
+            position: relative;
+            z-index: 10;
+        }
+
+        .detail-item {
+            text-align: center;
+        }
+
+        .detail-label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+
+        .detail-value {
+            color: #667eea;
+            font-weight: 500;
+        }
+
+        .validation-code {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            color: #666;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+            background: rgba(102, 126, 234, 0.1);
+            padding: 8px 15px;
+            border-radius: 5px;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            z-index: 20;
+        }
+
+
+        .decorative-element {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .decorative-element.top-left {
+            top: -50px;
+            left: -50px;
+        }
+
+        .decorative-element.bottom-right {
+            bottom: -50px;
+            right: -50px;
+        }
+
+        @media print {
+            body {
+                background: white;
+                margin: 0;
+                padding: 0;
+            }
+            
+            .certificate {
+                box-shadow: none;
+                width: 100%;
+                height: 100vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="certificate">
+        <div class="decorative-element top-left"></div>
+        <div class="decorative-element bottom-right"></div>
+        <div class="certificate-border"></div>
+        <div class="certificate-inner"></div>
+        
+        <div class="certificate-header">
+            {{logo_html}}
+        </div>
+
+        <div class="certificate-title">
+            <h1>CERTIFICADO</h1>
+            <div class="certificate-subtitle">de Conclusão de Curso</div>
+        </div>
+
+        <div class="certificate-content">
+            <p class="certificate-text">
+                Certificamos que
+            </p>
+            
+            <div class="student-name">{{usuario_nome}}</div>
+            
+            <p class="certificate-text">
+                concluiu com êxito o curso
+            </p>
+            
+            <div class="course-name">{{curso_titulo}}</div>
+            
+            <p class="certificate-text">
+                com carga horária de <strong>{{carga_horaria}}</strong> horas,
+                obtendo aproveitamento de <strong>{{nota_final}}</strong> pontos.
+            </p>
+        </div>
+
+        <div class="certificate-details">
+            <div class="detail-item">
+                <span class="detail-label">Data de Conclusão</span>
+                <span class="detail-value">{{data_conclusao}}</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Data de Emissão</span>
+                <span class="detail-value">{{data_emissao}}</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Categoria</span>
+                <span class="detail-value">{{categoria}}</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Nível</span>
+                <span class="detail-value">{{nivel}}</span>
+            </div>
+        </div>
+
+
+
+        <div class="validation-code">
+            Token de Validação: {{token_validacao}}
+        </div>
+    </div>
+</body>
+</html>
