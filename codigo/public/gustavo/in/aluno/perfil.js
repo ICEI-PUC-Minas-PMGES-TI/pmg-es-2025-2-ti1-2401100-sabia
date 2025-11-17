@@ -205,8 +205,8 @@ function updateUserHeader(user) {
     // Atualizar nome no header
     const headerNameElement = document.getElementById('headerUserName');
     if (headerNameElement) {
-        headerNameElement.textContent = user.nome || 'Gustavo';
-        console.log('✅ Nome no header atualizado:', user.nome || 'Gustavo');
+        headerNameElement.textContent = user.nome || 'Usuário';
+        console.log('✅ Nome no header atualizado:', user.nome || 'Usuário');
     }
     
     // Atualizar foto no header
@@ -282,8 +282,8 @@ function loadCurrentPhoto(userData) {
     };
     
     currentPhotoElement.onerror = function() {
-        console.log('❌ Erro ao carregar foto de edição, usando padrão do Gustavo');
-        this.src = gustavoPhoto;
+        console.log('❌ Erro ao carregar foto de edição, usando padrão do sistema');
+        this.src = defaultPhoto;
     };
 }
 
@@ -395,7 +395,7 @@ async function uploadProfilePhoto(file) {
             await new Promise(resolve => setTimeout(resolve, 100));
         }
 
-        // Gerar URL fake da foto (em produção seria a URL real do upload)
+        // simular upload (substituir por upload real em produção)
         const photoUrl = `https://firebasestorage.googleapis.com/v0/b/sabiaa-2e56f.firebasestorage.app/o/profile_photos%2F${Date.now()}.jpeg?alt=media&token=${Math.random().toString(36)}`;
 
         console.log('✅ Foto enviada com sucesso:', photoUrl);

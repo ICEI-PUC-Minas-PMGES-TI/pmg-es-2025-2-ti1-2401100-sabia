@@ -7,15 +7,20 @@
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
-  "keywords": ["education", "sabiaa", "json-server"],
+  "keywords": [
+    "education",
+    "sabiaa",
+    "json-server"
+  ],
   "author": "Projeto Sabiaa",
   "license": "ISC",
   "dependencies": {
-    "json-server": "^0.17.4",
     "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "html-pdf-node": "^1.0.8",
+    "json-server": "^0.17.4",
     "jsonwebtoken": "^9.0.2",
-    "uuid": "^9.0.1",
-    "cors": "^2.8.5"
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "nodemon": "^3.0.2"

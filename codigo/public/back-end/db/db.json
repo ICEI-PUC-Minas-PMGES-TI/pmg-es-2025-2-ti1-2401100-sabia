@@ -7,7 +7,7 @@
       "foto": "https://firebasestorage.googleapis.com/v0/b/sabiaa-2e56f.firebasestorage.app/o/profile_photos%2Ftemp_1762112855101_1762112855123.jpg?alt=media&token=504c9d28-2ed8-4e95-8c80-82c39c723eff",
       "data_nascimento": "2005-07-17",
       "email": "gugupenidop@gmail.com",
-      "senha_hash": "$2a$10$3KFZ3L8YGbNSsIYU7zNyDuIXcfghOOug03w2uFBXCk4Ltp7qxx9KK",
+      "senha_hash": "$2a$10$E9V37zSUrSQ4ZnUvXdF8FOk/x6M17ZbszcIV4MZKA7s11PvFl1X8i",
       "telefone": "(31) 99510-6573",
       "endereco": {
         "cep": "",
@@ -79,7 +79,13 @@
       }
     }
   ],
-  "recovery_tokens": [],
+  "recovery_tokens": [
+    {
+      "email": "gugupenidop@gmail.com",
+      "token": "eab43a9b-4cf9-44b4-a7a6-b8dc7cf98905",
+      "expires": "2025-11-17T03:06:10.699Z"
+    }
+  ],
   "cursos": [
     {
       "id": "curso-001",
@@ -91,7 +97,9 @@
       "nivel": "Básico",
       "data_criacao": "2025-01-15T00:00:00.000Z",
       "status": "ativo",
-      "requisitos": ["Conhecimento básico de HTML"],
+      "requisitos": [
+        "Conhecimento básico de HTML"
+      ],
       "modulos": [
         {
           "id": "mod-001",
@@ -109,7 +117,7 @@
       ]
     },
     {
-      "id": "curso-002", 
+      "id": "curso-002",
       "titulo": "Python para Iniciantes",
       "descricao": "Aprenda Python do zero",
       "instrutor": "Prof. João Santos",
@@ -138,8 +146,81 @@
   ],
   "atividades": [],
   "quizzes": [],
-  "certificados": [],
-  "tokens_certificados": [],
+  "certificados": [
+    {
+      "id": "cert-001",
+      "usuario_id": "893406d1-d150-4c41-bd5d-54a931ff466b",
+      "curso_id": "curso-001",
+      "token_validacao": "CERT-JS-001-2025-ABC123",
+      "data_emissao": "2025-10-30T00:00:00.000Z",
+      "data_conclusao_curso": "2025-10-30T00:00:00.000Z",
+      "nota_final": 85.5,
+      "carga_horaria_curso": 40,
+      "status": "ativo",
+      "dados_curso": {
+        "titulo": "Introdução ao JavaScript",
+        "instrutor": "Prof. Maria Silva",
+        "categoria": "Programação",
+        "nivel": "Básico"
+      },
+      "dados_aluno": {
+        "nome": "Gustavo",
+        "email": "gugupenidop@gmail.com"
+      }
+    },
+    {
+      "id": "5fb3331b-2bf6-4736-bc70-a07616d7ac95",
+      "usuario_id": "893406d1-d150-4c41-bd5d-54a931ff466b",
+      "curso_id": "curso-002",
+      "token_validacao": "fc94b1c6-6fc6-4ffa-9240-a618d94a6d50-1763341590020",
+      "data_emissao": "2025-11-17T01:06:30.020Z",
+      "dados_usuario": {
+        "nome": "Gustavo",
+        "email": "gugupenidop@gmail.com",
+        "id": "893406d1-d150-4c41-bd5d-54a931ff466b"
+      },
+      "dados_curso": {
+        "titulo": "Python para Iniciantes",
+        "instrutor": "Prof. João Santos",
+        "carga_horaria": 60,
+        "categoria": "Programação",
+        "nivel": "Básico"
+      },
+      "dados_conclusao": {
+        "data_inicio": "2025-11-01T00:00:00.000Z",
+        "data_conclusao": "2025-11-15T00:00:00.000Z",
+        "nota_final": 92,
+        "progresso_porcentagem": 100
+      },
+      "status": "ativo"
+    }
+  ],
+  "tokens_certificados": [
+    {
+      "id": "token-001",
+      "token": "CERT-JS-001-2025-ABC123",
+      "certificado_id": "cert-001",
+      "usuario_id": "893406d1-d150-4c41-bd5d-54a931ff466b",
+      "curso_id": "curso-001",
+      "data_geracao": "2025-10-30T00:00:00.000Z",
+      "valido": true,
+      "acessos": 0,
+      "ultimo_acesso": null
+    },
+    {
+      "id": "3ab2ab65-fe9b-4acb-a61e-2eed8f7119f1",
+      "token": "fc94b1c6-6fc6-4ffa-9240-a618d94a6d50-1763341590020",
+      "certificado_id": "5fb3331b-2bf6-4736-bc70-a07616d7ac95",
+      "usuario_nome": "Gustavo",
+      "curso_titulo": "Python para Iniciantes",
+      "data_emissao": "2025-11-17T01:06:30.020Z",
+      "data_conclusao": "2025-11-15T00:00:00.000Z",
+      "carga_horaria": 60,
+      "nota_final": 92,
+      "status": "ativo",
+      "criado_em": "2025-11-17T01:06:30.020Z"
+    }
+  ],
   "progresso_cursos": [
     {
       "id": "prog-001",
@@ -148,10 +229,16 @@
       "status": "concluido",
       "data_inicio": "2025-10-15T00:00:00.000Z",
       "data_conclusao": "2025-10-30T00:00:00.000Z",
+      "nota_final": 85.5,
       "progresso_porcentagem": 100,
-      "modulos_concluidos": ["mod-001"],
-      "aulas_concluidas": ["aula-001", "aula-002", "aula-003"],
-      "nota_final": 85
+      "modulos_concluidos": [
+        "mod-001"
+      ],
+      "aulas_concluidas": [
+        "aula-001",
+        "aula-002",
+        "aula-003"
+      ]
     },
     {
       "id": "prog-002",
@@ -160,10 +247,16 @@
       "status": "concluido",
       "data_inicio": "2025-11-01T00:00:00.000Z",
       "data_conclusao": "2025-11-15T00:00:00.000Z",
+      "nota_final": 92,
       "progresso_porcentagem": 100,
-      "modulos_concluidos": ["mod-002"],
-      "aulas_concluidas": ["aula-004", "aula-005", "aula-006"],
-      "nota_final": 92
+      "modulos_concluidos": [
+        "mod-002"
+      ],
+      "aulas_concluidas": [
+        "aula-004",
+        "aula-005",
+        "aula-006"
+      ]
     },
     {
       "id": "prog-003",
@@ -174,7 +267,9 @@
       "data_conclusao": null,
       "progresso_porcentagem": 65,
       "modulos_concluidos": [],
-      "aulas_concluidas": ["aula-001"],
+      "aulas_concluidas": [
+        "aula-001"
+      ],
       "nota_final": null
     }
   ],

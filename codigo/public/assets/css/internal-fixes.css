@@ -41,13 +41,14 @@ body {
 }
 
 .sidebar-logo {
-    width: 40px;
-    height: 40px;
+    width: auto;
+    height: 45px;
     flex-shrink: 0;
-    object-fit: cover;
-    background: white;
-    border-radius: 8px;
-    padding: 3px;
+    object-fit: contain;
+    background: transparent;
+    border-radius: 0;
+    padding: 0;
+    max-width: 200px;
 }
 
 .sidebar-title {
