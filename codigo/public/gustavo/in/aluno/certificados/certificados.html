@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="theme-aluno">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>meus certificados - sabiaa aluno</title>
+    
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/937e8004d1.js" crossorigin="anonymous"></script>
+    
+    <!-- estilos -->
+    <link rel="stylesheet" href="../../../../assets/css/global.css">
+    <link rel="stylesheet" href="../../../../assets/css/interno.css">
+    <link rel="stylesheet" href="../../../../assets/css/internal-fixes.css">
+    <link rel="stylesheet" href="../../../../assets/css/profile-enhancements.css">
+    <link rel="stylesheet" href="../shared/aluno-comum.css">
+    <link rel="stylesheet" href="certificados.css">
+</head>
+<body>
+    <!-- overlay para mobile -->
+    <div class="sidebar-overlay"></div>
+
+    <div class="dashboard-container">
+        <!-- sidebar -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <img src="../../../../assets/images/logos/logo_nome_lateral_bege.png" alt="sabiaa" class="sidebar-logo">
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+            <div class="sidebar-nav">
+                <!-- navegacao principal -->
+                <div class="nav-section">
+                    <div class="nav-section-title">principal</div>
+                    <a href="../dashboard.html" class="nav-item">
+                        <i class="fas fa-home"></i>
+                        <span class="nav-item-text">dashboard</span>
+                    </a>
+                    <a href="../perfil/perfil.html" class="nav-item">
+                        <i class="fas fa-user"></i>
+                        <span class="nav-item-text">meu perfil</span>
+                    </a>
+                </div>
+
+                <!-- disciplinas -->
+                <div class="nav-section">
+                    <div class="nav-section-title">disciplinas</div>
+                    <a href="../disciplinas.html" class="nav-item">
+                        <i class="fas fa-book"></i>
+                        <span class="nav-item-text">minhas disciplinas</span>
+                    </a>
+                    <a href="../atividades.html" class="nav-item">
+                        <i class="fas fa-tasks"></i>
+                        <span class="nav-item-text">atividades</span>
+                    </a>
+                    <a href="../notas.html" class="nav-item">
+                        <i class="fas fa-chart-line"></i>
+                        <span class="nav-item-text">notas</span>
+                    </a>
+                </div>
+
+                <!-- cursos -->
+                <div class="nav-section">
+                    <div class="nav-section-title">cursos</div>
+                    <a href="../cursos.html" class="nav-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span class="nav-item-text">meus cursos</span>
+                    </a>
+                    <a href="certificados.html" class="nav-item active">
+                        <i class="fas fa-certificate"></i>
+                        <span class="nav-item-text">certificados</span>
+                    </a>
+                </div>
+
+                <!-- meu progresso -->
+                <div class="nav-section">
+                    <div class="nav-section-title">meu progresso</div>
+                    <a href="../progresso.html" class="nav-item">
+                        <i class="fas fa-chart-bar"></i>
+                        <span class="nav-item-text">desempenho</span>
+                    </a>
+                    <a href="../historico.html" class="nav-item">
+                        <i class="fas fa-history"></i>
+                        <span class="nav-item-text">historico</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- conteudo principal -->
+        <main class="main-content">
+            <!-- header -->
+            <header class="header">
+                <div class="header-left">
+                    <button class="header-btn mobile-menu-btn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div>
+                        <h1 class="page-title">meus certificados</h1>
+                        <div class="breadcrumb">
+                            <a href="../dashboard.html">dashboard</a>
+                            <i class="fas fa-chevron-right"></i>
+                            <span>certificados</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- barra de pesquisa -->
+                <div class="search-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="search-input" placeholder="pesquisar certificados...">
+                </div>
+
+                <!-- header direito -->
+                <div class="header-right">
+                    <div class="header-actions">
+                        <button class="header-btn" title="notificacoes" id="notificationBtn">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-badge" id="notificationCount" style="display: none;">0</span>
+                        </button>
+                        <button class="header-btn" title="configuracoes">
+                            <i class="fas fa-cog"></i>
+                        </button>
+                    </div>
+
+                    <!-- perfil do usuario -->
+                    <div class="user-profile">
+                        <img src="../../../../assets/images/logos/logo_simbolo_branco.png" alt="avatar" class="user-avatar" id="headerUserAvatar" onerror="this.style.display='none'">
+                        <div class="user-info">
+                            <span class="user-name" id="headerUserName">carregando...</span>
+                            <span class="user-role">aluno</span>
+                        </div>
+                        <i class="fas fa-chevron-down user-dropdown-arrow"></i>
+                        
+                        <!-- dropdown menu -->
+                        <div class="user-dropdown">
+                            <a href="../perfil/perfil.html" class="dropdown-item">
+                                <i class="fas fa-user"></i>
+                                <span>meu perfil</span>
+                            </a>
+                            <a href="../configuracoes.html" class="dropdown-item">
+                                <i class="fas fa-cog"></i>
+                                <span>configuracoes</span>
+                            </a>
+                            <a href="#" class="dropdown-item" onclick="logout()">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>sair</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- area de conteudo -->
+            <div class="content-area">
+                <!-- filtros -->
+                <div class="filters-section">
+                    <div class="filter-group">
+                        <label for="categoriaFilter">categoria:</label>
+                        <select id="categoriaFilter">
+                            <option value="">todas as categorias</option>
+                            <option value="programacao">programacao</option>
+                            <option value="design">design</option>
+                            <option value="marketing">marketing</option>
+                            <option value="negocios">negocios</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="statusFilter">status:</label>
+                        <select id="statusFilter">
+                            <option value="">todos</option>
+                            <option value="disponivel">disponivel para emissao</option>
+                            <option value="emitido">ja emitido</option>
+                        </select>
+                    </div>
+                    
+                    <button class="btn-refresh" onclick="carregarCertificados()">
+                        <i class="fas fa-sync-alt"></i>
+                        atualizar
+                    </button>
+                </div>
+
+                <!-- loading -->
+                <div id="loading" class="loading-container" style="display: none;">
+                    <div class="spinner"></div>
+                    <p>carregando certificados...</p>
+                </div>
+
+                <!-- mensagem de erro -->
+                <div id="errorMessage" class="error-message" style="display: none;">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span id="errorText"></span>
+                    <button onclick="carregarCertificados()">tentar novamente</button>
+                </div>
+
+                <!-- lista de certificados -->
+                <div class="certificates-container">
+                    <div id="certificadosDisponiveis" class="certificates-section">
+                        <h2>📋 cursos concluidos</h2>
+                        <div class="certificates-grid" id="cursosGrid">
+                            <!-- certificados serao inseridos aqui via javascript -->
+                        </div>
+                    </div>
+
+                    <div id="certificadosEmitidos" class="certificates-section" style="display: none;">
+                        <h2>🎓 certificados emitidos</h2>
+                        <div class="certificates-grid" id="emitidosGrid">
+                            <!-- certificados emitidos serao inseridos aqui -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- modal de confirmacao -->
+    <div id="confirmModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h3>🏆 gerar certificado</h3>
+            <p id="confirmText">tem certeza que deseja gerar o certificado para este curso?</p>
+            <div class="course-info" id="courseInfo">
+                <!-- informacoes do curso serao inseridas aqui -->
+            </div>
+            <div class="modal-actions">
+                <button class="btn-cancel" onclick="fecharModal()">cancelar</button>
+                <button class="btn-confirm" id="confirmBtn" onclick="confirmarGeracao()">
+                    <i class="fas fa-certificate"></i>
+                    gerar certificado
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal de sucesso -->
+    <div id="successModal" class="modal" style="display: none;">
+        <div class="modal-content success">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3>🎉 certificado gerado!</h3>
+            <p>seu certificado foi gerado com sucesso!</p>
+            <div class="certificate-details" id="certificateDetails">
+                <!-- detalhes do certificado serao inseridos aqui -->
+            </div>
+            <div class="modal-actions">
+                <button class="btn-primary" onclick="baixarCertificadoModal()">
+                    <i class="fas fa-download"></i>
+                    baixar certificado
+                </button>
+                <button class="btn-secondary" onclick="fecharModalSucesso()">fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- scripts -->
+    <script src="../../../../assets/js/config.js"></script>
+    <script src="../../../../assets/js/auth.js"></script>
+    <script src="../../../../assets/js/interno.js"></script>
+    <script src="../shared/aluno-comum.js"></script>
+    <script src="certificados.js"></script>
+</body>
+</html>
