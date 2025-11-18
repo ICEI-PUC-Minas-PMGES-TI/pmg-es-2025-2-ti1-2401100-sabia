@@ -8,10 +8,8 @@ Informações básicas do projeto.
 
   * [ALEXIA FERNANDES ALVES DE ANDRADE](https://github.com/aalexiaandrade)
   * [GUSTAVO MARCELO PENIDO PEREIRA](https://github.com/guhpenido)
-  * [JÚLIA SANTOS ARAÚJO](https://github.com/Julia00567)
   * [PERCILIANA ROSA ADALGIZA BATISTA RODRIGUES](https://github.com/thepercilianarodrigues)
   * [RUAN HENRIQUE RODRIGUES DE MORAIS](https://github.com/ruanhmorais)
-  * [SUYANE SIMPLÍCIA FARIA SILVA](https://github.com/Suyanesimplicia)
   * [VICTHOR GUILHERME SANTOS LOIOLA](https://github.com/victhorsn)
 
 A documentação do projeto é estruturada da seguinte forma:
