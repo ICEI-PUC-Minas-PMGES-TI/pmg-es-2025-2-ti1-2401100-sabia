@@ -6,20 +6,24 @@ authors:
     given-names: Alexia Fernandes
   - family-names: Penido Pereira
     given-names: Gustavo Marcelo
-  - family-names: Santos Araújo
-    given-names: Júlia Adalgiza
-  - family-names: Batista Rodrigues
+  - family-names: Adalgiza Batista Rodrigues
     given-names: Perciliana Rosa 
   - family-names: Rodrigues de Morais
     given-names: Ruan Henrique
-  - family-names: Faria Silva
-    given-names: Suyane Simplícia
   - family-names: Santos Loiola
     given-names: Victhor Guilherme 
   - name-suffix: Professor
     affiliation: PUC Minas
-    family-names: 
-    given-names: 
+    family-names: Machado Osório Pereira
+    given-names: Daniel
+- name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: Soares de Paiva Lacerda
+    given-names: Lucca
+- name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: Hanne Soares de Andrade
+    given-names: Michelle
 keywords:
   - Educação
   - Plataforma Digital
@@ -29,4 +33,5 @@ keywords:
 repository-code: https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2025-2-ti1-2401100-sabia
 license: CC-BY-4.0
 version: 1.0.0
+
 date-released: 2025-09-28
