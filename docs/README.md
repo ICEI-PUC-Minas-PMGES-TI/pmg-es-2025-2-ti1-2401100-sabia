@@ -110,12 +110,11 @@ A **transformação digital** na educação tornou-se uma necessidade acelerada,
 - **Democratizar o acesso** a recursos educacionais de qualidade
 - **Reduzir as desigualdades** entre escolas urbanas e rurais
 - **Modernizar as práticas pedagógicas** sem substituir o professor, mas potencializando seu trabalho
-- **Criar um ambiente colaborativo** entre toda a comunidade escolar
 
 ### Justificativa dos Objetivos Específicos
 
 #### Funcionalidades Pedagógicas Avançadas
-A implementação de sistemas de upload de materiais, avaliação interativa e acompanhamento de desempenho justifica-se pela necessidade de **personalização do ensino**. Cada estudante possui ritmo e estilo de aprendizagem únicos, e a tecnologia pode oferecer caminhos diversificados para o conhecimento.
+A implementação de sistema de acompanhamento de desempenho justifica-se pela necessidade de **personalização do ensino**. Cada estudante possui ritmo e estilo de aprendizagem únicos, e a tecnologia pode oferecer caminhos diversificados para o conhecimento.
 
 #### Acessibilidade e Compatibilidade Técnica
 O foco em dispositivos diversos e conexões lentas é fundamental considerando que **74% dos domicílios brasileiros** acessam a internet exclusivamente pelo celular (IBGE, 2022), e muitas regiões ainda enfrentam limitações de infraestrutura digital.
@@ -140,7 +139,7 @@ A urgência da implementação de soluções inovadoras na educação pública b
 
 ## Público-Alvo
 
-O público-alvo desta aplicação web educacional é composto principalmente por **docentes e discentes do ensino fundamental** das escolas públicas brasileiras, além de gestores educacionais e familiares que acompanham o processo de aprendizagem.
+O público-alvo desta aplicação web educacional é composto principalmente por **discentes do ensino fundamental** das escolas públicas brasileiras, além de familiares que acompanham o processo de aprendizagem.
 
 ### Docentes do Ensino Fundamental
 
