@@ -30,9 +30,9 @@ A falta de educação básica de qualidade no Brasil é um problema estrutural q
 
 Como consequência, muitos estudantes concluem o ensino fundamental sem dominar competências essenciais como leitura, escrita e raciocínio lógico. Essa lacuna no aprendizado contribui para o aumento da evasão escolar, dificuldades no acesso ao ensino superior, baixa qualificação profissional e o aprofundamento das desigualdades sociais.
 
-Diante desse cenário, este projeto propõe o desenvolvimento de um site voltado para a educação básica em escolas públicas brasileiras. O objetivo principal é proporcionar a alunos e professores um ambiente rico em recursos educativos, que possam complementar o ensino presencial com conteúdos interativos, materiais de apoio e atividades práticas.
+Diante desse cenário, este projeto propõe o desenvolvimento de um site voltado para a educação básica em escolas públicas brasileiras. O objetivo principal é proporcionar aos alunos um ambiente rico em recursos educativos, que possam complementar para a formação dos alunos.
 
-Nossa plataforma busca incentivar o aprendizado ativo, promover a participação dos estudantes e facilitar o trabalho dos educadores, disponibilizando conteúdos alinhados com as diretrizes curriculares nacionais. Além disso, o site pretende ser uma ferramenta que valorize a diversidade cultural e as realidades regionais do país, contribuindo para a democratização do acesso à educação de qualidade e para a redução das desigualdades no sistema educacional brasileiro
+Nossa plataforma busca incentivar o aprendizado ativo, promover a participação dos estudantes e facilitar o trabalho dos educadores, disponibilizando conteúdos alinhados com as diretrizes curriculares nacionais. Além disso, o site pretende ser uma ferramenta que valorize a diversidade cultural e as realidades regionais do país, contribuindo para a democratização do acesso à educação de qualidade e para a redução das desigualdades no sistema educacional brasileiro.
 
 ## Problema
 
