@@ -141,28 +141,6 @@ A urgência da implementação de soluções inovadoras na educação pública b
 
 O público-alvo desta aplicação web educacional é composto principalmente por **discentes do ensino fundamental** das escolas públicas brasileiras, além de familiares que acompanham o processo de aprendizagem.
 
-### Docentes do Ensino Fundamental
-
-**Perfil dos Professores:**
-- **Faixa etária**: 23 a 55 anos
-- **Formação**: Pedagogia, Licenciaturas diversas ou formação em Normal Superior
-- **Experiência profissional**: Desde professores iniciantes até experientes com mais de 20 anos de carreira
-- **Contexto de trabalho**: Escolas públicas municipais e estaduais
-
-**Relação com a Tecnologia:**
-- **Conhecimento básico a intermediário** em tecnologias digitais
-- Familiaridade com **aplicativos de mensagens** (WhatsApp) e **redes sociais**
-- **Experiência variável** com plataformas educacionais digitais
-- Necessidade de **capacitação e suporte** para ferramentas mais complexas
-- Acesso principal via **smartphones** (78% dos professores)
-
-**Necessidades e Desafios:**
-- Salas de aula com **25 a 40 alunos** em média
-- Carga horária elevada (**40 horas semanais** ou mais)
-- Necessidade de **materiais complementares** para diversificar as aulas
-- Dificuldades para **acompanhar individualmente** o progresso dos estudantes
-- Carência de **recursos didáticos** adequados e atualizados
-
 ### Discentes do Ensino Fundamental
 
 **Perfil dos Estudantes:**
@@ -186,11 +164,6 @@ O público-alvo desta aplicação web educacional é composto principalmente por
 - Carência de **acompanhamento familiar** nos estudos
 
 ### Público Secundário
-
-**Gestores Educacionais:**
-- **Diretores e coordenadores pedagógicos** de escolas públicas
-- Necessidade de **relatórios** e **métricas de desempenho**
-- Foco em **resultados educacionais** e **cumprimento de metas**
 
 **Familiares/Responsáveis:**
 - **Pais e responsáveis** interessados no acompanhamento escolar
