@@ -205,14 +205,6 @@ O público-alvo espera uma plataforma que seja:
 
 ### Personas
 
-![Professor 1](images/professor_1.jpg)
-
-![Professor 2](images/professor_2.jpg)
-
-![Professor 3](images/professor_3.jpg)
-
-![Professor 4](images/professor_4.jpg)
-
 ![Aluno 1](images/aluno_1.jpg)
 
 ![Aluno 2](images/aluno_2.jpg)
