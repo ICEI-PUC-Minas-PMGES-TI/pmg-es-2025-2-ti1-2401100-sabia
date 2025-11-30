@@ -70,18 +70,14 @@ A necessidade de **democratização do acesso à educação de qualidade** e a *
 
 ### Objetivo Geral
 
-Desenvolver uma aplicação web educacional que modernize o ambiente de ensino-aprendizagem na educação básica pública brasileira, oferecendo uma experiência digital completa, funcional e acessível para professores, alunos e gestores educacionais.
+Desenvolver uma aplicação web educacional que modernize o ambiente de ensino-aprendizagem na educação básica pública brasileira, oferecendo uma experiência digital completa, funcional e acessível para os alunos.
 
 ### Objetivos Específicos
 
 - **Implementar funcionalidades pedagógicas avançadas** que ampliem as possibilidades de ensino, incluindo:
-  - Sistema de geração de relatórios para administradores
-  - Plataforma de upload de materiais complementares para professores
-  - Ferramentas de revisão de conteúdos para alunos
-  - Mecanismos interativos de avaliação de aulas (curtidas e comentários)
+  - Mecanismos interativos de avaliação de aulas (curtidas)
 
 - **Desenvolver sistema de acompanhamento acadêmico** que permita:
-  - Monitoramento detalhado do desempenho dos estudantes
   - Organização estruturada de conteúdos em módulos e listas
   - Aprendizagem adaptável às diferentes rotinas escolares
 
