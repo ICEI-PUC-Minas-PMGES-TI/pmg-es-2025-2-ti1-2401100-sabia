@@ -257,25 +257,19 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 | ID     | Descrição do Requisito | Prioridade |
 | ------ | ---------------------- | ---------- |
-| RF-001 | Alunos e professores podem se cadastrar com e-mail, senha e dados básicos | ALTA |
+| RF-001 | Alunos podem se cadastrar com e-mail, senha e dados básicos | ALTA |
 | RF-002 | Usuários podem fazer login e logout de forma segura | ALTA |
 | RF-003 | Usuários podem recuperar a senha pelo e-mail | MÉDIA |
-| RF-004 | Professores podem publicar vídeo-aulas com título, descrição e categoria | ALTA |
 | RF-005 | Alunos podem assistir às vídeo-aulas pelo site ou aplicativo | ALTA |
 | RF-006 | Usuários podem marcar aulas como favoritas para acessar depois | MÉDIA |
 | RF-007 | O sistema permite buscar vídeos por matéria, série ou palavra-chave | ALTA |
-| RF-008 | Alunos podem fazer quizzes e exercícios relacionados às aulas | ALTA |
 | RF-009 | O sistema registra o progresso do aluno em cada curso ou matéria | ALTA |
 | RF-010 | O sistema mostra relatórios de desempenho, incluindo acertos, erros e evolução | MÉDIA |
 | RF-011 | Alunos podem enviar dúvidas sobre aulas aos professores | MÉDIA |
-| RF-012 | Professores podem responder dúvidas enviadas pelos alunos | MÉDIA |
-| RF-013 | O sistema envia notificações sobre novas aulas ou respostas a dúvidas | BAIXA |
 | RF-014 | Administradores podem gerenciar usuários, conteúdos e categorias | ALTA |
 | RF-015 | Administradores podem gerar relatórios sobre alunos cadastrados, aulas assistidas e conteúdos mais acessados | MÉDIA |
-| RF-016 | Professores podem adicionar arquivos complementares (PDFs, slides) às aulas | MÉDIA |
 | RF-017 | O sistema permite que alunos revisem aulas e exercícios anteriores | MÉDIA |
-| RF-018 | Alunos podem avaliar aulas com curtidas ou comentários | BAIXA |
-| RF-019 | Professores podem acompanhar o desempenho individual e da turma em quizzes | MÉDIA |
+| RF-018 | Alunos podem avaliar aulas com curtidas | BAIXA |
 | RF-020 | O sistema permite criar listas ou módulos de aulas para organizar o conteúdo | MÉDIA |
 
 ### Requisitos não Funcionais
