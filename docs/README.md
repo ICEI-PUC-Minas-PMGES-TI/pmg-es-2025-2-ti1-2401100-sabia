@@ -245,11 +245,7 @@ Com base na análise das personas foram identificadas as seguintes histórias de
 
 ## Proposta de Valor
 
-##### Proposta de valor para as Personas que são professores:
-
-![Proposta de valor para os professores](images/proposta_valor_professores.png)
-
-##### Proposta de valor para as Personas que são alunos:
+##### Proposta de valor para as Personas de alunos:
 
 ![Proposta de valor para os alunos](images/proposta_valor_alunos.png)
 
