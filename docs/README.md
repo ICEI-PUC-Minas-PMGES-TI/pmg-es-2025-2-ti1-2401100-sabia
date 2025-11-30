@@ -221,26 +221,6 @@ Nesse momento, vamos transformar os insights e validações obtidos em soluçõe
 
 Com base na análise das personas foram identificadas as seguintes histórias de usuários:
 
-### Histórias dos Professores
-
-| EU COMO...`PERSONA` | QUERO/PRECISO ...`FUNCIONALIDADE` | PARA ...`MOTIVO/VALOR` |
-| --------------------- | ---------------------------------- | ---------------------- |
-| Sandra Gutierrez (Professora de Literatura) | Lançar notas e presença de forma rápida e simples | Otimizar meu tempo e reduzir o uso de papéis |
-| Sandra Gutierrez (Professora de Literatura) | Enviar avisos, atividades e materiais extras para toda a turma de uma vez | Superar a escassez de cópias e melhorar o desempenho dos alunos |
-| Sandra Gutierrez (Professora de Literatura) | Que o sistema funcione com conexão lenta | Poder trabalhar em diferentes lugares sem limitações de conectividade |
-| Sandra Gutierrez (Professora de Literatura) | Espaços específicos para separar os conteúdos por disciplina | Organizar melhor meus materiais didáticos |
-| Carlos Andrade (Professor de Inglês) | Enviar atividades durante a semana mesmo não estando em sala | Manter contato constante com os alunos entre as aulas semanais |
-| Carlos Andrade (Professor de Inglês) | Ver quem enviou tarefas e acompanhar o desenvolvimento | Planejar melhor as próximas aulas e dar feedback individualizado |
-| Carlos Andrade (Professor de Inglês) | Disponibilizar vídeo-aulas com assuntos específicos | Complementar o ensino com a frequência limitada das aulas |
-| Carlos Andrade (Professor de Inglês) | Notificações automáticas lembrando dos prazos | Garantir que todos os alunos sejam informados sobre entregas |
-| Lorraine Freitas (Professora Ensino Fundamental I) | Otimizar minhas tarefas diárias | Reduzir a exaustão e ter mais tempo para preparar aulas de qualidade |
-| Lorraine Freitas (Professora Ensino Fundamental I) | Ter acesso a materiais de apoio digitais | Complementar a escassez de recursos físicos da escola |
-| Lorraine Freitas (Professora Ensino Fundamental I) | Trabalhar em um ambiente prático sem burocracias | Focar mais no ensino e menos em processos administrativos |
-| Lorraine Freitas (Professora Ensino Fundamental I) | Integrar ferramentas digitais nas aulas | Tornar as aulas mais dinâmicas e interessantes para os alunos |
-| Marcos Oliveira (Professor de Matemática) | Engajar meus alunos e reduzir a evasão escolar | Motivar os estudantes a não desistirem de seus objetivos futuros |
-| Marcos Oliveira (Professor de Matemática) | Diminuir minhas demandas diárias exaustivas | Manter-me motivado e dedicado ao ensino |
-| Marcos Oliveira (Professor de Matemática) | Ter ferramentas para acompanhar o progresso individual dos alunos | Identificar dificuldades e oferecer suporte personalizado |
-
 ### Histórias dos Alunos
 
 | EU COMO...`PERSONA` | QUERO/PRECISO ...`FUNCIONALIDADE` | PARA ...`MOTIVO/VALOR` |
