@@ -260,17 +260,17 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 | RF-001 | Alunos podem se cadastrar com e-mail, senha e dados básicos | ALTA |
 | RF-002 | Usuários podem fazer login e logout de forma segura | ALTA |
 | RF-003 | Usuários podem recuperar a senha pelo e-mail | MÉDIA |
-| RF-005 | Alunos podem assistir às vídeo-aulas pelo site ou aplicativo | ALTA |
-| RF-006 | Usuários podem marcar aulas como favoritas para acessar depois | MÉDIA |
-| RF-007 | O sistema permite buscar vídeos por matéria, série ou palavra-chave | ALTA |
-| RF-009 | O sistema registra o progresso do aluno em cada curso ou matéria | ALTA |
-| RF-010 | O sistema mostra relatórios de desempenho, incluindo acertos, erros e evolução | MÉDIA |
-| RF-011 | Alunos podem enviar dúvidas sobre aulas aos professores | MÉDIA |
-| RF-014 | Administradores podem gerenciar usuários, conteúdos e categorias | ALTA |
-| RF-015 | Administradores podem gerar relatórios sobre alunos cadastrados, aulas assistidas e conteúdos mais acessados | MÉDIA |
-| RF-017 | O sistema permite que alunos revisem aulas e exercícios anteriores | MÉDIA |
-| RF-018 | Alunos podem avaliar aulas com curtidas | BAIXA |
-| RF-020 | O sistema permite criar listas ou módulos de aulas para organizar o conteúdo | MÉDIA |
+| RF-004 | Alunos podem assistir às vídeo-aulas pelo site ou aplicativo | ALTA |
+| RF-005 | Usuários podem marcar aulas como favoritas para acessar depois | MÉDIA |
+| RF-006 | O sistema permite buscar vídeos por matéria, série ou palavra-chave | ALTA |
+| RF-007 | O sistema registra o progresso do aluno em cada curso ou matéria | ALTA |
+| RF-008 | O sistema mostra relatórios de desempenho, incluindo acertos, erros e evolução | MÉDIA |
+| RF-009 | Alunos podem enviar dúvidas sobre aulas aos professores | MÉDIA |
+| RF-010 | Administradores podem gerenciar usuários, conteúdos e categorias | ALTA |
+| RF-011 | Administradores podem gerar relatórios sobre alunos cadastrados, aulas assistidas e conteúdos mais acessados | MÉDIA |
+| RF-012 | O sistema permite que alunos revisem aulas e exercícios anteriores | MÉDIA |
+| RF-013 | Alunos podem avaliar aulas com curtidas | BAIXA |
+| RF-014 | O sistema permite criar listas ou módulos de aulas para organizar o conteúdo | MÉDIA |
 
 ### Requisitos não Funcionais
 
