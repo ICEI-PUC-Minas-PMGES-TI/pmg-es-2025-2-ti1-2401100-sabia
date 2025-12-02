@@ -1,34 +1,37 @@
 cff-version: 1.0.1
 message: Please cite this software using these metadata.
-title: Sabiaa
+title: Sabiaa - Plataforma Educacional para Ensino Básico Brasileiro
 authors:
-  - family-names: Andrade
-    given-names: Alexia Fernanda Alves de
-  - family-names: Pereira
-    given-names: Gustavo Marcelo Penido
-  - family-names: Rodrigues
-    given-names: Perciliana Rosa Adalgiza Batista
-  - family-names: Morais
-    given-names: Ruan Henrique Rodrigues de
-  - family-names: Loiola
-    given-names: Victhor Guilherme Santos
+  - family-names: Alves de Andrade
+    given-names: Alexia Fernandes
+  - family-names: Penido Pereira
+    given-names: Gustavo Marcelo
+  - family-names: Adalgiza Batista Rodrigues
+    given-names: Perciliana Rosa 
+  - family-names: Rodrigues de Morais
+    given-names: Ruan Henrique
+  - family-names: Santos Loiola
+    given-names: Victhor Guilherme 
   - name-suffix: Professor
     affiliation: PUC Minas
-    family-names: Pereira
-    given-names: Daniel Machado Osório
-  - name-suffix: Professor
+    family-names: Machado Osório Pereira
+    given-names: Daniel
+- name-suffix: Professor
     affiliation: PUC Minas
-    family-names: Lacerda
-    given-names: Lucca Soares de Paiva
-  - name-suffix: Professor
+    family-names: Soares de Paiva Lacerda
+    given-names: Lucca
+- name-suffix: Professor
     affiliation: PUC Minas
-    family-names: Andrade
-    given-names: Michelle Hanne Soares de
+    family-names: Hanne Soares de Andrade
+    given-names: Michelle
 keywords:
-  - educacao
-  - plataforma-web
-  - ensino
-repository-code: https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2025-2-ti1-2401100-sabia.git
+  - Educação
+  - Plataforma Digital
+  - Ensino Básico
+  - Tecnologia Educacional
+  - Escolas Públicas
+repository-code: https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2025-2-ti1-2401100-sabia
 license: CC-BY-4.0
 version: 1.0.0
-date-released: 2025-01-01
+
+date-released: 2025-09-28
