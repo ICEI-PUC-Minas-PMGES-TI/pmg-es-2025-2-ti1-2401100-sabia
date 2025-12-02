@@ -3,7 +3,7 @@ message: Please cite this software using these metadata.
 title: Sabiaa - Plataforma Educacional para Ensino Básico Brasileiro
 authors:
   - family-names: Alves de Andrade
-    given-names: Alexia Fernandes
+    given-names: Alexia Fernanda
   - family-names: Penido Pereira
     given-names: Gustavo Marcelo
   - family-names: Adalgiza Batista Rodrigues
@@ -35,3 +35,4 @@ license: CC-BY-4.0
 version: 1.0.0
 
 date-released: 2025-09-28
+
