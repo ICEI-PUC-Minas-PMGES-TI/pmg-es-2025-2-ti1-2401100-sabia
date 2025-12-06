@@ -333,12 +333,6 @@ Esta tela representa o Relatório Completo de um aluno na plataforma Sabiaa, com
 
 ![Relatorio Aluno](images/tela_relatorio_aluno.png)
 
-##### TELA RELATÓRO ALUNO, PELO PROFESSOR
-
-Esta tela exibe o Relatório de Maria, um painel de desempenho do aluno visualizado pelo professor na plataforma Sabiaa, com um layout idêntico à versão do estudante, mas com uma seção adicional de comunicação. O relatório é aberto com o título "Relatório de Maria" e mantém os mesmos blocos de dados: o gráfico de Evolução Mensal, o resumo de Cursos Concluídos (12) e Horas Estudadas (55h), e os gráficos de pizza que mostram o Percentual de Acertos e Erros (com base em 60 questões). A seção Evolução detalha o progresso de Maria em disciplinas específicas. A diferença principal é a presença de uma caixa de texto na parte inferior, sob o título "Mensagem", que permite ao professor "Enviar mensagem ao aluno", facilitando a comunicação e o feedback direto sobre o desempenho.
-
-![Relatorio Aluno pelo Professor](images/tela_relatorio_aluno_professor.png)
-
 ##### TELA DE RECUPERAÇÃO DE SENHA
 
 Esta tela é dedicada ao processo de Recuperação de Senha da plataforma Sabiaa, utilizando o design consistente de caixa de conteúdo bege claro sobre um fundo igualmente bege claro, com o cabeçalho e rodapé escuros. O formulário é centralizado e minimalista, exibindo o logo do pássaro e um ícone de chave, seguido pelo título "Recuperar Senha" e a instrução clara: "Digite seu e-mail para receber as instruções de recuperação". O único campo de entrada é o E-mail, e o usuário interage através do botão primário "Enviar Instruções" ou do link secundário "Voltar ao Login" para retornar à tela de acesso.
@@ -374,30 +368,6 @@ Esta é a tela de visualização de conteúdo dentro de um curso da plataforma S
 Esta é a Dashboard (painel inicial) de um aluno da plataforma Sabiaa após o login, projetada para fornecer uma visão geral do engajamento e progresso, com uma saudação personalizada no topo. A tela é organizada em blocos de informações cruciais: o Resumo do Progresso, que combina um gráfico de Evolução Mensal com métricas de Cursos Concluídos e Horas Estudadas; a seção Minhas Tarefas, que lista atividades pendentes, em andamento e concluídas; e, no painel lateral, caixas de Favoritos e Recomendações de novos conteúdos. A funcionalidade é completada pela seção Continuar Assistindo, que permite ao aluno retomar rapidamente a última aula acessada, indicando a porcentagem de progresso. A interface utiliza a navegação lateral e o rodapé padrão da plataforma.
 
 ![Tela do dashboard dos alunos](images/tela_interna_dashboard_alunos.png)
-
-##### TELA INICIAL/DASHBOARD DOS PROFESSORES
-
-Esta é a Dashboard (painel inicial) de um professor da plataforma Sabiaa após o login, projetada para fornecer uma visão gerencial e de tarefas. A tela saúda o usuário, "Bom dia, Prof. João!", e apresenta o resumo das suas turmas. O Resumo das Turmas exibe métricas de alto nível (Desempenho Médio, Taxa de Conclusão, Engajamento), acompanhado por um gráfico de linha que traça a evolução do desempenho de diferentes turmas (Turma A, Turma B, Turma C) ao longo da semana. A seção Minhas Tarefas lista as prioridades, como Corrigir Quizzes (Urgente), Responder Dúvidas (Hoje) e Revisar Atividades (Esta semana). O painel lateral Ações Rápidas oferece atalhos para tarefas comuns (Publicar Vídeo, Material Complementar, Nova Atividade). A área Alertas notifica o professor sobre Alunos com Dificuldades e Atividades Atrasadas. Por fim, a seção Últimas Interações mostra uma linha do tempo de Comentários Recentes, Curtidas e Perguntas dos alunos, facilitando o acompanhamento da atividade.
-
-![Tela do dashboard dos professores](images/tela_interna_dashboard_professores.png)
-
-##### TELA DAS TURMAS DOS PROFESSORES
-
-Esta tela é o painel de Gerenciamento de Turmas para os professores na plataforma Sabiaa, com um design interno claro e navegação lateral escura, focado na organização e acompanhamento do progresso dos alunos. O topo é dominado pelo título "Gerenciamento de Turmas" e o botão de ação "+ Nova Turma". A interface de busca inclui Filtros por "Todas as turmas" e "Todos os anos", e um campo para "Buscar turma...". Abaixo, a seção exibe cards de resumo para as turmas ativas do professor, como "Matemática 9º A" e "Matemática 8º B" (ambas Ativa), e "Matemática 7º C" (Pendente), mostrando o número de alunos, a última atividade e a Média geral de cada uma, com um botão "Ver Detalhes". A parte inferior da tela apresenta a Lista de Alunos de uma turma selecionada (ex: "Alunos - Matemática 9º A"), com botões para Exportar e Adicionar Aluno, exibindo em uma tabela o nome do aluno, Status (Ativo/Inativo), Última Atividade, Média e Ações de gerenciamento.
-
-![Tela das turmas dos professores](images/tela_interna_turmas_professores.png)
-
-##### TELA DAS AULAS DOS PROFESSORES
-
-Esta tela é o painel de Gerenciamento de Aulas para professores na plataforma Sabiaa, dividido em duas colunas funcionais. No lado esquerdo, encontra-se o formulário "Nova Aula", que permite ao professor cadastrar um novo conteúdo, solicitando o Título da Aula e sua Descrição, a Turma e o Módulo de destino (via dropdown), o Upload de Vídeo (com limites de formato e tamanho) e a adição de Arquivos Complementares. Este formulário oferece as ações "Salvar Rascunho" e "Publicar Aula". A coluna da direita exibe "Minhas Aulas" em formato de grade, com opções de visualização (lista/cartões) e filtro no topo. Cada cartão de aula (exibindo status como Publicado ou Rascunho) inclui um thumbnail com play button, título, data e ações rápidas como Visualizar, Editar e Excluir. A interface mantém a navegação lateral e o rodapé padrão da plataforma.
-
-![Tela das aulas dos professores](images/tela_interna_aulas_professores.png)
-
-##### TELA DE RELATORIO DA TURMA, PELOS PROFESSORES
-
-Esta é a tela de Relatórios da Turma na plataforma Sabiaa, um painel analítico para o professor acompanhar o desempenho e a evolução dos alunos. O topo da tela possui filtros essenciais para personalizar os dados exibidos: Turma, Período e Aluno. O conteúdo é estruturado em blocos de dashboards: a seção superior exibe cartões de Métricas Gerais com indicadores como Média de Notas, Conclusão de Atividades, Quizzes Aplicados e Alunos Ativos, incluindo a variação percentual de progresso. Abaixo, são apresentados gráficos detalhados, como as Notas Médias por Aluno (em barras) e a Evolução Semanal da média da turma (em linha). A parte inferior contém gráficos de análise aprofundada, com a Distribuição de Desempenho dos alunos em um gráfico de pizza categorizado por faixas de notas, e o Performance dos Quizzes em barras de progresso, destacando o índice de acertos ou erros em atividades específicas.
-
-![Tela de relatorio das turmas, pelos professores](images/tela_interna_relatorio_professores.png)
 
 ##### TELA DE CADASTRO DE NOVA ATIVIDADE
 
