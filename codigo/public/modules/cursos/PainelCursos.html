@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Cursos - Sabiaa (Perciliana)</title>
+    <link rel="stylesheet" href="/codigo/public/assets/css/global.css">
+    <link rel="stylesheet" href="/codigo/public/assets/css/interno.css">
+    <link rel="stylesheet" href="/codigo/public/shared/components/components.css">
+    <link rel="stylesheet" href="/codigo/public/modules/cursos/PainelCursos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <div class="sidebar-overlay"></div>
+    <div class="dashboard-container">
+    <!-- Shared sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <img src="/codigo/public/assets/images/logos/logo_nome_lateral_bege.png" alt="SABIAA" class="sidebar-logo">
+        </div>
+
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <div class="nav-section-title">Principal</div>
+                <a href="/codigo/public/modules/dashboard/index.html" class="nav-item" data-page="dashboard">
+                    <i class="fas fa-home"></i>
+                    <span class="nav-item-text">Dashboard</span>
+                </a>
+                <a href="/codigo/public/modules/aluno/perfil/index.html" class="nav-item" data-page="perfil">
+                    <i class="fas fa-user"></i>
+                    <span class="nav-item-text">Meu Perfil</span>
+                </a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Estudos</div>
+                <a href="/codigo/public/modules/cursos/lista.html" class="nav-item" data-page="cursos">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span class="nav-item-text">Meus Cursos</span>
+                </a>
+                <a href="/codigo/public/modules/videoaulas/index.html" class="nav-item" data-page="videoaulas">
+                    <i class="fas fa-video"></i>
+                    <span class="nav-item-text">Videoaulas</span>
+                </a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Conquistas</div>
+                <a href="/codigo/public/modules/aluno/certificados/lista-certificados.html" class="nav-item" data-page="certificados">
+                    <i class="fas fa-certificate"></i>
+                    <span class="nav-item-text">Certificados</span>
+                </a>
+            </div>
+        </nav>
+    </aside>
+
+    <div class="main-wrapper">
+        <!-- Shared header -->
+        <header class="header-internal" id="header-internal">
+            <div class="header-container">
+                <div class="header-left">
+                    <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Buscar..." id="searchInput">
+                    </div>
+                </div>
+                
+                <div class="header-right">
+                    <div class="header-icons">
+                        <a href="#" class="header-icon" title="Notificações">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-badge">0</span>
+                        </a>
+                        <a href="#" class="header-icon" title="Configurações">
+                            <i class="fas fa-cog"></i>
+                        </a>
+                        <a href="/codigo/public/modules/aluno/perfil/index.html" class="header-icon user-avatar" title="Perfil">
+                            <i class="fas fa-user-circle"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="content-area">
+        <section class="filter-bar">
+            <div class="search-box">
+                <i class="fa-solid fa-search"></i>
+                <input type="text" placeholder="Buscar por título..." id="search-input">
+            </div>
+            
+            <select name="disciplinas" id="select-disciplina">
+                <option value="">Todas as disciplinas</option>
+                </select>
+
+            <button class="btn-filter" id="filterButton">
+                <i class="fa-solid fa-filter"></i>
+                Filtrar
+            </button>
+        </section>
+
+        <section class="courses-container">
+            <div class="courses-header">
+                <span id="course-count">0 cursos encontrados</span>
+                <div id="admin-controls" style="margin-left:12px"></div>
+                <div class="view-toggles">
+                    <button id="grid-view" class="toggle-btn active"><i class="fa-solid fa-grip"></i></button>
+                    <button id="list-view" class="toggle-btn"><i class="fa-solid fa-list"></i></button>
+                </div>
+            </div>
+
+            <div class="course-grid" id="course-grid">
+                </div>
+
+        </section>
+
+        <footer class="main-footer">
+        </footer>
+        </main>
+    </div>
+    </div>
+
+    <script src="/codigo/public/modules/cursos/PainelCursos.js"></script>
+</body>
+</html>

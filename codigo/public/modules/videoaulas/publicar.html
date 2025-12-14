@@ -1,0 +1,208 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SABIAA - Educação de Qualidade</title>
+    <link rel="stylesheet" href="/codigo/public/assets/css/global.css">
+    <link rel="stylesheet" href="/codigo/public/modules/videoaulas/pub-video-prof.css">
+    <script src="https://kit.fontawesome.com/937e8004d1.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body class="body">
+    <header class="header">
+        <div class="header-container">
+            <img class="logo_header" src="/codigo/public/assets/images/logos/logo_nome_lateral_salmao.png" alt="nome_logo">
+            <div class="icon-header">
+                <div class="pesquisa-container">
+                    <img class="icon-pesquisa" src="/codigo/public/assets/icones/icon-procurar.png" alt="">
+                    <input class="input-pesquisa" type="text">
+                </div>
+                <img class="icon" src=/codigo/public/assets/icones/icon-usuario.png" alt="">
+                <img class="icon" src="/codigo/public/assets/icones/icon-config.png" alt="">
+            </div>
+        </div>
+    </header>
+    <aside class="sidebar">
+        <img class="icon-side" src="/codigo/public/assets/icones/icon-procurar.png" alt="">
+        <a href="/codigo/public/modules/estatico/homepage.html">
+            <img class="icon-side" src="/codigo/public/assets/icones/icon-home.png" alt="Ir para home">
+        </a>
+        <img class="icon-side" src="/codigo/public/assets/icones/icon-usuarios.png" alt="">
+        <img class="icon-side" src="/codigo/public/assets/icones/icon-aula.png" alt="">
+        <img class="icon-side" src="/codigo/public/assets/icones/icon-grafico.png" alt="">
+    </aside>
+    <main class="main-content">
+        <article class="article-form">
+            <h3>Nova Aula</h3>
+
+            <label for="titulo-aula">Título da Aula</label>
+            <input type="text" id="titulo-aula" placeholder="Digite o título da aula">
+
+            <label for="descricao-aula">Descrição</label>
+            <textarea id="descricao-aula" rows="5" placeholder="Descreva o conteúdo da aula"></textarea>
+
+            <div class="form-grid-duplo">
+                <div>
+                    <label for="turma-aula">Turma</label>
+                    <select id="turma-aula">
+                        <option value="mat9b">Matemática 9º B</option>
+                        <option value="mat9a">Matemática 9º A</option>
+                        <option value="port8a">Português 8º A</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="modulo-aula">Módulo</label>
+                    <select id="modulo-aula">
+                        <option value="mod1">Módulo 1</option>
+                        <option value="mod2">Módulo 2</option>
+                        <option value="mod3">Módulo 3</option>
+                    </select>
+                </div>
+            </div>
+
+            <h5>Upload de Vídeo</h5>
+            <label for="upload-video" class="upload-box">
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+                <p>Arraste o vídeo aqui ou clique para selecionar</p>
+                <span class="upload-hint">MP4, MOV até 500MB</span>
+            </label>
+            <input type="file" id="upload-video" class="upload-input-hidden">
+
+            <h5>Arquivos Complementares</h5>
+            <label for="upload-arquivos" class="upload-box">
+                <i class="fa-solid fa-file-lines"></i>
+                <p>Arraste os arquivos aqui ou clique para selecionar</p>
+                <span class="upload-hint">PDF, PPT, DOCX até 50MB</span>
+            </label>
+            <input type="file" id="upload-arquivos" class="upload-input-hidden" multiple>
+
+            <div class="form-botoes">
+                <button class="button-form-videos" id="button-salvar-rascunho">Salvar Rascunho</button>
+                <button class="button-form-videos" id="button-publicar-aula">Publicar Aula</button>
+            </div>
+
+        </article>
+
+        <article class="article-video-aulas">
+            <h3>Minhas Aulas</h3>
+            <div class="video-grid-container">
+                <section class="videoaulas" id="aula1">
+                    <div class="video-preview">
+                        <img src="/codigo/public/assets/images/aulas/img-aula.png" alt="aula">
+                        <button class="icon-videos" id="icon-play"><i class="fa-solid fa-play"></i></button>
+                    </div>
+                    <div class="video-info">
+                        <h4>Equações do 1º Grau</h4>
+                        <p class="conteudo-aulas">Introdução de equações lineares com uma variável...</p>
+                    </div>
+                    <div class="video-metadata">
+                        <p class="data-videos"> 15 Nov 2024</p>
+                        <p class="text-visu-anexos"> 3 anexos</p>
+                    </div>
+                    <div class="video-actions">
+                        <button class="button-videos button-visualizar">Visualizar</button>
+                        <button class="button-videos button-edit">Editar</button>
+                        <button class="button-videos button-excluir">Excluir</button>
+                    </div>
+                </section>
+                <section class="videoaulas" id="aula2">
+                    <div class="video-preview">
+                        <img src="/codigo/public/assets/images/aulas/img-aula.png" alt="aula">
+                        <button class="icon-videos" id="icon-play"><i class="fa-solid fa-play"></i></button>
+                    </div>
+                    <div class="video-info">
+                        <h4>Equações do 1º Grau</h4>
+                        <p class="conteudo-aulas">Introdução de equações lineares com uma variável...</p>
+                    </div>
+                    <div class="video-metadata">
+                        <p class="data-videos"> 15 Nov 2024</p>
+                        <p class="text-visu-anexos"> 3 anexos</p>
+                    </div>
+                    <div class="video-actions">
+                        <button class="button-videos button-visualizar">Visualizar</button>
+                        <button class="button-videos button-edit">Editar</button>
+                        <button class="button-videos button-excluir">Excluir</button>
+                    </div>
+                </section>
+                <section class="videoaulas" id="aula3">
+                    <div class="video-preview">
+                        <img src="/codigo/public/assets/images/aulas/img-aula.png" alt="aula">
+                        <button class="icon-videos" id="icon-play"><i class="fa-solid fa-play"></i></button>
+                    </div>
+                    <div class="video-info">
+                        <h4>Equações do 1º Grau</h4>
+                        <p class="conteudo-aulas">Introdução de equações lineares com uma variável...</p>
+                    </div>
+                    <div class="video-metadata">
+                        <p class="data-videos"> 15 Nov 2024</p>
+                        <p class="text-visu-anexos"> 3 anexos</p>
+                    </div>
+                    <div class="video-actions">
+                        <button class="button-videos button-visualizar">Visualizar</button>
+                        <button class="button-videos button-edit">Editar</button>
+                        <button class="button-videos button-excluir">Excluir</button>
+                    </div>
+                </section>
+
+                <section class="videoaulas" id="aula4">
+                    <div class="video-preview">
+                        <img src="/codigo/public/assets/images/aulas/img-aula.png" alt="aula">
+                        <button class="icon-videos" id="icon-play"><i class="fa-solid fa-play"></i></button>
+                    </div>
+                    <div class="video-info">
+                        <h4>Equações do 1º Grau</h4>
+                        <p class="conteudo-aulas">Introdução de equações lineares com uma variável...</p>
+                    </div>
+                    <div class="video-metadata">
+                        <p class="data-videos"> 15 Nov 2024</p>
+                        <p class="text-visu-anexos"> 3 anexos</p>
+                    </div>
+                    <div class="video-actions">
+                        <button class="button-videos button-visualizar">Visualizar</button>
+                        <button class="button-videos button-edit">Editar</button>
+                        <button class="button-videos button-excluir">Excluir</button>
+                    </div>
+                </section>
+            </div>
+        </article>
+    </main>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="/codigo/public/assets/images/logos/logo_nome_lateral_salmao.png" alt="SABIAA">
+                </div>
+                <p>Educação e Tecnologia alinhadas para um futuro melhor.</p>
+            </div>
+
+            <div class="footer-section footer-links">
+                <h4>Links Rápidos</h4>
+                <ul>
+                    <li><a href="#">Sobre</a></li>
+                    <li><a href="#">Cursos</a></li>
+                    <li><a href="#">Suporte</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section footer-contact">
+                <h4>Contato</h4>
+                <p>contato@sabiaa.com.br</p>
+                <p>(31) 1234-5678</p>
+            </div>
+
+            <div class="footer-section footer-social">
+                <h4>Redes Sociais</h4>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </footer>
+    <script src="/codigo/public/modules/videoaulas/publicar.js"></script>
+</body>
+
+</html>

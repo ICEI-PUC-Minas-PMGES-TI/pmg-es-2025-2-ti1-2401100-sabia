@@ -1,0 +1,456 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Certificados - Sabiaa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/codigo/public/assets/css/global.css">
+    <link rel="stylesheet" href="/codigo/public/assets/css/interno.css">
+    <style>
+        .main-content {
+            margin-left: 280px;
+        }
+
+        .header {
+            background: white;
+            padding: 20px 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .content-area {
+            padding: 30px;
+            background: #F8F9FA;
+        }
+
+        .certificados-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .certificado-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+
+        .certificado-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .certificado-header {
+            background: linear-gradient(135deg, #FFC107, #FFB300);
+            padding: 30px 20px;
+            text-align: center;
+            color: #000;
+        }
+
+        .certificado-icon {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        .certificado-body {
+            padding: 20px;
+        }
+
+        .certificado-titulo {
+            font-weight: 700;
+            color: #21303F;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+
+        .certificado-info {
+            color: #6C757D;
+            font-size: 0.9em;
+            margin-bottom: 8px;
+        }
+
+        .certificado-codigo {
+            background: #F8F9FA;
+            padding: 10px;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 0.85em;
+            margin: 15px 0;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .certificado-acoes {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .btn-certificado {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .btn-baixar {
+            background: #21303F;
+            color: white;
+        }
+
+        .btn-baixar:hover {
+            background: #4b3c5d;
+        }
+
+        .btn-compartilhar {
+            background: #28A745;
+            color: white;
+        }
+
+        .btn-compartilhar:hover {
+            background: #218838;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .empty-state i {
+            font-size: 4em;
+            color: #CBD5E0;
+            margin-bottom: 20px;
+        }
+
+        .empty-state h3 {
+            color: #21303F;
+            margin-bottom: 10px;
+        }
+
+        .empty-state p {
+            color: #6C757D;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="/codigo/public/assets/images/logos/logo_bege_texto_lateral.png" alt="Sabiaa" class="sidebar-logo">
+            </div>
+            <nav class="sidebar-nav">
+                <!-- navegacao principal -->
+                <div class="nav-section">
+                    <div class="nav-section-title">Principal</div>
+                    <a href="/codigo/public/modules/dashboard/dashboard.html" class="nav-item">
+                        <i class="fas fa-home"></i>
+                        <span class="nav-item-text">Dashboard</span>
+                    </a>
+                    <a href="/codigo/public/modules/aluno/perfil/perfil.html" class="nav-item">
+                        <i class="fas fa-user"></i>
+                        <span class="nav-item-text">Meu Perfil</span>
+                    </a>
+                </div>
+
+                <!-- Disciplinas/Atividades/Notas removed -->
+
+                <!-- cursos -->
+                <div class="nav-section">
+                    <div class="nav-section-title">Cursos</div>
+                    <a href="/codigo/public/modules/cursos/lista.html" class="nav-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span class="nav-item-text">Meus Cursos</span>
+                    </a>
+                    <a href="/codigo/public/modules/aluno/certificados/lista-certificados.html" class="nav-item active">
+                        <i class="fas fa-certificate"></i>
+                        <span class="nav-item-text">Certificados</span>
+                    </a>
+                </div>
+
+                <!-- Meu Progresso removed -->
+            </nav>
+        </aside>
+
+        <!-- Overlay Mobile -->
+        <div class="sidebar-overlay"></div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-left">
+                    <button class="mobile-menu-btn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1 class="page-title">Meus Certificados</h1>
+                </div>
+                <div class="header-right">
+                    <div class="user-profile">
+                        <img src="/codigo/public/assets/images/default-aluno-avatar.svg" alt="Avatar" class="user-avatar" id="userAvatar">
+                        <span class="user-name" id="userName">UsuÃ¡rio</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content Area -->
+            <div class="content-area">
+                <div id="certificadosContainer" class="certificados-grid">
+                    <div class="empty-state">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>Carregando certificados...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/codigo/public/assets/js/auth-simple.js"></script>
+    <script>
+        const API_URL = window.SABIAA_CONFIG?.API_BASE_URL || 'http://localhost:3000';
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            if (!sabiaAuth.verificarLogin()) return;
+            
+            const user = sabiaAuth.getUser();
+            document.getElementById('userName').textContent = user.nome;
+            if (user.foto) {
+                document.getElementById('userAvatar').src = user.foto;
+            }
+
+            await carregarCertificados(user.id, user.nome);
+
+            // Mobile menu
+            document.querySelector('.mobile-menu-btn').addEventListener('click', () => {
+                document.querySelector('.sidebar').classList.toggle('mobile-active');
+                document.querySelector('.sidebar-overlay').classList.toggle('active');
+            });
+
+            document.querySelector('.sidebar-overlay').addEventListener('click', () => {
+                document.querySelector('.sidebar').classList.remove('mobile-active');
+                document.querySelector('.sidebar-overlay').classList.remove('active');
+            });
+        });
+
+        async function carregarCertificados(userId, userName) {
+            const container = document.getElementById('certificadosContainer');
+
+            try {
+                // Buscar certificados
+                const certificadosRes = await fetch(`${API_URL}/api/certificados?usuario_id=${userId}`);
+
+                if (!certificadosRes.ok) {
+                    throw new Error('Erro ao carregar certificados. Verifique se o json-server está rodando.');
+                }
+
+                const certificados = await certificadosRes.json();
+
+                if (certificados.length === 0) {
+                    container.innerHTML = `
+                        <div class="empty-state" style="grid-column: 1/-1;">
+                            <i class="fas fa-certificate"></i>
+                            <h3>Nenhum Certificado Ainda</h3>
+                            <p>Complete cursos para ganhar certificados!</p>
+                            <a href="/codigo/public/modules/cursos/lista.html" style="display: inline-block; margin-top: 20px; padding: 12px 24px; background: #21303F; color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">
+                                Ver Cursos
+                            </a>
+                        </div>
+                    `;
+                    return;
+                }
+
+                // Buscar detalhes dos cursos
+                const cursosPromises = certificados.map(cert => 
+                    fetch(`${API_URL}/api/cursos/${cert.curso_id}`)
+                        .then(r => r.ok ? r.json() : null)
+                        .catch(e => null)
+                );
+                const cursos = await Promise.all(cursosPromises);
+
+                // Renderizar
+                container.innerHTML = '';
+                certificados.forEach((cert, index) => {
+                    const curso = cursos[index];
+                    const card = criarCardCertificado(cert, curso, userName);
+                    container.appendChild(card);
+                });
+
+            } catch (error) {
+                console.error('Erro ao carregar certificados:', error);
+                container.innerHTML = `
+                    <div class="empty-state" style="grid-column: 1/-1;">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h3>Erro ao Carregar Certificados</h3>
+                        <p>${error.message}</p>
+                    </div>
+                `;
+            }
+        }
+
+        function criarCardCertificado(certificado, curso, userName) {
+            const div = document.createElement('div');
+            div.className = 'certificado-card';
+
+            const dataEmissao = new Date(certificado.data_emissao).toLocaleDateString('pt-BR');
+
+            div.innerHTML = `
+                <div class="certificado-header">
+                    <div class="certificado-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <strong>Certificado de ConclusÃ£o</strong>
+                </div>
+                <div class="certificado-body">
+                    <div class="certificado-titulo">${curso.titulo}</div>
+                    <div class="certificado-info">
+                        <i class="fas fa-user"></i> ${userName}
+                    </div>
+                    <div class="certificado-info">
+                        <i class="fas fa-calendar"></i> Emitido em ${dataEmissao}
+                    </div>
+                    <div class="certificado-codigo">
+                        ${certificado.codigo}
+                    </div>
+                    <div class="certificado-acoes">
+                        <button class="btn-certificado btn-baixar" onclick="baixarCertificado('${certificado.codigo}', '${curso.titulo}', '${userName}', '${dataEmissao}')">
+                            <i class="fas fa-download"></i> Baixar
+                        </button>
+                        <button class="btn-certificado btn-compartilhar" onclick="compartilharCertificado('${certificado.codigo}')">
+                            <i class="fas fa-share-alt"></i> Compartilhar
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            return div;
+        }
+
+        function baixarCertificado(codigo, curso, aluno, data) {
+            // Criar HTML do certificado
+            const html = `
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Certificado - ${curso}</title>
+                    <style>
+                        body {
+                            margin: 0;
+                            padding: 40px;
+                            font-family: Arial, sans-serif;
+                            background: #f0f0f0;
+                        }
+                        .certificado {
+                            max-width: 800px;
+                            margin: 0 auto;
+                            background: white;
+                            padding: 60px;
+                            border: 10px solid #FFC107;
+                            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+                        }
+                        .logo {
+                            text-align: center;
+                            font-size: 2em;
+                            color: #21303F;
+                            font-weight: bold;
+                            margin-bottom: 30px;
+                        }
+                        h1 {
+                            text-align: center;
+                            color: #21303F;
+                            font-size: 2.5em;
+                            margin-bottom: 30px;
+                        }
+                        .texto {
+                            text-align: center;
+                            font-size: 1.2em;
+                            line-height: 1.8;
+                            color: #333;
+                        }
+                        .aluno {
+                            font-size: 1.8em;
+                            font-weight: bold;
+                            color: #FFC107;
+                            margin: 20px 0;
+                        }
+                        .curso {
+                            font-size: 1.4em;
+                            font-weight: bold;
+                            color: #21303F;
+                            margin: 20px 0;
+                        }
+                        .rodape {
+                            margin-top: 60px;
+                            text-align: center;
+                            color: #666;
+                        }
+                        .codigo {
+                            font-family: monospace;
+                            font-size: 0.9em;
+                            color: #999;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <div class="certificado">
+                        <div class="logo">ðŸ¦‰ SABIAA</div>
+                        <h1>CERTIFICADO DE CONCLUSÃƒO</h1>
+                        <div class="texto">
+                            Certificamos que
+                            <div class="aluno">${aluno}</div>
+                            concluiu com Ãªxito o curso
+                            <div class="curso">${curso}</div>
+                            em nossa plataforma de ensino.
+                        </div>
+                        <div class="rodape">
+                            <p>${data}</p>
+                            <p class="codigo">CÃ³digo de VerificaÃ§Ã£o: ${codigo}</p>
+                        </div>
+                    </div>
+                </body>
+                </html>
+            `;
+
+            // Criar blob e download
+            const blob = new Blob([html], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `certificado-${codigo}.html`;
+            a.click();
+            URL.revokeObjectURL(url);
+
+            alert('âœ… Certificado baixado! Abra o arquivo HTML em seu navegador para visualizar.');
+        }
+
+        function compartilharCertificado(codigo) {
+            const url = `${window.location.origin}/codigo/public/modules/aluno/certificados/validar.html?codigo=${codigo}`;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Meu Certificado Sabiaa',
+                    text: 'Confira meu certificado!',
+                    url: url
+                });
+            } else {
+                // Copiar para clipboard
+                navigator.clipboard.writeText(url).then(() => {
+                    alert('âœ… Link copiado para a Ã¡rea de transferÃªncia!\n\n' + url);
+                });
+            }
+        }
+    </script>
+</body>
+</html>

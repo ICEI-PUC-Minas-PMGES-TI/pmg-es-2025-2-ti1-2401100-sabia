@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Curso - SABIAA</title>
+  <link rel="stylesheet" href="/codigo/public/assets/css/global.css">
+  <link rel="stylesheet" href="/codigo/public/assets/css/interno.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="/codigo/public/shared/components/components.css">
+  <link rel="stylesheet" href="/codigo/public/modules/cursos/PainelCursos.css">
+</head>
+<body>
+  <div class="sidebar-overlay"></div>
+  <div class="dashboard-container">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <img src="/codigo/public/assets/images/logos/logo_nome_lateral_bege.png" alt="SABIAA" class="sidebar-logo">
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section">
+          <div class="nav-section-title">Principal</div>
+          <a href="/codigo/public/modules/dashboard/index.html" class="nav-item" data-page="dashboard">
+            <i class="fas fa-home"></i>
+            <span class="nav-item-text">Dashboard</span>
+          </a>
+          <a href="/codigo/public/modules/aluno/perfil/index.html" class="nav-item" data-page="perfil">
+            <i class="fas fa-user"></i>
+            <span class="nav-item-text">Meu Perfil</span>
+          </a>
+        </div>
+
+        <div class="nav-section">
+          <div class="nav-section-title">Estudos</div>
+          <a href="/codigo/public/modules/cursos/PainelCursos.html" class="nav-item" data-page="cursos">
+            <i class="fas fa-graduation-cap"></i>
+            <span class="nav-item-text">Meus Cursos</span>
+          </a>
+          <a href="/codigo/public/modules/videoaulas/index.html" class="nav-item" data-page="videoaulas">
+            <i class="fas fa-video"></i>
+            <span class="nav-item-text">Videoaulas</span>
+          </a>
+        </div>
+
+        <div class="nav-section">
+          <div class="nav-section-title">Conquistas</div>
+          <a href="/codigo/public/modules/aluno/certificados/lista-certificados.html" class="nav-item" data-page="certificados">
+            <i class="fas fa-certificate"></i>
+            <span class="nav-item-text">Certificados</span>
+          </a>
+        </div>
+      </nav>
+    </aside>
+
+    <div class="main-wrapper">
+      <header class="header-internal" id="header-internal">
+        <div class="header-container">
+          <div class="header-left">
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+              <i class="fas fa-bars"></i>
+            </button>
+            <div class="search-bar">
+              <i class="fas fa-search"></i>
+              <input type="text" placeholder="Buscar..." id="searchInput">
+            </div>
+          </div>
+          <div class="header-right">
+            <div class="header-icons">
+              <a href="#" class="header-icon" title="Notificações">
+                <i class="fas fa-bell"></i>
+                <span class="notification-badge">0</span>
+              </a>
+              <a href="#" class="header-icon" title="Configurações">
+                <i class="fas fa-cog"></i>
+              </a>
+              <a href="/codigo/public/modules/aluno/perfil/index.html" class="header-icon user-avatar" title="Perfil">
+                <i class="fas fa-user-circle"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="content-area">
+        <div class="course-page">
+          <div id="course-info" class="card"></div>
+          <div id="course-actions" style="margin-top:12px"></div>
+          <div id="modules-list" style="margin-top:18px"></div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="/codigo/public/assets/js/config.js"></script>
+  <script src="/codigo/public/assets/js/auth.js"></script>
+  <script src="/codigo/public/modules/cursos/curso.js"></script>
+</body>
+</html>

@@ -1,0 +1,323 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR" class="theme-aluno">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Perfil - Sabiaa Aluno</title>
+    
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/937e8004d1.js" crossorigin="anonymous"></script>
+    
+    <!-- estilos -->
+    <link rel="stylesheet" href="/codigo/public/assets/css/global.css">
+    <link rel="stylesheet" href="/codigo/public/assets/css/interno.css">
+    <link rel="stylesheet" href="/codigo/public/assets/css/internal-fixes.css">
+    <link rel="stylesheet" href="/codigo/public/assets/css/profile-enhancements.css">
+    <link rel="stylesheet" href="perfil.css">
+</head>
+<body>
+    <!-- overlay para mobile -->
+    <div class="sidebar-overlay"></div>
+
+    <div class="dashboard-container">
+        <!-- sidebar -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <img src="/codigo/public/assets/images/logos/logo_nome_lateral_bege.png" alt="sabiaa" class="sidebar-logo">
+            </div>
+
+            <div class="sidebar-nav">
+                <!-- navegacao principal -->
+                <div class="nav-section">
+                    <div class="nav-section-title">Principal</div>
+                    <a href="/codigo/public/modules/dashboard/dashboard.html" class="nav-item">
+                        <i class="fas fa-home"></i>
+                        <span class="nav-item-text">Dashboard</span>
+                    </a>
+                    <a href="/codigo/public/modules/aluno/perfil/perfil.html" class="nav-item active">
+                        <i class="fas fa-user"></i>
+                        <span class="nav-item-text">Meu Perfil</span>
+                    </a>
+                </div>
+
+                <!-- Disciplinas, Atividades e Notas removidos -->
+
+                <!-- cursos -->
+                <div class="nav-section">
+                    <div class="nav-section-title">Cursos</div>
+                    <a href="/codigo/public/modules/cursos/lista.html" class="nav-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span class="nav-item-text">Meus Cursos</span>
+                    </a>
+                    <a href="/codigo/public/modules/aluno/certificados/lista-certificados.html" class="nav-item">
+                        <i class="fas fa-certificate"></i>
+                        <span class="nav-item-text">Certificados</span>
+                    </a>
+                </div>
+
+                <!-- Meu Progresso (removido do menu) -->
+            </div>
+        </nav>
+
+        <!-- conteudo principal -->
+        <main class="main-content">
+            <!-- header -->
+            <header class="header">
+                <div class="header-left">
+                    <button class="header-btn mobile-menu-btn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div>
+                        <h1 class="page-title">Meu Perfil</h1>
+                        <div class="breadcrumb">
+                            <a href="../dashboard.html">Dashboard</a>
+                            <i class="fas fa-chevron-right"></i>
+                            <span>Meu Perfil</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Barra de Pesquisa -->
+                <div class="search-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="search-input" placeholder="Pesquisar cursos, atividades...">
+                </div>
+
+                <!-- header direito -->
+                <div class="header-right">
+                    <div class="header-actions">
+                        <button class="header-btn" title="Notificações" id="notificationBtn">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-badge" id="notificationCount" style="display: none;">0</span>
+                        </button>
+                        <button class="header-btn" title="Configurações">
+                            <i class="fas fa-cog"></i>
+                        </button>
+                    </div>
+
+                    <!-- perfil do usuario -->
+                    <div class="user-profile">
+                        <img src="../../../assets/images/logos/logo_simbolo_branco.png" alt="avatar" class="user-avatar" id="headerUserAvatar">
+                        <div class="user-info">
+                            <span class="user-name" id="headerUserName">Carregando...</span>
+                            <span class="user-role">Aluno</span>
+                        </div>
+                        <i class="fas fa-chevron-down user-dropdown-arrow"></i>
+                        
+                        <!-- Dropdown Menu -->
+                        <div class="user-dropdown">
+                            <a href="perfil.html" class="dropdown-item">
+                                <i class="fas fa-user"></i>
+                                Meu Perfil
+                            </a>
+                            <a href="../configuracoes.html" class="dropdown-item">
+                                <i class="fas fa-cog"></i>
+                                Configurações
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item" onclick="logout()">
+                                <i class="fas fa-sign-out-alt"></i>
+                                Sair
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- conteudo -->
+            <div class="content-area">
+                <!-- header do perfil -->
+                <div class="profile-header animate-fade-in">
+                    <div class="profile-header-content">
+                        <img src="../../../assets/images/logos/logo_simbolo_branco.png" alt="foto do perfil" class="profile-avatar-large" id="profileHeaderAvatar">
+                        <div class="profile-info">
+                            <h1 id="profileHeaderName">carregando...</h1>
+                            <p>aluno sabiaa educacao</p>
+                            <div class="profile-stats">
+                                <div class="stat-item">
+                                    <span class="stat-number" id="statCursos">0</span>
+                                    <span class="stat-label">cursos</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number" id="statProgresso">0%</span>
+                                    <span class="stat-label">progresso</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number" id="statPontos">0</span>
+                                    <span class="stat-label">pontos</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grid de Conteúdo -->
+                <div class="profile-grid">
+                    <!-- Informações Pessoais -->
+                    <div class="card animate-slide-in">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <i class="fas fa-user"></i>
+                                Informações Pessoais
+                            </h3>
+                            <div class="card-actions">
+                                <button class="btn-secondary" onclick="toggleEdit()">
+                                    <i class="fas fa-edit"></i>
+                                    <span>Editar</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <form id="profileForm">
+                            <div class="form-group">
+                                <label for="nome">Nome Completo</label>
+                                <input type="text" id="nome" name="nome" readonly>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">E-mail</label>
+                                <input type="email" id="email" name="email" readonly>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="telefone">Telefone</label>
+                                <input type="tel" id="telefone" name="telefone" readonly>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="data_nascimento">Data de Nascimento</label>
+                                <input type="date" id="data_nascimento" name="data_nascimento" readonly>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="genero">Gênero</label>
+                                <select id="genero" name="genero" disabled>
+                                    <option value="">Selecione</option>
+                                    <option value="masculino">Masculino</option>
+                                    <option value="feminino">Feminino</option>
+                                    <option value="nao-binario">Não-Binário</option>
+                                    <option value="outro">Outro</option>
+                                    <option value="prefiro-nao-informar">Prefiro Não Informar</option>
+                                </select>
+                            </div>
+
+                            <div class="form-actions" id="formActions" style="display: none;">
+                                <button type="button" class="btn-primary" onclick="saveProfile()">
+                                    <i class="fas fa-save"></i>
+                                    Salvar Alterações
+                                </button>
+                                <button type="button" class="btn-secondary" onclick="cancelEdit()">
+                                    <i class="fas fa-times"></i>
+                                    Cancelar
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Foto de Perfil -->
+                    <div class="card animate-slide-in">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <i class="fas fa-camera"></i>
+                                Foto de Perfil
+                            </h3>
+                        </div>
+
+                        <div class="photo-upload-section" onclick="document.getElementById('photoInput').click()">
+                            <img src="" alt="Foto Atual" class="upload-avatar" id="currentPhoto">
+                            <p><strong>Clique para alterar sua foto</strong></p>
+                            <p>JPEG, PNG ou WebP (máx. 5MB)</p>
+                            <input type="file" id="photoInput" accept="image/*" style="display: none;">
+                        </div>
+
+                        <div id="uploadProgress" style="display: none;">
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="progressFill"></div>
+                            </div>
+                            <p id="progressText">0%</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Informações Acadêmicas -->
+                <div class="card animate-slide-in">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="fas fa-graduation-cap"></i>
+                            Informações Acadêmicas
+                        </h3>
+                    </div>
+
+                    <div class="profile-grid">
+                        <div class="form-group">
+                            <label for="escola">Escola</label>
+                            <input type="text" id="escola" name="escola" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="serie">Série/Ano</label>
+                            <input type="text" id="serie" name="serie" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="turma">Turma</label>
+                            <input type="text" id="turma" name="turma" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="matricula">Número de Matrícula</label>
+                            <input type="text" id="matricula" name="matricula" readonly>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <img src="../../../assets/images/logos/logo_nome_branco_lateral.png" alt="Sabiaa" style="width: 150px; margin-bottom: 15px;">
+                        <p>Transformando a educação brasileira através da tecnologia e inovação.</p>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4>Links Úteis</h4>
+                        <a href="../../../../sobre.html">Sobre</a>
+                        <a href="../../../../cursos.html">Cursos</a>
+                        <a href="../../../../suporte.html">Suporte</a>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4>Contato</h4>
+                        <p><i class="fas fa-envelope"></i> contato@sabiaa.com.br</p>
+                        <p><i class="fas fa-phone"></i> (31) 1234-5678</p>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4>Redes Sociais</h4>
+                        <div class="footer-social">
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Sabiaa - Educação e Tecnologia Alinhadas para um Futuro Melhor.</p>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/codigo/public/assets/js/config.js"></script>
+    <script src="/codigo/public/assets/js/auth.js"></script>
+    <script src="/codigo/public/assets/js/upload.js"></script>
+    <script src="/codigo/public/assets/js/interno.js"></script>
+    <script src="/codigo/public/assets/js/profile-data-manager.js"></script>
+    <script src="perfil.js"></script>
+    
+</body>
+</html>

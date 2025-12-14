@@ -1,0 +1,230 @@
+/* ========================================
+   DISCIPLINAS - Estilos Específicos
+   ======================================== */
+
+/* Filtros */
+.filtros-container {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.filtro-busca {
+    flex: 1;
+    min-width: 250px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.filtro-busca i {
+    position: absolute;
+    left: 15px;
+    color: #999;
+    font-size: 16px;
+}
+
+.filtro-busca input {
+    width: 100%;
+    padding: 12px 15px 12px 45px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.filtro-busca input:focus {
+    outline: none;
+    border-color: var(--primary-color, #21203F);
+    box-shadow: 0 0 0 3px rgba(33, 32, 63, 0.1);
+}
+
+.filtro-select {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    background-color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 200px;
+}
+
+.filtro-select:focus {
+    outline: none;
+    border-color: var(--primary-color, #21203F);
+    box-shadow: 0 0 0 3px rgba(33, 32, 63, 0.1);
+}
+
+/* Grid de Disciplinas */
+.disciplinas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 0 20px 20px;
+}
+
+/* Card de Disciplina */
+.disciplina-card {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.disciplina-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.disciplina-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color, #21203F), var(--secondary-color, #c5a898));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.disciplina-card:hover::before {
+    opacity: 1;
+}
+
+.card-icon-container {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.disciplina-card:hover .card-icon-container {
+    transform: scale(1.1);
+}
+
+.card-icon-container i {
+    font-size: 32px;
+}
+
+.disciplina-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #21203F;
+    margin-bottom: 10px;
+}
+
+.disciplina-card p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.btn-acessar {
+    display: inline-block;
+    padding: 10px 30px;
+    background: var(--primary-color, #21203F);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.btn-acessar:hover {
+    background: white;
+    color: var(--primary-color, #21203F);
+    border-color: var(--primary-color, #21203F);
+    transform: scale(1.05);
+}
+
+/* Loading State */
+.loading-disciplinas {
+    text-align: center;
+    padding: 60px 20px;
+    color: #999;
+}
+
+.loading-disciplinas i {
+    font-size: 48px;
+    margin-bottom: 20px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: #999;
+}
+
+.empty-state i {
+    font-size: 48px;
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
+.empty-state h3 {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .filtros-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .filtro-busca,
+    .filtro-select {
+        width: 100%;
+        min-width: auto;
+    }
+
+    .disciplinas-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .disciplina-card {
+        padding: 20px;
+    }
+
+    .card-icon-container {
+        width: 60px;
+        height: 60px;
+    }
+
+    .card-icon-container i {
+        font-size: 24px;
+    }
+
+    .disciplina-card h3 {
+        font-size: 18px;
+    }
+}

@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SABIAA - Entrar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/937e8004d1.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/codigo/public/assets/css/global.css">
+    <link rel="stylesheet" href="/codigo/public/shared/components/components.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body data-page="login">
+
+    <!-- Navbar Pública -->
+    <div id="navbar-container"></div>
+
+    <div class="split-container">
+        
+        <!-- Lado Esquerdo - Formulário de Login -->
+        <div class="left-panel">
+            <div class="logo-section">
+                <img src="/codigo/public/assets/images/logos/icon.png" alt="SABIAA" class="logo-icon">
+                <h1>SABIAA</h1>
+                <p>Educação de Qualidade</p>
+            </div>
+
+            <div class="login-card">
+                <h2>Entrar</h2>
+                <p class="login-subtitle">Bem-vindo de volta! Acesse sua conta.</p>
+
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <div class="input-wrapper">
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                placeholder="seu@email.com" 
+                                required
+                            >
+                            <i class="fas fa-envelope input-icon"></i>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Senha</label>
+                        <div class="input-wrapper">
+                            <input 
+                                type="password" 
+                                id="password" 
+                                name="password" 
+                                placeholder="Digite sua senha" 
+                                required
+                            >
+                            <i class="fas fa-eye input-icon" id="togglePassword"></i>
+                        </div>
+                    </div>
+
+                    <div class="remember-forgot">
+                        <label class="remember-me">
+                            <input type="checkbox" id="rememberMe">
+                            <span>Lembrar-me</span>
+                        </label>
+                        <a href="recuperar-senha.html" class="forgot-password">Esqueceu a senha?</a>
+                    </div>
+
+                    <button type="submit" class="btn-login">Entrar</button>
+
+                    <div class="signup-link">
+                        Não tem uma conta? <a href="cadastro.html">Criar conta</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Lado Direito - Branding/Boas-vindas -->
+        <div class="right-panel">
+            <div class="welcome-content">
+                <div class="welcome-icon">📚</div>
+                <h2>Bem-vindo ao SABIAA!</h2>
+                <p>A plataforma educacional que transforma o ensino e aprendizagem através da tecnologia.</p>
+                
+                <div class="features-list">
+                    <div class="feature-item">
+                        <div class="feature-icon">✨</div>
+                        <div class="feature-text">Conteúdos interativos e dinâmicos</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">📊</div>
+                        <div class="feature-text">Acompanhamento de desempenho</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🎯</div>
+                        <div class="feature-text">Aprendizado personalizado</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="/codigo/public/assets/images/logos/logo_nome_lateral_bege.png" alt="SABIAA">
+                </div>
+                <p>Educação e Tecnologia alinhadas para um futuro melhor.</p>
+            </div>
+            
+            <div class="footer-section footer-links">
+                <h4>Links Rápidos</h4>
+                <ul>
+                    <li><a href="/codigo/public/modules/home/sobre.html">Sobre</a></li>
+                    <li><a href="/codigo/public/modules/cursos/lista.html">Cursos</a></li>
+                    <li><a href="#">Suporte</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section footer-contact">
+                <h4>Contato</h4>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:contato@sabiaa.com.br">contato@sabiaa.com.br</a></p>
+                <p><i class="fas fa-phone"></i> (31) 1234-5678</p>
+            </div>
+            
+            <div class="footer-section footer-social">
+                <h4>Redes Sociais</h4>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/codigo/public/assets/js/config.js"></script>
+    <script src="/codigo/public/shared/components/components.js"></script>
+    <script src="/codigo/public/assets/js/global.js"></script>
+    <script src="/codigo/public/assets/js/auth.js"></script>
+    <script src="login.js"></script>
+</body>
+</html>
+

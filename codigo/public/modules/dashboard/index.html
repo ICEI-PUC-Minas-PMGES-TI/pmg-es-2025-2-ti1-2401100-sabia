@@ -1,0 +1,227 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR" class="theme-aluno">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - SABIAA</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/937e8004d1.js" crossorigin="anonymous"></script>
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="/codigo/public/assets/css/global.css">
+    <link rel="stylesheet" href="/codigo/public/assets/css/interno.css">
+    <link rel="stylesheet" href="/codigo/public/shared/components/components.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body data-page="dashboard">
+    <!-- Overlay para mobile -->
+    <div class="sidebar-overlay"></div>
+
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <img src="/codigo/public/assets/images/logos/logo_nome_lateral_bege.png" alt="SABIAA" class="sidebar-logo">
+            </div>
+
+            <div class="sidebar-nav">
+                <!-- navegacao principal -->
+                <div class="nav-section">
+                    <div class="nav-section-title">Principal</div>
+                    <a href="/codigo/public/modules/dashboard/dashboard.html" class="nav-item active">
+                        <i class="fas fa-home"></i>
+                        <span class="nav-item-text">Dashboard</span>
+                    </a>
+                    <a href="/codigo/public/modules/aluno/perfil/perfil.html" class="nav-item">
+                        <i class="fas fa-user"></i>
+                        <span class="nav-item-text">Meu Perfil</span>
+                    </a>
+                </div>
+
+                <!-- disciplinas -->
+                <div class="nav-section">
+                    <div class="nav-section-title">Disciplinas</div>
+                    <a href="../disciplinas.html" class="nav-item">
+                        <i class="fas fa-book"></i>
+                        <span class="nav-item-text">Minhas Disciplinas</span>
+                    </a>
+                    <a href="../atividades.html" class="nav-item">
+                        <i class="fas fa-tasks"></i>
+                        <span class="nav-item-text">Atividades</span>
+                    </a>
+                    <a href="../notas.html" class="nav-item">
+                        <i class="fas fa-chart-line"></i>
+                        <span class="nav-item-text">Notas</span>
+                    </a>
+                </div>
+
+                <!-- cursos -->
+                <div class="nav-section">
+                    <div class="nav-section-title">Cursos</div>
+                    <a href="/codigo/public/modules/cursos/lista.html" class="nav-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span class="nav-item-text">Meus Cursos</span>
+                    </a>
+                    <a href="/codigo/public/modules/aluno/certificados/lista-certificados.html" class="nav-item">
+                        <i class="fas fa-certificate"></i>
+                        <span class="nav-item-text">Certificados</span>
+                    </a>
+                </div>
+
+                <!-- meu progresso -->
+                <div class="nav-section">
+                    <div class="nav-section-title">Meu Progresso</div>
+                    <a href="../progresso.html" class="nav-item">
+                        <i class="fas fa-chart-bar"></i>
+                        <span class="nav-item-text">Desempenho</span>
+                    </a>
+                    <a href="../historico.html" class="nav-item">
+                        <i class="fas fa-history"></i>
+                        <span class="nav-item-text">Histórico</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Conteúdo Principal -->
+        <div class="main-wrapper">
+            <!-- Header -->
+            <header class="main-header">
+                <div class="header-left">
+                    <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="header-title">
+                        <h1>Dashboard</h1>
+                        <p>Bem-vindo de volta, <span id="userName">...</span>!</p>
+                    </div>
+                </div>
+                
+                <div class="header-right">
+                    <div class="header-icons">
+                        <button class="header-icon" title="Notificações">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-badge" id="notificationCount">0</span>
+                        </button>
+                        <a href="/codigo/public/modules/aluno/perfil/perfil.html" class="header-icon user-avatar" title="Perfil">
+                            <img id="userAvatar" src="/codigo/public/assets/images/logos/logo_nome_lateral_bege.png" alt="Avatar">
+                        </a>
+                        <button class="header-icon" id="logoutBtn" title="Sair">
+                            <i class="fas fa-sign-out-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Área de Conteúdo -->
+            <main class="content-area">
+                <!-- Cards de Resumo -->
+                <section class="stats-section">
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Cursos Concluídos</h3>
+                            <p class="stat-value" id="cursosConcluidosCount">0</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Horas Estudadas</h3>
+                            <p class="stat-value" id="horasEstudadasCount">0h</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Atividades Pendentes</h3>
+                            <p class="stat-value" id="atividadesPendentesCount">0</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Certificados</h3>
+                            <p class="stat-value" id="certificadosCount">0</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Seção de Cursos em Progresso -->
+                <section class="courses-section">
+                    <div class="section-header">
+                        <h2>Cursos em Progresso</h2>
+                        <a href="/codigo/public/modules/cursos/painel.html" class="btn-view-all">Ver todos</a>
+                    </div>
+                    <div class="courses-grid" id="cursosEmProgresso">
+                        <div class="loading-state">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <p>Carregando cursos...</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Seção de Atividades Recentes -->
+                <section class="activities-section">
+                    <div class="section-header">
+                        <h2>Atividades Recentes</h2>
+                        <a href="/codigo/public/modules/atividades/cadastrar.html" class="btn-view-all">Ver todas</a>
+                    </div>
+                    <div class="activities-list" id="atividadesRecentes">
+                        <div class="loading-state">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <p>Carregando atividades...</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Seção de Progresso -->
+                <section class="progress-section">
+                    <div class="section-header">
+                        <h2>Seu Progresso</h2>
+                    </div>
+                    <div class="progress-cards">
+                        <div class="progress-card">
+                            <h3>Progresso Geral</h3>
+                            <div class="progress-bar-container">
+                                <div class="progress-bar" id="progressoGeral" style="width: 0%"></div>
+                            </div>
+                            <p class="progress-text"><span id="progressoGeralPercent">0</span>% completo</p>
+                        </div>
+                        
+                        <div class="progress-card">
+                            <h3>Meta Mensal</h3>
+                            <div class="progress-bar-container">
+                                <div class="progress-bar" id="metaMensal" style="width: 0%; background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%);"></div>
+                            </div>
+                            <p class="progress-text"><span id="metaMensalHoras">0</span>h de 40h</p>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/codigo/public/assets/js/config.js"></script>
+    <script src="/codigo/public/assets/js/global.js"></script>
+    <script src="/codigo/public/assets/js/auth.js"></script>
+    <script src="/codigo/public/shared/components/components.js"></script>
+    <script src="index.js"></script>
+    <script src="/codigo/public/shared/layout/layout.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Cadastrar Aula — SABIAA</title>
+  <link rel="stylesheet" href="/codigo/public/assets/css/global.css">
+  <link rel="stylesheet" href="/codigo/public/assets/css/interno.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="/codigo/public/shared/components/components.css">
+  <link rel="stylesheet" href="/codigo/public/modules/cursos/cadastro-aula.css">
+</head>
+<body class="body">
+  <header class="header-internal">
+    <div class="header-container">
+      <div class="header-left">
+        <button class="mobile-menu-toggle"><i class="fas fa-bars"></i></button>
+        <div class="search-bar"><i class="fas fa-search"></i><input placeholder="Buscar..."></div>
+      </div>
+      <div class="header-right">
+        <div class="header-icons">
+          <a class="header-icon" href="#"><i class="fas fa-bell"></i></a>
+          <a class="header-icon" href="#"><i class="fas fa-user"></i></a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <aside class="sidebar">
+    <div class="sidebar-header"><img src="/codigo/public/assets/images/logos/logo_nome_lateral_bege.png" class="sidebar-logo"></div>
+    <nav class="sidebar-nav">
+      <a class="nav-item" href="/codigo/public/modules/dashboard/index.html"><i class="fas fa-home"></i><span>Início</span></a>
+      <a class="nav-item" href="/codigo/public/modules/cursos/PainelCursos.html"><i class="fas fa-book"></i><span>Cursos</span></a>
+      <a class="nav-item" href="/codigo/public/gustavo/estatico/homepage.html"><i class="fas fa-globe"></i><span>Site</span></a>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <article class="article-form">
+      <div class="form-card">
+        <h2>Cadastrar Aula</h2>
+        <p id="curso-title" class="muted"></p>
+
+        <form id="form-aula">
+          <div class="form-row">
+            <div class="col-grow">
+              <label for="modulo_select">Módulo</label>
+              <select id="modulo_select" class="form-control"></select>
+              <input id="novo_modulo" class="form-control hidden" placeholder="Ou crie um novo módulo (nome)">
+            </div>
+            <div class="col-fixed">
+              <label for="duracao">Duração (min)</label>
+              <input id="duracao" type="number" class="form-control" value="10">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="titulo">Título da Aula</label>
+            <input id="titulo" class="form-control" required>
+          </div>
+
+          <div class="form-group">
+            <label for="tipo">Tipo</label>
+            <select id="tipo" class="form-control"><option value="video">Video</option><option value="texto">Texto</option></select>
+          </div>
+
+          <div class="form-group">
+            <label for="video_url">URL de vídeo / recurso</label>
+            <input id="video_url" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label for="descricao">Descrição</label>
+            <textarea id="descricao" class="form-control" rows="4"></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button type="button" id="btn-cancel" class="btn-cancelar">Cancelar</button>
+            <button type="submit" class="btn btn-primary">Salvar Aula</button>
+          </div>
+        </form>
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-logo"><img src="/codigo/public/assets/images/logos/logo_nome_lateral_salmao.png" alt="SABIAA"></div>
+    </div>
+  </footer>
+
+  <script src="/codigo/public/assets/js/config.js"></script>
+  <script src="/codigo/public/assets/js/auth.js"></script>
+  <script src="/codigo/public/modules/cursos/cadastro-aula.js"></script>
+</body>
+</html>

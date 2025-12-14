@@ -1,0 +1,41 @@
+/* ARQUIVO: cadastro-atividade.css (copiado de Ruan Henrique)
+*/
+body {
+    background-color: var(--bege-claro, #fff1ce); 
+    font-family: 'Outfit', sans-serif; 
+    color: var(--azul-escuro, #21203F); 
+}
+.page-container { display:flex; min-height:100vh; }
+.sidebar { width:260px; background-color:var(--azul-escuro,#21203F); padding:20px; color:var(--cor-texto-claro,#f0f0f0); display:flex; flex-direction:column; }
+.sidebar-header { padding:10px 0 20px 0; margin-bottom:20px; border-bottom:1px solid rgba(255,255,255,0.1); }
+.sidebar-header .logo { height:40px; }
+.sidebar-nav a { display:flex; align-items:center; color:var(--cor-texto-claro,#f0f0f0); text-decoration:none; padding:14px; border-radius:8px; margin-bottom:8px; font-weight:500; }
+.sidebar-nav a i { margin-right:12px; width:20px; text-align:center; }
+.sidebar-nav a.active, .sidebar-nav a:hover { background-color: var(--roxo-escuro,#4b3c5d); }
+.main-content { flex-grow:1; display:flex; flex-direction:column; }
+.main-header { display:flex; justify-content:space-between; align-items:center; padding:20px 30px; background-color:#ffffff; border-bottom:1px solid #E2E8F0; }
+.search-bar { display:flex; align-items:center; background-color:#f7f7f7; padding:8px 12px; border-radius:8px; width:300px; }
+.search-bar input { border:none; background:transparent; outline:none; margin-left:8px; width:100%; }
+.user-menu { display:flex; align-items:center; gap:20px; }
+.user-menu .avatar { width:40px; height:40px; border-radius:50%; object-fit:cover; }
+.content-body { display:flex; flex-grow:1; padding:30px; gap:30px; }
+.form-wrapper { flex-grow:1; }
+.form-header-text h1 { font-size:28px; font-weight:600; color:var(--azul-escuro,#21203F); margin-bottom:8px; }
+.form-header-text p { font-size:16px; color:var(--roxo-escuro,#4b3c5d); margin-bottom:24px; }
+#form-atividade.card { padding:30px; }
+.form-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; padding-bottom:20px; border-bottom:1px solid #E2E8F0; }
+.form-group { margin-bottom:20px; }
+.form-group label { display:block; font-weight:600; margin-bottom:8px; font-size:14px; }
+.form-control { width:100%; padding:12px; border:1px solid #CBD5E0; border-radius:8px; font-size:15px; background-color:#FDFDFD; }
+.form-control:focus { outline:none; border-color:var(--roxo-escuro,#4b3c5d); box-shadow:0 0 0 3px rgba(75,60,93,0.1); }
+.form-row { display:flex; gap:20px; }
+.upload-area { border:2px dashed #CBD5E0; border-radius:8px; padding:40px; text-align:center; cursor:pointer; background-color:#FAFAFA; }
+.upload-area:hover { background-color:#f5f5f5; }
+.form-actions { display:flex; justify-content:flex-end; gap:12px; margin-top:30px; }
+.btn-cancelar { background-color:#E2E8F0; color:var(--cor-texto-escuro,#333); padding:15px 30px; border-radius:25px; font-weight:bold; border:2px solid #E2E8F0; font-size:15px; cursor:pointer; }
+.sidebar-right { width:350px; min-width:350px; }
+.card-atividade { margin-bottom:16px; padding:20px; }
+.card-atividade p { font-weight:600; margin:0 0 4px 0; }
+.status { padding:4px 10px; border-radius:12px; font-size:12px; font-weight:600; }
+@media (max-width:1100px){ .content-body{flex-direction:column;} .sidebar-right{width:100%; min-width:100%; margin-top:30px;} }
+@media (max-width:768px){ .page-container{flex-direction:column;} .sidebar{width:100%; height:auto;} .main-header{flex-direction:column; gap:15px; padding:15px;} .search-bar{width:100%;} .content-body{padding:15px;} .form-row{flex-direction:column; gap:0;} .form-actions{flex-direction:column;} .form-actions .btn-principal, .form-actions .btn-cancelar{width:100%; box-sizing:border-box;} }

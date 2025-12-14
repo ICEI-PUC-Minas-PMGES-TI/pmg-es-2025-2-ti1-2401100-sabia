@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SABIAA - Educação de Qualidade</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/937e8004d1.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../assets/css/global.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="/codigo/public/modules/home/index.html">
+                    <img src="../../assets/images/logos/logo_nome_azul_lateral.png" alt="SABIAA">
+                </a>
+            </div>
+            
+            <nav class="nav-links">
+                <a href="/codigo/public/modules/home/index.html">Início</a>
+                <a href="/codigo/public/modules/home/sobre.html">Sobre</a>
+                <a href="#">Cursos</a>
+                <a href="#">Contato</a>
+            </nav>
+            
+            <div class="auth-links">
+                <a href="/codigo/public/modules/auth/login.html">Entrar</a>
+                <a href="/codigo/public/modules/auth/cadastro.html">Cadastrar</a>
+            </div>
+            
+            <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <div class="mobile-menu" id="mobileMenu">
+                <ul class="mobile-nav-links">
+                    <li><a href="/codigo/public/modules/home/index.html">Início</a></li>
+                    <li><a href="/codigo/public/modules/home/sobre.html">Sobre</a></li>
+                    <li><a href="#">Cursos</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+                <div class="mobile-auth-links">
+                    <a href="/codigo/public/modules/auth/login.html" style="border: 2px solid var(--azul-escuro); color: var(--azul-escuro); padding: 10px 20px; border-radius: 25px; text-align: center;">Entrar</a>
+                    <a href="/codigo/public/modules/auth/cadastro.html" style="background-color: #21203F; color: white; padding: 10px 20px; border-radius: 25px; font-weight: bold; text-align: center;">Cadastrar</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-left">
+                <img src="../../assets/images/logos/logo_blue.png" alt="SABIAA Logo" class="hero-logo-image">
+            </div>
+            <div class="hero-right">
+                <h1>Educação de Qualidade para as Escolas do Brasil</h1>
+                <p>Plataforma educacional interativa que complementa o ensino presencial com conteúdos dinâmicos, materiais de apoio e atividades práticas.</p>
+                <a href="#" class="btn-principal">Explorar Conteúdos</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-choose">
+        <div class="why-choose-container">
+            <h2>Por que escolher o Sabiaa?</h2>
+            <p>Ferramentas modernas para uma educação transformadora</p>
+        </div>
+    </section>
+    
+    <section class="features">
+        <div class="features-container">
+            <div class="feature-card">
+                <div class="feature-icon">📚</div> 
+                <h3>Materiais Interativos</h3>
+                <p>Conteúdos digitais envolventes que tornam o aprendizado mais dinâmico e efetivo.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">💻</div> 
+                <h3>Apoio a Professores</h3>
+                <p>Recursos e ferramentas especializadas para auxiliar educadores em sua jornada diária.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📝</div> 
+                <h3>Atividades Práticas</h3>
+                <p>Exercícios e projetos que aplicam o conhecimento de forma prática e significativa.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="popular-courses">
+        <div class="popular-courses-container">
+            <h2>Cursos Populares</h2>
+            <p>Descubra os conteúdos mais procurados pelos estudantes.</p>
+            
+            <div class="course-list">
+                
+                <article class="course-card">
+                    <div class="course-image">
+                        <img src="../../assets/images/homepage/matematica.png" alt="Matemática Fundamental">
+                    </div>
+                    <div class="course-content">
+                        <h3>Matemática Fundamental</h3>
+                        <p>Compreensão de matemática com exercícios práticos do dia a dia.</p>
+                        <a href="#" class="btn-secundario">Ver mais</a>
+                    </div>
+                </article>
+
+                <article class="course-card">
+                    <div class="course-image">
+                        <img src="../../assets/images/homepage/portugues.png" alt="Português Criativo">
+                    </div>
+                    <div class="course-content">
+                        <h3>Português Criativo</h3>
+                        <p>Desenvolva habilidades de leitura e escrita de forma divertida.</p>
+                        <a href="#" class="btn-secundario">Ver mais</a>
+                    </div>
+                </article>
+
+                <article class="course-card">
+                    <div class="course-image">
+                        <img src="../../assets/images/homepage/ciencias.png" alt="Ciências da Natureza">
+                    </div>
+                    <div class="course-content">
+                        <h3>Ciências da Natureza</h3>
+                        <p>Explore o mundo natural através de experimentos e teorias.</p>
+                        <a href="#" class="btn-secundario">Ver mais</a>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="../../assets/images/logos/logo_nome_lateral_bege.png" alt="SABIAA">
+                </div>
+                <p>Educação e Tecnologia alinhadas para um futuro melhor.</p>
+            </div>
+            
+            <div class="footer-section footer-links">
+                <h4>Links Rápidos</h4>
+                <ul>
+                    <li><a href="/codigo/public/modules/home/sobre.html">Sobre</a></li>
+                    <li><a href="#">Cursos</a></li>
+                    <li><a href="#">Suporte</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section footer-contact">
+                <h4>Contato</h4>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:contato@sabiaa.com.br">contato@sabiaa.com.br</a></p>
+                <p><i class="fas fa-phone"></i> (31) 1234-5678</p>
+            </div>
+            
+            <div class="footer-section footer-social">
+                <h4>Redes Sociais</h4>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+        }
+
+        // Fechar menu mobile ao clicar em um link
+        document.querySelectorAll('.mobile-nav-links a, .mobile-auth-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobileMenu').classList.remove('active');
+            });
+        });
+
+        // Fechar menu mobile ao redimensionar a tela
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 1024) {
+                document.getElementById('mobileMenu').classList.remove('active');
+            }
+        });
+    </script>
+
+</body>
+</html>
