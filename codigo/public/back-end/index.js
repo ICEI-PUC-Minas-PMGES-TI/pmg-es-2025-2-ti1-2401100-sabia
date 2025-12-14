@@ -521,16 +521,34 @@ server.post('/api/certificados/gerar', verifyToken, (req, res) => {
             return res.status(404).json({ error: 'Curso não encontrado' });
         }
         
-        const progresso = db.progresso_cursos.find(p => 
-            p.usuario_id === usuarioId && 
-            p.curso_id === curso_id && 
-            p.status === 'concluido'
-        );
-        
+        // localizar registro de progresso para o usuário/curso (independente do status)
+        let progresso = db.progresso_cursos.find(p => p.usuario_id === usuarioId && p.curso_id === curso_id);
+
         if (!progresso) {
+            return res.status(400).json({ 
+                error: 'Inscrição/progresso não encontrado para este usuário e curso' 
+            });
+        }
+
+        // normalizar fontes de porcentagem: pode ser 'progresso_porcentagem' ou 'progresso'
+        const porcentagem = Number(progresso.progresso_porcentagem ?? progresso.progresso ?? 0);
+
+        // se porcentagem menor que 100, bloqueia geração
+        if (porcentagem < 100) {
             return res.status(400).json({ 
                 error: 'Você precisa concluir o curso antes de gerar o certificado' 
             });
+        }
+
+        // se o registro existe mas não está marcado como concluído, marcar agora e persistir
+        if (!(progresso.status && String(progresso.status).toLowerCase().includes('conclu'))) {
+            progresso.status = 'concluido';
+            if (!progresso.data_conclusao) {
+                progresso.data_conclusao = new Date().toISOString();
+            }
+            // salvar alterações no banco
+            saveDb(db);
+            console.log('Progresso marcado como concluído automaticamente antes de gerar certificado:', progresso.id);
         }
         
         const certificadoExistente = db.certificados.find(cert => 

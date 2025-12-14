@@ -203,8 +203,21 @@ const alunoModal = {
     close(modalId) {
         const modal = document.getElementById(modalId);
         if (modal) {
-            modal.style.display = 'none';
+            // Use important to override any injected stylesheet forcing display
+            try {
+                modal.style.setProperty('display', 'none', 'important');
+            } catch (e) {
+                modal.style.display = 'none';
+            }
+            modal.classList.remove('show');
+            modal.style.visibility = 'hidden';
+            modal.style.opacity = '0';
             document.body.style.overflow = 'auto';
+            // remove fallback styles injected by page scripts if present
+            const injected = document.getElementById('certModalFallbackStyles');
+            if (injected && injected.parentNode) {
+                try { injected.parentNode.removeChild(injected); } catch (e) { /* ignore */ }
+            }
         }
     },
     

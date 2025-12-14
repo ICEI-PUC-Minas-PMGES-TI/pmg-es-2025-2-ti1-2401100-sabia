@@ -228,3 +228,28 @@
         font-size: 18px;
     }
 }
+
+/* Fix: ensure disciplinas content uses full available width inside dashboard layout */
+.content-area {
+    width: 100% !important;
+    max-width: none !important;
+    padding-left: 30px; /* keep some spacing from sidebar */
+    padding-right: 30px;
+}
+
+.disciplinas-grid {
+    width: 100% !important;
+    max-width: none !important;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.disciplina-card {
+    min-width: 0; /* prevent flex/grid items from forcing narrow column */
+}
+
+@media (min-width: 1200px) {
+    .content-area {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}

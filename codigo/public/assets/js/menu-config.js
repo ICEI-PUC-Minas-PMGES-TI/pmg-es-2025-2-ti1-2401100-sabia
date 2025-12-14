@@ -80,7 +80,7 @@ window.MENU_CONFIG = {
                 badge: 'Admin'
             },
             {
-                href: '/codigo/public/victhor_guilherme/pagina_dashboard/dashboard.html',
+                href: '/codigo/public/victhor_guilherme/pagina_dashboard/index.html',
                 icon: 'fas fa-chart-line',
                 text: 'Desempenho',
                 roles: ['aluno', 'admin']

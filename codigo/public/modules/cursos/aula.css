@@ -1,0 +1,14 @@
+.aula-player{display:flex;gap:16px;align-items:flex-start}
+.aula-player-main{flex:1}
+.aula-player-sidebar{width:320px;max-height:70vh;overflow:auto;border-left:1px solid var(--border-color);padding-left:12px}
+.aula-player iframe{width:100%;height:60vh;border:0;background:#000}
+.aula-desc{margin-top:12px;padding:8px;background:var(--bg-card,#fff);border-radius:6px}
+.aula-nav{display:flex;gap:8px;margin-top:8px}
+.aula-nav .btn{min-width:110px}
+.aula-list{list-style:none;padding:0;margin:0}
+.aula-list li{padding:8px 6px;border-bottom:1px solid rgba(0,0,0,0.04)}
+.aula-list li a{color:var(--text-color,#222);text-decoration:none;display:flex;justify-content:space-between;align-items:center}
+.aula-list li.current{background:rgba(0,0,0,0.03)}
+.aula-meta{font-size:12px;color:var(--muted,#666)}
+.aula-empty{color:var(--muted,#666);padding:12px}
+@media(max-width:900px){.aula-player{flex-direction:column}.aula-player-sidebar{width:100%;max-height:none;border-left:0;padding-left:0}.aula-player iframe{height:40vh}}

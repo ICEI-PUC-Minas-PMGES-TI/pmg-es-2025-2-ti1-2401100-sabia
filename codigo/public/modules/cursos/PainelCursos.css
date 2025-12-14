@@ -3,7 +3,7 @@
 
 :root {
     --font-family: 'Nunito', sans-serif;
-    --bg-main: #FDF8EE;
+    --bg-main: #fff1ce; /* match dashboard/bege-claro */
     --bg-card: #FFFFFF;
     --bg-dark: #3A3A3A;
     --bg-light-gray: #F0F0F0;
@@ -72,6 +72,25 @@ body{display:block}
 .card-content{padding:16px}
 .card-image img{height:140px;object-fit:cover}
 
+/* Discipline tag */
+.card-tag{position:absolute;left:12px;bottom:12px;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.9);color:var(--azul-escuro);font-weight:700;font-size:13px;box-shadow:0 6px 18px rgba(0,0,0,0.08)}
+.card-image{position:relative}
+
+/* Modules list styling */
+.card-modules{margin-top:12px;background:linear-gradient(180deg,#fff,#fafafa);padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.03)}
+.card-modules strong{display:block;margin-bottom:8px;color:var(--azul-escuro);font-size:13px}
+.modules-list{list-style:none;padding-left:0;margin:0;display:flex;flex-direction:column;gap:6px}
+.modules-list li{font-size:13px;color:var(--text-gray);display:flex;align-items:center;gap:8px}
+.modules-list li.more-mods{color:var(--azul-escuro);font-weight:700}
+
+/* Tidy action buttons */
+.curso-actions .btn{border-radius:8px;padding:10px 12px}
+.btn-primary{background:linear-gradient(90deg,#6b46c1,#c084fc);color:#fff}
+.btn-secondary{background:transparent;border:1px solid rgba(0,0,0,0.06);color:var(--azul-escuro)}
+
+/* remove view-toggles area space if present */
+.view-toggles{display:none}
+
 /* Evita que o conteúdo fique abaixo do header fixo */
 .content-area{padding-top:calc(var(--header-height,70px) + 18px) !important}
 
@@ -83,4 +102,17 @@ body{display:block}
 
 /* garantir que botões não ocupem 100% do card */
 .course-card .btn{width:auto}
+
+/* ===== Fix layout conflicts with shared injected layout ===== */
+/* Ensure this page respects the shared sidebar/header injected by layout.js */
+.body{display:block !important}
+.dashboard-container{display:block !important}
+.main-wrapper{margin-left:0 !important;min-width:0}
+.main-content, .content-area{margin-left:var(--sidebar-width,280px) !important; width:calc(100% - var(--sidebar-width,280px)) !important; box-sizing:border-box}
+.content-area{padding-top:calc(var(--header-height,70px) + 18px) !important; padding-bottom:140px !important}
+
+@media (max-width:1024px){
+    .main-content, .main-wrapper, .content-area{margin-left:0 !important; width:100% !important}
+    .content-area{padding-bottom:80px !important}
+}
 

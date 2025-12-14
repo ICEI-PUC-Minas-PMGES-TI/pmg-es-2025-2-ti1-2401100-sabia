@@ -230,10 +230,41 @@
               "titulo": "Instalação do Python",
               "duracao": 45,
               "tipo": "video"
+            },
+            {
+              "id": "aula-1765725212638",
+              "titulo": "Dashboard de Aprendizado",
+              "duracao": 10,
+              "tipo": "video",
+              "video_url": "https://www.youtube.com/watch?v=S9uPNppGsGo&list=PLvE-ZAFRgX8hnECDn1v9HNTI71veL3oW0",
+              "descricao": ""
             }
           ]
         }
       ]
+    },
+    {
+      "titulo": "Curso de programação inclusiva",
+      "descricao": "Curso de programação inclusivaCurso de programação inclusivaCurso de programação inclusivaCurso de programação inclusiva",
+      "duracao_horas": 10,
+      "faixa_etaria": "16-25 anos",
+      "nivel": "Intermediario",
+      "categoria": "Tecnologia",
+      "tags": [
+        "TECNOLOGIA"
+      ],
+      "video_url": "",
+      "gera_certificado": true,
+      "disciplina": "Design",
+      "num_aulas": 15,
+      "num_atividades": 5,
+      "professor": "Prof. Santos",
+      "status": "Publicado",
+      "idioma": "Português",
+      "data_publicacao": "2025-12-14",
+      "created_at": "2025-12-14T18:06:01.022Z",
+      "thumbnail": "https://firebasestorage.googleapis.com/v0/b/sabiaa-2e56f.firebasestorage.app/o/course_thumbnails%2Fcourse_1765735561166.png?alt=media&token=dbb74e16-2275-4fe0-b2cb-54ae51cca5c6",
+      "id": "0RlJ6in"
     }
   ],
   "atividades": [],
@@ -285,10 +316,12 @@
       "progresso": 100,
       "status": "em_andamento",
       "aulas_concluidas": [
-        "aula-001"
+        "aula-001",
+        "aula-1765689943600"
       ],
       "id": "K6k1T7V",
-      "certificado_emitido": true
+      "certificado_emitido": true,
+      "ultima_aula_assistida": "aula-1765689943600"
     },
     {
       "usuario_id": "admin-001",
@@ -309,9 +342,34 @@
       "progresso": 100,
       "status": "em_andamento",
       "aulas_concluidas": [
-        "aula-002"
+        "aula-002",
+        "aula-1765725212638"
       ],
-      "id": "KiTC9_k"
+      "id": "KiTC9_k",
+      "ultima_aula_assistida": "aula-1765725212638"
+    },
+    {
+      "aluno_id": "a219b429-a462-4a96-9e89-ee77dd2be65f",
+      "curso_id": "curso-001",
+      "data_inscricao": "2025-12-14T15:50:43.550Z",
+      "progresso": 100,
+      "status": "concluido",
+      "aulas_concluidas": [
+        "aula-001",
+        "aula-1765689943600"
+      ],
+      "id": "z6DnrWK",
+      "ultima_aula_assistida": "aula-1765689943600",
+      "certificado_emitido": false
+    },
+    {
+      "aluno_id": "a219b429-a462-4a96-9e89-ee77dd2be65f",
+      "curso_id": "0RlJ6in",
+      "data_inscricao": "2025-12-14T18:28:32.557Z",
+      "progresso": 0,
+      "status": "em_andamento",
+      "aulas_concluidas": [],
+      "id": "s5mx3MR"
     }
   ],
   "certificados": [
@@ -601,6 +659,42 @@
       "tempo_assistido": 2700,
       "data_conclusao": "2025-12-14T03:55:46.645Z",
       "id": 3
+    },
+    {
+      "usuario_id": "admin-001",
+      "aula_id": "aula-1765689943600",
+      "curso_id": "curso-001",
+      "concluida": true,
+      "tempo_assistido": 600,
+      "data_conclusao": "2025-12-14T15:06:53.318Z",
+      "id": 4
+    },
+    {
+      "usuario_id": "admin-001",
+      "aula_id": "aula-1765725212638",
+      "curso_id": "curso-002",
+      "concluida": true,
+      "tempo_assistido": 600,
+      "data_conclusao": "2025-12-14T15:17:55.654Z",
+      "id": 5
+    },
+    {
+      "usuario_id": "a219b429-a462-4a96-9e89-ee77dd2be65f",
+      "aula_id": "aula-001",
+      "curso_id": "curso-001",
+      "concluida": true,
+      "tempo_assistido": 1800,
+      "data_conclusao": "2025-12-14T15:50:45.653Z",
+      "id": 6
+    },
+    {
+      "usuario_id": "a219b429-a462-4a96-9e89-ee77dd2be65f",
+      "aula_id": "aula-1765689943600",
+      "curso_id": "curso-001",
+      "concluida": true,
+      "tempo_assistido": 600,
+      "data_conclusao": "2025-12-14T15:50:47.894Z",
+      "id": 7
     }
   ]
 }

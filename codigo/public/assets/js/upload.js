@@ -271,6 +271,55 @@ class SabiaUpload {
             img.src = URL.createObjectURL(file);
         });
     }
+
+        /**
+         * Upload genérico de arquivo em uma pasta especificada
+         * @param {File} file
+         * @param {string} folder
+         * @param {string} [prefix]
+         * @param {function} onProgress
+         * @returns {Promise<string>} URL de download
+         */
+        async uploadFile(file, folder = 'uploads', prefix = '', onProgress = null) {
+            if (!this.initialized) await this.init();
+            try {
+                // validar tipo e tamanho
+                this.validateImageFile(file);
+
+                const ext = this.getFileExtension(file.name);
+                const fileName = `${folder}/${prefix || 'file'}_${Date.now()}.${ext}`;
+                const storageRef = this.storage.ref(fileName);
+
+                const uploadTask = storageRef.put(file, {
+                    contentType: file.type,
+                    customMetadata: {
+                        uploadDate: new Date().toISOString(),
+                        originalName: file.name
+                    }
+                });
+
+                return new Promise((resolve, reject) => {
+                    uploadTask.on('state_changed',
+                        (snapshot) => {
+                            const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                            if (onProgress) onProgress(progress);
+                        },
+                        (error) => reject(error),
+                        async () => {
+                            try {
+                                const downloadURL = await uploadTask.snapshot.ref.getDownloadURL();
+                                resolve(downloadURL);
+                            } catch (err) {
+                                reject(err);
+                            }
+                        }
+                    );
+                });
+            } catch (error) {
+                console.error('Erro uploadFile:', error);
+                throw error;
+            }
+        }
 }
 
 // Instanciar globalmente

@@ -23,14 +23,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const aulas = getAllAulas(curso);
 
-      // show modules and aulas
-      let html = '';
-      curso.modulos && curso.modulos.forEach(m=>{
-        html += `<div class="card" style="margin-bottom:8px"><h4>${m.titulo}</h4><ul>`;
-        (m.aulas||[]).forEach(a=> html += `<li>${a.titulo} <small>(${a.duracao||0} min)</small></li>`);
-        html += `</ul></div>`;
-      });
-      modulesList.innerHTML = html;
+      // show modules and aulas (build DOM so each aula is a clickable link)
+      modulesList.innerHTML = '';
+      if (curso.modulos && curso.modulos.length) {
+        curso.modulos.forEach(m=>{
+          const card = document.createElement('div');
+          card.className = 'card';
+          card.style.marginBottom = '8px';
+
+          const h4 = document.createElement('h4');
+          h4.textContent = m.titulo || '';
+          card.appendChild(h4);
+
+          const ul = document.createElement('ul');
+          (m.aulas||[]).forEach(a=>{
+            const li = document.createElement('li');
+            const aLink = document.createElement('a');
+            aLink.className = 'aula-link';
+            aLink.href = `/codigo/public/modules/cursos/aula.html?curso=${encodeURIComponent(cursoId)}&aula=${encodeURIComponent(a.id)}`;
+            aLink.appendChild(document.createTextNode(a.titulo || ('Aula ' + (a.id||''))));
+            const small = document.createElement('small');
+            small.textContent = ` (${a.duracao||0} min)`;
+            aLink.appendChild(small);
+            li.appendChild(aLink);
+            ul.appendChild(li);
+          });
+
+          card.appendChild(ul);
+          modulesList.appendChild(card);
+        });
+      } else {
+        modulesList.innerHTML = '<p>Sem módulos ou aulas.</p>';
+      }
 
       // determine user and inscription (robust)
       function getCurrentUser(){

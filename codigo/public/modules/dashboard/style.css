@@ -1,0 +1,87 @@
+/* Victhor dashboard styles adapted: removed local sidebar/top-bar/footer rules
+   so shared header/sidebar/footer are used instead. Keeps card and content styles. */
+
+:root{
+    --azul-escuro:#21203F;
+    --bege-claro:#fff1ce;
+    --rosa-claro:#e7bfa5;
+    --rosa-escuro:#c5a898;
+    --roxo-escuro:#4b3c5d;
+    --cor-texto-principal:var(--azul-escuro);
+    --cor-texto-secundario:var(--roxo-escuro);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;background-color:var(--bege-claro);color:var(--cor-texto-principal);}
+
+/* main content wrapper (we rely on the injected header/sidebar) */
+.main-content-wrapper{flex:1;display:flex;flex-direction:column;overflow-y:auto}
+
+.container-geral{padding:48px 60px;background-color:var(--bege-claro)}
+.cabecalho h1{font-size:2em;color:var(--azul-escuro)}
+.cabecalho p{color:var(--cor-texto-secundario);margin-top:5px}
+
+.conteudo-principal{display:grid;grid-template-columns:2fr 1fr;gap:36px;margin-top:40px}
+
+.caixa{background:white;border-radius:20px;padding:25px;box-shadow:0 10px 25px rgba(0,0,0,0.05);transition:transform 0.3s ease;margin-bottom:18px}
+.caixa:hover{transform:translateY(-5px)}
+.caixa h2{font-size:1.3em;color:var(--roxo-escuro);margin-bottom:20px}
+
+.grid-resumo{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.item-resumo{background:linear-gradient(135deg,var(--bege-claro),white);border-radius:15px;padding:20px;text-align:center}
+.item-resumo h3{color:var(--roxo-escuro);font-size:1em;margin-bottom:10px}
+.info-icone{display:flex;justify-content:center;align-items:center;gap:10px;font-weight:600}
+.numero{font-size:1.5em}
+.icone{color:var(--roxo-escuro);font-size:1.3em}
+.grafico-placeholder img{width:100%;border-radius:15px}
+
+.caixa-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}
+.contador{background-color:var(--rosa-claro);color:white;font-weight:600;padding:5px 10px;border-radius:8px;font-size:0.9em}
+
+.item-tarefa{display:flex;align-items:center;justify-content:space-between;background:#fafafa;padding:15px;border-radius:10px;margin-bottom:10px}
+.item-tarefa:hover{background:rgba(231,191,165,0.1)}
+.icone-tipo{color:var(--roxo-escuro);font-size:1.3em;margin-right:15px}
+.detalhes h4{font-size:1em;color:var(--azul-escuro)}
+.detalhes p{font-size:0.9em;color:var(--cor-texto-secundario)}
+.status-tarefa{font-size:0.85em;font-weight:600;border-radius:8px;padding:6px 10px}
+.tipo-pendente{background:#ffb347;color:white}
+.tipo-andamento{background:#6c63ff;color:white}
+.tipo-completo{background:#4caf50;color:white}
+
+/* New task link styles */
+.item-tarefa-link{list-style:none}
+.tarefa-link{display:flex;align-items:center;justify-content:space-between;text-decoration:none;color:inherit;padding:12px;border-radius:10px;background:#fff;border:1px solid rgba(0,0,0,0.03)}
+.tarefa-link:hover{background:linear-gradient(90deg,rgba(107,70,193,0.03),rgba(231,191,165,0.03));transform:translateY(-2px)}
+.tarefa-meta strong{display:block;font-weight:600;color:var(--azul-escuro)}
+.tarefa-aula{display:block;font-size:0.95em;color:var(--cor-texto-secundario)}
+.tarefa-right{display:flex;align-items:center;gap:12px}
+.tarefa-dur{font-size:0.85em;color:#666}
+.tarefa-go{color:var(--roxo-escuro);font-size:0.95em}
+.sem-tarefas{color:#6b7280;padding:12px}
+
+.video-bloco{display:flex;align-items:center;gap:20px;background:#fafafa;padding:15px;border-radius:15px}
+.video-thumb{width:80px;height:80px;border-radius:12px;background:linear-gradient(135deg,var(--roxo-escuro),var(--rosa-escuro));display:flex;justify-content:center;align-items:center;color:white;font-size:1.5em;flex-shrink:0}
+.video-info h3{color:var(--roxo-escuro);font-size:1em}
+.video-info p{font-size:0.9em;color:var(--cor-texto-secundario)}
+.progresso-wrapper{display:flex;align-items:center;gap:10px;margin-top:10px}
+.barra-progresso{width:100%;height:6px;background:#e0e0e0;border-radius:4px;overflow:hidden}
+.progresso{height:100%;background:linear-gradient(135deg,var(--roxo-escuro),var(--rosa-claro))}
+.botao-video{padding:10px 15px;background:linear-gradient(135deg,var(--roxo-escuro),var(--rosa-claro));border:none;border-radius:10px;color:white;font-weight:600;cursor:pointer}
+.botao-video:hover{transform:translateY(-2px)}
+
+/* recommendation button styles */
+.botao-iniciar{display:inline-block;padding:8px 12px;background:linear-gradient(90deg,#6b46c1,#c084fc);color:white;border-radius:8px;text-decoration:none;font-weight:600}
+.botao-iniciar:hover{opacity:0.95}
+.botao-concluido{padding:8px 12px;background:#e5e7eb;color:#6b7280;border-radius:8px;border:none;font-weight:600}
+
+.card-quatro ul{list-style:none;display:flex;flex-direction:column;gap:15px}
+.card-quatro li{display:flex;align-items:center;justify-content:space-between;background:#fafafa;padding:10px 15px;border-radius:10px}
+.card-quatro li:hover{background:rgba(75,60,93,0.05)}
+.icone-coracao{color:var(--rosa-claro);margin-right:10px}
+
+.item-rec{display:flex;align-items:center;justify-content:space-between;background:#fafafa;padding:15px;border-radius:12px;margin-bottom:10px}
+.item-rec:hover{background:rgba(75,60,93,0.05)}
+.detalhes-rec h4{color:var(--azul-escuro);font-size:1em}
+
+@media (max-width:900px){ .conteudo-principal{grid-template-columns:1fr} .container-geral{padding:20px} }

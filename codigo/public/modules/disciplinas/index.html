@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/codigo/public/assets/css/global.css">
     <link rel="stylesheet" href="/codigo/public/assets/css/interno.css">
     <link rel="stylesheet" href="/codigo/public/assets/css/internal-fixes.css">
+        <link rel="stylesheet" href="/codigo/public/shared/components/components.css">
     <link rel="stylesheet" href="index.css">
 </head>
 
@@ -25,69 +26,6 @@
 
         <!-- Conteúdo Principal -->
         <main class="main-content">
-            <!-- Header -->
-            <header class="header">
-                <div class="header-left">
-                    <button class="header-btn mobile-menu-btn">
-                        <i class="fas fa-bars"></i>
-                    </button>
-                    <div>
-                        <h1 class="page-title">Minhas Disciplinas</h1>
-                        <div class="breadcrumb">
-                            <a href="/codigo/public/modules/dashboard/index.html">Dashboard</a>
-                            <i class="fas fa-chevron-right"></i>
-                            <span>Disciplinas</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Barra de Pesquisa -->
-                <div class="search-container">
-                    <i class="fas fa-search search-icon"></i>
-                    <input type="text" class="search-input" placeholder="Pesquisar disciplinas...">
-                </div>
-
-                <!-- Header Direito -->
-                <div class="header-right">
-                    <div class="header-actions">
-                        <button class="header-btn" title="Notificações" id="notificationBtn">
-                            <i class="fas fa-bell"></i>
-                            <span class="notification-badge" id="notificationCount" style="display: none;">0</span>
-                        </button>
-                        <button class="header-btn" title="Configurações">
-                            <i class="fas fa-cog"></i>
-                        </button>
-                    </div>
-
-                    <!-- Perfil do Usuário -->
-                    <div class="user-profile">
-                        <img src="/codigo/public/assets/images/logos/logo_simbolo_branco.png" alt="Avatar" class="user-avatar" id="headerUserAvatar">
-                        <div class="user-info">
-                            <span class="user-name" id="headerUserName">Carregando...</span>
-                            <span class="user-role">Aluno</span>
-                        </div>
-                        <i class="fas fa-chevron-down user-dropdown-arrow"></i>
-                        
-                        <!-- Dropdown Menu -->
-                        <div class="user-dropdown">
-                            <a href="/codigo/public/modules/aluno/perfil/perfil.html" class="dropdown-item">
-                                <i class="fas fa-user"></i>
-                                Meu Perfil
-                            </a>
-                            <a href="/codigo/public/modules/aluno/configuracoes.html" class="dropdown-item">
-                                <i class="fas fa-cog"></i>
-                                Configurações
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a href="#" class="dropdown-item" onclick="logout()">
-                                <i class="fas fa-sign-out-alt"></i>
-                                Sair
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </header>
-
             <!-- Área de Conteúdo -->
             <div class="content-area">
                 <!-- Filtros -->
@@ -116,7 +54,7 @@
                 </div>
                 <h3>Português</h3>
                 <p>Gramática, Literatura e Redação</p>
-                <a href="#" class="btn-acessar">Acessar</a>
+                <button class="btn-acessar" disabled style="cursor: not-allowed; opacity: 0.75;">Em desenvolvimento</button>
             </div>
 
             <div class="disciplina-card" data-area="exatas">
@@ -227,47 +165,10 @@
                 <a href="#" class="btn-acessar">Acessar</a>
             </div>
 
-        </div>
-    </main>
-
-            </div>
-
-            <!-- Footer -->
-            <footer class="footer">
-                <div class="footer-content">
-                    <div class="footer-section">
-                        <img src="/codigo/public/assets/images/logos/logo_nome_branco_lateral.png" alt="Sabiaa" style="width: 150px; margin-bottom: 15px;">
-                        <p>Transformando a educação brasileira através da tecnologia e inovação.</p>
-                    </div>
-                    
-                    <div class="footer-section">
-                        <h4>Links Úteis</h4>
-                        <a href="#">Sobre</a>
-                        <a href="#">Cursos</a>
-                        <a href="#">Suporte</a>
-                    </div>
-                    
-                    <div class="footer-section">
-                        <h4>Contato</h4>
-                        <p><i class="fas fa-envelope"></i> contato@sabiaa.com.br</p>
-                        <p><i class="fas fa-phone"></i> (31) 1234-5678</p>
-                    </div>
-                    
-                    <div class="footer-section">
-                        <h4>Redes Sociais</h4>
-                        <div class="footer-social">
-                            <a href="#"><i class="fab fa-facebook"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-youtube"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="footer-bottom">
-                    <p>&copy; 2025 Sabiaa - Educação e Tecnologia Alinhadas para um Futuro Melhor.</p>
-                </div>
-            </footer>
+        </div> <!-- disciplinas-grid -->
+            </div> <!-- content-area -->
         </main>
+
     </div>
 
     <!-- Scripts -->

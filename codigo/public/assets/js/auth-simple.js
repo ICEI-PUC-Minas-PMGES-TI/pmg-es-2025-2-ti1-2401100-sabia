@@ -163,8 +163,8 @@ class SabiaAuth {
     redirectAfterLogin() {
         const user = this.getUser();
         if (user) {
-            // Sempre redirecionar para o dashboard.html correto
-            window.location.href = '/codigo/public/modules/dashboard/dashboard.html';
+            // Sempre redirecionar para o index.html correto
+            window.location.href = '/codigo/public/modules/dashboard/index.html';
         }
     }
 

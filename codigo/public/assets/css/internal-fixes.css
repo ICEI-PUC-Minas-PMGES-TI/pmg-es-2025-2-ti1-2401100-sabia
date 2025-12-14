@@ -26,39 +26,6 @@ body {
     overflow-x: hidden;
 }
 
-/* === CORREÇÕES SIDEBAR === */
-.sidebar {
-    width: 280px;
-    min-width: 280px;
-    max-width: 280px;
-    overflow-x: hidden;
-    overflow-y: auto;
-}
-
-.sidebar-header {
-    flex-wrap: nowrap;
-    white-space: nowrap;
-}
-
-.sidebar-logo {
-    width: auto;
-    height: 45px;
-    flex-shrink: 0;
-    object-fit: contain;
-    background: transparent;
-    border-radius: 0;
-    padding: 0;
-    max-width: 200px;
-}
-
-.sidebar-title {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: white;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
 
 /* === CORREÇÕES MENU === */
 .nav-item {
@@ -101,11 +68,6 @@ body {
 }
 
 /* === CORREÇÕES HEADER === */
-.header {
-    background: var(--primary-color) !important;
-    color: white;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
 
 .page-title {
     color: white !important;

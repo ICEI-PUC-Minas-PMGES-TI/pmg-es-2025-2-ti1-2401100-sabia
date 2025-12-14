@@ -34,6 +34,9 @@
     --transition-fast: 0.2s ease;
     --transition-normal: 0.3s ease;
     --transition-slow: 0.5s ease;
+    /* Content inner paddings used by header/footer and content-area to align edges */
+    --content-padding-left: 0px;
+    --content-padding-right: 0px;
 }
 
 /* === TEMAS === */
@@ -89,7 +92,10 @@ body {
 /* === ÁREA DE CONTEÚDO === */
 .content-area {
     flex: 1;
-    padding: 30px;
+    padding-top: 30px;
+    padding-left: var(--content-padding-left);
+    padding-right: var(--content-padding-right);
+    padding-bottom: 30px;
     overflow-y: auto;
     background: var(--background-color);
 }
@@ -263,34 +269,6 @@ body {
 }
 
 /* === HEADER === */
-.header {
-    height: var(--header-height);
-    background: var(--primary-color);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0;
-    margin: 0;
-    box-shadow: var(--box-shadow);
-    position: relative;
-    z-index: 999;
-    color: var(--branco);
-}
-
-.header-left {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding-left: 30px;
-}
-
-.header-right {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding-right: 30px;
-}
 
 .page-title {
     font-size: 1.5em;
@@ -349,35 +327,6 @@ body {
 }
 
 /* === HEADER DIREITO === */
-.header-right {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.header-actions {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.header-btn {
-    position: relative;
-    background: none;
-    border: none;
-    color: var(--cinza-medio);
-    font-size: 1.2em;
-    cursor: pointer;
-    padding: 8px;
-    border-radius: 50%;
-    transition: all var(--transition-fast);
-}
-
-.header-btn:hover {
-    background: var(--cinza-claro);
-    color: var(--primary-color);
-}
-
 .notification-badge {
     position: absolute;
     top: 0;

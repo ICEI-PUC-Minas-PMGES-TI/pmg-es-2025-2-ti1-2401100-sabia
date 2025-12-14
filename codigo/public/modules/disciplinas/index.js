@@ -225,7 +225,23 @@ function filtrarDisciplinas() {
 
 function acessarDisciplina(id, nome) {
     console.log(`Acessando disciplina: ${nome} (ID: ${id})`);
-    alert(`Conteúdo da disciplina "${nome}" em desenvolvimento`);
-    // TODO: Implementar navegação para página de conteúdo da disciplina
-    // window.location.href = `/codigo/public/modules/disciplinas/conteudo.html?id=${id}`;
+    try {
+        const norm = nome && nome.normalize ? nome.normalize('NFD').replace(/\p{Diacritic}/gu, '') : nome;
+        const key = (norm || nome).toString().toLowerCase().trim();
+        if (key === 'portugues' || key === 'português' || key === 'matematica' || key === 'matemática') {
+            alert(`Conteúdo da disciplina "${nome}" em desenvolvimento`);
+            return;
+        }
+    } catch (e) {
+        // fallback simple check
+        const lk = (nome || '').toLowerCase();
+        if (lk.includes('portugu') || lk.includes('matema')) {
+            alert(`Conteúdo da disciplina "${nome}" em desenvolvimento`);
+            return;
+        }
+    }
+
+    // se não está em desenvolvimento, redireciona para Painel de Cursos filtrado
+    const target = `/codigo/public/modules/cursos/PainelCursos.html?disciplina=${encodeURIComponent(nome)}`;
+    window.location.href = target;
 }
