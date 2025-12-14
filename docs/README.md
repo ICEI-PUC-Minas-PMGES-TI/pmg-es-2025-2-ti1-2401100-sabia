@@ -596,6 +596,63 @@ Cursos Cadastrados
   
 ```
 
+##### Estrutura de Dados - Progresso do Curso
+
+Andamento do curso que o usuário está fazendo
+
+```json
+ {
+      "id": "prog-001",
+      "usuario_id": "893406d1-d150-4c41-bd5d-54a931ff466b",
+      "curso_id": "curso-001",
+      "status": "concluido",
+      "data_inicio": "2025-10-15T00:00:00.000Z",
+      "data_conclusao": "2025-10-30T00:00:00.000Z",
+      "nota_final": 85.5,
+      "progresso_porcentagem": 100,
+      "modulos_concluidos": [
+        "mod-001"
+      ],
+      "aulas_concluidas": [
+        "aula-001",
+        "aula-002",
+        "aula-003"
+      ]
+    },
+    {
+      "id": "prog-002",
+      "usuario_id": "893406d1-d150-4c41-bd5d-54a931ff466b",
+      "curso_id": "curso-002",
+      "status": "concluido",
+      "data_inicio": "2025-11-01T00:00:00.000Z",
+      "data_conclusao": "2025-11-15T00:00:00.000Z",
+      "nota_final": 92,
+      "progresso_porcentagem": 100,
+      "modulos_concluidos": [
+        "mod-002"
+      ],
+      "aulas_concluidas": [
+        "aula-004",
+        "aula-005",
+        "aula-006"
+      ]
+    },
+    {
+      "id": "prog-003",
+      "usuario_id": "be8e3bda-d680-4486-bbbc-2793b21186cd",
+      "curso_id": "curso-001",
+      "status": "em_andamento",
+      "data_inicio": "2025-11-10T00:00:00.000Z",
+      "data_conclusao": null,
+      "progresso_porcentagem": 65,
+      "modulos_concluidos": [],
+      "aulas_concluidas": [
+        "aula-001"
+      ],
+      "nota_final": null
+    }
+```
+
 ##### Estrutura de Dados - Certificados
 
 Certificados dos cursos concluídos
