@@ -22,13 +22,6 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:var(--font-family);background-color:var(--bg-main);color:var(--text-dark);display:flex}
 
-.sidebar{width:80px;height:100vh;background-color:var(--bg-dark);display:flex;flex-direction:column;align-items:center;padding-top:20px;position:fixed;left:0;top:0}
-.sidebar .sidebar-logo img{width:70px;height:70px;object-fit:contain}
-.sidebar ul{list-style:none;margin-top:30px}
-.sidebar ul li{width:100%;text-align:center;margin:30px 0}
-.sidebar ul li a{color:var(--text-light);font-size:24px;opacity:0.7;transition:opacity 0.3s}
-.sidebar ul li a:hover,.sidebar ul li.active a{opacity:1}
-
 .main-content{flex-grow:1;margin-left:80px;padding:30px}
 .main-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
 .main-header h1{font-size:28px;font-weight:800}
@@ -68,11 +61,6 @@ body{font-family:var(--font-family);background-color:var(--bg-main);color:var(--
 
 /* Ensure we don't override shared layout variables from interno/components */
 body{display:block}
-.sidebar{width:var(--sidebar-width) !important;background:var(--primary-color) !important}
-.sidebar .sidebar-logo img{height:45px;width:auto}
-.header-internal{left:var(--sidebar-width) !important; background: var(--primary-color) !important; color: var(--branco) !important; border-bottom: 1px solid rgba(255,255,255,0.06) !important}
-.header-internal .search-bar { background: rgba(255,255,255,0.06) !important }
-.header-internal .search-bar input { color: var(--branco) !important }
 .main-content, .main-wrapper{margin-left:var(--sidebar-width)}
 
 /* Ensure the main wrapper expands to fill horizontal space next to fixed sidebar */
