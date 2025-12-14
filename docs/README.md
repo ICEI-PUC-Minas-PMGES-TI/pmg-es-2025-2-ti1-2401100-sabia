@@ -540,15 +540,15 @@ Contatos da aplicação
 Registro dos usuários do sistema utilizados para login e para o perfil do sistema
 
 ```json
-   {
+{
       "id": "893406d1-d150-4c41-bd5d-54a931ff466b",
       "tipo": "aluno",
       "nome": "Gustavo",
       "foto": "https://firebasestorage.googleapis.com/v0/b/sabiaa-2e56f.firebasestorage.app/o/profile_photos%2Ftemp_1762112855101_1762112855123.jpg?alt=media&token=504c9d28-2ed8-4e95-8c80-82c39c723eff",
-      "data_nascimento": "2000-01-01",
-      "email": "emaildeteste@gmail.com",
+      "data_nascimento": "2005-07-17",
+      "email": "gugupenidop@gmail.com",
       "senha_hash": "$2a$10$E9V37zSUrSQ4ZnUvXdF8FOk/x6M17ZbszcIV4MZKA7s11PvFl1X8i",
-      "telefone": "(31) 91234-5678",
+      "telefone": "(31) 99510-6573",
       "endereco": {
         "cep": "",
         "rua": "",
@@ -557,7 +557,151 @@ Registro dos usuários do sistema utilizados para login e para o perfil do siste
         "bairro": "",
         "cidade": "",
         "estado": ""
+      },
+      "preferencias": {
+        "idioma": "pt-br",
+        "notificacoes": true,
+        "acessibilidade": false,
+        "tema": "claro"
+      },
+      "cadastro_data": "2025-11-02T19:47:44.207Z",
+      "status": "ativo",
+      "favoritos": [],
+      "referencias_academicas": {
+        "aluno": {
+          "escola": "",
+          "serie": "",
+          "turma": "",
+          "numero_matricula": "",
+          "cursos_ids": [],
+          "quizzes_ids": [],
+          "tarefas_ids": []
+        }
       }
+    },
+    {
+      "id": "be8e3bda-d680-4486-bbbc-2793b21186cd",
+      "tipo": "aluno",
+      "nome": "Gustavo",
+      "foto": "https://firebasestorage.googleapis.com/v0/b/sabiaa-2e56f.firebasestorage.app/o/profile_photos%2Ftemp_1762115287265_1762115287304.jfif?alt=media&token=12ce8f06-a28f-4a0f-ab04-e1b1184eb2c2",
+      "data_nascimento": "2005-07-17",
+      "email": "gugupenido@gmail.com",
+      "senha_hash": "$2a$10$ZE8/2RZ7idrzgZRvYV0dK.tHfyGdtOVZPYmHPKJoCmRpKaSNJeffO",
+      "telefone": "(31) 99510-6573",
+      "endereco": {
+        "cep": "",
+        "rua": "",
+        "numero": "",
+        "complemento": "",
+        "bairro": "",
+        "cidade": "",
+        "estado": ""
+      },
+      "preferencias": {
+        "idioma": "pt-br",
+        "notificacoes": true,
+        "acessibilidade": false,
+        "tema": "claro"
+      },
+      "cadastro_data": "2025-11-02T20:28:09.672Z",
+      "status": "ativo",
+      "favoritos": [],
+      "referencias_academicas": {
+        "aluno": {
+          "escola": "",
+          "serie": "",
+          "turma": "",
+          "numero_matricula": "",
+          "cursos_ids": [],
+          "quizzes_ids": [],
+          "tarefas_ids": []
+        }
+      }
+    },
+    {
+      "id": "a219b429-a462-4a96-9e89-ee77dd2be65f",
+      "tipo": "aluno",
+      "nome": "GUSTAVO MARCELO",
+      "foto": "https://firebasestorage.googleapis.com/v0/b/sabiaa-2e56f.firebasestorage.app/o/profile_photos%2Ftemp_1765655677837_1765655677859.jpeg?alt=media&token=272da5fc-411e-4972-a7a9-6b064ffc8fd3",
+      "data_nascimento": "2005-07-17",
+      "email": "gugupenidoppp@gmail.com",
+      "senha_hash": "$2a$10$ElY/2Vfwq86qqbU.a9Pbe./GWo3A4sG4DLmpHHevwyMUNWdagYbNe",
+      "telefone": "(31) 99510-6573",
+      "endereco": {
+        "cep": "",
+        "rua": "",
+        "numero": "",
+        "complemento": "",
+        "bairro": "",
+        "cidade": "",
+        "estado": ""
+      },
+      "preferencias": {
+        "idioma": "pt-br",
+        "notificacoes": true,
+        "acessibilidade": false,
+        "tema": "claro"
+      },
+      "cadastro_data": "2025-12-13T19:54:46.146Z",
+      "status": "ativo",
+      "favoritos": [],
+      "referencias_academicas": {
+        "aluno": {
+          "escola": "",
+          "serie": "",
+          "turma": "",
+          "numero_matricula": "",
+          "cursos_ids": [],
+          "quizzes_ids": [],
+          "tarefas_ids": []
+        }
+      }
+    },
+    {
+      "id": "admin-001",
+      "tipo": "admin",
+      "role": "admin",
+      "nome": "Administrador",
+      "foto": "/codigo/public/assets/images/default-aluno-avatar.svg",
+      "data_nascimento": "1990-01-01",
+      "email": "admin@sabiaa.com",
+      "senha_hash": "$2a$10$1NbYHh6T/FwFrrvJjGbcve8eSh16M.G0XDUgj0l0ikzLVL/Mx7ohG",
+      "telefone": "(31) 99999-9999",
+      "endereco": {
+        "cep": "",
+        "rua": "",
+        "numero": "",
+        "complemento": "",
+        "bairro": "",
+        "cidade": "",
+        "estado": ""
+      },
+      "preferencias": {
+        "idioma": "pt-br",
+        "notificacoes": true,
+        "acessibilidade": false,
+        "tema": "claro"
+      },
+      "cadastro_data": "2025-01-01T00:00:00.000Z",
+      "status": "ativo",
+      "favoritos": [],
+      "referencias_academicas": {
+        "administrador": {
+          "escola": "Sabiaa",
+          "cargo": "Administrador Geral",
+          "numero_alunos": 0,
+          "numero_professores": 0,
+          "relatorios_ids": []
+        }
+      }
+    }
+  ],
+  "recovery_tokens": [
+    {
+      "email": "gugupenidop@gmail.com",
+      "token": "eab43a9b-4cf9-44b4-a7a6-b8dc7cf98905",
+      "expires": "2025-11-17T03:06:10.699Z"
+    }
 ```
 
 > ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
