@@ -19,10 +19,10 @@ server.use(cors());
 server.use(middlewares);
 server.use(jsonServer.bodyParser);
 
-// Servir arquivos estáticos da pasta public
+// Servir arquivos estáticos da pasta public na raiz do servidor
 const express = require('express');
 const publicPath = path.join(__dirname, '..');
-server.use('/codigo/public', express.static(publicPath));
+server.use(express.static(publicPath));
 
 // Função para carregar dados do banco
 function getDb() {
@@ -816,9 +816,16 @@ server.get('/health', (req, res) => {
 // Usar as rotas padrão do JSON Server para outras operações
 server.use('/api', router);
 
-// Rota raiz - redirecionar para homepage
+// Rota raiz - servir a homepage diretamente
 server.get('/', (req, res) => {
-    res.redirect('/codigo/public/modules/home/index.html');
+    const indexPath = path.join(publicPath, 'index.html');
+    if (fs.existsSync(indexPath)) {
+        return res.sendFile(indexPath);
+    }
+    // fallback para página de módulos/home
+    const fallback = path.join(publicPath, 'modules', 'home', 'index.html');
+    if (fs.existsSync(fallback)) return res.sendFile(fallback);
+    res.status(404).send('Homepage não encontrada');
 });
 
 // Iniciar servidor
