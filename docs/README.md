@@ -535,19 +535,29 @@ Contatos da aplicação
   
 ```
 
-##### Estrutura de Dados - Usuários  ⚠️ EXEMPLO ⚠️
+##### Estrutura de Dados - Usuários
 
 Registro dos usuários do sistema utilizados para login e para o perfil do sistema
 
 ```json
-  {
-    id: "eed55b91-45be-4f2c-81bc-7686135503f9",
-    email: "admin@abc.com",
-    id: "eed55b91-45be-4f2c-81bc-7686135503f9",
-    login: "admin",
-    nome: "Administrador do Sistema",
-    senha: "123"
-  }
+   {
+      "id": "893406d1-d150-4c41-bd5d-54a931ff466b",
+      "tipo": "aluno",
+      "nome": "Gustavo",
+      "foto": "https://firebasestorage.googleapis.com/v0/b/sabiaa-2e56f.firebasestorage.app/o/profile_photos%2Ftemp_1762112855101_1762112855123.jpg?alt=media&token=504c9d28-2ed8-4e95-8c80-82c39c723eff",
+      "data_nascimento": "2000-01-01",
+      "email": "emaildeteste@gmail.com",
+      "senha_hash": "$2a$10$E9V37zSUrSQ4ZnUvXdF8FOk/x6M17ZbszcIV4MZKA7s11PvFl1X8i",
+      "telefone": "(31) 91234-5678",
+      "endereco": {
+        "cep": "",
+        "rua": "",
+        "numero": "",
+        "complemento": "",
+        "bairro": "",
+        "cidade": "",
+        "estado": ""
+      }
 ```
 
 > ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
