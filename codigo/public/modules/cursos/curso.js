@@ -91,10 +91,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         // show admin controls even when no inscription
         try{ if(window.sabiaAuth && typeof sabiaAuth.isAdmin === 'function' && sabiaAuth.isAdmin()){
-            const adminHtml = `<div style="margin-top:8px"><button id="editCourseBtn" class="btn btn-tertiary">Editar Curso</button> <button id="createAulaBtn" class="btn btn-secondary">Criar Aula</button></div>`;
-            courseActions.innerHTML += adminHtml;
-            setTimeout(()=>{ const createBtn = document.getElementById('createAulaBtn'); if(createBtn) createBtn.addEventListener('click', ()=>{ location.href = `/codigo/public/modules/cursos/cadastro-aula.html?curso=${cursoId}` }); const editBtn = document.getElementById('editCourseBtn'); if(editBtn) editBtn.addEventListener('click', ()=>{ showEditForm(curso); }); },100);
-        }}catch(e){}
+        const adminHtml = `<div style="margin-top:8px"><button id="editCourseBtn" class="btn btn-tertiary">Editar Curso</button> <button id="createAulaBtn" class="btn btn-secondary">Criar Aula</button> <button id="deleteCourseBtn" class="btn btn-danger">Excluir Curso</button></div>`;
+        courseActions.innerHTML += adminHtml;
+        setTimeout(()=>{ const createBtn = document.getElementById('createAulaBtn'); if(createBtn) createBtn.addEventListener('click', ()=>{ location.href = `/codigo/public/modules/cursos/cadastro-aula.html?curso=${cursoId}` }); const editBtn = document.getElementById('editCourseBtn'); if(editBtn) editBtn.addEventListener('click', ()=>{ showEditForm(curso); }); const delBtn = document.getElementById('deleteCourseBtn'); if(delBtn) delBtn.addEventListener('click', deleteCourse); },100);
+      }}catch(e){}
       } else {
         // user has inscription
         const concluidas = ins.aulas_concluidas || ins.aulas_concluidas || [];
@@ -103,10 +103,10 @@ document.addEventListener('DOMContentLoaded', () => {
         else { courseActions.innerHTML = `<button id="contBtn" class="btn btn-primary">Continuar</button>`; document.getElementById('contBtn').addEventListener('click', ()=>{ location.href = `/codigo/public/modules/cursos/aula.html?curso=${cursoId}&aula=${next.id}` }); }
 
       // admin controls when inscription exists
-      try{ if(window.sabiaAuth && typeof sabiaAuth.isAdmin === 'function' && sabiaAuth.isAdmin()){
-        const extra = document.createElement('div'); extra.style.marginTop='8px'; extra.innerHTML = `<button id="editCourseBtn" class="btn btn-tertiary">Editar Curso</button> <button id="createAulaBtn" class="btn btn-secondary">Criar Aula</button>`;
+      try{ if(window.sabiaAuth && typeof sabiaAuth.isAdmin === 'function' && sabiaAuth.isAdmin()){ 
+        const extra = document.createElement('div'); extra.style.marginTop='8px'; extra.innerHTML = `<button id="editCourseBtn" class="btn btn-tertiary">Editar Curso</button> <button id="createAulaBtn" class="btn btn-secondary">Criar Aula</button> <button id="deleteCourseBtn" class="btn btn-danger">Excluir Curso</button>`;
         courseActions.appendChild(extra);
-        setTimeout(()=>{ const createBtn = document.getElementById('createAulaBtn'); if(createBtn) createBtn.addEventListener('click', ()=>{ location.href = `/codigo/public/modules/cursos/cadastro-aula.html?curso=${cursoId}` }); const editBtn = document.getElementById('editCourseBtn'); if(editBtn) editBtn.addEventListener('click', ()=>{ showEditForm(curso); }); },100);
+        setTimeout(()=>{ const createBtn = document.getElementById('createAulaBtn'); if(createBtn) createBtn.addEventListener('click', ()=>{ location.href = `/codigo/public/modules/cursos/cadastro-aula.html?curso=${cursoId}` }); const editBtn = document.getElementById('editCourseBtn'); if(editBtn) editBtn.addEventListener('click', ()=>{ showEditForm(curso); }); const delBtn = document.getElementById('deleteCourseBtn'); if(delBtn) delBtn.addEventListener('click', deleteCourse); },100);
       }}catch(e){}
       }
 
@@ -136,6 +136,19 @@ document.addEventListener('DOMContentLoaded', () => {
         alert('Curso atualizado'); location.reload();
       }catch(e){ console.error(e); alert('Erro ao atualizar curso'); }
     });
+  }
+
+  async function deleteCourse(){
+    if(!confirm('Tem certeza que deseja excluir este curso e todos os dados relacionados? Esta ação é irreversível.')) return;
+    try{
+      const token = localStorage.getItem('sabiaa_token');
+      const headers = token ? { 'Authorization': 'Bearer ' + token } : {};
+      const res = await fetch(`${API_BASE}/api/cursos/${cursoId}`, { method: 'DELETE', headers });
+      if(!res.ok){ const b = await res.json().catch(()=>null); throw new Error((b && b.error) ? b.error : 'Falha ao excluir'); }
+      alert('Curso excluído com sucesso');
+      // redirect back to painel
+      window.location.href = '/codigo/public/modules/cursos/PainelCursos.html';
+    }catch(e){ console.error('deleteCourse failed', e); alert('Erro ao excluir curso: ' + (e.message||e)); }
   }
 
 });
