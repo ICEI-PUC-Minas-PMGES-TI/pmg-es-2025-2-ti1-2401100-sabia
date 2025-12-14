@@ -664,6 +664,37 @@ Certificados dos cursos concluídos
     }
 ```
 
+##### Estrutura de Dados - Tokens Certificados
+
+Tokens Certificados dos cursos concluídos
+
+```json
+{
+      "id": "token-001",
+      "token": "CERT-JS-001-2025-ABC123",
+      "certificado_id": "cert-001",
+      "usuario_id": "893406d1-d150-4c41-bd5d-54a931ff466b",
+      "curso_id": "curso-001",
+      "data_geracao": "2025-10-30T00:00:00.000Z",
+      "valido": true,
+      "acessos": 0,
+      "ultimo_acesso": null
+    },
+    {
+      "id": "3ab2ab65-fe9b-4acb-a61e-2eed8f7119f1",
+      "token": "fc94b1c6-6fc6-4ffa-9240-a618d94a6d50-1763341590020",
+      "certificado_id": "5fb3331b-2bf6-4736-bc70-a07616d7ac95",
+      "usuario_nome": "Gustavo",
+      "curso_titulo": "Python para Iniciantes",
+      "data_emissao": "2025-11-17T01:06:30.020Z",
+      "data_conclusao": "2025-11-15T00:00:00.000Z",
+      "carga_horaria": 60,
+      "nota_final": 92,
+      "status": "ativo",
+      "criado_em": "2025-11-17T01:06:30.020Z"
+    }
+```
+
 ##### Estrutura de Dados - Usuários
 
 Registro dos usuários do sistema utilizados para login e para o perfil do sistema
