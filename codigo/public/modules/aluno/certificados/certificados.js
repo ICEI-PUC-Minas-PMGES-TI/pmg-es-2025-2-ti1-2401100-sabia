@@ -1,7 +1,7 @@
 // certificados.js - funcionalidades especificas da pagina de certificados
 
 // constantes da api
-const API_BASE_URL = window.SABIAA_CONFIG && window.SABIAA_CONFIG.API_BASE_URL ? window.SABIAA_CONFIG.API_BASE_URL : 'http://localhost:3000';
+const API_BASE_URL = window.SABIAA_CONFIG && window.SABIAA_CONFIG.API_BASE_URL ? window.SABIAA_CONFIG.API_BASE_URL : 'https://sabiaa.onrender.com';
 
 // inicial debug logs e captura de erros globais
 console.log('certificados.js carregado — iniciando debug');

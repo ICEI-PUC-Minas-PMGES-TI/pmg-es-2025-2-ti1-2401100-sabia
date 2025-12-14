@@ -2,7 +2,7 @@ const { exec } = require('child_process');
 const path = require('path');
 
 // URL da homepage
-const homeUrl = 'http://localhost:3000/codigo/public/modules/home/index.html';
+const homeUrl = 'https://sabiaa.onrender.com/codigo/public/modules/home/index.html';
 
 // Aguardar um tempo para o servidor iniciar
 console.log('\n🚀 Aguardando servidor iniciar...\n');
@@ -24,8 +24,8 @@ setTimeout(() => {
         } else {
             console.log('✅ Navegador aberto com sucesso!\n');
             console.log('📍 Homepage: ' + homeUrl);
-            console.log('🔗 Login: http://localhost:3000/codigo/public/modules/auth/login.html');
-            console.log('🔗 Dashboard: http://localhost:3000/codigo/public/modules/dashboard/index.html\n');
+            console.log('🔗 Login: https://sabiaa.onrender.com/codigo/public/modules/auth/login.html');
+            console.log('🔗 Dashboard: https://sabiaa.onrender.com/codigo/public/modules/dashboard/index.html\n');
         }
     });
 }, 3000); // Aguarda 3 segundos

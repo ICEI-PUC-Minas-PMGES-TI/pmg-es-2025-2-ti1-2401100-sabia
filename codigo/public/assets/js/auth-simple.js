@@ -3,7 +3,7 @@
 
 class SabiaAuth {
     constructor() {
-        this.API_BASE = 'http://localhost:3000';
+        this.API_BASE = 'https://sabiaa.onrender.com';
         this.USER_KEY = 'sabiaa_user';
     }
 

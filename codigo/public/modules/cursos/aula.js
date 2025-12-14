@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', ()=>{
-  const API_BASE = window.SABIAA_CONFIG?.API_BASE_URL || 'http://localhost:3000';
+  const API_BASE = window.SABIAA_CONFIG?.API_BASE_URL || 'https://sabiaa.onrender.com';
   const params = new URLSearchParams(location.search);
   const cursoId = params.get('curso');
   const aulaId = params.get('aula');

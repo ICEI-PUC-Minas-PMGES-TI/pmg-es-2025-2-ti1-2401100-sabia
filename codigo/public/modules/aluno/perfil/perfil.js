@@ -38,7 +38,7 @@ async function loadProfileData() {
 // Calcula estatísticas do aluno (cursos inscritos, progresso médio, pontos)
 async function calculateAndRenderStats(userId) {
     if (!userId) return;
-    const API_BASE = window.SABIAA_CONFIG?.API_BASE_URL || 'http://localhost:3000';
+    const API_BASE = window.SABIAA_CONFIG?.API_BASE_URL || 'https://sabiaa.onrender.com';
 
     try {
         const res = await fetch(`${API_BASE}/api/inscricoes?aluno_id=${userId}`);

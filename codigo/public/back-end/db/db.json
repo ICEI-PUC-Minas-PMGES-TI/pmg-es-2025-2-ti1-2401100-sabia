@@ -242,29 +242,6 @@
           ]
         }
       ]
-    },
-    {
-      "titulo": "Curso de programação inclusiva",
-      "descricao": "Curso de programação inclusivaCurso de programação inclusivaCurso de programação inclusivaCurso de programação inclusiva",
-      "duracao_horas": 10,
-      "faixa_etaria": "16-25 anos",
-      "nivel": "Intermediario",
-      "categoria": "Tecnologia",
-      "tags": [
-        "TECNOLOGIA"
-      ],
-      "video_url": "",
-      "gera_certificado": true,
-      "disciplina": "Design",
-      "num_aulas": 15,
-      "num_atividades": 5,
-      "professor": "Prof. Santos",
-      "status": "Publicado",
-      "idioma": "Português",
-      "data_publicacao": "2025-12-14",
-      "created_at": "2025-12-14T18:06:01.022Z",
-      "thumbnail": "https://firebasestorage.googleapis.com/v0/b/sabiaa-2e56f.firebasestorage.app/o/course_thumbnails%2Fcourse_1765735561166.png?alt=media&token=dbb74e16-2275-4fe0-b2cb-54ae51cca5c6",
-      "id": "0RlJ6in"
     }
   ],
   "atividades": [],
@@ -361,15 +338,6 @@
       "id": "z6DnrWK",
       "ultima_aula_assistida": "aula-1765689943600",
       "certificado_emitido": false
-    },
-    {
-      "aluno_id": "a219b429-a462-4a96-9e89-ee77dd2be65f",
-      "curso_id": "0RlJ6in",
-      "data_inscricao": "2025-12-14T18:28:32.557Z",
-      "progresso": 0,
-      "status": "em_andamento",
-      "aulas_concluidas": [],
-      "id": "s5mx3MR"
     }
   ],
   "certificados": [
@@ -696,5 +664,6 @@
       "data_conclusao": "2025-12-14T15:50:47.894Z",
       "id": 7
     }
-  ]
+  ],
+  "modulos": []
 }

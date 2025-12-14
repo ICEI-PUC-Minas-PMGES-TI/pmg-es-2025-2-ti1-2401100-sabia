@@ -9,7 +9,7 @@
   'use strict';
   const qs = (s, ctx=document) => ctx.querySelector(s);
 
-  const API = (window.SABIAA_CONFIG && window.SABIAA_CONFIG.API_BASE_URL) || 'http://localhost:3000';
+  const API = (window.SABIAA_CONFIG && window.SABIAA_CONFIG.API_BASE_URL) || 'https://sabiaa.onrender.com';
 
   function getLocalUser(){
     try{

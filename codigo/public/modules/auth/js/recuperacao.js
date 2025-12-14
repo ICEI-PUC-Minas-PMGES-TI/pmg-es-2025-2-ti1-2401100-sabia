@@ -1,7 +1,7 @@
 // ===== SCRIPT PARA RECUPERAÇÃO DE SENHA ===== 
 
 // Configuração da API
-const API_BASE_URL = window.SABIAA_CONFIG?.API_BASE_URL || 'http://localhost:3000';
+const API_BASE_URL = window.SABIAA_CONFIG?.API_BASE_URL || 'https://sabiaa.onrender.com';
 
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('recovery-form');

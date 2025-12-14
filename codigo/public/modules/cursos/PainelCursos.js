@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const courseCountSpan = document.getElementById("course-count");
     const disciplinaSelect = document.getElementById("select-disciplina");
 
-    const API_BASE = window.SABIAA_CONFIG && window.SABIAA_CONFIG.API_BASE_URL ? window.SABIAA_CONFIG.API_BASE_URL : 'http://localhost:3000';
+    const API_BASE = window.SABIAA_CONFIG && window.SABIAA_CONFIG.API_BASE_URL ? window.SABIAA_CONFIG.API_BASE_URL : 'https://sabiaa.onrender.com';
     let masterCourseList = [];
 
     function normalizeString(str) { return str.toLowerCase().normalize("NFD").replace(/[\u0000-\u036f]/g,""); }

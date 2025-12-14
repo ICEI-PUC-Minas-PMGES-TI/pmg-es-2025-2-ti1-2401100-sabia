@@ -4,7 +4,7 @@
 
 const SABIAA_CONFIG = {
   // Configurações da API - JSON Server Simples
-  API_BASE_URL: "http://localhost:3000",
+  API_BASE_URL: "https://sabiaa.onrender.com",
 
   // Configurações do Firebase
   FIREBASE: {

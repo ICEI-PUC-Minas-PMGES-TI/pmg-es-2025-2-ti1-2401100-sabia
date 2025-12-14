@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     alert('Acesso restrito: administradores apenas'); window.location.href='/codigo/public/modules/dashboard/index.html'; return;
   }
 
-  const API_BASE = window.SABIAA_CONFIG?.API_BASE_URL || 'http://localhost:3000';
+  const API_BASE = window.SABIAA_CONFIG?.API_BASE_URL || 'https://sabiaa.onrender.com';
   const params = new URLSearchParams(window.location.search);
   const cursoId = params.get('curso');
   const moduloSelect = document.getElementById('modulo_select');
