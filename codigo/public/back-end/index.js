@@ -7,6 +7,27 @@ const fs = require('fs');
 const path = require('path');
 const htmlPdf = require('html-pdf-node');
 
+// Load .env from project root (simple parser, avoids extra dependency)
+try{
+    const rootEnv = path.join(__dirname, '..', '..', '..', '.env');
+    if (fs.existsSync(rootEnv)){
+        const envContent = fs.readFileSync(rootEnv, 'utf8');
+        envContent.split(/\r?\n/).forEach(line=>{
+            const trimmed = line.trim();
+            if (!trimmed || trimmed.startsWith('#')) return;
+            const idx = trimmed.indexOf('=');
+            if (idx===-1) return;
+            const key = trimmed.slice(0, idx).trim();
+            let val = trimmed.slice(idx+1).trim();
+            if ((val.startsWith('"') && val.endsWith('"')) || (val.startsWith("'") && val.endsWith("'"))){
+                val = val.slice(1, -1);
+            }
+            if (!process.env[key]) process.env[key] = val;
+        });
+        console.log('Loaded .env from', rootEnv);
+    }
+}catch(e){ console.warn('Failed to load root .env', e); }
+
 
 const server = jsonServer.create();
 const router = jsonServer.router(path.join(__dirname, 'db', 'db.json'));
@@ -30,6 +51,18 @@ server.use((req, res, next) => {
         req.url = req.url.replace('/codigo/public', '');
     }
     next();
+});
+
+// Serve dynamic config.js generated from process.env (so frontend API_BASE can be set via .env)
+server.get('/codigo/public/assets/js/config.js', (req, res) => {
+    const apiBase = process.env.API_BASE || process.env.API_BASE_URL || `http://localhost:${process.env.PORT||3000}`;
+    const basePath = process.env.BASE_PATH || '/codigo/public';
+    const js = `window.SABIAA_CONFIG = window.SABIAA_CONFIG || {};
+window.SABIAA_CONFIG.API_BASE_URL = "${apiBase}";
+window.SABIAA_CONFIG.BASE_PATH = window.SABIAA_CONFIG.BASE_PATH || "${basePath}";
+`;
+    res.setHeader('Content-Type', 'application/javascript; charset=utf-8');
+    return res.send(js);
 });
 
 server.use(express.static(publicPath));
