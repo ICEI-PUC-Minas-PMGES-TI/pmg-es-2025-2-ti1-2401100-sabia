@@ -86,6 +86,35 @@ body {
     margin-left: var(--sidebar-collapsed-width);
 }
 
+/* === ÁREA DE CONTEÚDO === */
+.content-area {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto;
+    background: var(--background-color);
+}
+
+.content-area > *:first-child {
+    margin-top: 0;
+}
+
+.content-area > *:last-child {
+    margin-bottom: 0;
+}
+
+.content-area .card {
+    margin-bottom: 20px;
+}
+
+.content-area .section-title {
+    margin-bottom: 20px;
+    margin-top: 30px;
+}
+
+.content-area .section-title:first-child {
+    margin-top: 0;
+}
+
 /* === SIDEBAR === */
 .sidebar {
     position: fixed;
@@ -461,6 +490,42 @@ body {
     margin: 5px 0;
 }
 
+/* === BADGES === */
+.admin-badge {
+    display: inline-block;
+    margin-left: 8px;
+    padding: 3px 10px;
+    background: linear-gradient(135deg, var(--amarelo-aviso), #ffb300);
+    color: #000;
+    border-radius: 12px;
+    font-size: 0.7em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    vertical-align: middle;
+    box-shadow: 0 2px 4px rgba(255, 193, 7, 0.3);
+    animation: badgePulse 2s infinite;
+}
+
+@keyframes badgePulse {
+    0%, 100% { box-shadow: 0 2px 4px rgba(255, 193, 7, 0.3); }
+    50% { box-shadow: 0 2px 8px rgba(255, 193, 7, 0.6); }
+}
+
+.nav-badge {
+    display: inline-block;
+    margin-left: 8px;
+    padding: 2px 8px;
+    background: var(--amarelo-aviso);
+    color: #000;
+    border-radius: 10px;
+    font-size: 0.65em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    vertical-align: middle;
+}
+
 /* === CONTEÚDO PRINCIPAL === */
 .content {
     flex: 1;
@@ -626,6 +691,28 @@ body {
         gap: 25px;
         text-align: center;
     }
+
+    /* Sidebar mobile */
+    .sidebar {
+        transform: translateX(-100%);
+        z-index: 1001;
+    }
+
+    .sidebar.mobile-active {
+        transform: translateX(0);
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .mobile-menu-btn {
+        display: flex;
+    }
+
+    .content-area {
+        padding: 20px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -643,6 +730,10 @@ body {
     
     .card {
         padding: 20px 15px;
+    }
+
+    .content-area {
+        padding: 15px;
     }
 }
 

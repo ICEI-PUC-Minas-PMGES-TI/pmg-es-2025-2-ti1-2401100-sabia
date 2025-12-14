@@ -77,6 +77,83 @@
           "tarefas_ids": []
         }
       }
+    },
+    {
+      "id": "a219b429-a462-4a96-9e89-ee77dd2be65f",
+      "tipo": "aluno",
+      "nome": "GUSTAVO MARCELO",
+      "foto": "https://firebasestorage.googleapis.com/v0/b/sabiaa-2e56f.firebasestorage.app/o/profile_photos%2Ftemp_1765655677837_1765655677859.jpeg?alt=media&token=272da5fc-411e-4972-a7a9-6b064ffc8fd3",
+      "data_nascimento": "2005-07-17",
+      "email": "gugupenidoppp@gmail.com",
+      "senha_hash": "$2a$10$ElY/2Vfwq86qqbU.a9Pbe./GWo3A4sG4DLmpHHevwyMUNWdagYbNe",
+      "telefone": "(31) 99510-6573",
+      "endereco": {
+        "cep": "",
+        "rua": "",
+        "numero": "",
+        "complemento": "",
+        "bairro": "",
+        "cidade": "",
+        "estado": ""
+      },
+      "preferencias": {
+        "idioma": "pt-br",
+        "notificacoes": true,
+        "acessibilidade": false,
+        "tema": "claro"
+      },
+      "cadastro_data": "2025-12-13T19:54:46.146Z",
+      "status": "ativo",
+      "favoritos": [],
+      "referencias_academicas": {
+        "aluno": {
+          "escola": "",
+          "serie": "",
+          "turma": "",
+          "numero_matricula": "",
+          "cursos_ids": [],
+          "quizzes_ids": [],
+          "tarefas_ids": []
+        }
+      }
+    },
+    {
+      "id": "admin-001",
+      "tipo": "admin",
+      "role": "admin",
+      "nome": "Administrador",
+      "foto": "/codigo/public/assets/images/default-aluno-avatar.svg",
+      "data_nascimento": "1990-01-01",
+      "email": "admin@sabiaa.com",
+      "senha_hash": "$2a$10$ElY/2Vfwq86qqbU.a9Pbe./GWo3A4sG4DLmpHHevwyMUNWdagYbNe",
+      "telefone": "(31) 99999-9999",
+      "endereco": {
+        "cep": "",
+        "rua": "",
+        "numero": "",
+        "complemento": "",
+        "bairro": "",
+        "cidade": "",
+        "estado": ""
+      },
+      "preferencias": {
+        "idioma": "pt-br",
+        "notificacoes": true,
+        "acessibilidade": false,
+        "tema": "claro"
+      },
+      "cadastro_data": "2025-01-01T00:00:00.000Z",
+      "status": "ativo",
+      "favoritos": [],
+      "referencias_academicas": {
+        "administrador": {
+          "escola": "Sabiaa",
+          "cargo": "Administrador Geral",
+          "numero_alunos": 0,
+          "numero_professores": 0,
+          "relatorios_ids": []
+        }
+      }
     }
   ],
   "recovery_tokens": [
@@ -113,6 +190,21 @@
               "tipo": "video"
             }
           ]
+        },
+        {
+          "id": "mod-1765689943600",
+          "titulo": "Fazendo JS",
+          "ordem": 2,
+          "aulas": [
+            {
+              "id": "aula-1765689943600",
+              "titulo": "Fazendo JS",
+              "duracao": 10,
+              "tipo": "video",
+              "video_url": "",
+              "descricao": ""
+            }
+          ]
         }
       ]
     },
@@ -146,6 +238,82 @@
   ],
   "atividades": [],
   "quizzes": [],
+  "inscricoes": [
+    {
+      "id": "insc_001",
+      "aluno_id": "893406d1-d150-4c41-bd5d-54a931ff466b",
+      "curso_id": "curso-001",
+      "data_inscricao": "2025-10-15T10:00:00.000Z",
+      "progresso": 45,
+      "status": "ativo",
+      "ultima_aula_assistida": "aula-003",
+      "tempo_total_estudado": 7200,
+      "aulas_concluidas": [
+        "aula-001",
+        "aula-002",
+        "aula-003"
+      ]
+    },
+    {
+      "usuario_id": "admin-001",
+      "curso_id": "curso-001",
+      "data_inscricao": "2025-12-14T02:08:37.189Z",
+      "progresso": 0,
+      "aulas_concluidas": [],
+      "atividades_concluidas": [],
+      "status": "em_andamento",
+      "ultima_aula": null,
+      "certificado_emitido": false,
+      "id": "v45_gOs"
+    },
+    {
+      "usuario_id": "admin-001",
+      "curso_id": "curso-001",
+      "data_inscricao": "2025-12-14T02:15:43.475Z",
+      "progresso": 0,
+      "aulas_concluidas": [],
+      "atividades_concluidas": [],
+      "status": "em_andamento",
+      "ultima_aula": null,
+      "certificado_emitido": false,
+      "id": "fB_XqUu"
+    },
+    {
+      "aluno_id": "admin-001",
+      "curso_id": "curso-001",
+      "data_inscricao": "2025-12-14T02:20:40.121Z",
+      "progresso": 100,
+      "status": "em_andamento",
+      "aulas_concluidas": [
+        "aula-001"
+      ],
+      "id": "K6k1T7V",
+      "certificado_emitido": true
+    },
+    {
+      "usuario_id": "admin-001",
+      "curso_id": "curso-002",
+      "data_inscricao": "2025-12-14T03:55:43.047Z",
+      "progresso": 0,
+      "aulas_concluidas": [],
+      "atividades_concluidas": [],
+      "status": "em_andamento",
+      "ultima_aula": null,
+      "certificado_emitido": false,
+      "id": "xSFd-MX"
+    },
+    {
+      "aluno_id": "admin-001",
+      "curso_id": "curso-002",
+      "data_inscricao": "2025-12-14T03:55:46.594Z",
+      "progresso": 100,
+      "status": "em_andamento",
+      "aulas_concluidas": [
+        "aula-002"
+      ],
+      "id": "KiTC9_k"
+    }
+  ],
   "certificados": [
     {
       "id": "cert-001",
@@ -193,6 +361,20 @@
         "progresso_porcentagem": 100
       },
       "status": "ativo"
+    },
+    {
+      "usuario_id": "admin-001",
+      "curso_id": "curso-001",
+      "data_emissao": "2025-12-14T02:20:52.049Z",
+      "codigo": "SABIAA-1765678852049",
+      "id": "lMMizp0"
+    },
+    {
+      "usuario_id": "admin-001",
+      "curso_id": "curso-002",
+      "data_emissao": "2025-12-14T03:55:51.088Z",
+      "codigo": "SABIAA-1765684551088",
+      "id": "YBcHAUB"
     }
   ],
   "tokens_certificados": [
@@ -390,6 +572,35 @@
       "corIcone": "#C07A1E",
       "corFundo": "#FEEBCF",
       "icone": "fa-solid fa-person-running"
+    }
+  ],
+  "progresso_aulas": [
+    {
+      "aula_id": "aula-001",
+      "concluida": true,
+      "tempo_assistido": 1800,
+      "curso_id": "curso-001",
+      "usuario_id": "893406d1-d150-4c41-bd5d-54a931ff466b",
+      "data_conclusao": "2025-12-13T23:20:24.0385218-03:00",
+      "id": 1
+    },
+    {
+      "usuario_id": "admin-001",
+      "aula_id": "aula-001",
+      "curso_id": "curso-001",
+      "concluida": true,
+      "tempo_assistido": 1800,
+      "data_conclusao": "2025-12-14T02:20:40.154Z",
+      "id": 2
+    },
+    {
+      "usuario_id": "admin-001",
+      "aula_id": "aula-002",
+      "curso_id": "curso-002",
+      "concluida": true,
+      "tempo_assistido": 2700,
+      "data_conclusao": "2025-12-14T03:55:46.645Z",
+      "id": 3
     }
   ]
 }

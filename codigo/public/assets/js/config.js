@@ -45,3 +45,6 @@ const SABIAA_CONFIG = {
 
 // Exportar configurações globalmente
 window.SABIAA_CONFIG = SABIAA_CONFIG;
+ 
+// Base path used to build links to pages/assets (can be adjusted in deployment)
+window.SABIAA_CONFIG.BASE_PATH = window.SABIAA_CONFIG.BASE_PATH || '/codigo/public';

@@ -3,18 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SABIAA - Redirecionando...</title>
+    <title>SABIAA - Bem-vindo</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+        * {
             margin: 0;
-            background: linear-gradient(135deg, #4b3c5d 0%, #e7bfa5 100%);
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #21203F 0%, #4b3c5d 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
             color: white;
         }
+        
         .redirect-container {
             text-align: center;
             max-width: 500px;
@@ -24,6 +30,7 @@
             backdrop-filter: blur(10px);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
+        
         .logo {
             font-size: 3em;
             font-weight: bold;
@@ -84,20 +91,20 @@
         <p><small>Aguarde alguns segundos</small></p>
         
         <div class="manual-link">
-            <a href="gustavo/estatico/homepage.html">Clique aqui se não for redirecionado</a>
+            <a href="modules/home/index.html">Clique aqui se não for redirecionado</a>
         </div>
     </div>
 
     <script>
         setTimeout(function() {
-            window.location.href = 'gustavo/estatico/homepage.html';
+            window.location.href = 'modules/home/index.html';
         }, 1000);
         
 
         window.addEventListener('load', function() {
             setTimeout(function() {
                 if (window.location.pathname.includes('index.html') || window.location.pathname === '/') {
-                    window.location.replace('gustavo/estatico/homepage.html');
+                    window.location.replace('modules/home/index.html');
                 }
             }, 3000);
         });

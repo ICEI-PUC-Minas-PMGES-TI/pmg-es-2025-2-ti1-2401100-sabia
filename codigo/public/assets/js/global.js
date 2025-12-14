@@ -1,28 +1,7 @@
 // ===== SCRIPT GLOBAL SABIAA =====
 
-// Carregar sistema de autenticação
-function loadAuthScript() {
-    // Determinar caminho baseado na localização atual
-    const currentPath = window.location.pathname;
-    let authScriptPath;
-    
-    if (currentPath.includes('/assets/')) {
-        authScriptPath = './auth.js';
-    } else if (currentPath.includes('/gustavo/')) {
-        authScriptPath = '../../assets/js/auth.js';
-    } else if (currentPath.includes('/in/')) {
-        authScriptPath = '../../../assets/js/auth.js';
-    } else {
-        authScriptPath = './assets/js/auth.js';
-    }
-    
-    const authScript = document.createElement('script');
-    authScript.src = authScriptPath;
-    authScript.async = false;
-    document.head.appendChild(authScript);
-}
-
-loadAuthScript();
+// Nota: auth.js já é carregado diretamente no HTML de cada página
+// Não é mais necessário carregá-lo dinamicamente
 
 document.addEventListener('DOMContentLoaded', function() {
     // Inicializar funcionalidades globais

@@ -1,0 +1,24 @@
+{
+  "name": "sabiaa-plataforma-educacional",
+  "version": "1.0.0",
+  "description": "Plataforma Educacional SABIAA - Sistema completo de gestão educacional",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run start:all",
+    "start:all": "concurrently \"npm run backend\" \"npm run open\"",
+    "backend": "cd codigo/public/back-end && npm install && npm start",
+    "open": "node scripts/open-browser.js",
+    "install-all": "cd codigo/public/back-end && npm install"
+  },
+  "keywords": [
+    "education",
+    "sabiaa",
+    "plataforma-educacional",
+    "gestao-escolar"
+  ],
+  "author": "Equipe SABIAA",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

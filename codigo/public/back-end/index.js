@@ -19,6 +19,11 @@ server.use(cors());
 server.use(middlewares);
 server.use(jsonServer.bodyParser);
 
+// Servir arquivos estáticos da pasta public
+const express = require('express');
+const publicPath = path.join(__dirname, '..');
+server.use('/codigo/public', express.static(publicPath));
+
 // Função para carregar dados do banco
 function getDb() {
     const dbPath = path.join(__dirname, 'db', 'db.json');
@@ -793,11 +798,26 @@ server.get('/health', (req, res) => {
 // Usar as rotas padrão do JSON Server para outras operações
 server.use('/api', router);
 
+// Rota raiz - redirecionar para homepage
+server.get('/', (req, res) => {
+    res.redirect('/codigo/public/modules/home/index.html');
+});
+
 // Iniciar servidor
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
-    console.log(`🚀 Sabiaa JSON Server está rodando na porta ${PORT}`);
-    console.log(`� Dashboard: http://localhost:${PORT}`);
-    console.log(`� Auth API: http://localhost:${PORT}/api/auth`);
-    console.log(`� User API: http://localhost:${PORT}/api/usuario`);
+    console.log('\n' + '='.repeat(60));
+    console.log('🚀  SABIAA - Plataforma Educacional');
+    console.log('='.repeat(60));
+    console.log(`\n✅  Servidor rodando na porta ${PORT}\n`);
+    console.log('📍  URLs principais:');
+    console.log(`   🏠 Homepage:   http://localhost:${PORT}/codigo/public/modules/home/index.html`);
+    console.log(`   🔐 Login:      http://localhost:${PORT}/codigo/public/modules/auth/login.html`);
+    console.log(`   📊 Dashboard:  http://localhost:${PORT}/codigo/public/modules/dashboard/index.html`);
+    console.log(`\n📡  API Endpoints:`);
+    console.log(`   🔑 Auth:       http://localhost:${PORT}/api/auth`);
+    console.log(`   👤 Usuário:    http://localhost:${PORT}/api/usuario`);
+    console.log(`   🏆 Certificados: http://localhost:${PORT}/api/certificados`);
+    console.log(`   💾 Banco:      http://localhost:${PORT}/api`);
+    console.log('\n' + '='.repeat(60) + '\n');
 });
