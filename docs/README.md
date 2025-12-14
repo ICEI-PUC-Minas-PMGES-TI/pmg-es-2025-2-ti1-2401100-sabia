@@ -637,6 +637,76 @@ Disciplinas Cadastradas
     }
 ```
 
+##### Estrutura de Dados - Progresso das Aulas
+
+Andamento da disciplina que o usuário está fazendo
+
+```json
+ {
+      "aula_id": "aula-001",
+      "concluida": true,
+      "tempo_assistido": 1800,
+      "curso_id": "curso-001",
+      "usuario_id": "893406d1-d150-4c41-bd5d-54a931ff466b",
+      "data_conclusao": "2025-12-13T23:20:24.0385218-03:00",
+      "id": 1
+    },
+    {
+      "usuario_id": "admin-001",
+      "aula_id": "aula-001",
+      "curso_id": "curso-001",
+      "concluida": true,
+      "tempo_assistido": 1800,
+      "data_conclusao": "2025-12-14T02:20:40.154Z",
+      "id": 2
+    },
+    {
+      "usuario_id": "admin-001",
+      "aula_id": "aula-002",
+      "curso_id": "curso-002",
+      "concluida": true,
+      "tempo_assistido": 2700,
+      "data_conclusao": "2025-12-14T03:55:46.645Z",
+      "id": 3
+    },
+    {
+      "usuario_id": "admin-001",
+      "aula_id": "aula-1765689943600",
+      "curso_id": "curso-001",
+      "concluida": true,
+      "tempo_assistido": 600,
+      "data_conclusao": "2025-12-14T15:06:53.318Z",
+      "id": 4
+    },
+    {
+      "usuario_id": "admin-001",
+      "aula_id": "aula-1765725212638",
+      "curso_id": "curso-002",
+      "concluida": true,
+      "tempo_assistido": 600,
+      "data_conclusao": "2025-12-14T15:17:55.654Z",
+      "id": 5
+    },
+    {
+      "usuario_id": "a219b429-a462-4a96-9e89-ee77dd2be65f",
+      "aula_id": "aula-001",
+      "curso_id": "curso-001",
+      "concluida": true,
+      "tempo_assistido": 1800,
+      "data_conclusao": "2025-12-14T15:50:45.653Z",
+      "id": 6
+    },
+    {
+      "usuario_id": "a219b429-a462-4a96-9e89-ee77dd2be65f",
+      "aula_id": "aula-1765689943600",
+      "curso_id": "curso-001",
+      "concluida": true,
+      "tempo_assistido": 600,
+      "data_conclusao": "2025-12-14T15:50:47.894Z",
+      "id": 7
+    }
+```
+
 ##### Estrutura de Dados - Cursos
 
 Cursos Cadastrados
