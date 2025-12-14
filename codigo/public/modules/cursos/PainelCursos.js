@@ -221,11 +221,16 @@ document.addEventListener("DOMContentLoaded", function() {
         if(action==='delete'){
             if(!confirm('Confirmar exclusão deste curso?')) return;
             try{
-                const r = await fetch(`${API_BASE}/api/cursos/${cursoId}`, { method: 'DELETE' });
-                if(!r.ok) throw new Error('Falha ao excluir');
+                const token = localStorage.getItem('sabiaa_token');
+                const headers = token ? { 'Authorization': 'Bearer ' + token } : {};
+                const r = await fetch(`${API_BASE}/api/cursos/${cursoId}`, { method: 'DELETE', headers });
+                if(!r.ok){
+                    const body = await r.json().catch(()=>null);
+                    throw new Error((body && body.error) ? body.error : 'Falha ao excluir');
+                }
                 alert('Curso excluído');
                 await loadFromApi();
-            }catch(err){ console.error(err); alert('Erro ao excluir curso'); }
+            }catch(err){ console.error(err); alert('Erro ao excluir curso: ' + (err.message||err)); }
         }
     });
 

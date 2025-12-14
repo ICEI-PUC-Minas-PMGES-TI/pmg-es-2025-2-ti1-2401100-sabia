@@ -836,6 +836,48 @@ server.get('/health', (req, res) => {
 });
 
 // Usar as rotas padrão do JSON Server para outras operações
+// Custom delete route for cursos (cascade delete) - must be before router
+server.delete('/api/cursos/:id', verifyToken, (req, res) => {
+    try {
+        const cursoId = req.params.id;
+
+        // Only admins can remove courses
+        const userTipo = (req.user && req.user.tipo) ? String(req.user.tipo).toLowerCase() : '';
+        if (!userTipo.includes('admin')) {
+            return res.status(403).json({ error: 'Permissão negada. Apenas administradores podem excluir cursos.' });
+        }
+
+        const db = getDb();
+        const cursoIndex = (db.cursos || []).findIndex(c => c.id === cursoId || c.codigo === cursoId);
+        if (cursoIndex === -1) {
+            return res.status(404).json({ error: 'Curso não encontrado' });
+        }
+
+        const curso = db.cursos[cursoIndex];
+
+        // Remove curso
+        db.cursos = (db.cursos || []).filter(c => !(c.id === cursoId || c.codigo === cursoId));
+
+        // Cascade delete related records
+        db.inscricoes = (db.inscricoes || []).filter(i => !(i.curso_id === cursoId || i.curso_id === curso.codigo));
+        db.certificados = (db.certificados || []).filter(cert => !(cert.curso_id === cursoId || cert.curso_id === curso.codigo));
+        db.progresso_cursos = (db.progresso_cursos || []).filter(p => !(p.curso_id === cursoId || p.curso_id === curso.codigo));
+        db.modulos = (db.modulos || []).filter(m => !(m.curso_id === cursoId || m.curso_id === curso.codigo));
+
+        // Remove tokens_certificados that reference deleted certificados
+        const remainingCertIds = new Set((db.certificados || []).map(c => c.id));
+        db.tokens_certificados = (db.tokens_certificados || []).filter(t => remainingCertIds.has(t.certificado_id));
+
+        saveDb(db);
+
+        return res.json({ success: true, message: 'Curso e dados relacionados excluídos com sucesso' });
+    } catch (error) {
+        console.error('Erro ao excluir curso:', error);
+        return res.status(500).json({ error: 'Erro interno ao excluir curso' });
+    }
+});
+
+// Usar as rotas padrão do JSON Server para outras operações
 server.use('/api', router);
 
 // Rota raiz - servir a homepage diretamente
