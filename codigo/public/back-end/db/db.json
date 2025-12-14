@@ -125,7 +125,7 @@
       "foto": "/codigo/public/assets/images/default-aluno-avatar.svg",
       "data_nascimento": "1990-01-01",
       "email": "admin@sabiaa.com",
-      "senha_hash": "$2a$10$ElY/2Vfwq86qqbU.a9Pbe./GWo3A4sG4DLmpHHevwyMUNWdagYbNe",
+      "senha_hash": "$2a$10$1NbYHh6T/FwFrrvJjGbcve8eSh16M.G0XDUgj0l0ikzLVL/Mx7ohG",
       "telefone": "(31) 99999-9999",
       "endereco": {
         "cep": "",
