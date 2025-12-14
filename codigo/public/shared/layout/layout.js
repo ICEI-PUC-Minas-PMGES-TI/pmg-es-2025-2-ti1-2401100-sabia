@@ -12,10 +12,20 @@
         <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
         <div class="search-container" style="flex:1;max-width:680px;"><i class="fas fa-search search-icon"></i><input class="search-input" placeholder="Buscar..."></div>
       </div>
-      <div class="header-right" style="display:flex;align-items:center;gap:12px;">
+      <div class="header-right" style="display:flex;align-items:center;gap:12px;position:relative;">
         <div class="header-icons" style="display:flex;align-items:center;gap:12px;">
           <a class="header-icon" href="#"><i class="fas fa-bell"></i></a>
-          <a class="header-icon" href="#"><i class="fas fa-user"></i></a>
+        </div>
+        <div class="header-icon user-menu" id="user-menu" style="position:relative;">
+          <button id="userMenuToggle" class="header-icon" title="Perfil"><i class="fas fa-user-circle"></i></button>
+          <div class="user-dropdown" id="userDropdown" style="display:none;position:absolute;right:0;top:48px;background:#fff;border:1px solid #ddd;border-radius:6px;min-width:180px;box-shadow:0 6px 18px rgba(0,0,0,0.08);z-index:1200">
+            <div class="user-dropdown-header" style="padding:12px;border-bottom:1px solid #eee;font-weight:600;color:#333">Usuário</div>
+            <div class="user-dropdown-body" style="padding:10px">
+              <div id="userNameDisplay" style="margin-bottom:8px;color:#111"></div>
+              <a id="userProfileLink" href="/codigo/public/modules/aluno/perfil/index.html" style="display:block;margin-bottom:6px;color:#007bff;text-decoration:none">Ver Perfil</a>
+              <button id="userLogoutBtn" class="btn btn-outline" style="width:100%;">Sair</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -28,6 +38,7 @@
       <a class="nav-item" href="${BASE}/modules/dashboard/index.html"><i class="fas fa-home"></i><span class="nav-item-text">Início</span></a>
       <a class="nav-item" href="${BASE}/modules/cursos/PainelCursos.html"><i class="fas fa-book"></i><span class="nav-item-text">Cursos</span></a>
       <a class="nav-item" href="${BASE}/modules/aluno/certificados/certificados.html"><i class="fas fa-certificate"></i><span class="nav-item-text">Certificados</span></a>
+      <a class="nav-item" href="${BASE}/modules/aluno/perfil/index.html"><i class="fas fa-user"></i><span class="nav-item-text">Meu Perfil</span></a>
       <a class="nav-item" href="${BASE}/modules/disciplinas/index.html"><i class="fas fa-chalkboard"></i><span class="nav-item-text">Disciplinas</span></a>
       <a class="nav-item" href="${BASE}/modules/home/index.html"><i class="fas fa-globe"></i><span class="nav-item-text">Site</span></a>
     </nav>
@@ -295,6 +306,155 @@
       // ensure content area has appropriate padding to avoid header overlap
       if (!main.style.paddingTop) main.style.paddingTop = 'calc(var(--header-height,70px) + 20px)';
     }
+
+    // Setup user menu (dropdown, populate name, logout)
+    function setupUserMenu() {
+      try {
+        const toggle = document.getElementById('userMenuToggle');
+        const dropdown = document.getElementById('userDropdown');
+        const nameDisplay = document.getElementById('userNameDisplay');
+        const logoutBtn = document.getElementById('userLogoutBtn');
+        const profileLink = document.getElementById('userProfileLink');
+        if (!toggle || !dropdown) {
+          console.log && console.log('layout: setupUserMenu - toggle or dropdown missing', !!toggle, !!dropdown);
+          return;
+        }
+        // avoid double-initializing
+        if (toggle.dataset && toggle.dataset.userMenuInitialized) return;
+
+        function getStoredUser() {
+          const keys = ['sabiaa_user', 'user', 'usuario'];
+          for (const k of keys) {
+            const v = localStorage.getItem(k);
+            if (!v) continue;
+            try { return JSON.parse(v); } catch (e) { return v; }
+          }
+          if (window.sabiaAuth && typeof sabiaAuth.getUser === 'function') {
+            try { return sabiaAuth.getUser() || null; } catch (e) { return null; }
+          }
+          return null;
+        }
+
+        const user = getStoredUser();
+        const displayName = (user && (user.nome || user.name || user.usuario || user.email)) || 'Convidado';
+        if (nameDisplay) nameDisplay.textContent = displayName;
+        if (profileLink) profileLink.href = BASE + '/modules/aluno/perfil/index.html';
+
+        // toggle dropdown visibility (also toggle .open on parent for CSS fallback)
+        toggle.addEventListener('click', (ev) => {
+          console.log && console.log('layout: userMenuToggle clicked (direct)');
+          ev.stopPropagation();
+          const parent = toggle.closest && toggle.closest('.user-menu');
+          const isOpen = dropdown.classList.contains('active') || (parent && parent.classList && parent.classList.contains('open'));
+          if (isOpen) {
+            dropdown.classList.remove('active'); if (parent && parent.classList) parent.classList.remove('open');
+          } else {
+            dropdown.classList.add('active'); if (parent && parent.classList) parent.classList.add('open');
+          }
+        });
+        // prevent clicks inside dropdown from closing
+        dropdown.addEventListener('click', (ev) => ev.stopPropagation());
+        // close on outside click
+        document.addEventListener('click', () => { const parent = toggle && toggle.closest && toggle.closest('.user-menu'); if (parent && parent.classList) parent.classList.remove('open'); dropdown.classList.remove('active'); });
+
+        // logout behavior
+        if (logoutBtn) logoutBtn.addEventListener('click', () => {
+          console.log && console.log('layout: logout clicked');
+          try {
+            ['sabiaa_token', 'sabiaa_user', 'user', 'usuario'].forEach(k => localStorage.removeItem(k));
+          } catch (e) {}
+          try { if (window.sabiaAuth && typeof sabiaAuth.logout === 'function') sabiaAuth.logout(); } catch (e) {}
+          window.location.href = BASE + '/modules/auth/login.html';
+        });
+        // mark initialized so we don't attach listeners twice
+        try { if (toggle.dataset) toggle.dataset.userMenuInitialized = '1'; } catch (e) {}
+      } catch (e) {
+        console.warn('layout: setupUserMenu failed', e);
+      }
+    }
+
+    // run setup once after injecting layout elements
+    try { setupUserMenu(); } catch (e) {}
+
+    // Observe header changes (some pages/components may replace header later)
+    try {
+      const headerObserver = new MutationObserver((mutations) => {
+        for (const m of mutations) {
+          if (m.addedNodes && m.addedNodes.length) {
+            for (const node of m.addedNodes) {
+              if (node.nodeType === 1) {
+                if (node.id === 'userMenuToggle' || node.querySelector && node.querySelector('#userMenuToggle')) {
+                  try { setupUserMenu(); } catch (e) {}
+                  return;
+                }
+                if (node.classList && node.classList.contains('header')) {
+                  try { setupUserMenu(); } catch (e) {}
+                  return;
+                }
+              }
+            }
+          }
+        }
+      });
+      headerObserver.observe(document.body, { childList: true, subtree: true });
+    } catch (e) { /* ignore */ }
+    // Delegated fallback: if direct listeners weren't attached, handle clicks on the toggle via event delegation
+    try {
+      document.addEventListener('click', function delegatedUserToggle(ev) {
+        console.log && console.log('layout: delegated click', ev.target && ev.target.tagName);
+        const clicked = ev.target;
+        const toggle = clicked.closest && clicked.closest('#userMenuToggle');
+        if (!toggle) return;
+        // find dropdown
+        const dropdown = document.getElementById('userDropdown');
+        if (!dropdown) return;
+        ev.stopPropagation();
+        console.log && console.log('layout: delegated toggling dropdown');
+        const parent = toggle.closest && toggle.closest('.user-menu');
+        const isOpen = dropdown.classList.contains('active') || (parent && parent.classList && parent.classList.contains('open'));
+        if (isOpen) { dropdown.classList.remove('active'); if (parent && parent.classList) parent.classList.remove('open'); }
+        else { dropdown.classList.add('active'); if (parent && parent.classList) parent.classList.add('open'); }
+      });
+    } catch (e) { /* ignore */ }
+    // Stronger delegated listeners: click/touchstart and keyboard (Enter/Space)
+    try {
+      function toggleDropdownFromElement(toggleEl) {
+        const dropdown = document.getElementById('userDropdown');
+        if (!dropdown) return false;
+        const parent = toggleEl.closest('.user-menu');
+        const isOpen = dropdown.style.display === 'block' || (parent && parent.classList && parent.classList.contains('open'));
+        if (isOpen) { dropdown.style.display = 'none'; if (parent && parent.classList) parent.classList.remove('open'); }
+        else { dropdown.style.display = 'block'; if (parent && parent.classList) parent.classList.add('open'); }
+        return true;
+      }
+
+      document.addEventListener('click', function (ev) {
+        const t = ev.target.closest && (ev.target.closest('#userMenuToggle') || ev.target.closest('.user-menu'));
+        if (!t) return;
+        console.log && console.log('layout: delegated click (strong)');
+        ev.preventDefault(); ev.stopPropagation();
+        toggleDropdownFromElement(t);
+      }, { passive: false });
+
+      document.addEventListener('touchstart', function (ev) {
+        const t = ev.target.closest && (ev.target.closest('#userMenuToggle') || ev.target.closest('.user-menu'));
+        if (!t) return;
+        console.log && console.log('layout: delegated touchstart');
+        ev.preventDefault(); ev.stopPropagation();
+        toggleDropdownFromElement(t);
+      }, { passive: false });
+
+      document.addEventListener('keydown', function (ev) {
+        if (!(ev.key === 'Enter' || ev.key === ' ')) return;
+        const active = document.activeElement;
+        if (!active) return;
+        if (active.id === 'userMenuToggle' || active.closest && active.closest('.user-menu')) {
+          console.log('layout: toggle via keyboard');
+          ev.preventDefault(); ev.stopPropagation();
+          toggleDropdownFromElement(active);
+        }
+      });
+    } catch (e) { /* ignore */ }
   }
 
   if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', injectIfMissing);

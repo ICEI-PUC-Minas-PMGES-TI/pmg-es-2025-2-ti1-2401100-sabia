@@ -238,6 +238,8 @@
     color: var(--cor-primaria, #21203F);
     text-decoration: none;
     transition: background-color 0.3s ease;
+    cursor: pointer;
+    pointer-events: auto;
 }
 
 .header-icon:hover {
@@ -246,6 +248,12 @@
 
 .header-icon i {
     font-size: 20px;
+}
+
+/* User menu fallback: show dropdown when its container receives focus (keyboard) or contains focus/click */
+.user-menu:focus-within .user-dropdown,
+.user-menu.open .user-dropdown {
+    display: block !important;
 }
 
 .notification-badge {

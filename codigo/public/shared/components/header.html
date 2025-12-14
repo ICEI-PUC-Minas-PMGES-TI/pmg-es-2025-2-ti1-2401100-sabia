@@ -20,9 +20,19 @@
                 <a href="#" class="header-icon" title="Configurações">
                     <i class="fas fa-cog"></i>
                 </a>
-                <a href="/codigo/public/modules/aluno/perfil/index.html" class="header-icon user-avatar" title="Perfil">
-                    <i class="fas fa-user-circle"></i>
-                </a>
+                <div class="header-icon user-menu" id="user-menu">
+                    <button id="userMenuToggle" class="header-icon" title="Perfil">
+                        <i class="fas fa-user-circle"></i>
+                    </button>
+                    <div class="user-dropdown" id="userDropdown" style="display:none;position:absolute;right:0;top:48px;background:#fff;border:1px solid #ddd;border-radius:6px;min-width:180px;box-shadow:0 6px 18px rgba(0,0,0,0.08);z-index:1200">
+                        <div class="user-dropdown-header" style="padding:12px;border-bottom:1px solid #eee;font-weight:600;color:#333">Usuário</div>
+                        <div class="user-dropdown-body" style="padding:10px">
+                            <div id="userNameDisplay" style="margin-bottom:8px;color:#111"></div>
+                            <a id="userProfileLink" href="/codigo/public/modules/aluno/perfil/index.html" style="display:block;margin-bottom:6px;color:#007bff;text-decoration:none">Ver Perfil</a>
+                            <button id="userLogoutBtn" class="btn btn-outline" style="width:100%;">Sair</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
