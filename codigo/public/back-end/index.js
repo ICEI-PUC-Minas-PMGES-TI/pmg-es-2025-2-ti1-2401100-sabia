@@ -7,8 +7,10 @@ const fs = require('fs');
 const path = require('path');
 const htmlPdf = require('html-pdf-node');
 
+
 const server = jsonServer.create();
 const router = jsonServer.router(path.join(__dirname, 'db', 'db.json'));
+// Use json-server defaults (we'll register our static middleware before them)
 const middlewares = jsonServer.defaults();
 
 // JWT Secret (em produção, use variável de ambiente)
@@ -16,13 +18,23 @@ const JWT_SECRET = 'sabiaa-secret-key-development';
 
 // Aplicar middlewares padrão
 server.use(cors());
-server.use(middlewares);
-server.use(jsonServer.bodyParser);
 
-// Servir arquivos estáticos da pasta public na raiz do servidor
+// Servir arquivos estáticos da pasta public na raiz do servidor (antes do json-server)
 const express = require('express');
 const publicPath = path.join(__dirname, '..');
 server.use(express.static(publicPath));
+
+// Ensure root always serves our index (fallback handled inside)
+server.get('/', (req, res, next) => {
+    const indexPath = path.join(publicPath, 'index.html');
+    if (fs.existsSync(indexPath)) return res.sendFile(indexPath);
+    const fallback = path.join(publicPath, 'modules', 'home', 'index.html');
+    if (fs.existsSync(fallback)) return res.sendFile(fallback);
+    next();
+});
+
+server.use(middlewares);
+server.use(jsonServer.bodyParser);
 
 // Função para carregar dados do banco
 function getDb() {
