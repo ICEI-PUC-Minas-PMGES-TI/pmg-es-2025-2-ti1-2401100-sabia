@@ -22,7 +22,6 @@ server.use(cors());
 // Servir arquivos estáticos da pasta public na raiz do servidor (antes do json-server)
 const express = require('express');
 const publicPath = path.join(__dirname, '..');
-server.use(express.static(publicPath));
 
 // Compatibilidade: some pages reference resources under /codigo/public/...
 // rewrite those requests to the served root so assets resolve correctly.
@@ -32,6 +31,8 @@ server.use((req, res, next) => {
     }
     next();
 });
+
+server.use(express.static(publicPath));
 
 // Ensure root always serves our index (fallback handled inside)
 server.get('/', (req, res, next) => {
