@@ -596,6 +596,74 @@ Cursos Cadastrados
   
 ```
 
+##### Estrutura de Dados - Certificados
+
+Certificados dos cursos concluídos
+
+```json
+{
+      "id": "cert-001",
+      "usuario_id": "893406d1-d150-4c41-bd5d-54a931ff466b",
+      "curso_id": "curso-001",
+      "token_validacao": "CERT-JS-001-2025-ABC123",
+      "data_emissao": "2025-10-30T00:00:00.000Z",
+      "data_conclusao_curso": "2025-10-30T00:00:00.000Z",
+      "nota_final": 85.5,
+      "carga_horaria_curso": 40,
+      "status": "ativo",
+      "dados_curso": {
+        "titulo": "Introdução ao JavaScript",
+        "instrutor": "Prof. Maria Silva",
+        "categoria": "Programação",
+        "nivel": "Básico"
+      },
+      "dados_aluno": {
+        "nome": "Gustavo",
+        "email": "gugupenidop@gmail.com"
+      }
+    },
+    {
+      "id": "5fb3331b-2bf6-4736-bc70-a07616d7ac95",
+      "usuario_id": "893406d1-d150-4c41-bd5d-54a931ff466b",
+      "curso_id": "curso-002",
+      "token_validacao": "fc94b1c6-6fc6-4ffa-9240-a618d94a6d50-1763341590020",
+      "data_emissao": "2025-11-17T01:06:30.020Z",
+      "dados_usuario": {
+        "nome": "Gustavo",
+        "email": "gugupenidop@gmail.com",
+        "id": "893406d1-d150-4c41-bd5d-54a931ff466b"
+      },
+      "dados_curso": {
+        "titulo": "Python para Iniciantes",
+        "instrutor": "Prof. João Santos",
+        "carga_horaria": 60,
+        "categoria": "Programação",
+        "nivel": "Básico"
+      },
+      "dados_conclusao": {
+        "data_inicio": "2025-11-01T00:00:00.000Z",
+        "data_conclusao": "2025-11-15T00:00:00.000Z",
+        "nota_final": 92,
+        "progresso_porcentagem": 100
+      },
+      "status": "ativo"
+    },
+    {
+      "usuario_id": "admin-001",
+      "curso_id": "curso-001",
+      "data_emissao": "2025-12-14T02:20:52.049Z",
+      "codigo": "SABIAA-1765678852049",
+      "id": "lMMizp0"
+    },
+    {
+      "usuario_id": "admin-001",
+      "curso_id": "curso-002",
+      "data_emissao": "2025-12-14T03:55:51.088Z",
+      "codigo": "SABIAA-1765684551088",
+      "id": "YBcHAUB"
+    }
+```
+
 ##### Estrutura de Dados - Usuários
 
 Registro dos usuários do sistema utilizados para login e para o perfil do sistema
@@ -764,17 +832,6 @@ Registro dos usuários do sistema utilizados para login e para o perfil do siste
       "expires": "2025-11-17T03:06:10.699Z"
     }
 ```
-
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Apresente as estruturas de dados utilizadas na solução tanto para dados utilizados na essência da aplicação quanto outras estruturas que foram criadas para algum tipo de configuração
->
-> Nomeie a estrutura, coloque uma descrição sucinta e apresente um exemplo em formato JSON.
->
-> **Orientações:**
->
-> * [JSON Introduction](https://www.w3schools.com/js/js_json_intro.asp)
-> * [Trabalhando com JSON - Aprendendo desenvolvimento web | MDN](https://developer.mozilla.org/pt-BR/docs/Learn/JavaScript/Objects/JSON)
 
 ## Módulos e APIs
 
