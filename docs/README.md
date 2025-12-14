@@ -518,20 +518,86 @@ Permite a inclusão, leitura, alteração e exclusão de contatos para o sistema
 
 Descrição das estruturas de dados utilizadas na solução com exemplos no formato JSON.Info
 
-##### Estrutura de Dados - Contatos   ⚠️ EXEMPLO ⚠️
+##### Estrutura de Dados - Cursos
 
-Contatos da aplicação
+Cursos Cadastrados
 
 ```json
-  {
-    "id": 1,
-    "nome": "Leanne Graham",
-    "cidade": "Belo Horizonte",
-    "categoria": "amigos",
-    "email": "Sincere@april.biz",
-    "telefone": "1-770-736-8031",
-    "website": "hildegard.org"
-  }
+ {
+      "id": "curso-001",
+      "titulo": "Introdução ao JavaScript",
+      "descricao": "Curso básico de JavaScript para iniciantes",
+      "instrutor": "Prof. Maria Silva",
+      "carga_horaria": 40,
+      "categoria": "Programação",
+      "nivel": "Básico",
+      "data_criacao": "2025-01-15T00:00:00.000Z",
+      "status": "ativo",
+      "requisitos": [
+        "Conhecimento básico de HTML"
+      ],
+      "modulos": [
+        {
+          "id": "mod-001",
+          "titulo": "Introdução",
+          "ordem": 1,
+          "aulas": [
+            {
+              "id": "aula-001",
+              "titulo": "O que é JavaScript",
+              "duracao": 30,
+              "tipo": "video"
+            }
+          ]
+        },
+        {
+          "id": "mod-1765689943600",
+          "titulo": "Fazendo JS",
+          "ordem": 2,
+          "aulas": [
+            {
+              "id": "aula-1765689943600",
+              "titulo": "Fazendo JS",
+              "duracao": 10,
+              "tipo": "video",
+              "video_url": "",
+              "descricao": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "curso-002",
+      "titulo": "Python para Iniciantes",
+      "descricao": "Aprenda Python do zero",
+      "instrutor": "Prof. João Santos",
+      "carga_horaria": 60,
+      "categoria": "Programação",
+      "nivel": "Básico",
+      "data_criacao": "2025-02-01T00:00:00.000Z",
+      "status": "ativo",
+      "requisitos": [],
+      "modulos": [
+        {
+          "id": "mod-002",
+          "titulo": "Fundamentos",
+          "ordem": 1,
+          "aulas": [
+            {
+              "id": "aula-002",
+              "titulo": "Instalação do Python",
+              "duracao": 45,
+              "tipo": "video"
+            },
+            {
+              "id": "aula-1765725212638",
+              "titulo": "Dashboard de Aprendizado",
+              "duracao": 10,
+              "tipo": "video",
+              "video_url": "https://www.youtube.com/watch?v=S9uPNppGsGo&list=PLvE-ZAFRgX8hnECDn1v9HNTI71veL3oW0",
+              "descricao": ""
+            }
   
 ```
 
