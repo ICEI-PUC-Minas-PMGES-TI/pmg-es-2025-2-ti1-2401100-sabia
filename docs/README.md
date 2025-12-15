@@ -488,26 +488,123 @@ O vídeo a seguir traz uma apresentação do problema que a equipe está tratand
 
 ## Funcionalidades
 
-Esta seção apresenta as funcionalidades da solução.Info
+##### Autenticação — Login / Cadastro / Recuperação de senha
 
-##### Funcionalidade 1 - Cadastro de Contatos ⚠️ EXEMPLO ⚠️
+Permite que usuários se registrem, façam login e recuperem senha.
 
-Permite a inclusão, leitura, alteração e exclusão de contatos para o sistema
+- **Estrutura de dados:** Usuário (email, senha, nome, tipo/role)
+- **Instruções de acesso:** Abrir `/codigo/public/modules/auth/login.html` (link para cadastro e recuperação na mesma pasta)
+- **Tela da funcionalidade:**
 
-* **Estrutura de dados:** [Contatos](#ti_ed_contatos)
-* **Instruções de acesso:**
-  * Abra o site e efetue o login
-  * Acesse o menu principal e escolha a opção Cadastros
-  * Em seguida, escolha a opção Contatos
-* **Tela da funcionalidade**:
+![Autenticação - Login](images/funcionalidade-autenticacao.png)
 
-![Tela de Funcionalidade](images/exemplo-funcionalidade.png)
+---
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Apresente cada uma das funcionalidades que a aplicação fornece tanto para os usuários quanto aos administradores da solução.
->
-> Inclua, para cada funcionalidade, itens como: (1) titulos e descrição da funcionalidade; (2) Estrutura de dados associada; (3) o detalhe sobre as instruções de acesso e uso.
+##### Dashboard
+
+Painel inicial do usuário com resumo de progresso, atalhos e relatórios.
+
+- **Estrutura de dados:** Progresso do usuário, cursos, notificações
+- **Instruções de acesso:** Abrir `/codigo/public/modules/dashboard/index.html`
+- **Tela da funcionalidade:**
+
+![Dashboard](images/funcionalidade-dashboard.png)
+
+---
+
+##### Cursos — Painel de Cursos
+
+Lista e busca de cursos disponíveis para alunos e administradores.
+
+- **Estrutura de dados:** Cursos, módulos, aulas, instrutor
+- **Instruções de acesso:** Abrir `/codigo/public/modules/cursos/PainelCursos.html`
+- **Tela da funcionalidade:**
+
+![Painel de Cursos](images/funcionalidade-painel-cursos.png)
+
+---
+
+##### Curso — Visualizar Curso
+
+Página de apresentação de curso com ações para Iniciar/Continuar e área de módulos/aulas.
+
+- **Estrutura de dados:** Curso (titulo, descrição, modulos, progresso)
+- **Instruções de acesso:** Abrir `/codigo/public/modules/cursos/curso.html`
+- **Tela da funcionalidade:**
+
+![Visualizar Curso](images/funcionalidade-visualizar-curso.png)
+
+---
+
+##### Curso — Criar / Gerenciar (Admin)
+
+Formulário de cadastro e edição de cursos (admininstradores/professores).
+
+- **Estrutura de dados:** Curso (meta-dados, imagem, módulos)
+- **Instruções de acesso:** Abrir `/codigo/public/modules/cursos/cadastro-curso.html` (visível para admins)
+- **Tela da funcionalidade:**
+
+![Criar Curso](images/funcionalidade-cadastrar-curso.png)
+
+---
+
+##### Aulas — Visualizar Aula
+
+Reprodução de conteúdo de uma aula específica (vídeo/texto) e materiais complementares.
+
+- **Estrutura de dados:** Aula (titulo, tipo, url_video, materiais)
+- **Instruções de acesso:** Abrir `/codigo/public/modules/cursos/aula.html`
+- **Tela da funcionalidade:**
+
+![Visualizar Aula](images/funcionalidade-visualizar-aula.png)
+
+---
+
+##### Aulas — Cadastrar Aula (Admin)
+
+Formulário para adicionar aulas a um módulo/curso.
+
+- **Estrutura de dados:** Aula (titulo, descricao, ordem, video_url)
+- **Instruções de acesso:** Abrir `/codigo/public/modules/cursos/cadastro-aula.html`
+- **Tela da funcionalidade:**
+
+![Cadastrar Aula](images/funcionalidade-cadastrar-aula.png)
+
+##### Disciplinas
+
+Lista de disciplinas e links para conteúdos relacionados.
+
+- **Estrutura de dados:** Disciplina (titulo, area, descricao)
+- **Instruções de acesso:** Abrir `/codigo/public/modules/disciplinas/index.html`
+- **Tela da funcionalidade:**
+
+![Disciplinas](images/funcionalidade-disciplinas.png)
+
+---
+
+##### Perfil do Aluno (Meu Perfil)
+
+Página de visualização e edição dos dados do usuário.
+
+- **Estrutura de dados:** Usuário (nome, email, telefone, senha)
+- **Instruções de acesso:** Abrir `/codigo/public/modules/aluno/perfil/index.html`
+- **Tela da funcionalidade:**
+
+![Meu Perfil](images/funcionalidade-meu-perfil.png)
+
+---
+
+##### Certificados
+
+Lista e geração de certificados para cursos concluídos.
+
+- **Estrutura de dados:** Certificado (usuario_id, curso_id, data_emissao, token)
+- **Instruções de acesso:** Abrir `/codigo/public/modules/aluno/certificados/certificados.html`
+- **Tela da funcionalidade:**
+
+![Certificados](images/funcionalidade-certificados.png)
+
+---
 
 ## Estruturas de Dados
 
@@ -1117,24 +1214,35 @@ Registro dos usuários do sistema utilizados para login e para o perfil do siste
 
 ## Módulos e APIs
 
-Esta seção apresenta os módulos e APIs utilizados na solução
+Esta seção lista as bibliotecas, fontes, CDN e serviços externos usados pela aplicação (frontend e backend). Onde aplicável, indico o arquivo ou módulo que faz uso direto.
 
-**Images**:
+Front-end (CDNs / SDKs / bibliotecas carregadas no browser):
 
-* Unsplash - [https://unsplash.com/](https://unsplash.com/) ⚠️ EXEMPLO ⚠️
+- **Google Fonts** — Famílias utilizadas: `Outfit`, `Poppins`, `Nunito`, `Playfair Display`, `Inter`. (links em headers de várias páginas; ex.: `modules/auth/*`, `modules/dashboard/*`, `modules/cursos/*`).
+- **Font Awesome** — ícones via CDN e Kit (`kit.fontawesome.com/937e8004d1.js`) e links CDN (`cdnjs.cloudflare.com`). Usado em diversos módulos para ícones de UI.
+- **Firebase (SDKs)** — carregamento dos SDKs do Firebase para Storage / Auth (ex.: import/compat scripts de `https://www.gstatic.com/firebasejs/...` e uso em `assets/js/upload.js`, `modules/auth/cadastro.html`).
+- **Chart.js** — biblioteca para gráficos (carregada via `https://cdn.jsdelivr.net/npm/chart.js` em `modules/dashboard/*`).
+- **html2pdf.js** — geração de PDF no browser (`html2pdf.bundle.min.js` em `modules/dashboard/relatorio/relatorio.html`).
 
-**Fonts:**
+Back-end (dependências Node.js declaradas em `codigo/public/back-end/package.json`):
 
-* Icons Font Face - [https://fontawesome.com/](https://fontawesome.com/) ⚠️ EXEMPLO ⚠️
+- **express** — servidor HTTP e middleware (arquivo: `codigo/public/back-end/index.js`).
+- **json-server** — API REST simples baseada em `db.json` (usado como mock/backend). 
+- **bcryptjs** — hashing de senhas (dependência do back-end).
+- **cors** — habilita CORS no backend.
+- **html-pdf-node** — geração de PDFs no servidor, quando necessário.
+- **jsonwebtoken** — tokens JWT para autenticação/rotas protegidas.
+- **uuid** — geração de ids únicos.
+- **nodemon** (devDependency) — hot-reload em desenvolvimento (`dev` script).
 
-**Scripts:**
+Outros pontos / integrações observadas:
 
-* jQuery - [http://www.jquery.com/](http://www.jquery.com/) ⚠️ EXEMPLO ⚠️
-* Bootstrap 4 - [http://getbootstrap.com/](http://getbootstrap.com/) ⚠️ EXEMPLO ⚠️
+- **CDN hosts**: `cdnjs.cloudflare.com`, `cdn.jsdelivr.net`, `kit.fontawesome.com`, `fonts.googleapis.com`, `www.gstatic.com` (Firebase).
+- **Firebase Storage (URLs)**: a aplicação referencia imagens armazenadas em `firebasestorage.googleapis.com` (conteúdo estático/avatars presente em `back-end/db/db.json`).
+- **Axios**: aparece em `back-end` lockfiles como dependência indireta usada por ferramentas/infra; nas páginas, chamadas HTTP usam `fetch`/XMLHttpRequest ou helpers internos.
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Apresente os módulos e APIs utilizados no desenvolvimento da solução. Inclua itens como: (1) Frameworks, bibliotecas, módulos, etc. utilizados no desenvolvimento da solução; (2) APIs utilizadas para acesso a dados, serviços, etc.
+Observação: a maioria das dependências do front-end são carregadas via CDN em cada módulo HTML (ver `codigo/public/modules/*/*.html`). O back-end contém as dependências de execução listadas em `codigo/public/back-end/package.json`.
+---
 
 # Referências
 
