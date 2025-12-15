@@ -31,6 +31,10 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
   populateModules();
 
+  // por padrão, selecionar a opção de criar novo módulo e mostrar o campo
+  moduloSelect.value = '__novo__';
+  novoModuloInput.style.display = 'block';
+
   moduloSelect.addEventListener('change', ()=>{ if(moduloSelect.value==='__novo__'){ novoModuloInput.style.display='block'; } else novoModuloInput.style.display='none'; });
 
   document.getElementById('btn-cancel').addEventListener('click', ()=>{ window.location.href=`/codigo/public/modules/cursos/curso.html?id=${cursoId}`; });
