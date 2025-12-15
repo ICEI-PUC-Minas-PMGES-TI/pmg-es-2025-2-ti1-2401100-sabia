@@ -577,12 +577,44 @@ server.post('/api/certificados/gerar', verifyToken, (req, res) => {
         }
         
         // localizar registro de progresso para o usuário/curso (independente do status)
-        let progresso = db.progresso_cursos.find(p => p.usuario_id === usuarioId && p.curso_id === curso_id);
+        let progresso = (db.progresso_cursos || []).find(p => p.usuario_id === usuarioId && p.curso_id === curso_id);
 
+        // se não existir registro de progresso, tentar fallback em 'inscricoes'
         if (!progresso) {
-            return res.status(400).json({ 
-                error: 'Inscrição/progresso não encontrado para este usuário e curso' 
-            });
+            const inscr = (db.inscricoes || []).find(i => (i.usuario_id === usuarioId || i.aluno_id === usuarioId) && i.curso_id === curso_id);
+            if (!inscr) {
+                return res.status(400).json({ 
+                    error: 'Inscrição/progresso não encontrado para este usuário e curso' 
+                });
+            }
+
+            // determinar porcentagem a partir da inscrição
+            const inscrPorcent = Number(inscr.progresso ?? inscr.progresso_porcentagem ?? 0);
+            // se inscrição não estiver concluída, bloquear
+            if (inscrPorcent < 100 && !(inscr.status && String(inscr.status).toLowerCase().includes('conclu'))) {
+                return res.status(400).json({ 
+                    error: 'Você precisa concluir o curso antes de gerar o certificado' 
+                });
+            }
+
+            // montar um registro de progresso derivado da inscrição e persistir para consistência
+            progresso = {
+                id: 'prog-' + Date.now(),
+                usuario_id: usuarioId,
+                curso_id: curso_id,
+                status: inscr.status || (inscrPorcent >= 100 ? 'concluido' : 'em_andamento'),
+                data_inicio: inscr.data_inscricao || inscr.data_inicio || new Date().toISOString(),
+                data_conclusao: inscr.data_conclusao || (inscrPorcent >= 100 ? new Date().toISOString() : null),
+                nota_final: inscr.nota_final || null,
+                progresso_porcentagem: inscrPorcent,
+                modulos_concluidos: inscr.modulos_concluidos || [],
+                aulas_concluidas: inscr.aulas_concluidas || []
+            };
+
+            db.progresso_cursos = db.progresso_cursos || [];
+            db.progresso_cursos.push(progresso);
+            saveDb(db);
+            console.log('Progresso criado a partir de inscrição para gerar certificado:', progresso.id);
         }
 
         // normalizar fontes de porcentagem: pode ser 'progresso_porcentagem' ou 'progresso'
