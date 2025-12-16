@@ -17,3 +17,7 @@ A solução implementa funcionalidades pedagógicas avançadas como sistema de v
 * Daniel Machado Osório Pereira
 * Lucca Soares de Paiva Lacerda
 * Michelle Hanne Soares de Andrade
+
+## Disponibilidade
+
+Esse sistema está disponível em: https://sabiaa.onrender.com/
